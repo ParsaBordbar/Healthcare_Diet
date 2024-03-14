@@ -1,4 +1,3 @@
-'use client'
 import NavElement from "../NavElement";
 import Logo from "/public/svg/logo.svg"
 

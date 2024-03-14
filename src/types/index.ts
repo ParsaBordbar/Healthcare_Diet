@@ -1,3 +1,4 @@
 export interface NavElementType{
-   text: string;
+   text: string,
+   link: string,
 }
