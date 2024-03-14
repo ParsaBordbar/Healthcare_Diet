@@ -1,5 +1,4 @@
 import Navbar from "@/components/landingPage_components/Navbar";
-import Image from "next/image";
 
 export default function Home() {
   return (
