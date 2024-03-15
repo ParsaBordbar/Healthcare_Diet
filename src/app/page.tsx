@@ -1,6 +1,6 @@
 import Hero from "@/components/landingPage_components/Hero";
 import Navbar from "@/components/landingPage_components/Navbar";
-import WhyHealthySection from "@/components/landingPage_components/whyHealthySection/inex";
+import WhyHealthySection from "@/components/landingPage_components/whyHealthySection";
 
 export default function Home() {
   return (

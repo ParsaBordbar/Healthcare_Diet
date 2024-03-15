@@ -8,8 +8,8 @@ const Hero = () => {
         <>
             <div className="z-0 relative flex justify-center items-center w-full ">
                 <Background className="w-fit "/>
-                <div className="grid lg:grid-cols-9 md:grid-cols-4 px-10 absolute z-10 mx-10">
-                <div className="col-span-3 flex justify-start pt-24 ps-28 flex-col items-center ">
+                <div className="grid xl:grid-cols-9 lg:grid-cols-4 px-10 absolute z-10 mx-10">
+                <div className="col-span-3 flex justify-start pt-24 ps-28 flex-col items-center">
                     <div className="flex items-end flex-col gap-11">
                         <h2 className="flex flex-row py-2 items-center text-5xl gap-4">
                             <div className="flex flex-col justify-center items-baseline gap-4">
@@ -25,7 +25,7 @@ const Hero = () => {
                     </div>
                 </div>
     
-                <div className="col-span-6 flex justify-center flex-col items-center mt-11">
+                <div className="col-span-6 flex justify-center flex-col items-center mt-11 lg:scale-100 scale-75">
                     <HeroArt/>
                 </div>  
                 

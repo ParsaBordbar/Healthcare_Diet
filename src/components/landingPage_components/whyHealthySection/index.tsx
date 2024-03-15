@@ -5,8 +5,8 @@ import Tick from "/public/svg/tttick.svg"
 
 const WhyHealthySection = () => {
     return(
-        <div className="grid grid-cols-5 gap-64 my-14">
-            <div className="col-span-2 flex justify-start items-center flex-col gap-10">
+        <div className="grid lg:grid-cols-5 gap-64 my-14 grid-cols2">
+            <div className="lg:col-span-2 col-span-full flex justify-start items-center flex-col gap-10">
                 <h2 className="font-bold text-4xl mb-28">چرا سالم؟</h2>
                 <ul className="flex flex-col gap-12 items-start">
                     <li className="flex flex-row gap-4 items-center justify-center">
@@ -35,7 +35,7 @@ const WhyHealthySection = () => {
                     </li>
                 </ul>
             </div>
-            <div className="col-span-3 grid grid-cols-2 ">
+            <div className="lg:col-span-3 col-span-full grid grid-cols-2 ">
                 <div className="col-span-1 flex justify-end items-end m-2">
                     <ImageGridElement2 />
                 </div>
