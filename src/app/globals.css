@@ -9,6 +9,7 @@
   --tittle-box: #32794F;
   --logo-bg: #F2FFF5;
   --hero-btn: #BEEBC2;
+  --primary: #EEFCF1;
 }
 
 @media (prefers-color-scheme: dark) {

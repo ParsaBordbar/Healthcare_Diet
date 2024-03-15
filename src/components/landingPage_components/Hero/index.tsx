@@ -3,7 +3,7 @@ import HeroArt from "/public/svg/pngwing 2.svg"
 
 const Hero = () => {
     return(
-        <div className="grid grid-cols-9 mx-10">
+        <div className="grid grid-cols-9 px-10 bg-[var(--primary)]">
             
             <div className="col-span-3 flex justify-start pt-24 ps-28 flex-col items-center">
                 <div className="flex items-end flex-col gap-11">

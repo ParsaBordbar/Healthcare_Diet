@@ -6,8 +6,8 @@ import Link from "next/link";
 
 const Navbar = () => {
     return(
-        <nav className="flex top-0 px-36 sticky z-20 justify-between items-center flex-row m-11">
-            <ul className="flex justify-between items-center flex-row gap-12">
+        <nav className="flex top-0 px-36 sticky z-20 justify-between items-center flex-row p-11 bg-[var(--primary)]">
+            <ul className="flex justify-between items-center flex-row gap-12 ">
                 <li><Link href={'./'}><LogoSvg /></Link></li>
                 <li> <NavElement link="./" text="خدمات"/> </li>
                 <li> <NavElement link="./" text="بلاگ‌ها" /> </li>
