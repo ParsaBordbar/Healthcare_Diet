@@ -16,7 +16,7 @@ export default function Home() {
         <div className="flex justify-center items-center">
           <WhyHealthySection />
         </div>
-        <div className="flex items-center my-9">
+        <div className="flex items-center my-9 gap-14">
         <Strawberries className="z-0"/>
           <PlanBox/>
         </div>
