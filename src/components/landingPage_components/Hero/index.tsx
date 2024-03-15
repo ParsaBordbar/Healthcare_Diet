@@ -6,10 +6,10 @@ import Background from '/public/svg/HeroBackground.svg'
 const Hero = () => {
     return(
         <>
-            <div className="z-0 relative flex justify-center items-center w-full">
-                <Background className="w-fit"/>
-                <div className="grid grid-cols-9 px-10 absolute z-10 mx-10">
-                <div className="col-span-3 flex justify-start pt-24 ps-28 flex-col items-center">
+            <div className="z-0 relative flex justify-center items-center w-full ">
+                <Background className="w-fit "/>
+                <div className="grid lg:grid-cols-9 md:grid-cols-4 px-10 absolute z-10 mx-10">
+                <div className="col-span-3 flex justify-start pt-24 ps-28 flex-col items-center ">
                     <div className="flex items-end flex-col gap-11">
                         <h2 className="flex flex-row py-2 items-center text-5xl gap-4">
                             <div className="flex flex-col justify-center items-baseline gap-4">

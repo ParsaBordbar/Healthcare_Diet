@@ -8,7 +8,7 @@ export default function Home() {
         <div className="col-span-full">
           <Navbar />
         </div>
-        <div className="col-span-full">
+        <div className="col-span-full bg-[var(--primary)] h-5/6">
           <Hero/>
         </div>
       </div>
