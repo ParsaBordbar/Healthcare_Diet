@@ -1,6 +1,7 @@
+"use client"
 import LoginButton from "@/components/LoginButton";
 import NavElement from "../NavElement";
-// import LogoSvg from "/public/svg/Logo.svg"
+import LogoSvg from "/public/svg/Logo.svg"
 
 const Navbar = () => {
     return(
@@ -12,9 +13,8 @@ const Navbar = () => {
             <ul className="flex justify-between items-center flex-row gap-12">
                 <li> <NavElement link="./" text="خدمات"/> </li>
                 <li> <NavElement link="./" text="بلاگ‌ها" /> </li>
-                <li><NavElement link="./" text="LOGO"/></li>
+                <li><LogoSvg /></li>
             </ul>
-            {/* <LogoSvg /> */}
         </nav>
     )
 };
