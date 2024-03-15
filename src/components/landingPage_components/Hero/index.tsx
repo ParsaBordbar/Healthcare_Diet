@@ -7,7 +7,7 @@ const Hero = () => {
     return(
         <>
             <div className="z-0 relative flex justify-center items-center w-full">
-                <Background className="scale-x-125"/>
+                <Background className="w-fit"/>
                 <div className="grid grid-cols-9 px-10 absolute z-10 mx-10">
                 <div className="col-span-3 flex justify-start pt-24 ps-28 flex-col items-center">
                     <div className="flex items-end flex-col gap-11">
