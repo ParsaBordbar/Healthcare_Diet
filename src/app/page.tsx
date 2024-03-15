@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main>
       <div className="grid grid-cols-12">
-        <div className="col-span-full">
+        <div className="col-span-full sticky top-0 shadow-sm z-20">
           <Navbar />
         </div>
         <div className="col-span-full bg-[var(--primary)] h-5/6">
