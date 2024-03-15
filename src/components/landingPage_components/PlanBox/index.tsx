@@ -5,7 +5,7 @@ import Icon3 from "/public/svg/icon3.svg";
 const PlanBox = () => {
     return(
         <div className="w-5/6 bg-[var(--box-bg)] flex flex-col items-end pe-52 py-12 rounded-s-3xl shadow-2xl` px-16">
-            <div className="flex justify-center items-center flex-col pe-32">
+            <div className="flex justify-center items-center flex-col pe-52">
                 <h3 className="text-2xl font-bold mb-4">
                     برای شما برنامه‌ داریم
                 </h3>
@@ -14,7 +14,7 @@ const PlanBox = () => {
                 </p>
             </div>
             <hr/>
-            <ul className="flex flex-row justify-center items-center gap-14 m-3 ">
+            <ul className="flex flex-row justify-center items-center gap-32 m-3 ">
                 <li className="flex justify-center items-center text-xl">
                     <p>حفظ وزن</p>
                     <Icon1 />

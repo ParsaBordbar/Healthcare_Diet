@@ -44,7 +44,6 @@ const WhyHealthySection = () => {
                 </div>
                 <div className="col-span-2 flex justify-end items-end m-2">
                     <ImageGridElement3 />
-
                 </div>
             </div>
         </div>
