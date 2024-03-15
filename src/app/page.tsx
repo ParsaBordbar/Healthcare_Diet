@@ -1,5 +1,6 @@
 import Hero from "@/components/landingPage_components/Hero";
 import Navbar from "@/components/landingPage_components/Navbar";
+import PlanBox from "@/components/landingPage_components/PlanBox";
 import WhyHealthySection from "@/components/landingPage_components/whyHealthySection";
 
 export default function Home() {
@@ -14,6 +15,9 @@ export default function Home() {
         </div>
         <div className="col-span-full flex justify-center items-center">
           <WhyHealthySection />
+        </div>
+        <div className="col-span-full flex justify-end items-center">
+          <PlanBox />
         </div>
       </div>
     </main>
