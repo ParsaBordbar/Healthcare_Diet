@@ -3,3 +3,6 @@ export interface NavElementType{
    link: string,
 }
 
+export interface HeroButtonType{
+   text:string,
+}
