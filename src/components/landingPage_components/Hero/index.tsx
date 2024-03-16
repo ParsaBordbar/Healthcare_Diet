@@ -33,7 +33,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="col-span-6 flex justify-center flex-col items-center mt-11 lg:scale-100 scale-75">
+          <div className="col-span-6 flex justify-center flex-col items-center mt-11">
             <HeroArt />
           </div>
         </div>

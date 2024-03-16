@@ -4,14 +4,13 @@ import PlanBox from "@/components/landingPage_components/PlanBox";
 import WhyHealthySection from "@/components/landingPage_components/whyHealthySection";
 import Strawberries from "/public/svg/strawberries.svg";
 import TextBoxSection from "@/components/landingPage_components/TextBoxSection";
-import QuestionMark from "/public/svg/ques mark.svg";
-import MainButton from "@/components/LoginButton";
 import Orange from "/public/svg/oranges.svg";
 import PNGwing9 from "/public/svg/pngwing 9.svg";
 import LiIcon from "/public/svg/liIcon.svg";
 import ListItems from "@/components/ListItems";
 import Tick from "/public/svg/tttick.svg";
 import ProteinWhey from "/public/svg/Rectangle 27.svg";
+import LoginNowBox from "@/components/landingPage_components/LoginNowBox";
 
 export default function Home() {
   return (
@@ -20,7 +19,7 @@ export default function Home() {
         <div className="sticky top-0 shadow-sm z-20 col-span-full">
           <Navbar />
         </div>
-        <div className="bg-[var(--primary)] h-5/6 col-span-full">
+        <div className="flex bg-[var(--primary)] h-5/6 col-span-full">
           <Hero />
         </div>
         <div className="flex justify-center items-center col-span-full">
@@ -30,21 +29,11 @@ export default function Home() {
           <Strawberries className="z-0" />
           <PlanBox />
         </div>
-        <div>
+        <div className="col-span-full">
           <TextBoxSection />
         </div>
-        <div className="flex w-1/3 shadow-lg drop-shadow-md mx-auto py-9 px-14 rounded-3xl bg-[var(--box-bg)] justify-between">
-          <section className="w-9/12 flex flex-col justify-between">
-            <p className="text-xl font-normal text-right">
-              نمی‌دونید وعده غذایی درست و برنامه غذایی مناسب شما چی هست؟
-            </p>
-            <MainButton
-              standard
-              className="py-4 w-2/3"
-              value={"همین حالا ثبت نام کنید"}
-            />
-          </section>
-          <QuestionMark />
+        <div className="flex items-center justify-center col-span-full">
+          <LoginNowBox />
         </div>
         <div className="flex items-center justify-between">
           <div className="flex flex-col w-10/12 gap-24">
