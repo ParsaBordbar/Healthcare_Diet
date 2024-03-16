@@ -11,6 +11,8 @@
   --hero-btn: #beebc2;
   --primary: #eefcf1;
   --secondry-color: rgba(221, 247, 227, 0.3);
+  --border-color:rgba(224, 224, 224, 1);
+  --rating-color : #32794F;
 }
 
 @media (prefers-color-scheme: dark) {
