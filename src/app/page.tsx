@@ -15,7 +15,7 @@ export default function Home() {
         <div className="sticky top-0 shadow-sm z-20 col-span-full">
           <Navbar />
         </div>
-        <div className="flex justify-center items-center bg-[var(--primary)] h-5/6 col-span-full">
+        <div className="flex justify-center items-center max-w-full col-span-full">
           <Hero />
         </div>
         <div className="flex justify-center items-center col-span-full">
@@ -34,7 +34,7 @@ export default function Home() {
         <div className="col-span-full">
           <WhatIsYourHealthyBite/>
         </div>
-        <div className="col-span-full">
+        <div className="col-span-full max-w-full">
           <ProductsSection />
         </div>
       </div>

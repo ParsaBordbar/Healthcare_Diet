@@ -33,7 +33,7 @@ const ProductsSection = () => {
               />
             </ul>
           </section>
-          <main className="flex gap-7">
+          {/* <main className="flex gap-7">
             <ProductBox
               desc="وزن : 1.7kg"
               img={ProteinWhey}
@@ -52,7 +52,7 @@ const ProductsSection = () => {
               title="اسم سخت یک داروی مرتبط و 
 کاملا واقعی"
             />
-          </main>
+          </main> */}
         </div>
       </div>
     </div>

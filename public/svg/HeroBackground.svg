@@ -1,12 +1,12 @@
-<svg width="1591" height="858" viewBox="0 0 1591 858" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="2123" height="858" viewBox="0 0 2123 858" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_825_3971)">
-<path d="M99 29H1539V755L1002.04 807.786C868.684 820.895 734.348 820.57 601.058 806.814L99 755V29Z" fill="#F2FFF5" fill-opacity="0.6" shape-rendering="crispEdges"/>
+<path d="M129.139 29H2056.78V755L1219.66 816.475C1119.72 823.815 1019.36 823.632 919.446 815.929L129.139 755V29Z" fill="#F2FFF5" fill-opacity="0.6" shape-rendering="crispEdges"/>
 </g>
 <g filter="url(#filter1_d_825_3971)">
-<path d="M10 7H1581V733.455L1055.5 770.5L879.914 796.435C607.249 836.71 329.202 820.192 63.2237 747.917L10 733.455V7Z" fill="#EEFCF1"/>
+<path d="M10 7H2113V733.455L1409.55 770.5L931.88 823.207C725.937 845.931 517.712 836.516 314.66 795.298L10 733.455V7Z" fill="#EEFCF1"/>
 </g>
 <defs>
-<filter id="filter0_d_825_3971" x="89" y="22" width="1460" height="808.38" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_d_825_3971" x="119.139" y="22" width="1947.64" height="812.847" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="3"/>
@@ -16,7 +16,7 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_825_3971"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_825_3971" result="shape"/>
 </filter>
-<filter id="filter1_d_825_3971" x="0" y="0" width="1591" height="830.902" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter1_d_825_3971" x="0" y="0" width="2123" height="848.271" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="3"/>
