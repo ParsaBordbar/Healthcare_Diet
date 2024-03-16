@@ -4,11 +4,9 @@ import PlanBox from "@/components/landingPage_components/PlanBox";
 import WhyHealthySection from "@/components/landingPage_components/whyHealthySection";
 import Strawberries from "/public/svg/strawberries.svg";
 import TextBoxSection from "@/components/landingPage_components/TextBoxSection";
-import ListItems from "@/components/ListItems";
-import Tick from "/public/svg/tttick.svg";
-import ProteinWhey from "/public/svg/Rectangle 27.svg";
 import LoginNowBox from "@/components/landingPage_components/LoginNowBox";
 import WhatIsYourHealthyBite from "@/components/landingPage_components/WhatIsYourHealthyBite";
+import ProductsSection from "@/components/landingPage_components/ProducctsSection";
 
 export default function Home() {
   return (
@@ -36,7 +34,9 @@ export default function Home() {
         <div className="col-span-full">
           <WhatIsYourHealthyBite/>
         </div>
-        
+        <div className="col-span-full">
+          <ProductsSection />
+        </div>
       </div>
     </main>
   );
