@@ -2,14 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-  --box-bg: #F2FFF5;
+:root {
+  --box-bg: #f2fff5;
   --text: #616161;
-  --text-important: #DC2F39;
-  --tittle-box: #32794F;
-  --logo-bg: #F2FFF5;
-  --hero-btn: #BEEBC2;
-  --primary: #EEFCF1;
+  --text-important: #dc2f39;
+  --tittle-box: #32794f;
+  --logo-bg: #f2fff5;
+  --hero-btn: #beebc2;
+  --primary: #eefcf1;
+  --secondry-color: rgba(221, 247, 227, 0.3);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -49,8 +50,8 @@ body {
   -moz-box-shadow: 0px 4px 10px 0px rgba(255, 164, 90, 0.4);
 }
 
-.shadow-button-green{
-  box-shadow: 0px 4px 10px 0px rgba(3, 128, 98 , 0.4);
-  -webkit-box-shadow: 0px 4px 10px 0px rgba(3, 128, 98 , 0.4);
-  -moz-box-shadow: 0px 4px 10px 0px rgba(3, 128, 98 , 0.4);
+.shadow-button-green {
+  box-shadow: 0px 4px 10px 0px rgba(3, 128, 98, 0.4);
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(3, 128, 98, 0.4);
+  -moz-box-shadow: 0px 4px 10px 0px rgba(3, 128, 98, 0.4);
 }
