@@ -4,11 +4,11 @@ import Arrow2 from "/public/svg/arrow2.svg"
 
 const StoryBox  = ({tittle, bodyText, img}:TextBoxType) => {
     return(
-        <div className="flex bg-[var(--box-bg)] flex-col justify-center items-center w-[394px]">
+        <div className="flex bg-[var(--box-bg)] flex-col rounded-2xl justify-center items-center w-[394px]">
             <div className="w-fit">
                 {img}
             </div>
-            <div className="flex justify-center items-start flex-col m-2 p-4">
+            <div className="flex justify-center items-start flex-col m-2 p-4 border-b-2">
                 <h3 className="text-2xl text-[var(--tittle-box)] font-semibold">
                     {tittle}
                 </h3>
@@ -16,9 +16,8 @@ const StoryBox  = ({tittle, bodyText, img}:TextBoxType) => {
                     {bodyText}
                 </p>
             </div>
-            <hr />
-            <Link href={"./"} className="flex flex-row gap-1 ">
-                <p>ادامه</p>
+            <Link href={"./"} className="flex justify-start items-start my-2">
+                ادامه
             </Link>
         </div>
     )
