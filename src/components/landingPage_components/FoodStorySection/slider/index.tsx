@@ -1,6 +1,6 @@
 "use client";
 import { SwiperSlide } from "swiper/react";
-import StoryBox from "../../StoryBox ";
+import StoryBox from "../../StoryBox";
 import { Slider } from "@/components/slider";
 import StoryBoxSvg from "/public/svg/StoryBoxSvg.svg";
 
