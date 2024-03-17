@@ -1,5 +1,5 @@
 import QuestionMark from "/public/svg/ques mark.svg";
-import MainButton from "@/components/LoginButton";
+import MainButton from "@/components/MainButton";
 
 const LoginNowBox = () => {
     return(
