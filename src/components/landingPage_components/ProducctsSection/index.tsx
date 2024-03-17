@@ -5,6 +5,8 @@ import DietProductsBg from "/public/svg/DiietProductsBg.svg";
 import ProductBox from "@/components/ProductBox";
 import ProteinWhey from "/public/svg/Rectangle 27.svg";
 import Nutritionist from "../Nutritionist";
+import LineSvg from "/public/svg/NutLiine.svg"
+
 const ProductsSection = () => {
   return (
     <div className="w-full py-10 flex justify-center">
@@ -19,7 +21,7 @@ const ProductsSection = () => {
               </mark>
               رژیمی
             </h1>
-            <ul className="flex self-center flex-col  items-start gap-4">
+            <ul className="flex self-center flex-col items-start gap-4">
               <p>
                 <mark className="bg-transparent font-bold w-full">
                   گاز سلامتی
@@ -39,6 +41,10 @@ const ProductsSection = () => {
               title="اسم سخت یک داروی مرتبط و 
                 کاملا واقعی" 
             />
+            <div className="flex justify-center items-center my-28 w-full">
+              <LineSvg/>
+
+            </div>
             <Nutritionist/>
           </section>
           {/* <main className="flex gap-7">

@@ -34,7 +34,7 @@ export default function Home() {
         <div className="col-span-full">
           <WhatIsYourHealthyBite/>
         </div>
-        <div className="col-span-full max-w-full">
+        <div className="col-span-full max-w-full ">
           <ProductsSection />
         </div>
       </div>

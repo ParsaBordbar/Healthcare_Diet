@@ -4,15 +4,19 @@ import Nutro from "/public/svg/NutroPic.svg"
 
 const Nutritionist = () => {
     return(
-        <section className="gird grid-cols-5 justify-start flex-col ">
-            <div className="bg-[var(--tittle-box)] w-2/6 rounded-e-3xl gap-6 my-4 col-span-3 py-5">
-                <p className="text-4xl text-white ps-32">بهترین</p>
-                <h2 className="text-7xl text-white ps-80">متخصص</h2>
+        <section className="gird grid-cols-5 justify-start flex-col mt-10">
+            <div className="flex flex-row items-center">
+                <div className="bg-[var(--tittle-box)] w-3/12 rounded-e-3xl gap-6 my-4 col-span-3 py-5 ">
+                    <p className="text-4xl text-white ps-24">بهترین</p>
+                    <h2 className="text-7xl text-white ps-24">متخصص   تغذ  </h2>
+                </div>
+                <h2 className="text-7xl text-[var(--tittle-box)] pt-8">یه</h2>
             </div>
+            
             <div className="flex justify-center items-center mx-28">
                 <div className="flex justify-start items-start flex-col gap-12">
-                    <div className="pe-32">
-                        <p className="text-lg ">
+                    <div className="me-40 flex justify-start items-start">
+                        <p className="text-lg">
                         تیم متخصصین تغذیه ما اینجا هستند تا به شما در دستیابی به اهداف سلامتی و تندرستی خود کمک کنند. متخصصان تغذیه ما متخصصان بسیار آموزش دیده و واجد شرایطی هستند که درک عمیقی از علم تغذیه و چگونگی تأثیر آن بر بدن و ذهن شما دارند.
                         </p>
                     </div>
