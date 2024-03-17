@@ -1,11 +1,10 @@
-"use client";
+
 import ListItems from "@/components/ListItems";
 import Tick from "/public/svg/tttick.svg";
 import DietProductsBg from "/public/svg/DiietProductsBg.svg";
-import ProductBox from "@/components/ProductBox";
-import ProteinWhey from "/public/svg/Rectangle 27.svg";
 import Nutritionist from "../Nutritionist";
-import LineSvg from "/public/svg/NutLiine.svg"
+import LineSvg from "/public/svg/NutLiine.svg";
+import NewSlider from "./slider";
 
 const ProductsSection = () => {
   return (
@@ -35,36 +34,13 @@ const ProductsSection = () => {
                 desc="بهترین توصیه را از دکتر تغذیه دریافت کنید"
               />
             </ul>
-            <ProductBox
-              desc="وزن : 1.7kg"
-              img={ProteinWhey}
-              title="اسم سخت یک داروی مرتبط و 
-                کاملا واقعی" 
-            />
+            <NewSlider/>
             <div className="flex justify-center items-center my-28 w-full">
-              <LineSvg/>
-
+              <LineSvg />
             </div>
-            <Nutritionist/>
+            <Nutritionist />
           </section>
-          {/* <main className="flex gap-7">
-            <ProductBox
-              desc="وزن : 1.7kg"
-              img={ProteinWhey}
-              title="اسم سخت یک داروی مرتبط و 
-کاملا واقعی"
-            />
-
-            <ProductBox
-              desc="وزن : 1.7kg"
-              img={ProteinWhey}
-              title="اسم سخت یک داروی مرتبط و 
-کاملا واقعی"
-            />
-          </main> */}
-
         </div>
-       
       </div>
     </div>
   );
