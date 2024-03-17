@@ -8,6 +8,7 @@ import LoginNowBox from "@/components/landingPage_components/LoginNowBox";
 import WhatIsYourHealthyBite from "@/components/landingPage_components/WhatIsYourHealthyBite";
 import ProductsSection from "@/components/landingPage_components/ProducctsSection";
 import FoodStorySection from "@/components/landingPage_components/FoodStorySection";
+import UpgradeYourselfSection from "@/components/landingPage_components/UpgradeYourselfSection";
 
 export default function Home() {
   return (
@@ -40,6 +41,9 @@ export default function Home() {
         </div>
         <div className="col-span-full max-w-full ">
           <FoodStorySection />
+        </div>
+        <div className="col-span-full">
+          <UpgradeYourselfSection />
         </div>
       </div>
     </main>

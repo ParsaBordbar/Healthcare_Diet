@@ -13,6 +13,7 @@
   --secondry-color: rgba(221, 247, 227, 0.3);
   --border-color:rgba(224, 224, 224, 1);
   --rating-color : #32794F;
+  --upgrade-box: #DDF7E3;
 }
 
 @media (prefers-color-scheme: dark) {
