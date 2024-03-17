@@ -2,7 +2,7 @@ import HeroButton from "../HeroButton";
 import HeroArt from "/public/svg/pngwing 2.svg";
 import Styles from "./styles.module.css";
 import Background from "/public/svg/HeroBackground.svg";
-import MainButton from "@/components/LoginButton";
+import MainButton from "@/components/MainButton";
 
 const Hero = () => {
   return (
