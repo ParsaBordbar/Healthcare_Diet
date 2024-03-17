@@ -1,4 +1,4 @@
-import MainButton from "@/components/LoginButton";
+import MainButton from "@/components/MainButton";
 import NavElement from "../NavElement";
 import LogoSvg from "/public/svg/Logo.svg";
 import Link from "next/link";
