@@ -13,7 +13,7 @@
     "next-svgr": "^0.0.2",
     "react": "^18",
     "react-dom": "^18",
-    "swiper": "^11.0.3"
+    "swiper": "^11.0.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
