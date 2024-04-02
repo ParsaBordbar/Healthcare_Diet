@@ -3,31 +3,30 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --box-bg: rgb(242, 255, 245);
+  --text: rgb(97, 97, 97);
+  --text-important: rgb(220, 47, 57);
+  --tittle-box: rgb(50, 121, 79);
+  --logo-bg: rgb(242, 255, 245);
+  --hero-btn: rgb(190, 235, 194);
+  --primary: rgb(238, 252, 241);
+  --secondry-color: rgba(221, 247, 227, 0.3);
+  --border-color: rgba(224, 224, 224, 1);
+  --rating-color: rgb(50, 121, 79);
+  --bg-footer-color: rgb(190, 235, 194);
+  --upgrade-box: rgb(221, 247, 227);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.header path {
+  width: 1920px !important;
+  transform: scaleX(2);
+}
+html {
+  direction: rtl;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.shadow-social-box {
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.26);
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.26);
 }
