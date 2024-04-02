@@ -2,6 +2,9 @@
 import MainButton from "../../MainButton";
 import MainInput from "../../MainInput";
 import User from "/public/svgs/User.svg";
+import Phone from "/public/svgs/Phone.svg";
+import CloseEye from "/public/svgs/eye-slash.svg";
+import Email from "/public/svgs/Email.svg";
 const FormSignUp = () => {
   return (
     <form action="" className="flex w-full gap-10 flex-col justify-center">
@@ -10,18 +13,19 @@ const FormSignUp = () => {
         <MainInput
           label="نام و نام خانوادگی"
           placeholder="ABC"
-          iconFisrt={User}
+          iconFirst={User}
         />
         <MainInput
           label="شماره تماس"
           placeholder="999*******"
-          iconFisrt={User}
+          iconFirst={Phone}
         />
-        <MainInput label="ایمیل" placeholder="abc@gmail.com" iconFisrt={User} />
+        <MainInput label="ایمیل" placeholder="abc@gmail.com" iconFirst={Email} />
         <MainInput
           label="رمز عبور"
           placeholder="12346A56789"
-          iconFisrt={User}
+          iconFirst={CloseEye}
+          type="password"
         />
         <section className="flex flex-col gap-1 justify-center">
           <p className="text-xl text-center mt-5 text-[var(--text)]">
