@@ -1,10 +1,4 @@
-import { FunctionComponent } from "react";
-
-type TListItems = {
-  icon?: FunctionComponent;
-  desc?: string;
-  className?: string;
-};
+import { TListItems } from "@/types";
 
 const ListItems = (props: TListItems) => {
   return (
