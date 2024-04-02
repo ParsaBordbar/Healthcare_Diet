@@ -9,7 +9,7 @@ const FormLogin = () => {
       <section className="flex w-full flex-col items-center gap-[3.125rem]">
         <MainInput
           label="لطفا شماره تماس خود را وارد کنید:"
-          iconFisrt={Email}
+          iconFirst={Email}
           placeholder="abc@gmail.com"
         />
         <MainButton
