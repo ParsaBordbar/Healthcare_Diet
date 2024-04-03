@@ -5,3 +5,7 @@ export type TListItems = {
     desc?: string;
     className?: string;
   };
+
+export interface LoginFormType {
+  type?: String
+}''
