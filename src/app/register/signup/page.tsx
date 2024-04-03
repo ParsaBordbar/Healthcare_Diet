@@ -7,7 +7,9 @@ const SignUpPage = () => {
     <>
       <div className="absolute flex flex-col items-center gap-5  w-1/3 top-[9.375rem] right-[7.5rem]">
         <FormSignUp />
-        <Link href={"/register/login"} className="text-[var(--text)] text-xl">آیا حساب دارید؟ ورود</Link>
+        <Link href={"/register/login"} className="text-[var(--text)] text-xl">
+          آیا حساب دارید؟ <mark className="bg-transparent text-[var(--rating-color)]">ورود</mark>
+        </Link>
       </div>
     </>
   );
