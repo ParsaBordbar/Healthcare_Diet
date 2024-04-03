@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import {
   ButtonHTMLAttributes,
   FunctionComponent,
@@ -13,6 +14,7 @@ type TButton = ButtonHTMLAttributes<HTMLButtonElement> & {
   simple?: boolean;
   trasparent?: boolean;
   gradient?: boolean;
+  url?: String;
 };
 
 const MainButton = (props: TButton) => {
@@ -34,8 +36,10 @@ const MainButton = (props: TButton) => {
         props.iconSrc && "flex items-center gap-2"
       } text-center rounded-lg text-base`}
     >
+      <Link href={`${props.url}`}>
       {checkIcon()}
-      <span className="font-medium">{props.value}</span>
+        <span className="font-medium">{props.value}</span>
+      </Link>
     </button>
   );
 };
