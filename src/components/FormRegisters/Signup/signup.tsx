@@ -9,7 +9,7 @@ const FormSignUp = () => {
   return (
     <form action="" className="flex w-full gap-10 flex-col justify-center">
       <h1 className="text-center font-bold text-2xl">ثبت نام</h1>
-      <section className="grid lg:flex lg:flex-col w-full grid-cols-2 items-center gap-[1.875rem]">
+      <section className="md:grid flex lg:flex flex-col w-full md:grid-cols-2 items-center gap-[1.875rem]">
         <MainInput
           label="نام و نام خانوادگی"
           placeholder="ABC"
