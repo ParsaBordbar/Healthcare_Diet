@@ -34,7 +34,7 @@ const FormLogin = ({ type }: LoginFormType) => {
             simple
             className="bg-[var(--rating-color)] py-2.5 !text-xl !text-white w-full"
             value={"ارسال کد ورود"}
-            url="./enterTheCode"
+            url="/register//login/enterTheCode"
           />
         </>
       );
