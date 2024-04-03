@@ -19,10 +19,22 @@
 
 .header path {
   width: 1920px !important;
-  transform: scaleX(2);
+  transform: scaleX(5);
 }
 html {
   direction: rtl;
+}
+
+.header-register {
+  background-image: url("../../public/svgs/header-register.svg");
+  background-size: contain;
+  background-repeat: repeat-x;
+}
+
+.banner-register {
+  background-image: url("../../public/svgs/loginBanner.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .shadow-social-box {
