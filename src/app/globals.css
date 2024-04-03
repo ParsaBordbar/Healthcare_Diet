@@ -25,20 +25,17 @@ html {
   direction: rtl;
 }
 
-.header-register {
-  background-image: url("../../public/svgs/header-register.svg");
-  background-size: contain;
-  background-repeat: repeat-x;
-}
-
-.banner-register {
-  background-image: url("../../public/svgs/loginBanner.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
 .shadow-social-box {
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.26);
   -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.26);
   -moz-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.26);
+}
+
+.blur-bg {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.7px);
+  -webkit-backdrop-filter: blur(6.7px);
 }
