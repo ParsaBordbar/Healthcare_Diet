@@ -6,7 +6,7 @@ import Tick from "/public/svg/tttick.svg";
 
 const WhyHealthySection = () => {
   return (
-    <div className="grid lg:grid-cols-5 gap-64 my-14 grid-cols2">
+    <div className="grid lg:grid-cols-5 md:gap-64 gap-16 md:my-14 my-10 grid-cols2 sm:flex-col-reverse">
       <div className="lg:col-span-2 col-span-full flex justify-start items-center flex-col gap-10">
         <h2 className="font-bold text-4xl mb-28">چرا سالم؟</h2>
         <ul className="flex flex-col gap-12 items-start">

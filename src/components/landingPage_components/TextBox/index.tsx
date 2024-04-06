@@ -11,7 +11,7 @@ const TextBox = ({tittle, bodyText, img}:TextBoxType) => {
                     <p className="text-base">{bodyText}</p>
                 </div>
             </div>
-            <TheUnderLineThing className="ms-56 lg:scale-75" />   
+            <TheUnderLineThing className="ms-56 lg:scale-75 hidden xl:flex" />   
         </div>
     )
 };

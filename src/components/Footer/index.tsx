@@ -34,9 +34,9 @@ const Footer = () => {
             <ListItems className="cursor-pointer" desc="بررسی ها" />
             <ListItems className="cursor-pointer" desc="ورود" />
           </nav>
-          <div className="self-center">
+          {/* <div className="self-center">
             <LineSvg />
-          </div>
+          </div> */}
           <div className="flex justify-center gap-10">
             <FaceBookLogo />
             <InstagramLogo />

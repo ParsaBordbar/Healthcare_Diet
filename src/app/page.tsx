@@ -15,17 +15,17 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main>
-      <div className="grid grid-cols-1">
+      <div className="grid grid-cols-1 justify-center">
         <div className="sticky top-0 shadow-sm z-20 col-span-full">
           <Navbar />
         </div>
-        <div className="flex justify-center items-center max-w-full col-span-full">
+        {/* <div className="flex justify-center items-center max-w-full col-span-full">
           <Hero />
-        </div>
+        </div> */}
         <div className="flex justify-center items-center col-span-full">
           <WhyHealthySection />
         </div>
-        <div className="flex items-center my-9 gap-14 justify-end col-span-full">
+        <div className="flex items-center my-9 gap-20 justify-between col-span-full">
           <Strawberries className="z-0" />
           <PlanBox />
         </div>
@@ -38,9 +38,9 @@ export default function Home() {
         <div className="col-span-full">
           <WhatIsYourHealthyBite />
         </div>
-        <div className="col-span-full max-w-full ">
+        {/* <div className="col-span-full max-w-full ">
           <ProductsSection />
-        </div>
+        </div> */}
         <div className="col-span-full max-w-full ">
           <FoodStorySection />
         </div>
