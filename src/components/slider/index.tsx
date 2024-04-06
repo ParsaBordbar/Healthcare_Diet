@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { Swiper } from "swiper/react";
 import "swiper/css";
 import {
@@ -6,6 +6,7 @@ import {
   Pagination,
   Scrollbar,
   A11y,
+  Grid,
   Mousewheel,
   Autoplay,
 } from "swiper/modules";
@@ -14,26 +15,31 @@ import { ReactNode } from "react";
 import React from "react";
 
 type MySliderProps = {
-  children?: any;
+  children?: ReactNode[];
   anotherProp: number;
-  className?:string
 };
 
-export const Slider = (props:MySliderProps) => {
-  console.log(props.children , 'children]kwjg')
+export const Slider: React.FC<MySliderProps> = ({ children, anotherProp }) => {
   return (
     <Swiper
-    className={props.className}
-      modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay, Mousewheel]}
-      spaceBetween={50}
-      slidesPerView={props.anotherProp}
-      loop={false}
+      modules={[
+        Navigation,
+        Pagination,
+        Scrollbar,
+        Grid,
+        A11y,
+        Autoplay,
+        Mousewheel,
+      ]}
+      spaceBetween={10}
+      slidesPerView={anotherProp}
+      loop={true}
       autoplay={{ delay: 2500 }}
       navigation
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
     >
-      {props.children}
+      {children}
     </Swiper>
   );
 };
