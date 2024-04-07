@@ -13,14 +13,14 @@ const UpgradeYourselfSection = () => {
         </h3>
       </div>
       <MainButton gradient className="py-4 w-1/6" value={"امروز شروع کنید"} />
-      <ul className="flex gap-52">
+      <ul className="flex lg:gap-52 gap-11 flex-col lg:flex-row">
         <ListItems
           icon={Tick}
           desc="بهترین توصیه را از دکتر تغذیه دریافت کنید"
         />
         <ListItems
           icon={Tick}
-          desc="بهترین توصیه را از دکتر تغذیه دریافت کنید"
+          desc="بدون تعهد - در هر زمان لغو کنید"
         />
         <ListItems
           icon={Tick}
