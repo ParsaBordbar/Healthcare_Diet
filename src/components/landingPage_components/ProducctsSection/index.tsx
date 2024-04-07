@@ -34,10 +34,10 @@ const ProductsSection = () => {
                 desc="بهترین توصیه را از دکتر تغذیه دریافت کنید"
               />
             </ul>
-            <NewSlider/>
-            <div className="flex justify-center items-center my-28 w-full">
+            {/* <NewSlider/> */}
+            {/* <div className="flex justify-center items-center my-28 w-full">
               <LineSvg />
-            </div>
+            </div> */}
             <Nutritionist />
           </section>
         </div>
