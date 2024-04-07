@@ -19,9 +19,9 @@ export default function Home() {
         <div className="sticky top-0 shadow-sm z-20 col-span-full">
           <Navbar />
         </div>
-        <div className="flex justify-center items-center max-w-full col-span-full">
+        {/* <div className="flex justify-center items-center max-w-full col-span-full">
           <Hero />
-        </div>
+        </div> */}
         <div className="flex justify-center items-center col-span-full">
           <WhyHealthySection />
         </div>
