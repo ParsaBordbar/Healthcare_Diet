@@ -3,7 +3,6 @@ import ListItems from "@/components/ListItems";
 import Tick from "/public/svg/tttick.svg";
 import DietProductsBg from "/public/svg/DiietProductsBg.svg";
 import Nutritionist from "../Nutritionist";
-import LineSvg from "/public/svg/NutLiine.svg";
 import NewSlider from "./slider";
 
 const ProductsSection = () => {
@@ -20,7 +19,7 @@ const ProductsSection = () => {
               </mark>
               رژیمی
             </h1>
-            <ul className="flex self-center flex-col items-start gap-4">
+            <ul className="flex self-center flex-col items-start gap-4 m-10 lg:m-0 text-center lg:text-right">
               <p>
                 <mark className="bg-transparent font-bold w-full">
                   گاز سلامتی
