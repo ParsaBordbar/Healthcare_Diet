@@ -5,11 +5,11 @@ import LiIcon from "/public/svg/liIcon.svg";
 
 const WhatIsYourHealthyBite = () => {
     return(
-        <div className="flex items-center lg:justify-between justify-center">
+        <div className="flex items-center lg:justify-between justify-center my-10">
           <div className="flex flex-col w-10/12 md:gap-24 my-16">
-            <h1 className="lg:mx-auto gap-3 flex justify-center items-center md:text-6xl text-3xl">
+            <h1 className="lg:mx-auto gap-3 flex justify-center items-center lg:text-6xl md:text-4xl text-xl">
               چه چیزی
-              <mark className="bg-transparent text-[var(--text-important)] md:text-6xl text-2xl">
+              <mark className="bg-transparent text-[var(--text-important)] lg:text-6xl md:text-5xl text-4xl">
                 {" "}
                 گاز سلامتی{" "}
               </mark>
@@ -17,7 +17,7 @@ const WhatIsYourHealthyBite = () => {
             </h1>
             <section className="flex lg:justify-around lg:w-11/12 w-full flex-col justify-center items-center xl:flex-row">
               <PNGwing9 className="2xl:scale-150 md:scale-100 scale-75"/>
-              <ul className="flex flex-col gap-9 justify-center">
+              <ul className="flex flex-col gap-9 justify-center mt-8">
                 <ListItems
                   icon={LiIcon}
                   className="gap-6"
