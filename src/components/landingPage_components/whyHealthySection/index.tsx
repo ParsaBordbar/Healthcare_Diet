@@ -22,7 +22,7 @@ const WhyHealthySection = () => {
           <ListItems icon={Tick} className="gap-4" desc="کاهش استرس" />
         </ul>
       </div>
-      <div className="lg:col-span-3 col-span-full grid grid-cols-2 ">
+      <div className="lg:col-span-3 col-span-full grid grid-cols-2 scale-90 md:scale-100">
         <div className="col-span-1 flex justify-end items-end m-2">
           <ImageGridElement2 />
         </div>
