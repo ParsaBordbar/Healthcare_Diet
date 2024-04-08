@@ -6,17 +6,17 @@ import LiIcon from "/public/svg/liIcon.svg";
 const WhatIsYourHealthyBite = () => {
     return(
         <div className="flex items-center lg:justify-between justify-center">
-          <div className="flex flex-col w-10/12 gap-24 my-16">
-            <h1 className="lg:mx-auto text-3xl flex justify-center items-center">
+          <div className="flex flex-col w-10/12 md:gap-24 my-16">
+            <h1 className="lg:mx-auto gap-3 flex justify-center items-center md:text-6xl text-3xl">
               چه چیزی
-              <mark className="bg-transparent text-[var(--text-important)] text-6xl">
+              <mark className="bg-transparent text-[var(--text-important)] md:text-6xl text-2xl">
                 {" "}
                 گاز سلامتی{" "}
               </mark>
               شماست
             </h1>
             <section className="flex lg:justify-around lg:w-11/12 w-full flex-col justify-center items-center xl:flex-row">
-              <PNGwing9 className="2xl:scale-150"/>
+              <PNGwing9 className="2xl:scale-150 md:scale-100 scale-75"/>
               <ul className="flex flex-col gap-9 justify-center">
                 <ListItems
                   icon={LiIcon}
