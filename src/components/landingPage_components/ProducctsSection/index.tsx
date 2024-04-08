@@ -7,11 +7,11 @@ import NewSlider from "./slider";
 
 const ProductsSection = () => {
   return (
-    <div className="w-full py-10 flex justify-center">
+    <div className="w-full py-10 flex justify-center items-center">
       <div className="flex justify-center">
         <DietProductsBg className="lg:w-full lg:relative lg:z-0 lg:flex hidden" />
-        <div className="lg:absolute gap-10 z-10 flex flex-col mt-60">
-          <section className="flex flex-col mx-auto gap-8">
+        <div className="lg:absolute gap-10 z-10 flex flex-col mt-60 bg-[var(--primary)] py-10">
+          <section className="flex flex-col mx-auto gap-8 justify-center items-center">
             <h1 className="text-center text-3xl">
               <mark className="bg-transparent text-[var(--text-important)] text-6xl">
                 {" "}
