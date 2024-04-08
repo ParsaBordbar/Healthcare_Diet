@@ -6,7 +6,6 @@ import {
   Pagination,
   Scrollbar,
   A11y,
-  Grid,
   Mousewheel,
   Autoplay,
 } from "swiper/modules";
@@ -17,27 +16,25 @@ import React from "react";
 type MySliderProps = {
   children?: ReactNode[];
   anotherProp: number;
+  className?: string;
 };
 
-export const Slider: React.FC<MySliderProps> = ({ children, anotherProp }) => {
+export const Slider: React.FC<MySliderProps> = ({
+  children,
+  className,
+  anotherProp,
+}) => {
   return (
     <Swiper
-      modules={[
-        Navigation,
-        Pagination,
-        Scrollbar,
-        Grid,
-        A11y,
-        Autoplay,
-        Mousewheel,
-      ]}
+      className={className}
+      modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay, Mousewheel]}
       spaceBetween={10}
       slidesPerView={anotherProp}
       loop={true}
-      autoplay={{ delay: 2500 }}
+      autoplay={{ delay: 2500, reverseDirection: true }}
       navigation
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
+      pagination={{ clickable: false }}
+      scrollbar={{ draggable: false }}
     >
       {children}
     </Swiper>
