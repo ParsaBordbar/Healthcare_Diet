@@ -3,16 +3,15 @@ import ListItems from "@/components/ListItems";
 import Tick from "/public/svg/tttick.svg";
 import DietProductsBg from "/public/svg/DiietProductsBg.svg";
 import Nutritionist from "../Nutritionist";
-import LineSvg from "/public/svg/NutLiine.svg";
 import NewSlider from "./slider";
 
 const ProductsSection = () => {
   return (
-    <div className="w-full py-10 flex justify-center">
+    <div className="w-full py-10 flex justify-center items-center">
       <div className="flex justify-center">
-        <DietProductsBg className="w-full relative z-0" />
-        <div className="absolute gap-10 z-10 flex flex-col mt-60">
-          <section className="flex flex-col mx-auto gap-8">
+        <DietProductsBg className="lg:w-full lg:relative lg:z-0 lg:flex hidden" />
+        <div className="lg:absolute gap-10 z-10 flex flex-col mt-60 bg-[var(--primary)] py-10">
+          <section className="flex flex-col mx-auto gap-8 justify-center items-center">
             <h1 className="text-center text-3xl">
               <mark className="bg-transparent text-[var(--text-important)] text-6xl">
                 {" "}
@@ -20,7 +19,7 @@ const ProductsSection = () => {
               </mark>
               رژیمی
             </h1>
-            <ul className="flex self-center flex-col items-start gap-4">
+            <ul className="flex flex-col items-start gap-4 m-10 lg:m-0 text-center lg:text-right">
               <p>
                 <mark className="bg-transparent font-bold w-full">
                   گاز سلامتی
@@ -34,10 +33,10 @@ const ProductsSection = () => {
                 desc="بهترین توصیه را از دکتر تغذیه دریافت کنید"
               />
             </ul>
-            <NewSlider/>
-            <div className="flex justify-center items-center my-28 w-full">
+            {/* <NewSlider/> */}
+            {/* <div className="flex justify-center items-center my-28 w-full">
               <LineSvg />
-            </div>
+            </div> */}
             <Nutritionist />
           </section>
         </div>

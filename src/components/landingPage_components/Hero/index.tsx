@@ -1,14 +1,12 @@
-import HeroButton from "../HeroButton";
 import HeroArt from "/public/svg/pngwing 2.svg";
-import Styles from "./styles.module.css";
 import Background from "/public/svg/HeroBackground.svg";
 import MainButton from "@/components/MainButton";
 
 const Hero = () => {
   return (
     <>
-      <div className="z-0 relative flex justify-center items-center w-full ">
-        <Background className="w-fit " />
+      <div className="z-0 relative flex justify-center items-center w-full">
+        <Background className="w-fit"/>
         <div className="grid xl:grid-cols-9 lg:grid-cols-4 px-10 absolute z-10 mx-10">
           <div className="col-span-3 flex justify-start pt-24 ps-28 flex-col items-center">
             <div className="flex items-end flex-col gap-11">
@@ -33,8 +31,8 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="col-span-6 flex justify-center flex-col items-center mt-11">
-            <HeroArt />
+          <div className="col-span-6 justify-center flex-col items-center mt-11 scale-95 flex">
+            <HeroArt className="hidden md:flex"/>
           </div>
         </div>
       </div>

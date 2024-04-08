@@ -12,9 +12,9 @@ const Footer = () => {
     return(
         <footer className="mt-10 flex flex-col w-full items-center">
         <div className="bg-white py-10 ">
-          <h1 className="text-3xl text-center">
+          <h1 className="md:text-3xl text-2xl text-center">
             یک سال کامل
-            <mark className="bg-transparent text-[var(--text-important)] text-5xl">
+            <mark className="bg-transparent text-[var(--text-important)] md:text-5xl">
               {" "}
               گاز سلامتی{" "}
             </mark>
@@ -25,7 +25,7 @@ const Footer = () => {
           <div className="self-center">
             <LogoSvg />
           </div>
-          <nav className="flex justify-evenly items-center">
+          <nav className="flex md:justify-evenly items-center justify-center px-10 gap-2 md:gap-0 md:px-0 flex-row">
             <ListItems className="cursor-pointer" desc="درباره ما" />
             <ListItems className="cursor-pointer" desc="خدمات" />
             <ListItems className="cursor-pointer" desc="بلاگ ها" />
@@ -34,11 +34,11 @@ const Footer = () => {
             <ListItems className="cursor-pointer" desc="بررسی ها" />
             <ListItems className="cursor-pointer" desc="ورود" />
           </nav>
-          <div className="self-center">
+          {/* <div className="self-center">
             <LineSvg />
-          </div>
-          <div className="flex justify-center gap-10">
-            <FaceBookLogo />
+          </div> */}
+          <div className="flex justify-center md:gap-10 p-10 gap-4">
+            <FaceBookLogo/>
             <InstagramLogo />
             <TwitterLogo />
             <PinterestLogo />

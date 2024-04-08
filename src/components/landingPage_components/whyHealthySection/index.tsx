@@ -6,9 +6,9 @@ import Tick from "/public/svg/tttick.svg";
 
 const WhyHealthySection = () => {
   return (
-    <div className="grid lg:grid-cols-5 gap-64 my-14 grid-cols2">
+    <div className="lg:grid lg:grid-cols-5 xl:gap-64 lg:gap-16 gap-9 md:my-14 my-10 grid-cols-2 flex flex-col-reverse">
       <div className="lg:col-span-2 col-span-full flex justify-start items-center flex-col gap-10">
-        <h2 className="font-bold text-4xl mb-28">چرا سالم؟</h2>
+        <h2 className="font-bold lg:text-4xl text-5xl lg:mb-28 mb-8">چرا سالم؟</h2>
         <ul className="flex flex-col gap-12 items-start">
           <ListItems icon={Tick} className="gap-4" desc="ارتقای سلامت فیزیکی" />
           <ListItems icon={Tick} className="gap-4" desc="سلامت روان بهتر" />
@@ -22,7 +22,7 @@ const WhyHealthySection = () => {
           <ListItems icon={Tick} className="gap-4" desc="کاهش استرس" />
         </ul>
       </div>
-      <div className="lg:col-span-3 col-span-full grid grid-cols-2 ">
+      <div className="lg:col-span-3 col-span-full grid grid-cols-2 scale-90 md:scale-100">
         <div className="col-span-1 flex justify-end items-end m-2">
           <ImageGridElement2 />
         </div>
