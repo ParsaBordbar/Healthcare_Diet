@@ -28,7 +28,7 @@ export default function Home() {
           <WhyHealthySection />
         </div>
         <div className="flex items-center my-9 gap-20 justify-between col-span-full">
-          <Strawberries className="z-0" />
+          <Strawberries className="z-0 hidden md:flex" />
           <PlanBox />
         </div>
         <div className="col-span-full">
