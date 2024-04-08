@@ -11,6 +11,7 @@ import FoodStorySection from "@/components/landingPage_components/FoodStorySecti
 import UpgradeYourselfSection from "@/components/landingPage_components/UpgradeYourselfSection";
 import CheckHealthySection from "@/components/CheckHealthySection";
 import Footer from "@/components/Footer";
+import HamburgerNavbar from "@/components/HamburgerMenu";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <div className="grid grid-cols-1 justify-center">
         <div className="sticky top-0 shadow-sm z-20 col-span-full">
           <Navbar />
+          <HamburgerNavbar />
         </div>
         {/* <div className="flex justify-center items-center max-w-full col-span-full">
           <Hero />
