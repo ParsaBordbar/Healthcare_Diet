@@ -8,7 +8,7 @@ type TListItems = {
 
 const ListItems = (props: TListItems) => {
   return (
-    <li className={`${props.className} lg:text-xl flex items-center text-2xl`}>
+    <li className={`${props.className} lg:text-xl flex text-2xl`}>
       {props.icon && <props.icon />}
       <p>{props.desc}</p>
     </li>

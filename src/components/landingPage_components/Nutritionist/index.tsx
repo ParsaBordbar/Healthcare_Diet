@@ -6,7 +6,7 @@ const Nutritionist = () => {
     return(
         <section className="gird grid-cols-5 justify-start flex-col mt-10">
             <div className="flex flex-row items-center">
-                <div className="bg-[var(--tittle-box)]  rounded-e-3xl gap-6 my-4 col-span-3 py-5">
+                <div className="bg-[var(--tittle-box)] rounded-e-3xl gap-6 my-4 col-span-3 py-5">
                     <p className="text-4xl text-white ps-24">بهترین</p>
                     <h2 className="text-7xl text-white ps-24">متخصص   تغذ  </h2>
                 </div>
@@ -15,7 +15,7 @@ const Nutritionist = () => {
             
             <div className="flex justify-center items-center mx-28 xl:flex-row flex-col-reverse">
                 <div className="flex justify-start items-start flex-col gap-12">
-                    <div className="lg:me-40 flex lg:justify-start lg:items-start text-center lg:text-right ">
+                    <div className="xl:me-40 flex mt-8 lg:justify-start lg:items-start text-center xl:text-right ">
                         <p className="text-lg">
                         تیم متخصصین تغذیه ما اینجا هستند تا به شما در دستیابی به اهداف سلامتی و تندرستی خود کمک کنند. متخصصان تغذیه ما متخصصان بسیار آموزش دیده و واجد شرایطی هستند که درک عمیقی از علم تغذیه و چگونگی تأثیر آن بر بدن و ذهن شما دارند.
                         </p>
