@@ -1,40 +1,28 @@
 "use client";
 import { SwiperSlide } from "swiper/react";
 import StoryBox from "../../StoryBox";
-import { Slider } from "@/components/slider";
+// import { Slider } from "@/components/slider";
 import StoryBoxSvg from "/public/svg/StoryBoxSvg.svg";
+import { DataStory } from "@/data";
+import { TextBoxType } from "@/types";
+import { Slider } from "@/components/slider";
 
 const NewSlider = () => {
   return (
     <main className="flex gap-10 w-full justify-center">
-      <Slider className="!w-[22%]" anotherProp={1}>
-        <SwiperSlide className="!w-fit !m-0">
-          <StoryBox
-            tittle={"رژیم و فیتنس"}
-            bodyText={
-              "تمام پروتئین مورد نیاز خود را با یک رژیم غذایی گیاهی دریافت کنید"
-            }
-            img={<StoryBoxSvg />}
-          />
-        </SwiperSlide>
-        <SwiperSlide className="!w-fit !m-0">
-          <StoryBox
-            tittle={"رژیم و فیتنس"}
-            bodyText={
-              "تمام پروتئین مورد نیاز خود را با یک رژیم غذایی گیاهی دریافت کنید"
-            }
-            img={<StoryBoxSvg />}
-          />
-        </SwiperSlide>
-        <SwiperSlide className="!w-fit !m-0">
-          <StoryBox
-            tittle={"رژیم و فیتنس"}
-            bodyText={
-              "تمام پروتئین مورد نیاز خود را با یک رژیم غذایی گیاهی دریافت کنید"
-            }
-            img={<StoryBoxSvg />}
-          />
-        </SwiperSlide>
+      <Slider className="!py-10" anotherProp={2}>
+        {DataStory.map((items: TextBoxType) => {
+          return (
+            <SwiperSlide className="!w-fit !m-0" {...items}>
+              <StoryBox
+                id={items.id}
+                title={items.title}
+                bodyText={items.bodyText}
+                img={items.img}
+              />
+            </SwiperSlide>
+          );
+        })}
       </Slider>
     </main>
   );
