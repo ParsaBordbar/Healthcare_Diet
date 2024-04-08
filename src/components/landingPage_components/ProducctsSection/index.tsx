@@ -9,8 +9,8 @@ const ProductsSection = () => {
   return (
     <div className="w-full py-10 flex justify-center">
       <div className="flex justify-center">
-        <DietProductsBg className="w-full relative z-0" />
-        <div className="absolute gap-10 z-10 flex flex-col mt-60">
+        <DietProductsBg className="lg:w-full lg:relative lg:z-0 lg:flex hidden" />
+        <div className="lg:absolute gap-10 z-10 flex flex-col mt-60">
           <section className="flex flex-col mx-auto gap-8">
             <h1 className="text-center text-3xl">
               <mark className="bg-transparent text-[var(--text-important)] text-6xl">
@@ -19,7 +19,7 @@ const ProductsSection = () => {
               </mark>
               رژیمی
             </h1>
-            <ul className="flex self-center flex-col items-start gap-4 m-10 lg:m-0 text-center lg:text-right">
+            <ul className="flex flex-col items-start gap-4 m-10 lg:m-0 text-center lg:text-right">
               <p>
                 <mark className="bg-transparent font-bold w-full">
                   گاز سلامتی
