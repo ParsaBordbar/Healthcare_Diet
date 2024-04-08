@@ -6,10 +6,10 @@ import TextBoxArt4 from "/public/svg/TextBoxArt4.svg";
 
 const TextBoxSection = () => {
   return (
-    <section className="flex flex-col items-center">
+    <section className="flex flex-col items-center md:my-0 my-7">
       <h1 className="text-base">
         یک
-        <mark className="bg-transparent text-7xl text-[var(--text-important)] font-bold">
+        <mark className="bg-transparent md:text-7xl text-5xl text-[var(--text-important)] font-bold">
           {" "}
           گاز سلامتی{" "}
         </mark>
