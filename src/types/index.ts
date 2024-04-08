@@ -10,7 +10,8 @@ export interface HeroButtonType{
 }
 
 export interface TextBoxType{
-   tittle:string,
+   id:any
+   title:string,
    bodyText:string,
    img: any| ReactElement
 }
