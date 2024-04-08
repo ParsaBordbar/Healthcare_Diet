@@ -2,7 +2,6 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding-right: -2rem;
     width: 100%;
     padding: 0 10vw;
     background-color: var(--primary-blue);
@@ -20,7 +19,7 @@
         display: flex;
         align-items: start;
         justify-content: space-between;
-        background-color: var(--primary-blue);
+        background-color: var(--primary);
 
         .button {
             background-color: transparent;
