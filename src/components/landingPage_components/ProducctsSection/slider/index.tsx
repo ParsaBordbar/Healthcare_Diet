@@ -6,27 +6,20 @@ import ProductBox, { TProduct } from "@/components/ProductBox";
 import ProteinWhey from "/public/svg/Rectangle 27.svg";
 import LineSvg from "/public/svg/NutLiine.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  A11y,
-  Autoplay,
-  Mousewheel,
-  Navigation,
-  Pagination,
-  Scrollbar,
-} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Slider } from "@/components/slider";
 import { DataProduct } from "@/data";
+import { useEffect, useState } from "react";
 
 const NewSlider = () => {
   return (
-    <main className="flex gap-10 ">
-      <Slider anotherProp={DataProduct.length - 1}>
+    <main className="flex w-full gap-10 ">
+      <Slider className="!py-10" anotherProp={2}>
         {DataProduct?.map((items: TProduct) => {
           return (
-            <SwiperSlide className="!w-fit !m-0" {...items}>
+            <SwiperSlide className="!w-fit !m-0" {...items} key={items.id}>
               <ProductBox
                 img={items.img}
                 title={"uiviweg" + items.id}
