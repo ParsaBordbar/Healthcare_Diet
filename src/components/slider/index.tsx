@@ -35,6 +35,7 @@ export const Slider: React.FC<MySliderProps> = ({
       navigation
       pagination={{ clickable: false }}
       scrollbar={{ draggable: false }}
+      draggable={false}
     >
       {children}
     </Swiper>
