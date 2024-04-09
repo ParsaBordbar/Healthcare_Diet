@@ -65,7 +65,7 @@ const HamburgerNavbar = () => {
                         <div className={Styles.burgerMenuTrigger}></div>
                         <div className={Styles.burgerMenu}></div>
                     </div>
-                    <button className={Styles.button}><LogoSvg /></button>
+                    <button className={Styles.button}><LogoSvg className="scale-75"/></button>
                 </div>
                 <div className={Styles.content}>
                     <motion.ul

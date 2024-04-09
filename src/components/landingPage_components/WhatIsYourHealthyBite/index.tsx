@@ -9,7 +9,7 @@ const WhatIsYourHealthyBite = () => {
           <div className="flex flex-col w-10/12 md:gap-24 my-16">
             <h1 className="lg:mx-auto gap-3 flex justify-center items-center lg:text-6xl md:text-4xl text-xl">
               چه چیزی
-              <mark className="bg-transparent text-[var(--text-important)] lg:text-6xl md:text-5xl text-4xl">
+              <mark className="bg-transparent text-[var(--text-important)] lg:text-6xl md:text-5xl sm:text-4xl text-3xl">
                 {" "}
                 گاز سلامتی{" "}
               </mark>

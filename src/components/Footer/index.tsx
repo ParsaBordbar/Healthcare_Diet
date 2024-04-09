@@ -11,10 +11,10 @@ import EmailLogo from "/public/svg/email.svg";
 const Footer = () => {
     return(
         <footer className="mt-10 flex flex-col w-full items-center">
-        <div className="bg-white py-10 ">
-          <h1 className="md:text-3xl text-2xl text-center">
+        <div className="bg-white py-10">
+          <h1 className="md:text-3xl text-2xl text-center sm:text-5xl text-xl">
             یک سال کامل
-            <mark className="bg-transparent text-[var(--text-important)] md:text-5xl">
+            <mark className="bg-transparent text-[var(--text-important)] sm:text-5xl text-xl">
               {" "}
               گاز سلامتی{" "}
             </mark>
@@ -25,19 +25,19 @@ const Footer = () => {
           <div className="self-center">
             <LogoSvg />
           </div>
-          <nav className="flex md:justify-evenly items-center justify-center px-10 gap-2 md:gap-0 md:px-0 flex-row">
-            <ListItems className="cursor-pointer" desc="درباره ما" />
-            <ListItems className="cursor-pointer" desc="خدمات" />
-            <ListItems className="cursor-pointer" desc="بلاگ ها" />
-            <ListItems className="cursor-pointer" desc="غذا" />
-            <ListItems className="cursor-pointer" desc="رسپی ها" />
-            <ListItems className="cursor-pointer" desc="بررسی ها" />
-            <ListItems className="cursor-pointer" desc="ورود" />
+          <nav className="flex md:justify-evenly items-center justify-center sm:px-10 sm:gap-2 md:gap-0 md:px-0 sm:flex-row flex-col gap-4">
+            <ListItems className="cursor-pointer sm:text-base text-xl" desc="درباره ما" />
+            <ListItems className="cursor-pointer sm:text-base text-xl" desc="خدمات" />
+            <ListItems className="cursor-pointer sm:text-base text-xl" desc="بلاگ ها" />
+            <ListItems className="cursor-pointer sm:text-base text-xl" desc="غذا" />
+            <ListItems className="cursor-pointer sm:text-base text-xl" desc="رسپی ها" />
+            <ListItems className="cursor-pointer sm:text-base text-xl" desc="بررسی ها" />
+            <ListItems className="cursor-pointer sm:text-base text-xl" desc="ورود" />
           </nav>
           {/* <div className="self-center">
             <LineSvg />
           </div> */}
-          <div className="flex justify-center md:gap-10 p-10 gap-4">
+          <div className="flex justify-center md:gap-10 sm:p-10 sm:gap-4 flex-wrap gap-x-12 gap-y-3">
             <FaceBookLogo/>
             <InstagramLogo />
             <TwitterLogo />
@@ -45,7 +45,7 @@ const Footer = () => {
             <YoutubeLogo />
             <EmailLogo />
           </div>
-          <p className="text-center text-xl">
+          <p className="text-center sm:text-xl ">
             {" "}
             .2023 Cornea clinic PVT. LTD. All Rights Reserved&copy;
           </p>
