@@ -7,8 +7,8 @@ import { DataCheck } from "@/data";
 
 const SlideCheckHealthySection = () => {
   return (
-    <main className="flex gap-10 w-full justify-center">
-      <Slider className="!w-full py-10" anotherProp={1}>
+    <main className="flex gap-10  w-full justify-center">
+      <Slider className="!w-full !py-10" anotherProp={1}>
         {DataCheck.map((items: TCheckHealth) => {
           return (
             <SwiperSlide className="!w-fit !m-0" {...items}>
