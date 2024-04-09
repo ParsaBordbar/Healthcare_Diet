@@ -18,7 +18,7 @@ const TextBoxSection = () => {
       <ul className="grid lg:grid-cols-2 gap-24 m-24 grid-col-1">
         <li className="col-span-1">
           <TextBox
-            tittle="رژیمی رو که دوست دارید پیدا کنید"
+            title="رژیمی رو که دوست دارید پیدا کنید"
             bodyText="متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن"
             img={<TextBoxArt1 />}
           />
