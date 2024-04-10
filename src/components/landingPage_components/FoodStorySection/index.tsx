@@ -5,7 +5,7 @@ const FoodStorySection = () => {
   return (
     <section className="flex justify-center items-center m-16 flex-col">
       <div className="flex md:flex-row gap-1 flex-col justify-center items-center">
-        <h3 className="text-3xl font-bold text-[var(--text-important)] justify-center items-center flex">
+        <h3 className="sm:text-3xl text-2xl font-bold text-[var(--text-important)] justify-center items-center flex">
           داستان‌های غذایی
         </h3>
         <h3 className="text-3xl">جدید و تازه</h3>
