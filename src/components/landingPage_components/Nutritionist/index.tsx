@@ -6,7 +6,7 @@ const Nutritionist = () => {
     return(
         <section className="lg:gird lg:grid-cols-5 lg:justify-start mt-10 flex flex-col justify-center items-start">
             <div className="flex flex-row items-center">
-                <div className="bg-[var(--tittle-box)] rounded-e-3xl gap-6 my-4 col-span-3 py-5">
+                <div className="bg-[var(--tittle-box)] rounded-e-3xl gap-6 my-4 col-span-3 py-5 ps-4">
                     <p className="text-4xl text-white md:ps-24">بهترین</p>
                     <h2 className="md:text-7xl text-5xl text-white md:ps-24">متخصص   تغذ  </h2>
                 </div>
