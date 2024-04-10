@@ -5,7 +5,7 @@ import MainButton from "@/components/MainButton";
 const Hero = () => {
   return (
     <>
-      <div className="lg:z-0 lg:relative flex justify-center items-center bg-[var(--primary)]">
+      <div className="lg:z-0 lg:relative flex justify-center items-center bg-[var(--primary)] lg:bg-transparent">
         <Background className="w-full hidden lg:flex"/>
         <div className="lg:grid xl:grid-cols-9 lg:grid-cols-4 lg:px-10 lg:absolute lg:z-10 lg:mx-10 flex justify-center items-center flex-col">
           <div className="col-span-3 flex justify-start pt-24 lg:ps-28 flex-col items-center">
