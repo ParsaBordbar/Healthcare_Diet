@@ -21,9 +21,9 @@ export default function Home() {
           <Navbar />
           <HamburgerNavbar />
         </div>
-        {/* <div className="flex justify-center items-center max-w-full col-span-full">
+        <div className="flex justify-center items-center max-w-full col-span-full">
           <Hero />
-        </div> */}
+        </div>
         <div className="flex justify-center items-center col-span-full">
           <WhyHealthySection />
         </div>
