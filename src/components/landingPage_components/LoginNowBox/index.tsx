@@ -5,7 +5,7 @@ const LoginNowBox = () => {
     return(
         <div className="flex xl:1/3 lg:w-2/3 shadow-lg drop-shadow-md py-9 px-14 xl:w-2/5 lg:rounded-3xl bg-[var(--box-bg)] w-full justify-center">
           <section className="w-9/12 flex flex-col justify-between pt-8">
-            <p className="lg:text-xl font-normal text-right md:text-xl sm:text-base text-sm">
+            <p className="lg:text-xl font-normal sm:text-right md:text-xl sm:text-base text-sm">
               نمی‌دونید وعده غذایی درست و برنامه غذایی مناسب شما چی هست؟
             </p>
             <MainButton
