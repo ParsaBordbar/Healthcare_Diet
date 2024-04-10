@@ -31,11 +31,12 @@ export const Slider: React.FC<MySliderProps> = ({
       spaceBetween={10}
       slidesPerView={anotherProp}
       loop={true}
-      autoplay={{ delay: 2500, reverseDirection: true }}
+      // autoplay={{ delay: 2500, reverseDirection: true }}
       navigation
       pagination={{ clickable: false }}
       scrollbar={{ draggable: false }}
       draggable={false}
+      allowTouchMove={false}
     >
       {children}
     </Swiper>
