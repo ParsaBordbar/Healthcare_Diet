@@ -69,7 +69,7 @@ body {
   );
 }
 
-slick-track {
+.slick-track {
   width: 100% !important;
   gap: 24px;
   display: flex;
@@ -77,7 +77,7 @@ slick-track {
 
 .swiper-wrapper {
   justify-content: space-evenly;
-  gap: 3.125rem;
+  gap: 3.125rem !important;
 }
 
 .slick-dots {
