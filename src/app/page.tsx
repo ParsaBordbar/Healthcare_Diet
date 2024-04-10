@@ -21,7 +21,7 @@ export default function Home() {
           <Navbar />
           <HamburgerNavbar />
         </div>
-        <div className="flex justify-center items-center max-w-full col-span-full">
+        <div className="col-span-full">
           <Hero />
         </div>
         <div className="flex justify-center items-center col-span-full">
