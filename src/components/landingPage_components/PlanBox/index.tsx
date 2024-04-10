@@ -4,7 +4,7 @@ import Icon3 from "/public/svg/icon3.svg";
 
 const PlanBox = () => {
     return(
-        <div className="w-full bg-[var(--box-bg)] flex flex-col md:items-end xl:pe-52 lg:py-12 md:rounded-s-3xl shadow-2xl lg:pe-28 py-16 gap-2">
+        <div className="w-full bg-[var(--box-bg)] flex flex-col md:items-end xl:pe-52 lg:py-12 md:rounded-s-3xl shadow-2xl lg:pe-28 py-16 gap-2 pe-0 ps-4 sm:ps-0">
             <div className="flex justify-center items-center flex-col xl:pe-52 md:pe-11 sm:gap-0 gap-2">
                 <h3 className="lg:text-2xl font-bold lg:mb-4 sm:text-lg">
                     برای شما برنامه‌ داریم

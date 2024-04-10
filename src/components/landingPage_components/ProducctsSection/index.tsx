@@ -12,8 +12,8 @@ const ProductsSection = () => {
         <DietProductsBg className="lg:w-full lg:relative lg:z-0 lg:flex hidden" />
         <div className="lg:absolute gap-10 z-10 flex flex-col mt-60 bg-[var(--primary)] py-10">
           <section className="flex flex-col mx-auto gap-8 justify-center items-center">
-            <h1 className="text-center text-3xl">
-              <mark className="bg-transparent text-[var(--text-important)] text-6xl">
+            <h1 className="text-center text-3xl sm:text-6xl">
+              <mark className="bg-transparent text-[var(--text-important)] sm:text-6xl text-2xl">
                 {" "}
                 محصولات{" "}
               </mark>

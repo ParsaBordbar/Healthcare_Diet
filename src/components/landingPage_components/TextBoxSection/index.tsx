@@ -9,7 +9,7 @@ const TextBoxSection = () => {
     <section className="flex flex-col items-center md:my-0 my-7">
       <h1 className="text-base">
         یک
-        <mark className="bg-transparent md:text-7xl text-5xl text-[var(--text-important)] font-bold">
+        <mark className="bg-transparent md:text-7xl sm:text-5xl text-4xl text-[var(--text-important)] font-bold">
           {" "}
           گاز سلامتی{" "}
         </mark>
@@ -20,29 +20,25 @@ const TextBoxSection = () => {
           <TextBox
             title="رژیمی رو که دوست دارید پیدا کنید"
             bodyText="متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن"
-            img={<TextBoxArt1 />}
-          />
+            img={<TextBoxArt1 />} id={undefined} />
         </li>
         <li className="col-span-1">
           <TextBox
-            tittle="رژیمی رو که دوست دارید پیدا کنید"
+            title="رژیمی رو که دوست دارید پیدا کنید"
             bodyText="متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن"
-            img={<TextBoxArt2 />}
-          />
+            img={<TextBoxArt2 />} id={undefined}          />
         </li>
         <li className="col-span-1">
           <TextBox
-            tittle="رژیمی رو که دوست دارید پیدا کنید"
+            title="رژیمی رو که دوست دارید پیدا کنید"
             bodyText="متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن"
-            img={<TextBoxArt3 />}
-          />
+            img={<TextBoxArt3 />} id={undefined}          />
         </li>
         <li className="col-span-1">
           <TextBox
-            tittle="رژیمی رو که دوست دارید پیدا کنید"
+            title="رژیمی رو که دوست دارید پیدا کنید"
             bodyText="متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن متن"
-            img={<TextBoxArt4 />}
-          />
+            img={<TextBoxArt4 />} id={undefined}          />
         </li>
       </ul>
     </section>
