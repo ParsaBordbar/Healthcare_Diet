@@ -10,7 +10,7 @@ const LoginNowBox = () => {
             </p>
             <MainButton
               standard
-              className="py-4 lg:w-2/3 md:w-1/3 sm:w-3/4 mt-6"
+              className="py-4 lg:w-2/3 md:w-1/3 sm:w-2/4 w-full mt-6"
               value={"همین حالا ثبت نام کنید"}
             />
           </section>
