@@ -12,7 +12,7 @@ const Footer = () => {
     return(
         <footer className="mt-10 flex flex-col w-full items-center">
         <div className="bg-white py-10">
-          <h1 className="md:text-3xl text-2xl text-center sm:text-5xl text-xl">
+          <h1 className="md:text-2xl lg:text-2xl text-center sm:text-5xl text-xl px-9 md:px-0 sm:px-10">
             یک سال کامل
             <mark className="bg-transparent text-[var(--text-important)] sm:text-5xl text-xl">
               {" "}
