@@ -13,7 +13,7 @@ const NewSlider = () => {
       <Slider className="!py-10" anotherProp={2}>
         {DataStory.map((items: TextBoxType) => {
           return (
-            <SwiperSlide className="!w-fit !m-0" {...items}>
+            <SwiperSlide className="!w-fit !m-0" key={items.id} {...items}>
               <StoryBox
                 id={items.id}
                 title={items.title}

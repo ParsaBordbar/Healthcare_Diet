@@ -11,7 +11,7 @@ const SlideCheckHealthySection = () => {
       <Slider className="!w-full !py-10" anotherProp={1}>
         {DataCheck.map((items: TCheckHealth) => {
           return (
-            <SwiperSlide className="!w-fit !m-0" {...items}>
+            <SwiperSlide className="!w-fit !m-0" key={items.id} {...items}>
               <CheckHealthBox
                 img={items.img}
                 title={items.title}
