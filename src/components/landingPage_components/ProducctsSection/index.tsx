@@ -1,4 +1,3 @@
-
 import ListItems from "@/components/ListItems";
 import Tick from "/public/svg/tttick.svg";
 import DietProductsBg from "/public/svg/DiietProductsBg.svg";
@@ -33,7 +32,7 @@ const ProductsSection = () => {
                 desc="بهترین توصیه را از دکتر تغذیه دریافت کنید"
               />
             </ul>
-            {/* <NewSlider/> */}
+            <NewSlider />
             {/* <div className="flex justify-center items-center my-28 w-full">
               <LineSvg />
             </div> */}
