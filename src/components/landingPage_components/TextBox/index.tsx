@@ -9,7 +9,7 @@ const TextBox = ({title, bodyText, img}:TextBoxType) => {
                  {img}
                 </div>
                 <div className="flex flex-col justify-center items-center gap-2 w-full">
-                    <h2 className="md:text-xl text-lg">{tittle}</h2>
+                    <h2 className="md:text-xl text-lg">{title}</h2>
                     <p className="lg:text-base text-xs">{bodyText}</p>
                 </div>
             </div>
