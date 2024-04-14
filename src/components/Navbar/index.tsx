@@ -1,5 +1,5 @@
 import MainButton from "@/components/MainButton";
-import NavElement from "../NavElement";
+// import NavElement from "../NavElement";
 import LogoSvg from "/public/svg/Logo.svg";
 import Link from "next/link";
 
@@ -14,11 +14,11 @@ const Navbar = () => {
         </li>
         <li>
           {" "}
-          <NavElement link="./" text="خدمات" />{" "}
+          {/* <NavElement link="./" text="خدمات" />{" "} */}
         </li>
         <li>
           {" "}
-          <NavElement link="./" text="بلاگ‌ها" />{" "}
+          {/* <NavElement link="./" text="بلاگ‌ها" />{""} */}
         </li>
       </ul>
       <div className="flex flex-row gap-12 justify-center items-center">
