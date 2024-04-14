@@ -48,9 +48,9 @@ const MainButton = (props: TButton) => {
 <<<<<<< HEAD
       } text-center rounded-lg text-base`}
     >
-      <Link href={`${props.url}`}>
-      {checkIcon()}
-        <span className="font-medium">{props.value}</span>
+      <Link className="w-full" href={String(props.url)}>
+        {checkIcon()}
+        {props.value}
       </Link>
 =======
       } text-center rounded-lg`}

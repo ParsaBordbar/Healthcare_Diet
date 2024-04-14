@@ -6,7 +6,7 @@ import Email from "/public/svgs/Email.svg";
 const ForgetPasswordPage = () => {
   return (
     <>
-      <div className="absolute flex flex-col items-center gap-5  w-1/3 top-[9.375rem] right-[7.5rem]">
+      <div className="absolute flex flex-col items-center gap-5 w-4/5 lg:w-1/3 top-[9.375rem] right-auto lg:right-[7.5rem]">
         <form action="" className="flex w-full gap-10 flex-col justify-center">
           <div className="flex flex-col gap-4 items-center">
             <h1 className=" font-bold text-2xl">فراموشی رمز عبور</h1>
