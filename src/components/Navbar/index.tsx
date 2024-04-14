@@ -18,7 +18,7 @@ const Navbar = () => {
         </li>
         <li>
           {" "}
-          {/* <NavElement link="./" text="بلاگ‌ها" />{" "} */}
+          {/* <NavElement link="./" text="بلاگ‌ها" />{""} */}
         </li>
       </ul>
       <div className="flex flex-row gap-12 justify-center items-center">
