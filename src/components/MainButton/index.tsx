@@ -12,6 +12,7 @@ type TButton = ButtonHTMLAttributes<HTMLButtonElement> & {
   standard?: boolean;
   simple?: boolean;
   trasparent?: boolean;
+  url?: string,
   gradient?:boolean
 };
 
