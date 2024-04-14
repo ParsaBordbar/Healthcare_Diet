@@ -22,7 +22,7 @@ const NewSlider = () => {
             <SwiperSlide className="!w-fit !m-0" {...items} key={items.id}>
               <ProductBox
                 img={items.img}
-                title={"uiviweg" + items.id}
+                title={items.title}
                 desc={items.desc}
               />
             </SwiperSlide>
