@@ -1,6 +1,6 @@
 const Rating = () => {
   return (
-    <div className="flex flex-row-reverse justify-end items-center">
+    <div className="flex flex-row-reverse justify-end items-center ">
       <input
         id="hs-ratings-readonly-1"
         type="radio"
