@@ -77,7 +77,7 @@ body {
 
 .swiper-wrapper {
   justify-content: space-evenly;
-  gap: 3.125rem !important;
+  gap: 16px !important;
 }
 
 .slick-dots {
