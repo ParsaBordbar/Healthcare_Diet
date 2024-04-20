@@ -5,7 +5,7 @@ import LiIcon from "/public/svg/liIcon.svg";
 
 const WhatIsYourHealthyBite = () => {
     return(
-        <div className="flex items-center lg:justify-between justify-center my-10">
+        <div className="flex items-center lg:justify-between justify-center sm:my-10">
           <div className="flex flex-col w-10/12 md:gap-24 my-16">
             <h1 className="lg:mx-auto gap-3 flex justify-center items-center lg:text-6xl md:text-4xl sm:text-xl text-sm">
               چه چیزی
