@@ -3,7 +3,7 @@ import NewSlider from "./slider";
 const FoodStorySection = () => {
 
   return (
-    <section className="flex justify-center items-center m-16 flex-col">
+    <section className="flex justify-center items-center m-8 flex-col">
       <div className="flex md:flex-row gap-1 flex-col justify-center items-center">
         <h3 className="sm:text-3xl text-2xl font-bold text-[var(--text-important)] justify-center items-center flex">
           داستان‌های غذایی
