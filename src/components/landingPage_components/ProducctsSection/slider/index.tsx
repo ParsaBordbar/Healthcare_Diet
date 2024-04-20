@@ -15,8 +15,8 @@ import { useEffect, useState } from "react";
 
 const NewSlider = () => {
   return (
-    <main className="flex w-full gap-10 ">
-      <Slider className="!py-10 mx-4" anotherProp={2}>
+    <main className="flex w-[93%] mx-auto gap-10 ">
+      <Slider className="!py-10 !px-1.5 mx-4" anotherProp={2}>
         {DataProduct?.map((items: TProduct) => {
           return (
             <SwiperSlide className="!w-fit !m-0" {...items} key={items.id}>
