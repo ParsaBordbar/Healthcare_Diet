@@ -35,6 +35,21 @@ router.post('/' ,async(req, res) => {
     res.send(form);
 })
 
+router.put('/:id', async(req, res) => {
+    const bmiForm = await BmiForm.findByIdAndUpdate(req.params.id, {
+        name: req.body.name,
+        lastName: req.body.lastName,
+        phoneNumber: req.body.phoneNumber,
+        gender: req.body.gender,
+        age: req.body.age,
+        height: req.body.height,
+        wight: req.body.wight,
+        bmi: (req.body.wight/(req.body.height * req.body.height)).toFixed(4),
+    }, {new: true})
+    if(!bmiForm) res.status(404).send("Such BMI form was not found.")
+    res.send(bmiForm);
+})
+
 router.delete('/:id',async(req, res) => {
     const bmiForm = await BmiForm.findByIdAndDelete(req.params.id)
     res.send(bmiForm);
