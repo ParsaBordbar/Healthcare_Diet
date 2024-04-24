@@ -23,6 +23,7 @@ router.post('/' ,async(req, res) => {
         age: req.body.age,
         height: req.body.height,
         wight: req.body.wight,
+        bmi: (req.body.wight/(req.body.height * req.body.height)).toFixed(4), //bmi = wight/(height * height)
     })
     form = await form.save();
     res.send(form);
