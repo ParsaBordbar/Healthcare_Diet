@@ -1,6 +1,7 @@
 import ListItems from "@/components/ListItems";
 import MainButton from "@/components/MainButton";
 import Tick from "/public/svg/tttick.svg";
+import BmiForm from "../BmiForm";
 
 const UpgradeYourselfSection = () => {
   return (
@@ -12,7 +13,8 @@ const UpgradeYourselfSection = () => {
           ارتقا بده سلامتی, بدن و اعتماد به نفس‌ت رو
         </h3>
       </div>
-      <MainButton gradient className="py-4 md:w-1/6 w-2/5" value={"امروز شروع کنید"} />
+      <BmiForm />
+      {/* <MainButton gradient className="py-4 md:w-1/6 w-2/5" value={"امروز شروع کنید"} /> */}
       <ul className="flex 2xl:gap-52 xl:gap-12 gap-11 lg:gap-5 mx-8 flex-col lg:flex-row p-8 sm:p-0">
         <ListItems
           icon={Tick}
