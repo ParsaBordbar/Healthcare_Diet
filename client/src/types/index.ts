@@ -1,17 +1,25 @@
 import { ReactElement } from "react";
 
-export interface NavElementType{
+export type NavElementType = {
    text: string,
    link: string,
 }
 
-export interface HeroButtonType{
+export type HeroButtonType{
    text:string,
 }
 
-export interface TextBoxType{
+export type TextBoxType = {
    id:any
    title:string,
    bodyText:string,
    img: any| ReactElement
+}
+
+export type BmiDataType = {
+   firstName:string
+   lastName:string
+   phoneNumber:string
+   gender:string
+   weight:number
 }
