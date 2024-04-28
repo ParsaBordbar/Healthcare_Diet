@@ -3,7 +3,7 @@ import MainInput from "@/components/MainInput";
 
 const BmiForm = () => {
     return(
-        <div className="flex justify-center items-center flex-col bg-[var(--primary)] rounded-2xl w-4/5 my-12">
+        <div className="flex justify-center items-center flex-col bg-[var(--primary)] rounded-2xl w-4/5 my-12 px-10 xl:px-0">
             <h3 className="lg:text-3xl text-xl my-7">همین حالا شروع کنید!</h3>
             <form action="submit" className="flex justify-center items-center flex-col">
                 <div className="flex justify-center items-center md:flex-row xl:gap-14 w-full flex-col gap-4">
