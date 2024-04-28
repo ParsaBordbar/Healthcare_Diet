@@ -4,10 +4,10 @@ import MainInput from "@/components/MainInput";
 const BmiForm = () => {
     return(
         <div className="flex justify-center items-center flex-col bg-[var(--primary)] rounded-2xl w-4/5 my-12">
-            <h3 className="text-3xl my-7">همین حالا شروع کنید!</h3>
+            <h3 className="lg:text-3xl text-xl my-7">همین حالا شروع کنید!</h3>
             <form action="submit" className="flex justify-center items-center flex-col">
-                <div className="flex justify-center items-center flex-row gap-14 w-full">
-                    <ul className="flex flex-col gap-2 md:w-96">
+                <div className="flex justify-center items-center md:flex-row xl:gap-14 w-full flex-col gap-4">
+                    <ul className="flex flex-col gap-2 xl:w-96">
                         <li>
                             <MainInput
                             label="نام"
@@ -47,7 +47,7 @@ const BmiForm = () => {
                         label="شماره تماس"
                         placeholder="شماره تماس خود را وارد کنید"
                         /> 
-                <MainButton className="w-3/5 my-10 py-3 !text-white bg-[var(--rating-color)] font-bold text-2xl" value={"امروز شروع کنید"} />
+                <MainButton className="lg:w-3/5 w-full my-10 py-3 !text-white bg-[var(--rating-color)] font-bold text-2xl" value={"امروز شروع کنید"} />
             </form>
         </div>
     )
