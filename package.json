@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
+    "react-toastify": "^10.0.5",
+    "yup": "^1.4.0"
+  }
+}
