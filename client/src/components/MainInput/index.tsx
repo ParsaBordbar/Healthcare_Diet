@@ -43,7 +43,7 @@ const MainInput = (props: TInput) => {
       >
         {FirstIcon()}
         <input
-          className={`${props.inputClassName} placeholder:text-[var(--border-color)] w-full border-none outline-none bg-transparent`}
+          className={`${props.inputClassName} placeholder:text-[var(--border-color)] w-full border-none outline-none bg-transparent placeholder:text-xs placeholder:md:text-base`}
           {...props}
           type={showPassword ? "text" : props.type}
         />
