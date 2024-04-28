@@ -5,7 +5,7 @@ export type NavElementType = {
    link: string,
 }
 
-export type HeroButtonType{
+export type HeroButtonType = {
    text:string,
 }
 
@@ -21,5 +21,6 @@ export type BmiDataType = {
    lastName:string
    phoneNumber:string
    gender:string
+   age:number
    weight:number
 }
