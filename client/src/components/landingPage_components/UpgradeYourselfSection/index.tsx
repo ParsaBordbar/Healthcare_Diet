@@ -6,7 +6,7 @@ import BmiForm from "../BmiForm";
 const UpgradeYourselfSection = () => {
   return (
     <section className="py-12 my-10 flex justify-center items-center flex-col bg-[var(--upgrade-box)] gap-16">
-      <div className="flex flex-col justify-center items-center px-10 md:px-0">
+      <div className="flex flex-col justify-center items-center px-10 md:px-0 mt-12">
         <p className="md:text-3xl sm:text-xl text-base">روی خودت سرمایه گذاری کن و</p>
         <h3 className="md:text-4xl sm:text-2xl text-xl text-center md:text-right">
           {" "}
