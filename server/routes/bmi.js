@@ -16,6 +16,20 @@ router.get('/:id', async(req, res) => {
     res.send(bmiForm)
 })
 
+//This will check for the Users phoneNumber from the frontEnd, and Gives back a Response
+router.post('/', async(req, res)=>{
+    const response = await BmiForm.findOne({phoneNumber:req.body.phoneNumber}, (err, result)=> {
+        if(err){
+            throw err 
+            res.status(404)
+        } 
+        if(result){
+            res.status(200).send("Yup we have it!")
+        }
+    }) 
+})
+
+
 router.post('/' ,async(req, res) => {
     const {error} = validateBmi(req.body);
     if(error){
