@@ -22,5 +22,6 @@ export type BmiDataType = {
    phoneNumber:string
    gender:string
    age:number
+   height:number
    weight:number
 }
