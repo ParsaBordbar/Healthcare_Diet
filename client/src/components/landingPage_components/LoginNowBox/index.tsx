@@ -1,5 +1,6 @@
 import QuestionMark from "/public/svg/ques mark.svg";
 import MainButton from "@/components/MainButton";
+import Link from "next/link";
 
 const LoginNowBox = () => {
     return(
@@ -8,11 +9,14 @@ const LoginNowBox = () => {
             <p className="lg:text-xl font-normal sm:text-right md:text-xl sm:text-base text-sm">
               نمی‌دونید وعده غذایی درست و برنامه غذایی مناسب شما چی هست؟
             </p>
-            <MainButton
-              standard
-              className="py-4 lg:w-2/3 md:w-1/3 sm:w-2/4 w-full mt-6"
-              value={"همین حالا ثبت نام کنید"}
-            />
+            <Link href={'register/signUp'}>
+              <MainButton
+                standard
+                className="py-4 lg:w-2/3 md:w-1/3 sm:w-2/4 w-full mt-6"
+                value={"همین حالا ثبت نام کنید"}
+              />
+            </Link>
+            
           </section>
           <QuestionMark className="scale-75 md:scale-90 -ml-8 lg:scale-100"/>
         </div>
