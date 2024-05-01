@@ -1,20 +1,29 @@
 "use client";
 import {
+  ChangeEvent,
   FunctionComponent,
   InputHTMLAttributes,
+  forwardRef,
   useCallback,
   useState,
 } from "react";
 import CloseEye from "/public/svg/eye-slash.svg";
 import OpenEye from "/public/svg/eye.svg";
+
 type TInput = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   iconFirst?: FunctionComponent;
   iconEnd?: FunctionComponent;
   inputClassName?: string;
+  error?: boolean;
+  register?: any;
   parentClassName?: string;
 };
-const MainInput = (props: TInput) => {
+
+const MainInput = forwardRef<
+  HTMLInputElement,
+  TInput & { onChange?: (event: ChangeEvent<HTMLInputElement>) => void }
+>((props, ref) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const FirstIcon = useCallback(() => {
@@ -34,22 +43,31 @@ const MainInput = (props: TInput) => {
   }, [showPassword]);
 
   return (
-    <div className={`${props.parentClassName} flex w-full flex-col gap-1 `}>
-      <label htmlFor="" className="text-lg">
-        {props.label}
-      </label>
-      <section
-        className={` rounded-lg py-3 px-4 border border-[var(--border-color)] flex items-center gap-1  bg-white `}
-      >
-        {FirstIcon()}
-        <input
-          className={`${props.inputClassName} placeholder:text-[var(--border-color)] w-full border-none outline-none bg-transparent placeholder:text-xs placeholder:md:text-base`}
-          {...props}
-          type={showPassword ? "text" : props.type}
-        />
-      </section>
-    </div>
+    <>
+      <div className={`flex w-full flex-col gap-1 ${props.parentClassName}`}>
+        <label
+          htmlFor=""
+          className={`${props.error ? "text-red-600" : "text-black"} text-lg`}
+        >
+          {props.label}
+        </label>
+        <section
+          className={` rounded-lg py-3 px-4 border ${
+            props.error ? "border-red-600" : "border-[var(--border-color)]"
+          }  flex items-center gap-1  bg-white `}
+        >
+          {FirstIcon()}
+          <input
+            {...props.register}
+            className={`${props.inputClassName} placeholder:text-[var(--border-color)] w-full border-none outline-none bg-transparent`}
+            {...props}
+            ref={ref}
+            type={showPassword ? "text" : props.type}
+          />
+        </section>
+      </div>
+    </>
   );
-};
+});
 
 export default MainInput;
