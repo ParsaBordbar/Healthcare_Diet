@@ -3,6 +3,7 @@ import MainButton from "../MainButton";
 import MainInput from "../MainInput";
 
 const BmiFormDiet = () => {
+  
   return (
     <form action="" className="flex w-full gap-10 flex-col justify-center">
       <h1 className="text-center font-bold text-2xl">
