@@ -31,9 +31,7 @@ const Hero = () => {
           </div>
 
           <div className="xl:col-span-6 col-span-4 justify-center flex-col items-center mt-11 scale-95 flex">
-            <Link href={"./"}>
-              <HeroArt className="md:flex w-full "/>
-            </Link>
+            <HeroArt className="md:flex w-full "/>
           </div>
         </div>
       </div>
