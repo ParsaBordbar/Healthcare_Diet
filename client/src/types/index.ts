@@ -1,27 +1,30 @@
 import { ReactElement } from "react";
 
 export type NavElementType = {
-   text: string,
-   link: string,
-}
+  text: string;
+  link: string;
+};
 
 export type HeroButtonType = {
-   text:string,
-}
+  text: string;
+};
 
 export type TextBoxType = {
-   id:any
-   title:string,
-   bodyText:string,
-   img: any| ReactElement
-}
+  id: any;
+  title: string;
+  bodyText: string;
+  img: any | ReactElement;
+};
 
-export type BmiDataType = {
-   firstName:string
-   lastName:string
-   phoneNumber:string
-   gender:string
-   age:number
-   height:number
-   weight:number
-}
+export type BmiLandingDataType = {
+  phoneNumber: string;
+  height: number;
+  weight: number;
+};
+
+export type BmiDataType = BmiLandingDataType & {
+  firstName: string;
+  lastName: string;
+  gender: string;
+  age: number;
+};
