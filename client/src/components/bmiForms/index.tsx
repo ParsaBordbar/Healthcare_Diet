@@ -3,9 +3,12 @@ import useBmi from "@/validations/bmi/useBmi";
 import MainButton from "../MainButton";
 import MainInput from "../MainInput";
 import { Controller } from "react-hook-form";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+// import { AllContextType, useMyContext } from "@/hooks/useContext/Context";
 
 const BmiFormDiet = () => {
+  // const { Bmi, setBmi } = useMyContext();
+
   const { control, handelValueInputs, register, errors, handleSubmit } =
     useBmi();
   const firstNameRef = useRef<HTMLInputElement | null>(null);
@@ -16,10 +19,6 @@ const BmiFormDiet = () => {
   const weightRef = useRef<HTMLInputElement | null>(null);
   const genderRef = useRef<HTMLSelectElement | null>(null);
 
-  useEffect(() => {
-    console.log(firstNameRef);
-    firstNameRef.current?.focus();
-  }, []);
 
   const inputRefs = [
     firstNameRef,
@@ -113,6 +112,10 @@ const BmiFormDiet = () => {
               {...field}
               error={!!errors.phoneNumber}
               ref={phoneNumberRef}
+              // onChange={() => {
+                // setBmi(phoneNumberRef.current?.value);
+              // }}
+              // value={Bmi.phoneNumber}
               parentClassName="col-span-2 lg:col-span-4"
               label="شماره تماس"
               placeholder="شماره تماس خود را وارد کنید"
@@ -160,6 +163,10 @@ const BmiFormDiet = () => {
               {...field}
               error={!!errors.weight}
               ref={weightRef}
+              // onChange={() => {
+                // setBmi(weightRef.current?.value);
+              // }}
+              // value={Bmi.weight ? Bmi.weight : weightRef.current?.value}
               type="number"
               label="وزن"
               parentClassName="col-span-2"
@@ -191,6 +198,10 @@ const BmiFormDiet = () => {
             <MainInput
               {...field}
               type="number"
+              // onChange={() => {
+                // setBmi(heightRef.current?.value);
+              // }}
+              // value={Bmi.height ? Bmi.height : heightRef.current?.value}
               error={!!errors.height}
               ref={heightRef}
               label="قد"
