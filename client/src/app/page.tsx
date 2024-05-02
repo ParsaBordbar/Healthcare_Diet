@@ -40,15 +40,16 @@ export default function Home() {
         <div className="col-span-full">
           <WhatIsYourHealthyBite />
         </div>
+        <div className="col-span-full">
+          <UpgradeYourselfSection />
+        </div>
         <div className="col-span-full max-w-full ">
           <ProductsSection />
         </div>
         <div className="col-span-full max-w-full ">
           <FoodStorySection />
         </div>
-        <div className="col-span-full">
-          <UpgradeYourselfSection />
-        </div>
+        
         <div className="col-span-full">
           <CheckHealthySection />
         </div>
