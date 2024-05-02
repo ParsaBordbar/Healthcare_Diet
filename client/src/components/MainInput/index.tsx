@@ -1,4 +1,3 @@
-"use client";
 import {
   ChangeEvent,
   FunctionComponent,
@@ -7,8 +6,6 @@ import {
   useCallback,
   useState,
 } from "react";
-import CloseEye from "/public/svg/eye-slash.svg";
-import OpenEye from "/public/svg/eye.svg";
 
 type TInput = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
@@ -31,9 +28,9 @@ const MainInput = forwardRef<
       return (
         <div onClick={() => setShowPassword(!showPassword)}>
           {showPassword ? (
-            <CloseEye className="opacity-50" />
+            <img src="/public/svg/eye-slash.svg" alt="Close Eye" className="opacity-50" />
           ) : (
-            <OpenEye className="opacity-50" />
+            <img src="/public/svg/eye.svg" alt="Open Eye" className="opacity-50" />
           )}
         </div>
       );
@@ -69,5 +66,7 @@ const MainInput = forwardRef<
     </>
   );
 });
+
+MainInput.displayName = 'MainInput';
 
 export default MainInput;

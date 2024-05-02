@@ -1,6 +1,8 @@
 import HeroArt from "/public/svg/pngwing 2.svg";
 import Background from "/public/svg/HeroBackground.svg";
 import MainButton from "@/components/MainButton";
+import Link from "next/link";
+
 
 const Hero = () => {
   return (
@@ -18,11 +20,13 @@ const Hero = () => {
                 <p className="flex justify-center items-center sm:ps-14 ps-6 pe-2 md:ps-0">
                 برنامه شخصی سازشده خود را دریافت کنید،متخصصین ما در هر مرحله با شما!
                 </p>
-              <MainButton
-                standard
-                className="text-2xl px-20 py-3"
-                value="ثبت نام کنید"
-              />
+                <Link href={'register/signUp'}>
+                  <MainButton
+                    standard
+                    className="text-2xl px-20 py-3"
+                    value="ثبت نام کنید"
+                  />
+                </Link>
             </div>
           </div>
 
