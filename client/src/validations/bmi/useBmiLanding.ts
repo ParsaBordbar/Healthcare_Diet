@@ -1,7 +1,8 @@
+// import { useMyContext } from "@/hooks/useContext/Context";
 import { BmiLandingDataType } from "@/types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import * as yup from "yup";
@@ -54,10 +55,11 @@ const useBmiLanding = () => {
 
   showsErrors();
 
-
   const { push } = useRouter();
+  // const { setBmi } = useMyContext();
   const handelValueInputs = useCallback((data: BmiLandingDataType) => {
     console.log(data);
+    // setBmi(data);
     push("/register/diets-bmi");
     toast.success("خوش آمدید");
   }, []);
