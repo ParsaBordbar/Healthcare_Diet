@@ -9,25 +9,9 @@ import { useRouter } from "next/navigation";
 import { BmiDataType } from "@/types";
 
 export const BmiSchema = yup.object({
-  firstName: yup
-    .string()
-    .min(6, "نام کاربری باید حداقل ۴ حرف داشته باشد")
-    .max(16, "نام کاربری بیشتر از ۱۶ حرف نمی‌تواند باشد")
-    .matches(
-      /^[a-zA-Z][a-zA-Z0-9]/,
-      "نام کاربری باید با حروف شروع شود و شامل حروف و اعداد می‌شود"
-    )
-    .required("نام کاربری الزامی است"),
-    lastName: yup
-    .string()
-    .min(6, "نام کاربری باید حداقل ۴ حرف داشته باشد")
-    .max(16, "نام کاربری بیشتر از ۱۶ حرف نمی‌تواند باشد")
-    .matches(
-      /^[a-zA-Z][a-zA-Z0-9]/,
-      "نام کاربری باید با حروف شروع شود و شامل حروف و اعداد می‌شود"
-    )
-    .required("نام کاربری الزامی است"),
-    phoneNumber: yup
+  firstName: yup.string().required("نام الزامی است"),
+  lastName: yup.string().required("نام خانوادگی الزامی است"),
+  phoneNumber: yup
     .string()
     .length(11, "شماره تماس باید ۱۱ عدد داشته باشد")
     .matches(
@@ -35,9 +19,25 @@ export const BmiSchema = yup.object({
       "شماره تماس را به درستی وارد کنید"
     )
     .required("شماره تماس الزامی است"),
-
+  gender: yup.string().required("جنسیت الزامی است"),
+  weight: yup
+    .number()
+    .min(30, "حداقل وزن سی میاشد")
+    .max(600, "حداکثر وزن ششصد میباشد")
+    .required("وزن الزامی است"),
+  age: yup
+    .number()
+    .min(17, "حداقل سن هفده میباشد")
+    .max(60, "حداکثر سن شصت مبیاشد")
+    .required("سن الزامی است"),
+  height: yup
+    .number()
+    .min(130, "حداقل قد صد و سی میباشد")
+    .max(300, "حذاکثر قد سیصد میباشد")
+    .required("قد الزامی است"),
 });
-const useLogin = () => {
+
+const useBmi = () => {
   const {
     control,
     handleSubmit,
@@ -47,19 +47,71 @@ const useLogin = () => {
     resolver: yupResolver(BmiSchema),
   });
 
-  if (errors.firstName) {
-    console.log("error");
-    toast.error(errors.firstName.message);
-  }
-  if (!errors.firstName && errors.lastName) {
-    console.log("error");
-    toast.error(errors.lastName.message);
-  }
+  const showsErrors = () => {
+    if (errors.firstName?.message) {
+      console.log("error");
+      toast.error(errors.firstName.message);
+    }
+    if (!errors.firstName && errors.lastName) {
+      console.log("error");
+      toast.error(errors.lastName.message);
+    }
+    if (!errors.lastName && !errors.firstName && errors.phoneNumber) {
+      console.log("error");
+      toast.error(errors.phoneNumber.message);
+    }
+    if (
+      !errors.lastName &&
+      !errors.firstName &&
+      !errors.phoneNumber &&
+      errors.gender
+    ) {
+      console.log("error");
+      toast.error(errors.gender.message);
+    }
+    if (
+      !errors.lastName &&
+      !errors.firstName &&
+      !errors.phoneNumber &&
+      !errors.gender &&
+      errors.weight
+    ) {
+      console.log("error");
+      toast.error(errors.weight.message);
+    }
+    if (
+      !errors.lastName &&
+      !errors.firstName &&
+      !errors.phoneNumber &&
+      !errors.gender &&
+      !errors.weight &&
+      errors.age
+    ) {
+      console.log("error");
+      toast.error(errors.age.message);
+    }
+    if (
+      !errors.lastName &&
+      !errors.firstName &&
+      !errors.phoneNumber &&
+      !errors.gender &&
+      !errors.weight &&
+      !errors.age &&
+      errors.height
+    ) {
+      console.log("error");
+      toast.error(errors.height.message);
+    }
+  };
+
+  showsErrors();
+
+  console.log(errors.firstName?.message);
 
   const { push } = useRouter();
   const handelValueInputs = useCallback((data: BmiDataType) => {
     console.log(data);
-    push("/");
+    // push("/");
     toast.success("خوش آمدید");
   }, []);
 
@@ -72,4 +124,4 @@ const useLogin = () => {
   };
 };
 
-export default useLogin;
+export default useBmi;

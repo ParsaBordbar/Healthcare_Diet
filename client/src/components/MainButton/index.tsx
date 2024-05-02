@@ -35,7 +35,7 @@ const MainButton = (props: TButton) => {
       } text-center rounded-lg`}
     >
       {checkIcon()}
-      <span className=" font-medium sm:text-base text-xs md:text-xl md:font-semibold">{props.value}</span>
+      <span className=" font-medium text-base md:text-xl md:font-semibold">{props.value}</span>
     </button>
   );
 };
