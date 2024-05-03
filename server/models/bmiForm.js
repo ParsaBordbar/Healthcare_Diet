@@ -19,7 +19,7 @@ const BmiForm = mongoose.model("Bmi_form", new mongoose.Schema({
     },
     gender: {
         type: String,
-        enum: "male" || "female"
+        enum: ['male', 'female']
     },
     age: {
         type: Number,
