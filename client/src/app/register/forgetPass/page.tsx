@@ -1,7 +1,7 @@
 "use client";
 import MainButton from "@/components/MainButton";
 import MainInput from "@/components/MainInput";
-import Email from "/public/svgs/Email.svg";
+// import Email from "/public/svg/Email.svg";
 
 const ForgetPasswordPage = () => {
   return (
@@ -18,7 +18,7 @@ const ForgetPasswordPage = () => {
             <MainInput
               label="ایمیل"
               placeholder="abc@gmail.com"
-              iconFirst={Email}
+              // iconFirst={Email}
             />
             <section className="flex w-full flex-col gap-1 justify-center">
               <MainButton

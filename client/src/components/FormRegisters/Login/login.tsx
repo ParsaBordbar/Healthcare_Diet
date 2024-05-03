@@ -2,7 +2,7 @@
 import { LoginFormType } from "@/types";
 import MainButton from "../../MainButton";
 import MainInput from "../../MainInput";
-import Email from "/public/svgs/Email.svg";
+import Email from "/public/svg/email.svg";
 import { useCallback } from "react";
 
 const FormLogin = ({ type }: LoginFormType) => {

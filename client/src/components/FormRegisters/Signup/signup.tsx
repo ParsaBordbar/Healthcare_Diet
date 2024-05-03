@@ -1,10 +1,10 @@
 "use client";
 import MainButton from "../../MainButton";
 import MainInput from "../../MainInput";
-import User from "/public/svgs/User.svg";
-import Phone from "/public/svgs/Phone.svg";
-import CloseEye from "/public/svgs/eye-slash.svg";
-import Email from "/public/svgs/Email.svg";
+import User from "/public/svg/User.svg";
+import Phone from "/public/svg/Phone.svg";
+import CloseEye from "/public/svg/eye-slash.svg";
+import Email from "/public/svg/email.svg";
 const FormSignUp = () => {
   return (
     <form action="" className="flex w-full gap-10 flex-col justify-center">
