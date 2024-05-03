@@ -20,7 +20,7 @@ const Hero = () => {
                 <p className="flex justify-center items-center sm:ps-14 ps-6 pe-2 md:ps-0">
                 برنامه شخصی سازشده خود را دریافت کنید،متخصصین ما در هر مرحله با شما!
                 </p>
-                <Link href={'register/signUp'}>
+                <Link href={'register/signup'}>
                   <MainButton
                     standard
                     className="text-2xl px-20 py-3"

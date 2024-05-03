@@ -1,8 +1,6 @@
 // "use client";
 import { ReactNode } from "react";
-import Logo from "/public/svg/Logo.svg";
-import ListItems from "@/components/ListItems";
-import LoginBanner from "/public/svgs/loginBanner.svg";
+import LoginBanner from "/public/svg/loginBanner.svg";
 import Navbar from "@/components/landingPage_components/Navbar";
 
 const LayoutRegister = ({ children }: { children: ReactNode }) => {
@@ -14,9 +12,9 @@ const LayoutRegister = ({ children }: { children: ReactNode }) => {
         <Navbar />
       </header>
       <main className="flex !bg-cover md:!bg-contain bg-no-repeat !bg-none lg:!bg-[url('/svgs/loginBanner.svg')] h-screen items-center w-full justify-center lg:justify-end">
-        {/* <div className="absolute -z-20 left-0  h-screen bottom-0 top-0">
+        <div className="absolute -z-20 left-0  h-screen bottom-0 top-0">
           <LoginBanner className="bg-repeat-y" />
-        </div> */}
+        </div>
         {children}
       </main>
     </div>

@@ -1,8 +1,8 @@
 import SocialBox from "@/components/socialBox";
-import Google from "/public/svgs/Google.svg";
-import Facebook from "/public/svgs/Facebook.svg";
-import Whatsapp from "/public/svgs/Whatsapp.svg";
-import Insta from "/public/svgs/Insta.svg";
+import Google from "/public/svg/Google.svg";
+import Facebook from "/public/svg/Facebook.svg";
+import Whatsapp from "/public/svg/Whatsapp.svg";
+import Insta from "/public/svg/Insta.svg";
 
 const Social = () => {
   return (
