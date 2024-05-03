@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --box-bg: rgb(242, 255, 245);
+  --text: rgb(97, 97, 97);
+  --text-important: rgb(220, 47, 57);
+  --tittle-box: rgb(50, 121, 79);
+  --logo-bg: rgb(242, 255, 245);
+  --hero-btn: rgb(190, 235, 194);
+  --primary: rgb(238, 252, 241);
+  --secondry-color: rgba(221, 247, 227, 0.3);
+  --border-color: rgba(224, 224, 224, 1);
+  --rating-color: rgb(50, 121, 79);
+  --bg-footer-color: rgb(190, 235, 194);
+  --upgrade-box: rgb(221, 247, 227);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p {
+  color: var(--black);
+}
+
+body {
+  color: var;
+  background: var(--back-ground-white);
+  direction: rtl;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.shadow-button-orange {
+  box-shadow: 0px 4px 10px 0px rgba(255, 164, 90, 0.4);
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(255, 164, 90, 0.4);
+  -moz-box-shadow: 0px 4px 10px 0px rgba(255, 164, 90, 0.4);
+}
+
+.shadow-button-green {
+  box-shadow: 0px 4px 10px 0px rgba(3, 128, 98, 0.4);
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(3, 128, 98, 0.4);
+  -moz-box-shadow: 0px 4px 10px 0px rgba(3, 128, 98, 0.4);
+}
+
+.gradient-third-green {
+  background: rgba(50, 121, 79, 1);
+  background: linear-gradient(
+    0deg,
+    rgba(50, 121, 79, 0.5),
+    rgba(50, 121, 79, 1)
+  );
+}
+
+.slick-track {
+  width: 100% !important;
+  gap: 24px;
+  display: flex;
+}
+
+.swiper-wrapper {
+  justify-content: space-evenly;
+  gap: 16px !important;
+}
+
+.slick-dots {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper {
+  width: -webkit-fill-available !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+
+.swiper-pagination {
+  display: none;
+}
+
+/*remove arrows in input by type number*/
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number']{
+  -moz-appearance: textfield;
+}
