@@ -1,13 +1,24 @@
 module.exports = {
-    apps: [
-      {
-        name: 'next-app',
-        script: 'npm',
-        args: 'start',
-        env: {
-          PORT: 7001, // replace with your desired port
-        },
+  apps: [
+    {
+      name: 'next-app',
+      cwd: './client',
+      script: 'npm',
+      args: 'run start',
+      env: {
+        NODE_ENV: 'production',
+        // Add other environment variables as needed
       },
-    ],
-  };
-  
+    },
+    {
+      name: 'express-app',
+      cwd: './server',
+      script: 'npm',
+      args: 'run start',
+      env: {
+        NODE_ENV: 'production',
+        // Add other environment variables as needed
+      },
+    },
+  ],
+};
