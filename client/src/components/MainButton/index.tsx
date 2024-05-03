@@ -12,6 +12,7 @@ type TButton = ButtonHTMLAttributes<HTMLButtonElement> & {
   standard?: boolean;
   simple?: boolean;
   trasparent?: boolean;
+  url?: string,
   gradient?:boolean
 };
 
@@ -21,7 +22,7 @@ const MainButton = (props: TButton) => {
       return "bg-gradient-to-t to-[var(--hero-btn)] from-[var(--logo-bg)] shadow-lg bg-[var(--hero-btn)]";
     } else if (props.trasparent) {
       return " border  border-[var(--tittle-box)]";
-    }else if(props.gradient){
+    } else if(props.gradient){
       return "gradient-third-green";
     }
   }, []);
