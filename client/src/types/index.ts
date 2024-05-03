@@ -28,3 +28,26 @@ export type BmiDataType = BmiLandingDataType & {
   gender: string;
   age: number;
 };
+
+export type SignUpDataType = {
+  username: string;
+  password: string;
+  phoneNumber: string;
+  email: string;
+};
+
+export type LoginDataType = {
+  phoneNumber: string;
+};
+
+export type IdentifyUserType = {
+  codeOne: string;
+  codeTwo: string;
+  codeThree: string;
+  codeFour: string;
+  codeFive: string;
+};
+
+export type LoginFormType = {
+  type?: string;
+};
