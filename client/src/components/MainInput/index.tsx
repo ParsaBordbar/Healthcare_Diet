@@ -28,9 +28,9 @@ const MainInput = forwardRef<
       return (
         <div onClick={() => setShowPassword(!showPassword)}>
           {showPassword ? (
-            <img src="/public/svg/eye-slash.svg" alt="Close Eye" className="opacity-50" />
+            <img src="/svg/eye-slash.svg" alt="Close Eye" className="opacity-50" />
           ) : (
-            <img src="/public/svg/eye.svg" alt="Open Eye" className="opacity-50" />
+            <img src="/svg/eye.svg" alt="Open Eye" className="opacity-50" />
           )}
         </div>
       );
