@@ -51,3 +51,8 @@ export type IdentifyUserType = {
 export type LoginFormType = {
   type?: string;
 };
+
+export type AdminDataType = {
+  username:string
+  password:string
+}
