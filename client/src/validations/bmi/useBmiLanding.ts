@@ -1,4 +1,5 @@
 // import { useMyContext } from "@/hooks/useContext/Context";
+import { useMyContext } from "@/hooks/useContext/Context";
 import { BmiLandingDataType } from "@/types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
@@ -56,10 +57,10 @@ const useBmiLanding = () => {
   showsErrors();
 
   const { push } = useRouter();
-  // const { setBmi } = useMyContext();
+  const { setBmi } = useMyContext();
   const handelValueInputs = useCallback((data: BmiLandingDataType) => {
     console.log(data);
-    // setBmi(data);
+    setBmi(data);
     push("/register/diets-bmi");
     toast.success("خوش آمدید");
   }, []);

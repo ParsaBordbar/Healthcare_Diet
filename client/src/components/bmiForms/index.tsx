@@ -4,7 +4,7 @@ import MainButton from "../MainButton";
 import MainInput from "../MainInput";
 import { Controller } from "react-hook-form";
 import { useContext, useEffect, useRef } from "react";
-// import { AllContextType, useMyContext } from "@/hooks/useContext/Context";
+import { AllContextType, useMyContext } from "@/hooks/useContext/Context";
 
 const BmiFormDiet = () => {
   // const { Bmi, setBmi } = useMyContext();
@@ -19,6 +19,7 @@ const BmiFormDiet = () => {
   const weightRef = useRef<HTMLInputElement | null>(null);
   const genderRef = useRef<HTMLSelectElement | null>(null);
 
+  // console.log(phoneNumberRef.current?.value, "value of phone number field");
 
   const inputRefs = [
     firstNameRef,
@@ -31,7 +32,7 @@ const BmiFormDiet = () => {
   ];
 
   useEffect(() => {
-    console.log(firstNameRef);
+    // console.log(errors, !Bmi, Bmi);
     if (errors.firstName) {
       firstNameRef.current?.focus();
     } else if (errors.lastName) {
@@ -62,6 +63,41 @@ const BmiFormDiet = () => {
       }
     }
   };
+  // useEffect(() => {
+  //   console.log(
+  //     Bmi.phoneNumber,
+  //     !!phoneNumberRef.current?.value,
+  //     phoneNumberRef.current?.value
+  //   );
+  //   if (Bmi.phoneNumber) {
+  //     const updatedObject = {
+  //       ...Bmi,
+  //       phoneNumber: phoneNumberRef.current?.value,
+  //     };
+
+  //     setBmi(updatedObject);
+  //   }
+  //   if (Bmi.weight) {
+  //     const updatedObject = {
+  //       ...Bmi,
+  //       weight: weightRef.current?.value,
+  //     };
+
+  //     setBmi(updatedObject);
+  //   }
+  //   if (Bmi.height) {
+  //     const updatedObject = {
+  //       ...Bmi,
+  //       height: heightRef.current?.value,
+  //     };
+
+  //     setBmi(updatedObject);
+  //   }
+  // }, [
+  //   phoneNumberRef.current?.value,
+  //   weightRef.current?.value,
+  //   heightRef.current?.value,
+  // ]);
 
   return (
     <form
@@ -110,12 +146,19 @@ const BmiFormDiet = () => {
           render={({ field }) => (
             <MainInput
               {...field}
+              // value={Bmi ? Bmi.phoneNumber : phoneNumberRef.current?.value}
               error={!!errors.phoneNumber}
               ref={phoneNumberRef}
-              // onChange={() => {
-                // setBmi(phoneNumberRef.current?.value);
+              // onChangeCapture={() => {
+              //   if (Bmi) {
+              //     const updatedObject = {
+              //       ...Bmi,
+              //       phoneNumber: phoneNumberRef.current?.value,
+              //     };
+
+              //     setBmi(updatedObject);
+              //   }
               // }}
-              // value={Bmi.phoneNumber}
               parentClassName="col-span-2 lg:col-span-4"
               label="شماره تماس"
               placeholder="شماره تماس خود را وارد کنید"
@@ -161,14 +204,21 @@ const BmiFormDiet = () => {
           render={({ field }) => (
             <MainInput
               {...field}
+              // value={Bmi ? Bmi.weight : weightRef.current?.value}
               error={!!errors.weight}
-              ref={weightRef}
-              // onChange={() => {
-                // setBmi(weightRef.current?.value);
+              // onChangeCapture={() => {
+              //   if (Bmi) {
+              //     const updatedObject = {
+              //       ...Bmi,
+              //       weight: weightRef.current?.value,
+              //     };
+
+              //     setBmi(updatedObject);
+              //   }
               // }}
-              // value={Bmi.weight ? Bmi.weight : weightRef.current?.value}
               type="number"
               label="وزن"
+              ref={weightRef}
               parentClassName="col-span-2"
               placeholder="(kg) وزن خود را وارد کنید"
             />
@@ -198,11 +248,18 @@ const BmiFormDiet = () => {
             <MainInput
               {...field}
               type="number"
-              // onChange={() => {
-                // setBmi(heightRef.current?.value);
-              // }}
-              // value={Bmi.height ? Bmi.height : heightRef.current?.value}
+              // value={Bmi ? Bmi.height : heightRef.current?.value}
               error={!!errors.height}
+              // onChangeCapture={() => {
+              //   if (Bmi) {
+              //     const updatedObject = {
+              //       ...Bmi,
+              //       height: heightRef.current?.value,
+              //     };
+
+              //     setBmi(updatedObject);
+              //   }
+              // }}
               ref={heightRef}
               label="قد"
               parentClassName="col-span-2"

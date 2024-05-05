@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { BmiDataType } from "@/types";
-// import { useMyContext } from "@/hooks/useContext/Context";
+import { useMyContext } from "@/hooks/useContext/Context";
 
 export const BmiSchema = yup.object({
   firstName: yup.string().required("نام الزامی است"),
@@ -51,6 +51,7 @@ const useBmi = () => {
   // const { Bmi, setBmi } = useMyContext();
 
   const showsErrors = () => {
+    //Bmi.phoneNumber ? !Bmi.phoneNumber : !!errors.phoneNumber
     if (errors.firstName?.message) {
       console.log("error");
       toast.error(errors.firstName.message);
@@ -59,11 +60,7 @@ const useBmi = () => {
       console.log("error");
       toast.error(errors.lastName.message);
     }
-    if (
-      !errors.lastName &&
-      !errors.firstName &&
-      errors.phoneNumber
-    ) {
+    if (!errors.lastName && !errors.firstName && errors.phoneNumber) {
       console.log("error");
       toast.error(errors.phoneNumber.message);
     }
