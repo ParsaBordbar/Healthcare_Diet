@@ -17,7 +17,7 @@ router.get('/:id', async(req, res) => {
 })
 
 //This will check for the Users phoneNumber from the frontEnd, and Gives back a Response
-router.post('/', async(req, res)=>{
+router.get('/', async(req, res)=>{
     const response = await BmiForm.findOne({phoneNumber:req.body.phoneNumber}, (err, result)=> {
         if(err){
             throw err 
@@ -50,6 +50,22 @@ router.post('/' ,async(req, res) => {
     res.send(form);
 })
 
+let form = new BmiForm({
+    name: "John",
+    lastName: "Doe",
+    phoneNumber: "+1234567890",
+    gender: "male",
+    age: 30,
+    height: 1.75,
+    wight: 70,
+    bmi: (70 / (1.75 * 1.75)).toFixed(4),
+});
+
+form.save()
+    .then(doc => console.log('Document saved', doc))
+    .catch(err => console.error('Error saving document', err));
+
+
 router.put('/:id', async(req, res) => {
     const bmiForm = await BmiForm.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
@@ -69,5 +85,4 @@ router.delete('/:id',async(req, res) => {
     const bmiForm = await BmiForm.findByIdAndDelete(req.params.id)
     res.send(bmiForm);
 })
-
 module.exports = router;
