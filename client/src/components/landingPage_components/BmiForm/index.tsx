@@ -6,11 +6,25 @@ import { useRef, useEffect } from "react";
 import { Controller } from "react-hook-form";
 
 const BmiForm = () => {
+  const { control, errors, handelValueInputs, handleSubmit, register } =
+    useBmiLanding();
+
   const phoneNumberRef = useRef<HTMLInputElement | null>(null);
   const heightRef = useRef<HTMLInputElement | null>(null);
   const weightRef = useRef<HTMLInputElement | null>(null);
 
   const inputRefs = [weightRef, heightRef, phoneNumberRef];
+
+  useEffect(() => {
+    console.log(errors);
+    if (errors.weight) {
+      weightRef.current?.focus();
+    } else if (errors.height) {
+      heightRef.current?.focus();
+    } else if (errors.phoneNumber) {
+      phoneNumberRef.current?.focus();
+    }
+  }, [errors]);
 
   const handleEnter = (event: React.KeyboardEvent<HTMLFormElement>) => {
     if (event.key === "Enter") {
@@ -25,9 +39,6 @@ const BmiForm = () => {
       }
     }
   };
-
-  const { control, errors, handelValueInputs, handleSubmit, register } =
-    useBmiLanding();
 
   return (
     <div className="flex justify-center items-center flex-col bg-[var(--primary)] rounded-2xl my-12 px-10">
@@ -90,6 +101,7 @@ const BmiForm = () => {
             )}
           />
           <MainButton
+            type="submit"
             className="w-full my-10 py-3 !text-white bg-[var(--rating-color)] font-bold text-2xl"
             value={"امروز شروع کنید"}
           />
