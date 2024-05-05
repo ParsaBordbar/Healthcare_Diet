@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/bmi', bmi);
 
-mongoose.connect('mongodb://localhost/healthcareDiet')
+mongoose.connect('mongodb://0.0.0.0/healthcareDiet')
     .then(() => console.log("Connected to Mongodb :)"))
     .catch(() => (console.error("Could not connect to Mongodb.")));
 

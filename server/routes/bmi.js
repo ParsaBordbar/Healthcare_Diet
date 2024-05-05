@@ -50,22 +50,6 @@ router.post('/' ,async(req, res) => {
     res.send(form);
 })
 
-let form = new BmiForm({
-    name: "John",
-    lastName: "Doe",
-    phoneNumber: "+1234567890",
-    gender: "male",
-    age: 30,
-    height: 1.75,
-    wight: 70,
-    bmi: (70 / (1.75 * 1.75)).toFixed(4),
-});
-
-form.save()
-    .then(doc => console.log('Document saved', doc))
-    .catch(err => console.error('Error saving document', err));
-
-
 router.put('/:id', async(req, res) => {
     const bmiForm = await BmiForm.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
