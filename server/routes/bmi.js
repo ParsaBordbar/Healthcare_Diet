@@ -25,6 +25,7 @@ router.post('/', async(req, res)=>{
         } 
         if(result){
             res.status(200).send("Yup we have it!")
+            console.log(response);
         }
     }) 
 })
