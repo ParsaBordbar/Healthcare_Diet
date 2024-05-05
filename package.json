@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@hookform/resolvers": "^3.3.4"
+    "@hookform/resolvers": "^3.3.4",
+    "dotenv": "^16.4.5"
   }
 }

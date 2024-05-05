@@ -3,12 +3,13 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
 const bmi = require('./routes/bmi')
+require('dotenv').config();
 
 app.use(cors());
 app.use(express.json());
 app.use('/api/bmi', bmi);
 
-mongoose.connect('mongodb://0.0.0.0/healthcareDiet')
+mongoose.connect(process.env.DB_CONNECTION_STRING)
     .then(() => console.log("Connected to Mongodb :)"))
     .catch(() => (console.error("Could not connect to Mongodb.")));
 
