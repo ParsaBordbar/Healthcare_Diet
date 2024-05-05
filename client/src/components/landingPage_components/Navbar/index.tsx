@@ -22,10 +22,10 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="lg:flex hidden flex-row gap-12 justify-center items-center">
-        <Link href={'/register/signup'}>        
+        <Link href={"/register/login/enterNumber"}>
           <MainButton trasparent className="py-2 px-5 " value={"ثبت نام"} />
         </Link>
-        <Link href={'/register/login/enterNumber'}>
+        <Link href={"/register/login/enterNumber"}>
           <MainButton simple value={"ورود"} />
         </Link>
       </div>
