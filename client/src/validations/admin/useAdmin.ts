@@ -53,8 +53,10 @@ const useAdmin = () => {
   const { push } = useRouter();
   const handelValueInputs = useCallback((data: AdminDataType) => {
     console.log(data);
-    push("/admin/panel");
-    toast.success("خوش آمدید");
+    if (data.username == "admin" && data.password == "admin") {
+      push("/admin/panel");
+      toast.success("خوش آمدید");
+    }
   }, []);
 
   return {

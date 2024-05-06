@@ -36,6 +36,10 @@ router.post('/' ,async(req, res) => {
     if(error){
         return res.status(400).send(error.details[0].message)
     }
+    //This Checks if the number is already in db or not
+    let phoneNumberCheck = await BmiForm.findOne({ phoneNumber:req.body.phoneNumber });
+    if (phoneNumberCheck) return res.status(400).send("such phone number is already registered.")
+
     let form = new BmiForm({
         name: req.body.name,
         lastName: req.body.lastName,

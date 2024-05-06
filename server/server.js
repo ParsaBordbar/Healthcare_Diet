@@ -17,7 +17,5 @@ app.get('/', async( req, res) => {
     res.send("This is the BackEnd of the Diet Project")
 })
 
-
-
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Listening on ${port}`));

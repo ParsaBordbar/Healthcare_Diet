@@ -16,6 +16,7 @@ const BmiForm = mongoose.model("Bmi_form", new mongoose.Schema({
         type: String,
         required: true,
         maxlength: 11,
+        unique: true,    
     },
     gender: {
         type: String,
