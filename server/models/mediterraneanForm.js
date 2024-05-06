@@ -73,7 +73,7 @@ const mediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     },
     supplements: { //This is a multi select 
         required: true,
-
+        selected: [String]
     },
     physicalActivity: {
         required: true,
@@ -82,6 +82,95 @@ const mediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     diabetes: {
         required: true,
         enum: ['۱دیابت', 'دیابت۲','دیابت بارداری']  
-    }
+    },
+    anemia: {
+        required: true,
+        enum: ['فقر آهن', 'مینتور']
+    },
+    bloodPressure: {
+        required: true,
+        enum: ['بالا بودن فشار خون', 'پایین بودن فشارخون']
+    },
+    digestiveProblems: {
+        required: true,
+        enum: ['ریفلاکس', 'نفخ', 'یبوست']
+    },
+    selfSafety: { //This is a multi select 
+        required: true,
+        selected: [String]
+    },
+    stroke: {
+        required: true,
+        enum: ['سکته قلبی', 'سکته مغزی']
+    },
+    fattyLiver: {
+        required: true,
+        enum: ['گرید۱', 'گرید۲', 'گرید۳']
+    },
+    kidneyProblems: {
+        required: true,
+        enum: ['سنگ کلیه', 'نارسایی کلیه', 'عفونت مجاری ادرار']
+    },
+    thyroid: {
+        required: true, 
+        enum: ['کم کار', 'پرکار', 'گره و التهاب تیروئید']
+    },
+    cancer: {
+        type: Boolean
+    },
+    Migraine: {
+        type: Boolean
+    },
+    otherSickness: {
+        type: String
+    },
+    medicine: {
+        type: String
+    },
+    phoneNumber: {
+        type: String,
+        required: true,
+        maxlength: 11,   
+    },
 }))
+
+// const validateMediterranean = (mediterraneanForm) => {
+//     const schema = Joi.object({
+//         dailyFruit : Joi.string().required(),
+//         dailyVegetable : ,
+//         vegetables : ,
+//         Cereals: ,
+//         dailyCereals: ,
+//         potatoAndStarchWeekly:,
+//         oliveAndOliveOilDaily: ,
+//         nutsDaily: ,
+//         dairyDaily: ,
+//         beans: ,
+//         eggWeekly: ,
+//         fishWeekly: ,
+//         chickensWeekly: ,
+//         chickensWeekly: ,
+//         sugarWeekly: ,
+//         alcoholWeekly: ,
+//         fermentationWeekly: ,
+//         supplements: ,
+//         physicalActivity:,
+//         diabetes: ,
+//         anemia: ,
+//         bloodPressure: ,
+//         digestiveProblems: ,
+//         selfSafety: ,
+//         stroke: ,
+//         fattyLiver: ,
+//         kidneyProblems: ,
+//         thyroid: ,
+//         cancer: ,
+//         Migraine: ,
+//         otherSickness: ,
+//         medicine: ,
+//         phoneNumber: ,
+//     })
+// }
+
+
 module.exports = mediterraneanForm;
