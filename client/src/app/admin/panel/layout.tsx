@@ -7,21 +7,28 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <div className="relative flex w-full top-0 z-40">
-        <div className="bg-[var(--rating-color)] gap-16 flex flex-col h-screen w-1/6 p-4 ">
-          <div className="flex items-center p-2 rounded-lg justify-around ">
-            <img
+        <div className="bg-[var(--rating-color)] gap-16 flex flex-col h-screen w-1/6 py-4 ">
+          <div className="flex items-center py-2 rounded-lg justify-around ">
+            {/* <img
               className="w-16 h-16 border border-white rounded-full p-1"
               src="/svg/User.svg"
               alt="admin-profile"
-            />
-            <h1 className="text-white">name of the admin</h1>
+            /> */}
+            <h1 className="text-white text-2xl font-semibold">نام دکتر</h1>
           </div>
-          <ul className=" rounded-lg h-screen p-4">
-            <Link href={'/admin/panel/diets'}>
-            <ul className="hover:text-[var(--rating-color)] text-lg cursor-pointer hover:text-black text-white hover:bg-zinc-100 ease-in-out transition-all duration-150 p-2 rounded-md">
-              رژیم ها
-            </ul>
-            </Link>
+          <ul className="flex flex-col rounded-lg h-screen py-4 ps-4 gap-4 ">
+          <li className="hover:text-[var(--rating-color)] text-lg cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-2 rounded-s-md">
+                  <Link href={"/admin/panel/"}> پنل کاربری</Link>                
+            </li>
+            <li className="hover:text-[var(--rating-color)] text-lg cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-2 rounded-s-md">
+                  <Link href={"/admin/panel/patients/"}> بیمارها</Link>                
+            </li>
+            <li className="hover:text-[var(--rating-color)] text-lg cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-2 rounded-s-md">
+                  <Link href={"/admin/panel/bmi/"}> فرم‌های BMI</Link>                
+            </li>
+            <li className="hover:text-[var(--rating-color)] text-lg cursor-pointer hover:text-black text-white hover:bg-zinc-100 hover:bg-full ease-in-out transition-all duration-150 p-2 rounded-s-md">
+                  <Link href={"/admin/panel/mediterranean/"}> فرم‌های رژیم مدیترانه‌ای </Link>                
+            </li>
           </ul>
         </div>
         <main className="w-5/6 p-28 bg-white">
