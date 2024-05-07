@@ -62,4 +62,9 @@ router.post('/', async(req, res) => {
     res.send(mediterraneanForm);
 })
 
+router.delete('/:id', async(req, res) => {
+    const mediterraneanForm = await MediterraneanForm.findByIdAndDelete(req.params.id);
+    res.send(mediterraneanForm);
+})
+
 module.exports = router;
