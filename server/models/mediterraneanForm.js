@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Joi = require('joi');
 
 const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     dailyFruit : {
@@ -26,13 +27,13 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
         required: true,
         enum: ['۱-۲ بار', '۲-۳ بار','۳-۴ بار', 'هیچ']
     },
-    potatoAndStarchWeek: {
+    potatoAndStarchWeekly: {
         type: String,
         required: true,
         enum: ['۱-۲ بار', '۲-۳ بار', 'هر روز' , 'هیچ']
     }
     ,
-    oliveAndOliveOilDai: {
+    oliveAndOliveOilDaily: {
         type: String,
         required: true,
         enum: ['۱ واحد', '۲ واحد','۳ واحد یا بیشتر ', 'هیچ']    
@@ -61,11 +62,6 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
         type: String,
         required: true,
         enum: ['۱ بار', '۲ بار','۳ بار', 'هیچ']  
-    },
-    chickensWeekly: {
-        type: String,
-        required: true,
-        enum: ['۱-۲ بار','۳-۴ بار', 'هر روز', 'هیچ']  
     },
     chickensWeekly: {
         type: String,
@@ -162,4 +158,45 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     },
 }))
 
+
+const validateMediterranean = (mediterraneanForm) => {
+    const schema = Joi.object({
+        dailyFruit : Joi.string().required(),
+        dailyVegetable : Joi.string().required(),
+        vegetables : Joi.string().required() ,
+        Cereals: Joi.string().required() ,
+        dailyCereals: Joi.string().required() ,
+        potatoAndStarchWeekly: Joi.string().required(),
+        oliveAndOliveOilDaily: Joi.string().required() ,
+        nutsDaily: Joi.string().required() ,
+        dairyDaily: Joi.string().required() ,
+        beans: Joi.string().required() ,
+        eggWeekly: Joi.string().required() ,
+        fishWeekly: Joi.string().required() ,
+        chickensWeekly: Joi.string().required() ,
+        sugarWeekly: Joi.string().required() ,
+        alcoholWeekly: Joi.string().required() ,
+        fermentationWeekly: Joi.string().required() ,
+        supplements: Joi.string().required() ,
+        physicalActivity: Joi.string().required(),
+        diabetes: Joi.string().required() ,
+        anemia: Joi.string().required() ,
+        bloodPressure: Joi.string().required() ,
+        digestiveProblems: Joi.string().required() ,
+        selfSafety: Joi.string().required() ,
+        stroke: Joi.string().required() ,
+        fattyLiver: Joi.string().required() ,
+        kidneyProblems: Joi.string().required() ,
+        thyroid: Joi.string().required() ,
+        cancer: Joi.boolean().required() ,
+        Migraine: Joi.boolean().required() ,
+        otherSickness: Joi.string().required() ,
+        medicine: Joi.string().required() ,
+        phoneNumber: Joi.string().required() ,
+    })
+    return schema.validate(mediterraneanForm);
+}
+
+
 exports.MediterraneanForm = MediterraneanForm;
+exports.validateMediterranean = validateMediterranean
