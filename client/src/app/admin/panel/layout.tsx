@@ -6,7 +6,7 @@ import Link from "next/link";
 const LayoutAdmin = ({ children }: { children: ReactNode }) => {
   return (
     <>
-      <div className="relative flex w-full top-0 z-40">
+      <div className="sticky flex w-full top-0 z-40 h-svh">
         <div className="bg-[var(--rating-color)] gap-16 flex flex-col h-screen w-1/6 py-4 ">
           <div className="flex items-center py-2 rounded-lg justify-around ">
             {/* <img
