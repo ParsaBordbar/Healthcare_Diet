@@ -2,7 +2,6 @@ import { InputHTMLAttributes } from "react";
 import { Formik, Field, Form } from "formik";
 
 export type TGroupRadio = InputHTMLAttributes<HTMLInputElement> & {
-  title?: string;
   value: string;
   header: Boolean;
 };
