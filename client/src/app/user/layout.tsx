@@ -6,8 +6,8 @@ import Link from "next/link";
 const LayoutUser = ({ children }: { children: ReactNode }) => {
   return (
     <>
-      <div className="relative flex w-full top-0 z-40">
-        <div className="bg-[var(--rating-color)] gap-16 flex flex-col h-screen w-1/6 p-4 ">
+      <div className="sticky flex w-full top-0 z-40">
+        <div className="bg-[var(--rating-color)] gap-16 flex flex-col w-1/6 p-4">
           <div className="flex items-center p-2 rounded-lg justify-around ">
             <img
               className="w-16 h-16 border border-white rounded-full p-1"
