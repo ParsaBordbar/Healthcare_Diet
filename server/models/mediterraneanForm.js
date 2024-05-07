@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-const Joi = require('joi');
 
-const mediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
+const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     dailyFruit : {
         required: true,
         enum: ['۱-۲ واحد', '۲-۳ واحد','۳-۴ واحد', 'هیچ'],
@@ -134,43 +133,4 @@ const mediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     },
 }))
 
-// const validateMediterranean = (mediterraneanForm) => {
-//     const schema = Joi.object({
-//         dailyFruit : Joi.string().required(),
-//         dailyVegetable : ,
-//         vegetables : ,
-//         Cereals: ,
-//         dailyCereals: ,
-//         potatoAndStarchWeekly:,
-//         oliveAndOliveOilDaily: ,
-//         nutsDaily: ,
-//         dairyDaily: ,
-//         beans: ,
-//         eggWeekly: ,
-//         fishWeekly: ,
-//         chickensWeekly: ,
-//         chickensWeekly: ,
-//         sugarWeekly: ,
-//         alcoholWeekly: ,
-//         fermentationWeekly: ,
-//         supplements: ,
-//         physicalActivity:,
-//         diabetes: ,
-//         anemia: ,
-//         bloodPressure: ,
-//         digestiveProblems: ,
-//         selfSafety: ,
-//         stroke: ,
-//         fattyLiver: ,
-//         kidneyProblems: ,
-//         thyroid: ,
-//         cancer: ,
-//         Migraine: ,
-//         otherSickness: ,
-//         medicine: ,
-//         phoneNumber: ,
-//     })
-// }
-
-
-module.exports = mediterraneanForm;
+exports.MediterraneanForm = MediterraneanForm;
