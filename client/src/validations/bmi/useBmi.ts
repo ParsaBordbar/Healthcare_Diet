@@ -115,7 +115,7 @@ const useBmi = () => {
   const { push } = useRouter();
   const handelValueInputs = useCallback((data: BmiDataType) => {
     console.log(data);
-    // push("/");
+    push("/user/panel");
     toast.success("خوش آمدید");
   }, []);
 
