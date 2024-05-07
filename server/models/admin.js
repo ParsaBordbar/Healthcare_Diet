@@ -22,8 +22,12 @@ const validateAdmin = (admin) => {
         userName: Joi.string().required().messages({
             'string.empty': `نام کاربری را وارد کنید`
         }),
-        password: Joi.string().required().messages(),
-        role: Joi.string().required()
+        password: Joi.string().required().messages().messages({
+            'string.empty': `رمز عبور را وارد کنید`
+        }),
+        role: Joi.string().required().messages({
+            'string.empty': `نقش را وارد کنید`
+        })
         })
         return schema.validate(admin);
     }
