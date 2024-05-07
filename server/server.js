@@ -4,14 +4,14 @@ const mongoose = require('mongoose');
 const app = express();
 const bmi = require('./routes/bmi');
 const mediterranean = require('./routes/mediterranean');
-const admin = require('./models/admin');
+const adminLogin = require('./routes/admin');
 require('dotenv').config();
 
 app.use(cors());
 app.use(express.json());
 app.use('/api/bmi', bmi);
 app.use('/api/mediterranean', mediterranean);
-app.use('/api/admin', admin);
+app.use('/api/admin', adminLogin);
 
 
 mongoose.connect(process.env.DB_CONNECTION_STRING)
