@@ -6,7 +6,7 @@ function PatientBmiForm({name, lastName, phoneNumber, gender, age, height, wight
     <section className='flex flex-col bg-[var(--primary)] py-4 rounded-lg gap-4 shadow-md'>
         <div className='flex justify-between text-[var(--text)] my-3 items-center'>
           <h2 className='flex items-center bg-[var(--rating-color)] text-white text-3xl font-semibold rounded-e-full ps-6 pe-10 py-3'>{name}{" "}{lastName}</h2>
-          <p className='flex items-center bg-[var(--rating-color)] text-xl font-semibold w-fit text-white mx-12 p-4 rounded-full'>BMI:{" "} {bmi}</p>
+          <p className='flex items-center bg-[var(--rating-color)] text-lg font-semibold w-fit text-white mx-12 p-2.5 rounded-full'>BMI:{" "} {bmi}</p>
         </div>
         <div className='flex '>
           <div className='flex items-center flex-col gap-4 text-[var(--text)] px-10 text-lg'>
