@@ -31,7 +31,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
             </li>
           </ul>
         </div>
-        <main className="w-5/6 p-28 bg-white">
+        <main className="w-5/6 px-28 py-16 bg-white">
           <div className="">
           {children}
           </div>
