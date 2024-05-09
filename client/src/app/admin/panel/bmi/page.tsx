@@ -4,7 +4,7 @@ import useFetchBmi from '@/hooks/useFetchBmi';
 
 
 function BmiPage() {
-  const  bmiForms = useFetchBmi();    
+  const bmiForms = useFetchBmi();    
   return (
     <section>
         <h1 className='text-4xl mb-6'>فرم‌هایBMI:</h1>
