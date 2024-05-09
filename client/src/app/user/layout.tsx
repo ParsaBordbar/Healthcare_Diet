@@ -7,8 +7,8 @@ const LayoutUser = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <div className="sticky flex w-full top-0 z-40">
-        <div className="bg-[var(--rating-color)] gap-16 flex flex-col w-1/6 p-4">
-          <div className="flex items-center p-2 rounded-lg justify-around ">
+        <div className="bg-[var(--rating-color)] gap-16 flex flex-col w-1/6 ">
+          <div className="flex items-center p-4rounded-lg justify-around ">
             <img
               className="w-16 h-16 border border-white rounded-full p-1"
               src="/svg/User.svg"
@@ -16,11 +16,11 @@ const LayoutUser = ({ children }: { children: ReactNode }) => {
             />
             <h1 className="text-white">name of the user</h1>
           </div>
-          <ul className=" rounded-lg h-screen p-4">
+          <ul className=" rounded-lg h-screen pr-4">
             <Link href={"/user/panel/diets"}>
-              <ul className="hover:text-[var(--rating-color)] text-lg cursor-pointer hover:text-black text-white hover:bg-zinc-100 ease-in-out transition-all duration-150 p-2 rounded-md">
+              <li className="hover:text-[var(--rating-color)] text-lg cursor-pointer hover:text-black text-white hover:bg-zinc-100 hover:bg-full ease-in-out transition-all duration-150 p-2 rounded-s-md">
                 رژیم ها
-              </ul>
+              </li>
             </Link>
           </ul>
         </div>
