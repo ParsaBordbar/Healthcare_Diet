@@ -22,7 +22,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
             <li className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md">
                   <Link href={"/admin/panel/bmi/"}> فرم‌های BMI</Link>                
             </li>
-            <li className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-zinc-100 hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md">
+            <li className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md">
                   <Link href={"/admin/panel/mediterranean/"}> فرم‌های رژیم مدیترانه‌ای </Link>                
             </li>
           </ul>
