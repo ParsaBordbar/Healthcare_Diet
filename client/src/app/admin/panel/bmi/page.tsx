@@ -1,35 +1,10 @@
 'use client'
 import PatientBmiForm from '@/components/AdminComponents/PatientBmiForm'
-import { BmiType } from '@/types';
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import useFetchBmi from '@/hooks/useFetchBmi';
 
-const api = axios.create({
-  baseURL: 'http://localhost:8080/api'
-});
 
 function BmiPage() {
-
-  const [bmiForms, setBmiForms] = useState<BmiType[]>([]);
-  useEffect(()=>{
-      fetchBmiPatientForms()
-  }, [bmiForms])
-
-  const fetchBmiPatientForms = async () => {
-    try{
-        const response = await api.get('/bmi');
-        setBmiForms(response.data);
-    }
-    catch(err : any){
-       if (err.response){
-        console.log(err.response.data)
-       }
-       else{
-        console.log(`Error: ${err.message}`);
-       }
-    }
-}
-
+  const  bmiForms = useFetchBmi();    
   return (
     <section>
         <h1 className='text-4xl mb-6'>فرم‌هایBMI:</h1>

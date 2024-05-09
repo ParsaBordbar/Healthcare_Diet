@@ -65,9 +65,13 @@ export interface BmiType {
     name: string,
     lastName: string,
     phoneNumber: string,
-    gender: string,
-    age: string,
-    height: string,
-    wight: string,
+    gender?: string,
+    age?: string,
+    height?: string,
+    wight?: string,
     bmi: string,
+}
+
+export type WelcomeBoxType ={
+  doctorName: string
 }
