@@ -6,7 +6,7 @@ import Link from "next/link";
 const LayoutAdmin = ({ children }: { children: ReactNode }) => {
   return (
     <>
-      <div className="sticky flex w-full top-0 z-40 h-svh">
+      <div className="sticky flex w-full top-0 z-40">
         <div className="bg-[var(--rating-color)] gap-16 flex flex-col h-screen w-1/6 py-4 ">
           <div className="flex items-center py-2 rounded-lg justify-around ">
            
@@ -22,7 +22,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
             <li className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md">
                   <Link href={"/admin/panel/bmi/"}> فرم‌های BMI</Link>                
             </li>
-            <li className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md">
+            <li className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md">
                   <Link href={"/admin/panel/mediterranean/"}> فرم‌های رژیم مدیترانه‌ای </Link>                
             </li>
           </ul>
