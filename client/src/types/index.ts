@@ -75,3 +75,38 @@ export interface BmiType {
 export type WelcomeBoxType ={
   doctorName: string
 }
+
+export interface MediterraneanFormType{
+  dailyFruit ?: String,
+  dailyVegetable ?: String,
+  Cereals?: String ,
+  dailyCereals?: String ,
+  potatoAndStarchWeekly?: String,
+  oliveAndOliveOilDaily?: String ,
+  nutsDaily?: String ,
+  dairyDaily?: String ,
+  beans?: String ,
+  eggWeekly?: String ,
+  fishWeekly?: String ,
+  chickensWeekly?: String ,
+  redMeatWeekly?: String,
+  sugarWeekly?: String ,
+  alcoholWeekly?: String ,
+  fermentationWeekly?: String ,
+  supplements?: String ,
+  physicalActivity?: String,
+  diabetes?: String ,
+  anemia?: String ,
+  bloodPressure?: String ,
+  digestiveProblems?: String ,
+  selfSafety?: String ,
+  stroke?: String ,
+  fattyLiver?: String ,
+  kidneyProblems?: String ,
+  thyroid?: String ,
+  cancer?: boolean ,
+  Migraine?: boolean ,
+  otherSickness?: String ,
+  medicine?: String ,
+  phoneNumber?: String ,
+}
