@@ -1,6 +1,5 @@
 // "use client";
 import { ReactNode } from "react";
-import Navbar from "@/components/landingPage_components/Navbar";
 import Link from "next/link";
 
 const LayoutAdmin = ({ children }: { children: ReactNode }) => {
@@ -12,6 +11,12 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
             <h1 className="text-white text-2xl font-semibold">نام دکتر</h1>
           </div>
           <ul className="flex flex-col rounded-lg h-screen py-4 ps-4 gap-4 ">
+          <Link
+              href={"/"}
+              className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
+            >
+              <li>خانه</li>
+            </Link>
             <Link
               href={"/admin/panel/"}
               className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
