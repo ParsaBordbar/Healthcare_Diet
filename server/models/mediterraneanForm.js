@@ -153,7 +153,8 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     phoneNumber: {
         type: String,
         required: true,
-        maxlength: 11,   
+        maxlength: 11,
+        unique: true,    
     },
     isChecked: {
         type: Boolean,
