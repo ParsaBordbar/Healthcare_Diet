@@ -40,7 +40,7 @@ export type LoginDataType = {
   phoneNumber: string;
 };
 
-export type IdentifyUserType = {
+export type IdentifyCodeType = {
   codeOne: string;
   codeTwo: string;
   codeThree: string;
@@ -75,6 +75,8 @@ export interface BmiType {
 export type WelcomeBoxType ={
   doctorName: string
 }
+
+
 
 export interface MediterraneanFormType{
   dailyFruit ?: String,

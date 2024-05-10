@@ -6,11 +6,17 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <div className="sticky flex justify-end w-full top-0 z-40">
-        <div className="fixed top-0 right-0 h-screen bg-[var(--rating-color)] gap-16 flex flex-col w-1/6 ">
-          <div className="flex items-center p-4rounded-lg justify-around ">
-          <h1 className="text-white text-2xl font-semibold my-10">نام دکتر</h1>
+        <div className="fixed top-0 right-0 bg-[var(--rating-color)] gap-16 flex flex-col h-screen w-1/6 py-4 ">
+          <div className="flex items-center py-2 rounded-lg justify-around ">
+            <h1 className="text-white text-2xl font-semibold">نام دکتر</h1>
           </div>
           <ul className="flex flex-col rounded-lg h-screen py-4 ps-4 gap-4 ">
+          <Link
+              href={"/"}
+              className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
+            >
+              <li>خانه</li>
+            </Link>
             <Link
               href={"/admin/panel/"}
               className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"

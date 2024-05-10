@@ -12,25 +12,7 @@ const DietsUserPanel = () => {
       data: <MediterranealForm />,
       isOpen: false,
     },
-    {
-      key: 2,
-      title: "What GeeksforGeeks offer us?",
-      data: `GeeksforGeeks offers Free Tutorials,  
-                  Millions of Articles, Live, Online and  
-                  Classroom Courses,Frequent Coding Competitions,  
-                  Webinars by Industry Experts, Internship  
-                  opportunities and Job Opportunities.`,
-      isOpen: false,
-    },
-    {
-      key: 3,
-      title: "Which is the best portal to study Computer Science?",
-      data: `GeeksforGeeks is the best Computer Science portal  
-                  for geeks. It contains well written, well thought  
-                  and well explained computer science and programming  
-                  articles.`,
-      isOpen: false,
-    },
+    
   ]);
 
   const toggleAccordion = (accordionkey: any) => {
