@@ -66,7 +66,7 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     redMeatWeekly: {
         type: String,
         required: true,
-        enum: ['۱ بار','۲-۳ بار', 'هر روز', 'هیچ'] 
+        enum: ['۱-۲ بار','۳-۴ بار', 'هر روز', 'هیچ']
     },
     sugarWeekly: {
         type: String,
@@ -157,7 +157,7 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     },
     isChecked: {
         type: Boolean,
-        required: true,
+        default: false,
     }
 }))
 
@@ -176,7 +176,7 @@ const validateMediterranean = (mediterraneanForm) => {
         eggWeekly: Joi.string().required(),
         fishWeekly: Joi.string().required(),
         chickensWeekly: Joi.string().required(),
-        redMeatWeekly: Joi.string().required,
+        redMeatWeekly: Joi.string().required(),
         sugarWeekly: Joi.string().required(),
         alcoholWeekly: Joi.string().required(),
         fermentationWeekly: Joi.string().required(),
@@ -196,7 +196,7 @@ const validateMediterranean = (mediterraneanForm) => {
         otherSickness: Joi.string().required(),
         medicine: Joi.string().required(),
         phoneNumber: Joi.string().required(),
-        isChecked: Joi.boolean().required()
+        isChecked: Joi.boolean()
     })
     return schema.validate(mediterraneanForm);
 }
