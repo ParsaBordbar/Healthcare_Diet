@@ -3,6 +3,7 @@ import * as yup from "yup";
 import MainInput from "../MainInput";
 import { useFormik } from "formik";
 import GroupRadio from "../GroupRadio";
+import MainButton from "../MainButton";
 
 const MediterranealForm = () => {
   const schema = yup.object().shape({
@@ -1254,7 +1255,7 @@ const MediterranealForm = () => {
       </div>
 
       {/* {errors.questionOne && <span>{errors.questionOne}</span>} */}
-      <button type="submit">submit</button>
+      <MainButton value={'ثبت فرم'} type="submit"/>
     </form>
   );
 };
