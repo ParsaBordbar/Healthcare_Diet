@@ -17,18 +17,21 @@ router.get('/:id', async(req, res) => {
 })
 
 //This will check for the Users phoneNumber from the frontEnd, and Gives back a Response
-router.get('/', async(req, res)=>{
-    const response = await BmiForm.findOne({phoneNumber:req.body.phoneNumber}, (err, result)=> {
-        if(err){
-            throw err 
-            res.status(404)
-        } 
+router.get('/:phoneNumber', async(req, res)=>{
+    try {
+        const result = await BmiForm.findOne({phoneNumber: req.params.phoneNumber});
         if(result){
-            res.status(200).send("Yup we have it!")
-            console.log(response);
+            res.status(200).send(result);
+            console.log(result);
+        } else {
+            res.status(404).send('Not Found');
         }
-    }) 
+    } catch(err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+    }
 })
+
 
 
 router.post('/' ,async(req, res) => {
