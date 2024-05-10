@@ -1,16 +1,23 @@
 'use Client'
 import useSpecificFetchBmi from '@/hooks/useFetchName/useFetchName'
 import { MediterraneanFormType } from '@/types'
+import { useState } from 'react';
 
-const MediterraneanForm = ({dailyFruit, dailyVegetable,Cereals ,dailyCereals ,potatoAndStarchWeekly,oliveAndOliveOilDaily ,nutsDaily ,dairyDaily ,beans ,eggWeekly ,fishWeekly ,chickensWeekly, redMeatWeekly,sugarWeekly ,alcoholWeekly ,fermentationWeekly ,supplements ,physicalActivity, diabetes, anemia ,bloodPressure ,digestiveProblems ,selfSafety ,stroke ,fattyLiver ,kidneyProblems ,thyroid ,cancer, Migraine, otherSickness ,medicine ,phoneNumber }:MediterraneanFormType) => {
+const MediterraneanForm = ({dailyFruit, dailyVegetable,Cereals ,dailyCereals ,potatoAndStarchWeekly,oliveAndOliveOilDaily ,nutsDaily ,dairyDaily ,beans ,eggWeekly ,fishWeekly ,chickensWeekly, redMeatWeekly,sugarWeekly ,alcoholWeekly ,fermentationWeekly ,supplements ,physicalActivity, diabetes, anemia ,bloodPressure ,digestiveProblems ,selfSafety ,stroke ,fattyLiver ,kidneyProblems ,thyroid ,cancer, Migraine, otherSickness ,medicine ,phoneNumber, isChecked }:MediterraneanFormType) => {
 
   const data = useSpecificFetchBmi(phoneNumber);
+  // const [checked, setChecked] = useState(false) This will be for checked
   return (
     <div className='flex flex-row bg-[var(--primary)] my-4 py-4 rounded-lg text-lg'>
         <ul className='flex gap-4 flex-col'>
-          <li className='text-6xl px-10 bg-[var(--rating-color)] text-white w-fit pe-4 ps-4 rounded-e-full py-3 my-5'>
-            {data?.name} {data?.lastName}
-          </li>
+          <div className='flex items-center gap-16'>
+            <li className='text-6xl px-10 bg-[var(--rating-color)] text-white w-fit pe-4 ps-4 rounded-e-full py-3 my-5'>
+              {data?.name} {data?.lastName}
+            </li>
+            <li className='rounded-full flex justify-center items-center'>
+              {isChecked?<p className='text-white text-4xl bg-[var(--rating-color)] rounded-full'>قدیمی</p>:<p className='text-white text-4xl bg-[var(--rating-color)] rounded-full py-2.5 px-5'>جدید</p>}
+            </li>
+          </div>
             <li className='px-10 text-3xl bg-[var(--rating-color)] text-white w-fit pe-4 ps-1 rounded-e-lg py-2 my-5'>
                 مواد غذایی مصرفی:
             </li>
