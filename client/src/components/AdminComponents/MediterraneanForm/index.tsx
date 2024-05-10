@@ -105,31 +105,31 @@ const MediterraneanForm = ({dailyFruit, dailyVegetable,Cereals ,dailyCereals ,po
             </li>
 
             <li className='px-10 flex flex-row gap-10'>
-                <p>{diabetes} وضعیت دیابت:</p>
-                <p>{bloodPressure}وضعیت فشارخون:</p>
-                <p>{digestiveProblems}وضعیت مشکلات گوارشی:</p>
-                <p>وضعیت خودایمنی:{selfSafety}</p>
+                <p> وضعیت دیابت: {diabetes}</p>
+                <p>وضعیت فشارخون: {bloodPressure}</p>
+                <p>وضعیت مشکلات گوارشی: {digestiveProblems}</p>
+                <p>وضعیت خودایمنی: {selfSafety}</p>
             </li>
 
             <li className='px-10 flex flex-row gap-10'>
-                <p>وضعیت سکته:{stroke}</p>
-                <p>وضعیت چربی کبد:{fattyLiver}</p>
-                <p>وضعیت مشکلات کلیوی:{kidneyProblems}</p>
-                <p>وضعیت تیروئید:{thyroid}</p>
+                <p>وضعیت سکته:{" "} {stroke}</p>
+                <p>وضعیت چربی کبد:{" "} {fattyLiver}</p>
+                <p>وضعیت مشکلات کلیوی:{" "} {kidneyProblems}</p>
+                <p>وضعیت تیروئید:{" "} {thyroid}</p>
             </li>
 
             <li className='px-10 flex flex-row gap-10 mb-4'>
-                <p>سرطان دارد:{cancer}</p>
-                <p>میگرن دارد:{Migraine}</p>
+                <p>سرطان دارد:{" "}{cancer}</p>
+                <p>میگرن دارد:{" "}{Migraine}</p>
             </li>
             <li className='px-10 flex flex-row gap-4'>
               <p className=''> سایر بیماری ها یا جراحی قبلی بیمار:</p>
-              <p className='text-[var(--rating-color)]'>{otherSickness}</p>
+              <p className='text-[var(--rating-color)]'>{" "}{otherSickness}</p>
             </li>
 
             <li className='px-10 flex flex-row gap-4'>
               <p className=''>داروهای مصرفی بیمار :</p>
-              <p className='text-[var(--rating-color)]'>{medicine}</p>
+              <p className='text-[var(--rating-color)]'>{" "}{medicine}</p>
             </li>
         </ul>
     </div>
