@@ -1255,7 +1255,12 @@ const MediterranealForm = () => {
       </div>
 
       {/* {errors.questionOne && <span>{errors.questionOne}</span>} */}
-      <MainButton value={'ثبت فرم'} type="submit"/>
+      <MainButton
+        simple
+        className="bg-[var(--rating-color)] py-2.5 !text-xl !text-white col-span-5 w-full"
+        value={"ثبت فرم"}
+        type="submit"
+      />
     </form>
   );
 };
