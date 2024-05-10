@@ -78,6 +78,7 @@ const MediterranealForm = () => {
       selectedOptionNineteen: "",
       selectedOptionNineteenEmpty: "",
       questionTwenty: "کدام یک از مشکلات زیر را دارید یا قبلا داشتید؟",
+      questionTwentyOne: "سایر بیماری ها یا جراحی قبلی را اینجا بنویسید .",
       selectedOptionTwenty: "",
       selectedOptionTwentyEmpty: "",
       selectedOptionTwentyOne: "",
@@ -791,8 +792,10 @@ const MediterranealForm = () => {
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
             name="selectedOptionSeventeenOne"
-            checked={values.selectedOptionSeventeenOne === "ویتامین و مواد معدنی" &&
-            values.selectedOptionSeventeenFour == "null"}
+            checked={
+              values.selectedOptionSeventeenOne === "ویتامین و مواد معدنی" &&
+              values.selectedOptionSeventeenFour == "null"
+            }
             onChange={handleChange}
             header={false}
             onClick={() => {
@@ -803,8 +806,10 @@ const MediterranealForm = () => {
           />
           <GroupRadio
             name="selectedOptionSeventeenTwo"
-            checked={values.selectedOptionSeventeenTwo === "مکمل پروتئینی" &&
-            values.selectedOptionSeventeenFour == "null"}
+            checked={
+              values.selectedOptionSeventeenTwo === "مکمل پروتئینی" &&
+              values.selectedOptionSeventeenFour == "null"
+            }
             onChange={handleChange}
             onClick={() => {
               values.selectedOptionSeventeenFour = "null";
@@ -1236,9 +1241,16 @@ const MediterranealForm = () => {
             label="آخرین آزمایشات ارسال شود "
           />
         </section>
-        {/* {errors.questionOne ? (
+        <a
+          href="/-5836954379280827307_121.jpg"
+          download="-5836954379280827307_121.jpg"
+        >
+          حتما این فایل را دانلود کنید
+        </a>
+
+        {errors.questionTwenty ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
-        ) : null} */}
+        ) : null}
       </div>
 
       {/* {errors.questionOne && <span>{errors.questionOne}</span>} */}
