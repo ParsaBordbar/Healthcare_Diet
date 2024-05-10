@@ -1,10 +1,13 @@
 'use client'
 import MediterraneanForm from "@/components/AdminComponents/MediterraneanForm";
 import useFetchMediterranean from '@/hooks/useFetchMediterranean';
+// import useFetchBmi from '@/hooks/useFetchBmi';
 
 
 const MediterraneanFormsPage = () => {
-    const mediterraneanForms = useFetchMediterranean()
+    const mediterraneanForms = useFetchMediterranean();
+    // const bmiForms = useFetchBmi();    
+
     return(
         <section>
         <h1 className='text-4xl mb-6'>فرم‌های رژیم مدیترانه‌ای:</h1>
