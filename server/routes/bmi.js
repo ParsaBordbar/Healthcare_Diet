@@ -10,11 +10,11 @@ router.get('/', async(req, res) => {
     else res.send({"DataBase": "Empty!!!"}); 
 })
 
-router.get('/:id', async(req, res) => {
-    const bmiForm = await BmiForm.findById(req.params.id);
-    if(!bmiForm) res.status(404).send("BMI form with this ID was not found.")
-    res.send(bmiForm)
-})
+// router.get('/:id', async(req, res) => {
+//     const bmiForm = await BmiForm.findById(req.params.id);
+//     if(!bmiForm) res.status(404).send("BMI form with this ID was not found.")
+//     res.send(bmiForm)
+// })
 
 //This will check for the Users phoneNumber from the frontEnd, and Gives back a Response
 router.get('/:phoneNumber', async(req, res)=>{
