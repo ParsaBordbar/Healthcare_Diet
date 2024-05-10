@@ -110,5 +110,5 @@ export interface MediterraneanFormType{
   Migraine?: boolean ,
   otherSickness?: String ,
   medicine?: String ,
-  phoneNumber?: String ,
+  phoneNumber: string ,
 }
