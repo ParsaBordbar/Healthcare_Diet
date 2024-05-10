@@ -17,6 +17,11 @@ const LayoutUser = ({ children }: { children: ReactNode }) => {
             <h1 className="text-white">name of the user</h1>
           </div>
           <ul className=" rounded-lg h-screen pr-4">
+            <Link href={"/"}>
+              <li className="hover:text-[var(--rating-color)] text-lg cursor-pointer hover:text-black text-white hover:bg-zinc-100 hover:bg-full ease-in-out transition-all duration-150 p-2 rounded-s-md">
+                خانه
+              </li>
+            </Link>
             <Link href={"/user/panel/diets"}>
               <li className="hover:text-[var(--rating-color)] text-lg cursor-pointer hover:text-black text-white hover:bg-zinc-100 hover:bg-full ease-in-out transition-all duration-150 p-2 rounded-s-md">
                 رژیم ها
