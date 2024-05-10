@@ -111,4 +111,5 @@ export interface MediterraneanFormType{
   otherSickness?: String ,
   medicine?: String ,
   phoneNumber: string ,
+  isChecked: boolean
 }
