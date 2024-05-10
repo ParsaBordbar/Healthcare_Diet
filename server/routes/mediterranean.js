@@ -38,6 +38,7 @@ router.post('/', async(req, res) => {
         eggWeekly: req.body.eggWeekly ,
         fishWeekly: req.body.fishWeekly ,
         chickensWeekly: req.body.chickensWeekly ,
+        redMeatWeekly: req.body.redMeatWeekly,
         sugarWeekly: req.body.sugarWeekly ,
         alcoholWeekly: req.body.alcoholWeekly ,
         fermentationWeekly: req.body.fermentationWeekly ,
