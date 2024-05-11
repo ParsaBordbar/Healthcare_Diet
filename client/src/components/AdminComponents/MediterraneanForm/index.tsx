@@ -1,19 +1,27 @@
 'use Client'
+import api from '@/apis';
 import useSpecificFetchBmi from '@/hooks/useFetchName/useFetchName'
 import { MediterraneanFormType } from '@/types'
 import { useState } from 'react';
+
+const updateIsChecked = async (phoneNumber: string, isChecked: boolean) => {
+  const response = await api.put(`mediterranean/${phoneNumber}`, {
+      isChecked: isChecked
+  });
+  console.log(response);
+  return response;
+}
 
 const MediterraneanForm = ({dailyFruit, dailyVegetable,Cereals ,dailyCereals ,potatoAndStarchWeekly,oliveAndOliveOilDaily ,nutsDaily ,dairyDaily ,beans ,eggWeekly ,fishWeekly ,chickensWeekly, redMeatWeekly,sugarWeekly ,alcoholWeekly ,fermentationWeekly ,supplements ,physicalActivity, diabetes, anemia ,bloodPressure ,digestiveProblems ,selfSafety ,stroke ,fattyLiver ,kidneyProblems ,thyroid ,cancer, Migraine, otherSickness ,medicine ,phoneNumber, isChecked }:MediterraneanFormType) => {
 
   const data = useSpecificFetchBmi(phoneNumber);
   const [checked, setChecked] = useState(isChecked) //This will be for checked
 
+  useUpdateIsChecked(phoneNumber, checked)
   const handleClickChecked = () => {
     setChecked(!checked)
-    console.log(checked);
     //Send a PUT Request to change the value in backend as well here
   }
-
   return (
     <div className='flex flex-row bg-[var(--primary)] my-4 py-4 rounded-lg text-lg'>
         <ul className='flex gap-4 flex-col'>
@@ -156,3 +164,7 @@ const MediterraneanForm = ({dailyFruit, dailyVegetable,Cereals ,dailyCereals ,po
 }
 
 export default MediterraneanForm
+
+function useUpdateIsChecked(phoneNumber: string, checked: boolean) {
+  throw new Error('Function not implemented.');
+}
