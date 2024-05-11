@@ -8,7 +8,7 @@ const useSpecificFetchBmi = (phoneNumber: string) => {
     
     useEffect(()=>{
         fetchBmiPatientForms()
-    }, [bmiForms])
+    }, [])
   
     const fetchBmiPatientForms = async () => {
       try{
