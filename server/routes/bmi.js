@@ -10,12 +10,6 @@ router.get('/', async(req, res) => {
     else res.send({"DataBase": "Empty!!!"}); 
 })
 
-// router.get('/:id', async(req, res) => {
-//     const bmiForm = await BmiForm.findById(req.params.id);
-//     if(!bmiForm) res.status(404).send("BMI form with this ID was not found.")
-//     res.send(bmiForm)
-// })
-
 //This will check for the Users phoneNumber from the frontEnd, and Gives back a Response
 router.get('/:phoneNumber', async(req, res)=>{
     try {
@@ -31,7 +25,6 @@ router.get('/:phoneNumber', async(req, res)=>{
         res.status(500).send('Server Error');
     }
 })
-
 
 
 router.post('/' ,async(req, res) => {
@@ -57,8 +50,8 @@ router.post('/' ,async(req, res) => {
     res.send(form);
 })
 
-router.put('/:id', async(req, res) => {
-    const bmiForm = await BmiForm.findByIdAndUpdate(req.params.id, {
+router.put('/:phoneNumber', async(req, res) => {
+    const bmiForm = await BmiForm.findByIdAndUpdate(req.params.phoneNumber, {
         name: req.body.name,
         lastName: req.body.lastName,
         phoneNumber: req.body.phoneNumber,
@@ -72,7 +65,7 @@ router.put('/:id', async(req, res) => {
     res.send(bmiForm);
 })
 
-router.delete('/:id',async(req, res) => {
+router.delete('/:phoneNumber',async(req, res) => {
     const bmiForm = await BmiForm.findByIdAndDelete(req.params.id)
     res.send(bmiForm);
 })
