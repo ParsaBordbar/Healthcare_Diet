@@ -1,10 +1,11 @@
 'use Client'
-import useFetchMediterranean from '@/hooks/useFetchMediterranean';
 import useSpecificFetchBmi from '@/hooks/useFetchName/useFetchName'
-
 import useUpdateIsChecked from '@/hooks/useUpdateIsChecked';
 import { MediterraneanFormType } from '@/types'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import Tick from "/public/svg/adminPanelSvgs/check_ring_round.svg"
+import Cross from "/public/svg/adminPanelSvgs/close_ring_fill.svg"
+
 
 const MediterraneanForm = ({dailyFruit, dailyVegetable,Cereals ,dailyCereals ,potatoAndStarchWeekly,oliveAndOliveOilDaily ,nutsDaily ,dairyDaily ,beans ,eggWeekly ,fishWeekly ,chickensWeekly, redMeatWeekly,sugarWeekly ,alcoholWeekly ,fermentationWeekly ,supplements ,physicalActivity, diabetes, anemia ,bloodPressure ,digestiveProblems ,selfSafety ,stroke ,fattyLiver ,kidneyProblems ,thyroid ,cancer, Migraine, otherSickness ,medicine ,phoneNumber, isChecked }:MediterraneanFormType) => {
 
@@ -24,7 +25,7 @@ const MediterraneanForm = ({dailyFruit, dailyVegetable,Cereals ,dailyCereals ,po
               {data?.name} {data?.lastName}
             </li>
             <button onClick={handleClickChecked} className='rounded-full flex justify-center items-center'>
-              {checked?<p className='text-white text-2xl bg-[var(--tittle-box)] rounded-full py-2.5 px-5 m-12'>ویزیت شده</p>:<p className='text-white text-2xl bg-[var(--text-important)] rounded-full py-2.5 px-5 m-12'>ویزیت نشده</p>}
+              {checked?<p className='text-white text-2xl bg-[var(--tittle-box)] rounded-full py-2.5 px-5 m-12 flex flex-row items-center justify-center gap-2 w-52'> <Tick/>ویزیت شده</p>:<p className='text-white text-2xl bg-[var(--text-important)] rounded-full py-2.5 px-5 m-12 flex flex-row items-center gap-2 justify-center w-52'> <Cross />ویزیت نشده </p>}
             </button>
           </div>
             <li className='ps-12 pe-7 text-2xl bg-[var(--rating-color)] text-white w-fit rounded-e-lg py-2 my-5'>

@@ -1,7 +1,11 @@
-const Patients = () => {
+import PatientBox from "@/components/AdminComponents/PatientBox"
+
+const PatientsPage = () => {
     return(
-        <h1>patients panel</h1>
+        <section>
+            <PatientBox name={"s"} lastName={"s"} phoneNumber={"890890890"} bmi={""} />
+        </section>
     )
 }
 
-export default Patients
+export default PatientsPage
