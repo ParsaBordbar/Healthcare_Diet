@@ -63,15 +63,15 @@ router.post('/', async(req, res) => {
     res.send(mediterraneanForm);
 })
 
-//This is used to update the isChecked 
-router.put('/:phoneNumber', async(req, res) => {
-    const editedMediterraneanForm = await MediterraneanForm.findOneAndUpdate({ phoneNumber: req.params.phoneNumber }, req.body, { new: true });
-    if(!editedMediterraneanForm) {
-        res.status(404).send("Such form with this phoneNumber does not exist.");
-    } else {
-        res.send(editedMediterraneanForm);
-    }
-});
+    //This is used to update the isChecked 
+    router.put('/:phoneNumber', async(req, res) => {
+        const editedMediterraneanForm = await MediterraneanForm.findOneAndUpdate({ phoneNumber: req.params.phoneNumber }, req.body, { new: true });
+        if(!editedMediterraneanForm) {
+            res.status(404).send("Such form with this phoneNumber does not exist.");
+        } else {
+            res.send(editedMediterraneanForm);
+        }
+    });
 
 router.delete('/:phoneNumber', async(req, res) => {
     const mediterraneanForm = await MediterraneanForm.findByIdAndDelete(req.params.phoneNumber);
