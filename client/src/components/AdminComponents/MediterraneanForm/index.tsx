@@ -1,39 +1,33 @@
 'use Client'
-import api from '@/apis';
+import useFetchMediterranean from '@/hooks/useFetchMediterranean';
 import useSpecificFetchBmi from '@/hooks/useFetchName/useFetchName'
-import { MediterraneanFormType } from '@/types'
-import { useState } from 'react';
 
-const updateIsChecked = async (phoneNumber: string, isChecked: boolean) => {
-  const response = await api.put(`mediterranean/${phoneNumber}`, {
-      isChecked: isChecked
-  });
-  console.log(response);
-  return response;
-}
+import useUpdateIsChecked from '@/hooks/useUpdateIsChecked';
+import { MediterraneanFormType } from '@/types'
+import { useEffect, useState } from 'react';
 
 const MediterraneanForm = ({dailyFruit, dailyVegetable,Cereals ,dailyCereals ,potatoAndStarchWeekly,oliveAndOliveOilDaily ,nutsDaily ,dairyDaily ,beans ,eggWeekly ,fishWeekly ,chickensWeekly, redMeatWeekly,sugarWeekly ,alcoholWeekly ,fermentationWeekly ,supplements ,physicalActivity, diabetes, anemia ,bloodPressure ,digestiveProblems ,selfSafety ,stroke ,fattyLiver ,kidneyProblems ,thyroid ,cancer, Migraine, otherSickness ,medicine ,phoneNumber, isChecked }:MediterraneanFormType) => {
 
   const data = useSpecificFetchBmi(phoneNumber);
-  const [checked, setChecked] = useState(isChecked) //This will be for checked
+  const [checked, setChecked] = useState(isChecked) 
+  useUpdateIsChecked(phoneNumber, checked);
 
-  useUpdateIsChecked(phoneNumber, checked)
   const handleClickChecked = () => {
-    setChecked(!checked)
-    //Send a PUT Request to change the value in backend as well here
+    setChecked(!checked);
   }
+
   return (
-    <div className='flex flex-row bg-[var(--primary)] my-4 py-4 rounded-lg text-lg'>
+    <div className='flex flex-row bg-[var(--primary)] my-10 rounded-lg text-lg shadow-md'>
         <ul className='flex gap-4 flex-col'>
-          <div className='flex items-center gap-16'>
+          <div className='flex items-center justify-between gap-16'>
             <li className='text-6xl px-10 bg-[var(--rating-color)] text-white w-fit pe-4 ps-4 rounded-e-full py-3 my-5'>
               {data?.name} {data?.lastName}
             </li>
             <button onClick={handleClickChecked} className='rounded-full flex justify-center items-center'>
-              {isChecked?<p className='text-white text-4xl bg-[var(--rating-color)] rounded-full'>ویزیت شده</p>:<p className='text-white text-4xl bg-[var(--text-important)] rounded-full py-2.5 px-5'>ویزیت نشده</p>}
+              {checked?<p className='text-white text-2xl bg-[var(--tittle-box)] rounded-full py-2.5 px-5 m-12'>ویزیت شده</p>:<p className='text-white text-2xl bg-[var(--text-important)] rounded-full py-2.5 px-5 m-12'>ویزیت نشده</p>}
             </button>
           </div>
-            <li className='px-10 text-3xl bg-[var(--rating-color)] text-white w-fit pe-4 ps-1 rounded-e-lg py-2 my-5'>
+            <li className='ps-12 pe-7 text-2xl bg-[var(--rating-color)] text-white w-fit rounded-e-lg py-2 my-5'>
                 مواد غذایی مصرفی:
             </li>
 
@@ -127,7 +121,7 @@ const MediterraneanForm = ({dailyFruit, dailyVegetable,Cereals ,dailyCereals ,po
               <p className='text-[var(--rating-color)]'>{physicalActivity}</p>
             </li>
 
-            <li className='px-10 text-3xl bg-[var(--rating-color)] text-white w-fit pe-4 ps-1 rounded-e-lg py-2 my-5'>
+            <li className='text-2xl ps-12 pe-7 bg-[var(--rating-color)] text-white w-fit rounded-e-lg py-2 my-5'>
                 بیماری‌ها و وضعیت‌های خاص:
             </li>
 
@@ -156,7 +150,7 @@ const MediterraneanForm = ({dailyFruit, dailyVegetable,Cereals ,dailyCereals ,po
 
             <li className='px-10 flex flex-row gap-4'>
               <p className=''>داروهای مصرفی بیمار :</p>
-              <p className='text-[var(--rating-color)]'>{" "}{medicine}</p>
+              <p className='text-[var(--rating-color)] mb-16'>{" "}{medicine}</p>
             </li>
         </ul>
     </div>
@@ -164,7 +158,3 @@ const MediterraneanForm = ({dailyFruit, dailyVegetable,Cereals ,dailyCereals ,po
 }
 
 export default MediterraneanForm
-
-function useUpdateIsChecked(phoneNumber: string, checked: boolean) {
-  throw new Error('Function not implemented.');
-}
