@@ -19,13 +19,13 @@ const MediterraneanForm = ({dailyFruit, dailyVegetable,Cereals ,dailyCereals ,po
 
   return (
     <div className='flex flex-row bg-[var(--primary)] my-10 rounded-lg text-lg shadow-md'>
-        <ul className='flex gap-4 flex-col'>
-          <div className='flex items-center justify-between gap-16'>
-            <li className='text-6xl px-10 bg-[var(--rating-color)] text-white w-fit pe-4 ps-4 rounded-e-full py-3 my-5'>
+        <ul className='flex gap-3 flex-col'>
+          <div className='flex items-center justify-between'>
+            <li className='text-6xl px-10 bg-[var(--rating-color)] text-white w-fit pe-4 ps-2 rounded-e-full py-3 my-5'>
               {data?.name} {data?.lastName}
             </li>
             <button onClick={handleClickChecked} className='rounded-full flex justify-center items-center'>
-              {checked?<p className='text-white text-2xl bg-[var(--tittle-box)] rounded-full py-2.5 px-5 m-12 flex flex-row items-center justify-center gap-2 w-52'> <Tick/>ویزیت شده</p>:<p className='text-white text-2xl bg-[var(--text-important)] rounded-full py-2.5 px-5 m-12 flex flex-row items-center gap-2 justify-center w-52'> <Cross />ویزیت نشده </p>}
+              {checked?<p className='text-white text-2xl bg-[var(--tittle-box)] rounded-full py-2.5 my-12 flex flex-row items-center justify-center gap-2 w-52'> <Tick/>ویزیت شده</p>:<p className='text-white text-2xl bg-[var(--text-important)] rounded-full py-2.5 my-12 flex flex-row items-center gap-2 justify-center w-52'> <Cross />ویزیت نشده </p>}
             </button>
           </div>
             <li className='ps-12 pe-7 text-2xl bg-[var(--rating-color)] text-white w-fit rounded-e-lg py-2 my-5'>
