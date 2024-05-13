@@ -1,7 +1,10 @@
 // "use client";
 import { ReactNode } from "react";
 import Link from "next/link";
-import AdminPanelLogo from '/public/svg/adminPanelSvgs/User_circle.svg'
+import AdminPanelLogo from '/public/svg/adminPanelSvgs/Stethoscope.svg';
+import FormIcon from '/public/svg/adminPanelSvgs/Form.svg';
+import MedicalDocIcon from '/public/svg/adminPanelSvgs/Medical-Documentation.svg'
+
 const LayoutAdmin = ({ children }: { children: ReactNode }) => {
   return (
     <>
@@ -21,19 +24,19 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
               href={"/admin/panel/patients/"}
               className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
-              <li> بیمارها</li>
+              <li className="flex gap-2 items-center justify-start"> <MedicalDocIcon />سوابق بیمارها  </li>
             </Link>
             <Link
               href={"/admin/panel/bmi/"}
               className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
-              <li> فرم‌های BMI</li>
+              <li className="flex gap-2 items-center"><FormIcon/> فرم‌های BMI</li>
             </Link>
             <Link
               href={"/admin/panel/mediterranean/"}
               className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
-              <li>فرم‌های رژیم مدیترانه‌ای</li>
+              <li className="flex gap-2 items-center justify-start"><FormIcon/>فرم‌های رژیم مدیترانه‌ای</li>
             </Link>
           </ul>
         </div>

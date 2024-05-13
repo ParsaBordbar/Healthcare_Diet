@@ -13,7 +13,6 @@ function PatientId({
 ) {
    const bmiData = useSpecificFetchBmi(params.patientId);
    const medData = useFetchOneMediterranean(params.patientId)
-   console.log(medData);
    
   return (
     <main>
