@@ -1,7 +1,7 @@
 // "use client";
 import { ReactNode } from "react";
 import Link from "next/link";
-
+import AdminPanelLogo from '/public/svg/adminPanelSvgs/User_circle.svg'
 const LayoutAdmin = ({ children }: { children: ReactNode }) => {
   return (
     <>
@@ -15,7 +15,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
               href={"/admin/panel/"}
               className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
-              <li> پنل کاربری</li>
+              <li className="flex items-center gap-3"> <AdminPanelLogo />پنل اصلی</li>
             </Link>
             <Link
               href={"/admin/panel/patients/"}
