@@ -4,12 +4,13 @@ import Link from "next/link"
 
 const MainPageAdminPanel = () => {
     return(
-        <section className="grid grid-cols-2 gap-4">
-            <div className="flex col-span-1">
+        <section className="grid grid-cols-7 gap-4">
+            <div className="col-span-3">
                 <WelcomeBox doctorName="X"/>    
-            </div>
-            <div className="col-span-2">
                 <NewPatientsBox />
+            </div>
+            <div className="col-span-4">
+                Add A Fetch Request Here for MediterraneanForms that (!isChecked) 
             </div>
         </section>
     )   
