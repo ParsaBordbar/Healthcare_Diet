@@ -69,7 +69,7 @@ export interface BmiType {
     age?: string,
     height?: string,
     wight?: string,
-    bmi: string,
+    bmi?: string,
 }
 
 export type WelcomeBoxType ={
