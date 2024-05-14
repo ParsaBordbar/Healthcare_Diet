@@ -22,9 +22,9 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
             </Link>
             <Link
               href={"/admin/panel/patients/"}
-              className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
+              className="hover:text-[var(--rating-color)] text-xl group cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
-              <li className="flex gap-2 items-center justify-start"> <MedicalDocIcon />سوابق بیمارها  </li>
+              <li className="flex gap-2 items-center justify-start"> <MedicalDocIcon/>سوابق بیمارها  </li>
             </Link>
             <Link
               href={"/admin/panel/bmi/"}

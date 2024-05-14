@@ -9,8 +9,7 @@ import { AllContextType, useMyContext } from "@/hooks/useContext/Context";
 const BmiFormDiet = () => {
   // const { Bmi, setBmi } = useMyContext();
 
-  const { control, handelValueInputs, register, errors, handleSubmit } =
-    useBmi();
+  const { control, handelValueInputs, register, errors, handleSubmit } = useBmi();
   const firstNameRef = useRef<HTMLInputElement | null>(null);
   const lastNameRef = useRef<HTMLInputElement | null>(null);
   const phoneNumberRef = useRef<HTMLInputElement | null>(null);
@@ -63,42 +62,7 @@ const BmiFormDiet = () => {
       }
     }
   };
-  // useEffect(() => {
-  //   console.log(
-  //     Bmi.phoneNumber,
-  //     !!phoneNumberRef.current?.value,
-  //     phoneNumberRef.current?.value
-  //   );
-  //   if (Bmi.phoneNumber) {
-  //     const updatedObject = {
-  //       ...Bmi,
-  //       phoneNumber: phoneNumberRef.current?.value,
-  //     };
-
-  //     setBmi(updatedObject);
-  //   }
-  //   if (Bmi.weight) {
-  //     const updatedObject = {
-  //       ...Bmi,
-  //       weight: weightRef.current?.value,
-  //     };
-
-  //     setBmi(updatedObject);
-  //   }
-  //   if (Bmi.height) {
-  //     const updatedObject = {
-  //       ...Bmi,
-  //       height: heightRef.current?.value,
-  //     };
-
-  //     setBmi(updatedObject);
-  //   }
-  // }, [
-  //   phoneNumberRef.current?.value,
-  //   weightRef.current?.value,
-  //   heightRef.current?.value,
-  // ]);
-
+ 
   return (
     <form
       action=""
@@ -190,9 +154,9 @@ const BmiFormDiet = () => {
               >
                 <option value="null" selected>
                   جنسیت
-                </option>
-                <option value="male">مرد</option>
-                <option value="female">زن</option>
+                </option> 
+                <option value="مرد">مرد</option>
+                <option value="زن">زن</option>
               </select>
             )}
           />
