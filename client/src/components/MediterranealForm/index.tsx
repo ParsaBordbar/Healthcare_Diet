@@ -207,7 +207,7 @@ const MediterranealForm = () => {
       </div>
 
       <div className="flex flex-col gap-4">
-        <h1>آیا غلات سبوس دار مصرف می کنید؟"</h1>
+        <h1>آیا غلات سبوس دار مصرف می کنید؟</h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
             name="selectedOptionThree"
