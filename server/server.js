@@ -7,6 +7,7 @@ const mediterranean = require('./routes/mediterranean');
 const adminLogin = require('./routes/admin');
 require('dotenv').config();
 
+
 app.use(cors());
 app.use(express.json());
 app.use('/api/bmi', bmi);
@@ -14,7 +15,10 @@ app.use('/api/mediterranean', mediterranean);
 app.use('/api/admin', adminLogin);
 
 
-mongoose.connect(process.env.DB_CONNECTION_STRING)
+mongoose.connect(process.env.DB_CONNECTION_STRING, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
     .then(() => console.log("Connected to Mongodb :)"))
     .catch(() => (console.error("Could not connect to Mongodb.")));
 
