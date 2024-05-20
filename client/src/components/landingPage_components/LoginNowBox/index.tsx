@@ -9,7 +9,7 @@ const LoginNowBox = () => {
             <p className="lg:text-xl font-normal sm:text-right md:text-xl sm:text-base text-sm">
               نمی‌دونید وعده غذایی درست و برنامه غذایی مناسب شما چی هست؟
             </p>
-            <Link href={'register/signUp'}>
+            <Link href={'register/login/enterNumber'}>
               <MainButton
                 standard
                 className="py-4 lg:w-2/3 md:w-1/3 sm:w-2/4 w-full mt-6"

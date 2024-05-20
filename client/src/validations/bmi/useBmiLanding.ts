@@ -61,7 +61,7 @@ const useBmiLanding = () => {
   const handelValueInputs = useCallback((data: BmiLandingDataType) => {
     console.log(data);
     setBmi(data);
-    push("/register/diets-bmi");
+    push("register/login/enterNumber");
     toast.success("خوش آمدید");
   }, []);
 
