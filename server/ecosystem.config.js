@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name: 'diet-backend',
-    script: './app.js',
+    script: './server.js',
     env: {
       NODE_ENV: 'development',
       PORT: 8080,

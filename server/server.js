@@ -14,13 +14,12 @@ app.use('/api/bmi', bmi);
 app.use('/api/mediterranean', mediterranean);
 app.use('/api/admin', adminLogin);
 
-
-mongoose.connect(process.env.DB_CONNECTION_STRING, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+// DB_CONNECTION_STRING=mongodb://zahra:zahra$1234@70.34.217.65/:8080/healthcare
+mongoose.connect(process.env.DB_CONNECTION_STRING)
     .then(() => console.log("Connected to Mongodb :)"))
     .catch(() => (console.error("Could not connect to Mongodb.")));
+    console.log("This is ", process.env.DB_CONNECTION_STRING);
+
 
 app.get('/', async( req, res) => {
     res.send("This is the BackEnd of the Diet Project")
