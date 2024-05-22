@@ -19,7 +19,14 @@ export default function Home() {
       <div className="grid grid-cols-1 justify-center">
         <div className="sticky top-0 shadow-sm z-20 col-span-full">
           <Navbar />
-          <HamburgerNavbar />
+          <HamburgerNavbar
+            logo
+            linkOne="/register/login/enterNumber"
+            linkTwo="/"
+            valueOne="ورود"
+            valueTwo="خدمات"
+            valueThree="بلاگ ها"
+          />
         </div>
         <div className="col-span-full">
           <Hero />
@@ -49,7 +56,7 @@ export default function Home() {
         <div className="col-span-full max-w-full ">
           <FoodStorySection />
         </div>
-        
+
         <div className="col-span-full">
           <CheckHealthySection />
         </div>
