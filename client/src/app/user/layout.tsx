@@ -2,13 +2,21 @@
 import { ReactNode } from "react";
 import Navbar from "@/components/landingPage_components/Navbar";
 import Link from "next/link";
+import HamburgerNavbar from "@/components/HamburgerMenu";
 
 const LayoutUser = ({ children }: { children: ReactNode }) => {
   return (
     <>
-      <div className="sticky flex justify-end w-full top-0 z-40">
-        <div className="fixed top-0 right-0 h-screen bg-[var(--rating-color)] gap-16 flex flex-col w-1/6 ">
-          <div className="flex items-center p-4rounded-lg justify-around ">
+      <div className="sticky  flex justify-end w-full top-0 z-40">
+        <HamburgerNavbar
+          className="!bg-transparent "
+          valueOne="خانه"
+          valueTwo="رژیم ها"
+          linkOne={"/"}
+          linkTwo={"/user/panel/diets"}
+        />
+        <div className="fixed hidden py-6 top-0 right-0 h-screen bg-[var(--rating-color)] gap-16 md:flex flex-col w-[30%] lg:w-1/6 ">
+          <div className="flex lg:gap-0 lg:flex-row items-center md:p-4 lg:p-0 rounded-lg justify-around ">
             <img
               className="w-16 h-16 border border-white rounded-full p-1"
               src="/svg/User.svg"
@@ -29,7 +37,7 @@ const LayoutUser = ({ children }: { children: ReactNode }) => {
             </Link>
           </ul>
         </div>
-        <main className="w-5/6 p-28 bg-white">
+        <main className=" sm:w-full md:w-[70%] lg:w-5/6 p-20 bg-white">
           <div className="">{children}</div>
         </main>
       </div>
