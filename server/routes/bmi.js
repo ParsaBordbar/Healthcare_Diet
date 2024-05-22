@@ -28,30 +28,38 @@ router.get('/:phoneNumber', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { error } = validateBmi(req.body);
-    if (error) {
+    try {
+      const { error } = validateBmi(req.body);
+      if (error) {
         return res.status(400).send(error.details[0].message);
-    }
-
-    // This Checks if the number is already in db or not
-    let phoneNumberCheck = await BmiForm.findOne({ phoneNumber: req.body.phoneNumber });
-    if (phoneNumberCheck) {
+      }
+  
+      // Check if the phone number is already in the database
+      let phoneNumberCheck = await BmiForm.findOne({ phoneNumber: req.body.phoneNumber });
+      if (phoneNumberCheck) {
         return res.status(400).send("Such phone number is already registered.");
-    }
-
-    let form = new BmiForm({
+      }
+  
+      // Create a new BmiForm 
+      let form = new BmiForm({
         name: req.body.name,
         lastName: req.body.lastName,
         phoneNumber: req.body.phoneNumber,
         gender: req.body.gender,
         age: req.body.age,
         height: req.body.height,
-        wight: req.body.wight,
-        bmi: (req.body.wight / (req.body.height * req.body.height)).toFixed(4), // bmi = wight/(height * height)
-    });
-    form = await form.save();
-    return res.send(form);
-});
+        weight: req.body.weight,
+        bmi: (req.body.weight / (req.body.height * req.body.height)).toFixed(4), // Calculate BMI
+      });
+  
+      form = await form.save();
+      return res.send(form);
+  
+    } catch (err) {
+      console.error("An error occurred:", err);
+      return res.status(500).send("Internal Server Error");
+    }
+  });
 
 router.put('/:phoneNumber', async (req, res) => {
     const bmiForm = await BmiForm.findByIdAndUpdate(req.params.phoneNumber, {

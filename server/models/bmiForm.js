@@ -20,7 +20,7 @@ const BmiForm = mongoose.model("Bmi_form", new mongoose.Schema({
     },
     gender: {
         type: String,
-        enum: ['male', 'female']
+        enum: ['مرد', 'زن']
     },
     age: {
         type: Number,
@@ -30,7 +30,7 @@ const BmiForm = mongoose.model("Bmi_form", new mongoose.Schema({
         type: Number,
         required: true
     },
-    wight: {
+    weight: {
         type: Number,
         required: true
     },
@@ -58,7 +58,6 @@ const validateBmi = (BmiForm) => {
         gender: Joi.string().required().messages({
             'string.empty': `لطفا جنسیت را تعیین کنید`,
             'any.required': `لطفا جنسیت را تعیین کنید`,
-            'string.pattern.base': 'شماره تماس تنها شامل رقم می‌شود'
           }),
         age: Joi.number().required().messages({
             'any.required': `سن را وارد کنید`
@@ -66,7 +65,7 @@ const validateBmi = (BmiForm) => {
         height: Joi.number().required().messages({
             'any.required': `قد را وارد کنید`
         }),
-        wight: Joi.number().required().messages({
+        weight: Joi.number().required().messages({
             'any.required': `وزن را وارد کنید`
         }),
     });
