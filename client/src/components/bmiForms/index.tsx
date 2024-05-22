@@ -10,7 +10,7 @@ const BmiFormDiet = () => {
   // const { Bmi, setBmi } = useMyContext();
 
   const { control, handelValueInputs, register, errors, handleSubmit } = useBmi();
-  const firstNameRef = useRef<HTMLInputElement | null>(null);
+  const nameRef = useRef<HTMLInputElement | null>(null);
   const lastNameRef = useRef<HTMLInputElement | null>(null);
   const phoneNumberRef = useRef<HTMLInputElement | null>(null);
   const ageRef = useRef<HTMLInputElement | null>(null);
@@ -21,19 +21,19 @@ const BmiFormDiet = () => {
   // console.log(phoneNumberRef.current?.value, "value of phone number field");
 
   const inputRefs = [
-    firstNameRef,
+    nameRef,
     lastNameRef,
     phoneNumberRef,
-    genderRef,
-    weightRef,
     ageRef,
+    genderRef,
     heightRef,
+    weightRef,
   ];
 
   useEffect(() => {
     // console.log(errors, !Bmi, Bmi);
-    if (errors.firstName) {
-      firstNameRef.current?.focus();
+    if (errors.name) {
+      nameRef.current?.focus();
     } else if (errors.lastName) {
       lastNameRef.current?.focus();
     } else if (errors.phoneNumber) {
@@ -76,15 +76,15 @@ const BmiFormDiet = () => {
       <section className="grid w-full grid-cols-4 gap-8">
         <Controller
           control={control}
-          name="firstName"
+          name="name"
           render={({ field }) => (
             <MainInput
               {...field}
-              error={!!errors.firstName}
+              error={!!errors.name}
               parentClassName="col-span-4 md:col-span-2 lg:col-span-4"
               label="نام"
               autoFocus
-              ref={firstNameRef}
+              ref={nameRef}
               placeholder="نام خود را وارد کنید"
             />
           )}
@@ -110,19 +110,8 @@ const BmiFormDiet = () => {
           render={({ field }) => (
             <MainInput
               {...field}
-              // value={Bmi ? Bmi.phoneNumber : phoneNumberRef.current?.value}
               error={!!errors.phoneNumber}
               ref={phoneNumberRef}
-              // onChangeCapture={() => {
-              //   if (Bmi) {
-              //     const updatedObject = {
-              //       ...Bmi,
-              //       phoneNumber: phoneNumberRef.current?.value,
-              //     };
-
-              //     setBmi(updatedObject);
-              //   }
-              // }}
               parentClassName="col-span-2 lg:col-span-4"
               label="شماره تماس"
               placeholder="شماره تماس خود را وارد کنید"
@@ -168,18 +157,7 @@ const BmiFormDiet = () => {
           render={({ field }) => (
             <MainInput
               {...field}
-              // value={Bmi ? Bmi.weight : weightRef.current?.value}
               error={!!errors.weight}
-              // onChangeCapture={() => {
-              //   if (Bmi) {
-              //     const updatedObject = {
-              //       ...Bmi,
-              //       weight: weightRef.current?.value,
-              //     };
-
-              //     setBmi(updatedObject);
-              //   }
-              // }}
               type="number"
               label="وزن"
               ref={weightRef}
@@ -212,18 +190,7 @@ const BmiFormDiet = () => {
             <MainInput
               {...field}
               type="number"
-              // value={Bmi ? Bmi.height : heightRef.current?.value}
               error={!!errors.height}
-              // onChangeCapture={() => {
-              //   if (Bmi) {
-              //     const updatedObject = {
-              //       ...Bmi,
-              //       height: heightRef.current?.value,
-              //     };
-
-              //     setBmi(updatedObject);
-              //   }
-              // }}
               ref={heightRef}
               label="قد"
               parentClassName="col-span-2"
