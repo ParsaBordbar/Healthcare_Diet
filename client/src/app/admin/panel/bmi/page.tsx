@@ -17,7 +17,7 @@ function BmiPage() {
             gender={form.gender}
             age={form.age}
             height={form.height}
-            wight={form.wight}
+            weight={form.weight}
             bmi={form.bmi}
             key={form.phoneNumber}
           />
