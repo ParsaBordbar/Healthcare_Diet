@@ -903,11 +903,11 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>کدام یک از مشکال ت زیر را دارید یا قبال داشتید؟</h1>
-        <section className="grid grid-cols-5 gap-4 items-center ">
+        <section className="grid grid-cols-6 gap-4 items-center ">
           <select
             onChange={handleChange}
             name="selectedOptionNineteen"
-            className={`rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
+            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
               selected={
@@ -947,7 +947,7 @@ const MediterranealForm = () => {
           <select
             onChange={handleChange}
             name="selectedOptionTwenty"
-            className={`rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
+            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
               selected={values.selectedOptionTwenty === "null"}
@@ -978,7 +978,7 @@ const MediterranealForm = () => {
           <select
             onChange={handleChange}
             name="selectedOptionTwentyOne"
-            className={`rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
+            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
               selected={values.selectedOptionTwentyOne === "null"}
@@ -1015,7 +1015,7 @@ const MediterranealForm = () => {
           <select
             onChange={handleChange}
             name="selectedOptionTwentyTwo"
-            className={`rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
+            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
               selected={values.selectedOptionTwentyTwo === "null"}
@@ -1066,7 +1066,7 @@ const MediterranealForm = () => {
           <select
             onChange={handleChange}
             name="selectedOptionTwentyThree"
-            className={`rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
+            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
               selected={values.selectedOptionTwentyThree === "null"}
@@ -1097,7 +1097,7 @@ const MediterranealForm = () => {
           <select
             onChange={handleChange}
             name="selectedOptionTwentyFour"
-            className={`rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
+            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
               selected={values.selectedOptionTwentyFour === "null"}
@@ -1134,7 +1134,7 @@ const MediterranealForm = () => {
           <select
             onChange={handleChange}
             name="selectedOptionTwentyFive"
-            className={`rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
+            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
               selected={values.selectedOptionTwentyFive === "null"}
@@ -1167,7 +1167,7 @@ const MediterranealForm = () => {
           <select
             onChange={handleChange}
             name="selectedOptionTwentySix"
-            className={`rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
+            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
               selected={values.selectedOptionTwentySix === "null"}
@@ -1236,7 +1236,7 @@ const MediterranealForm = () => {
           />
           <MainInput
             name="selectedOptionThirtyOne"
-            parentClassName="col-span-1"
+            parentClassName="col-span-2"
             onChange={handleChange}
             type="file"
             label="آخرین آزمایشات ارسال شود "
