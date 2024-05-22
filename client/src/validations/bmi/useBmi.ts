@@ -1,16 +1,14 @@
 import * as yup from "yup";
-// import { toast } from 'react-toastify';
-
 import { useCallback } from "react";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { BmiDataType } from "@/types";
-import { useMyContext } from "@/hooks/useContext/Context";
+import api from "@/apis";
 
 export const BmiSchema = yup.object({
-  firstName: yup.string().required("نام الزامی است"),
+  name: yup.string().required("نام الزامی است"),
   lastName: yup.string().required("نام خانوادگی الزامی است"),
   phoneNumber: yup
     .string()
@@ -21,21 +19,22 @@ export const BmiSchema = yup.object({
     )
     .required("شماره تماس الزامی است"),
   gender: yup.string().required("جنسیت الزامی است"),
-  weight: yup
-    .number()
-    .min(30, "حداقل وزن سی میاشد")
-    .max(600, "حداکثر وزن ششصد میباشد")
-    .required("وزن الزامی است"),
   age: yup
-    .number()
-    .min(17, "حداقل سن هفده میباشد")
-    .max(60, "حداکثر سن شصت مبیاشد")
-    .required("سن الزامی است"),
+  .number()
+  .min(17, "حداقل سن هفده میباشد")
+  .max(60, "حداکثر سن شصت مبیاشد")
+  .required("سن الزامی است"),
   height: yup
     .number()
     .min(130, "حداقل قد صد و سی میباشد")
     .max(300, "حذاکثر قد سیصد میباشد")
     .required("قد الزامی است"),
+    weight: yup
+    .number()
+    .min(30, "حداقل وزن سی میاشد")
+    .max(600, "حداکثر وزن ششصد میباشد")
+    .required("وزن الزامی است"),
+
 });
 
 const useBmi = () => {
@@ -48,25 +47,23 @@ const useBmi = () => {
     resolver: yupResolver(BmiSchema),
   });
   console.log(errors);
-  // const { Bmi, setBmi } = useMyContext();
 
   const showsErrors = () => {
-    //Bmi.phoneNumber ? !Bmi.phoneNumber : !!errors.phoneNumber
-    if (errors.firstName?.message) {
+    if (errors.name?.message) {
       console.log("error");
-      toast.error(errors.firstName.message);
+      toast.error(errors.name.message);
     }
-    if (!errors.firstName && errors.lastName) {
+    if (!errors.name && errors.lastName) {
       console.log("error");
       toast.error(errors.lastName.message);
     }
-    if (!errors.lastName && !errors.firstName && errors.phoneNumber) {
+    if (!errors.lastName && !errors.name && errors.phoneNumber) {
       console.log("error");
       toast.error(errors.phoneNumber.message);
     }
     if (
       !errors.lastName &&
-      !errors.firstName &&
+      !errors.name &&
       !errors.phoneNumber &&
       errors.gender
     ) {
@@ -75,7 +72,7 @@ const useBmi = () => {
     }
     if (
       !errors.lastName &&
-      !errors.firstName &&
+      !errors.name &&
       !errors.phoneNumber &&
       !errors.gender &&
       errors.weight
@@ -85,7 +82,7 @@ const useBmi = () => {
     }
     if (
       !errors.lastName &&
-      !errors.firstName &&
+      !errors.name &&
       !errors.phoneNumber &&
       !errors.gender &&
       !errors.weight &&
@@ -96,7 +93,7 @@ const useBmi = () => {
     }
     if (
       !errors.lastName &&
-      !errors.firstName &&
+      !errors.name &&
       !errors.phoneNumber &&
       !errors.gender &&
       !errors.weight &&
@@ -110,14 +107,23 @@ const useBmi = () => {
 
   showsErrors();
 
-  console.log(errors.firstName?.message);
+  console.log(errors.name?.message);
 
   const { push } = useRouter();
-  const handelValueInputs = useCallback((data: BmiDataType) => {
-    console.log(data);
+  
+  const handelValueInputs = useCallback(async(data: BmiDataType) => {
+    console.log("This is data",data);
+    // try{
+    // }
+    // catch{
+    //   console.error("There was an error!", errors);
+    //   toast.error("An error occurred while submitting the form.");
+    // }
+    const response = await api.post('/bmi', data);
+    console.log("This is response.data: ", response);
     push("/user/panel");
     toast.success("خوش آمدید");
-  }, []);
+  }, [push]);
 
   return {
     control,

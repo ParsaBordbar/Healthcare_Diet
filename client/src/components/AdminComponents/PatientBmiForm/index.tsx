@@ -1,7 +1,7 @@
 import { BmiType } from '@/types'
 import React from 'react'
 
-function PatientBmiForm({name, lastName, phoneNumber, gender, age, height, wight, bmi}: BmiType) {
+function PatientBmiForm({name, lastName, phoneNumber, gender, age, height, weight, bmi}: BmiType) {
   return (
     <section className='flex flex-col bg-[var(--primary)] py-4 rounded-lg gap-4 shadow-md'>
         <div className='flex justify-between text-[var(--text)] my-3 items-center'>
@@ -15,7 +15,7 @@ function PatientBmiForm({name, lastName, phoneNumber, gender, age, height, wight
           </div>
           <div className='flex items-center flex-col text-[var(--text)] px-10 text-lg gap-4  '>
             <p>قد:{" "} {height}</p>
-            <p>وزن:{" "} {wight}</p>
+            <p>وزن:{" "} {weight}</p>
           </div>
         </div>
         <p className='px-10 flex items-center my-2 text-xl text-[var(--tittle-box)]'> شماره تماس:  {" "}  {phoneNumber}</p>
