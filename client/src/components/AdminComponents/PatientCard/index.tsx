@@ -6,7 +6,7 @@ import PhoneIcon from '/public/svg/phone.svg'
 const PatientCard = ({name, lastName, gender, phoneNumber }: BmiType) => {
 
     {
-        if(gender ==="male"){
+        if(gender ==="male" || gender=="مرد"){
             return(
                 <div className="flex m-4 col-span-full bg-[var(--primary)] gap-4 justify-center py-5 rounded-lg shadow-md">
                     <MaleAvatar />
@@ -21,7 +21,7 @@ const PatientCard = ({name, lastName, gender, phoneNumber }: BmiType) => {
             )
         }
 
-        if(gender ==="female"){
+        if(gender ==="female" || gender === "زن"){
             return(
                 <div className="flex m-4 col-span-full bg-[var(--primary)] gap-4 justify-center py-5 rounded-lg shadow-md">
                     <FemaleAvatar />
