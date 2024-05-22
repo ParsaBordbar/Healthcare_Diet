@@ -23,7 +23,7 @@ export type BmiLandingDataType = {
 };
 
 export type BmiDataType = BmiLandingDataType & {
-  firstName: string;
+  name: string;
   lastName: string;
   gender: string;
   age: number;
@@ -68,7 +68,7 @@ export interface BmiType {
     gender?: string,
     age?: string,
     height?: string,
-    wight?: string,
+    weight?: string,
     bmi?: string,
 }
 
