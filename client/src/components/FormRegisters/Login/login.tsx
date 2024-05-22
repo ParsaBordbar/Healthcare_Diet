@@ -2,7 +2,6 @@
 import { LoginFormType } from "@/types";
 import MainButton from "../../MainButton";
 import MainInput from "../../MainInput";
-import Email from "/public/svg/email.svg";
 import { useCallback, useEffect, useRef } from "react";
 import { Controller } from "react-hook-form";
 import useEnterNumber from "@/validations/login/enterNumber/useEnterNumber";
@@ -28,10 +27,6 @@ const FormLogin = ({ type }: LoginFormType) => {
                 error={!!errors.phoneNumber}
                 ref={phoneNumberRef}
                 iconFirst={Phone}
-                // onChange={() => {
-                // setBmi(phoneNumberRef.current?.value);
-                // }}
-                // value={Bmi.phoneNumber}
                 parentClassName="col-span-2 lg:col-span-4"
                 label="شماره تماس"
                 placeholder="شماره تماس خود را وارد کنید"
@@ -58,10 +53,6 @@ const FormLogin = ({ type }: LoginFormType) => {
                 iconFirst={Phone}
                 error={!!errors.phoneNumber}
                 ref={phoneNumberRef}
-                // onChange={() => {
-                // setBmi(phoneNumberRef.current?.value);
-                // }}
-                // value={Bmi.phoneNumber}
                 parentClassName="col-span-2 lg:col-span-4"
                 label="شماره تماس"
                 placeholder="شماره تماس خود را وارد کنید"
