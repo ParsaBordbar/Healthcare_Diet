@@ -1,3 +1,4 @@
+import api from "@/apis";
 import { LoginDataType } from "@/types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
@@ -34,12 +35,24 @@ const useEnterNumber = () => {
 
   const { push } = useRouter();
   console.log(errors);
-  const handelValueInputs = useCallback((data: LoginDataType) => {
-    console.log(data);
-    push("/register/login/enterTheCode");
-    toast.clearWaitingQueue();
-    toast.success("خوش آمدید");
-  }, []);
+  const handelValueInputs = useCallback(async(data: LoginDataType) => {
+    try{
+      console.log(data);
+      const response = await api.get(`/bmi/${data.phoneNumber}`);  
+
+      //Check if the phoneNumber Exists:     
+      if(response && response.data){
+        localStorage.setItem('user', response.data.phoneNumber)
+      }
+      toast.clearWaitingQueue();
+      toast.success("خوش آمدید");
+      push("/register/login/enterTheCode");     
+      //Some code will be added for just redirecting to next page 
+    }
+    catch{
+      console.log(errors);
+    }
+  }, [push]);
 
   return {
     control,

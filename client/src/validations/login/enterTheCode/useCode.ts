@@ -47,10 +47,13 @@ const useCode = () => {
 
   const { push } = useRouter();
   const handelValueInputs = useCallback((data: IdentifyCodeType) => {
-    console.log(data);
-    toast.success("کد به درستی وارد شد");
-    push("/user/panel");
-  }, []);
+    //This condition should change to be be better
+    if(data.codeFive === '0' && (data.codeOne === '0') && (data.codeTwo === '0') && (data.codeThree === '0') && (data.codeFour === '0') && (localStorage.getItem('user'))){
+      console.log(data);
+      toast.success("کد به درستی وارد شد");
+      push("/user/panel");
+    }
+  }, [push]);
 
   return {
     control,
