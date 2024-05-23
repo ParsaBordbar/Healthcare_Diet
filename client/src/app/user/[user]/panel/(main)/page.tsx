@@ -1,5 +1,18 @@
+// app/user/[user]/panel/main.tsx
+import { FC } from 'react';
 
-const MainPage = () => {
-  return <h1>main page of user panel </h1>;
+interface UserPanelProps {
+  params: {
+    user: string;
+  };
+}
+
+const UserPanel: FC<UserPanelProps> = ({ params }) => {
+  return (
+    <section>
+      <h1>This is the main panel for user: {params.user}</h1>
+    </section>
+  );
 };
-export default MainPage;
+
+export default UserPanel;
