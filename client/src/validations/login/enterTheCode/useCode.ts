@@ -6,6 +6,7 @@ import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
+import { json } from "stream/consumers";
 
 export const loginSchema = yup.object({
   codeOne: yup
@@ -48,10 +49,11 @@ const useCode = () => {
   const { push } = useRouter();
   const handelValueInputs = useCallback((data: IdentifyCodeType) => {
     //This condition should change to be be better
-    if(data.codeFive === '0' && (data.codeOne === '0') && (data.codeTwo === '0') && (data.codeThree === '0') && (data.codeFour === '0') && (localStorage.getItem('user'))){
+    if(data.codeFive === '5' && (data.codeOne === '1') && (data.codeTwo === '2') && (data.codeThree === '3') && (data.codeFour === '4') && (localStorage.getItem('user'))){
       console.log(data);
+      const userNumber = localStorage.getItem('user');
       toast.success("کد به درستی وارد شد");
-      push("/user/panel");
+      push(`/user/${userNumber}/panel`);
     }
   }, [push]);
 
