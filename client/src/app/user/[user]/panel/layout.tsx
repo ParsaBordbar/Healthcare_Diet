@@ -1,7 +1,8 @@
-// "use client";
+"use client";
 import { ReactNode } from "react";
 import Link from "next/link";
 import HamburgerNavbar from "@/components/HamburgerMenu";
+import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
 
 
 interface LayoutUserProps {
@@ -12,6 +13,7 @@ interface LayoutUserProps {
 }
 
 const LayoutUser = ({ children, params }: LayoutUserProps) => {
+  const bmiData = useSpecificFetchBmi(params.user)
   const { user } = params;
   return (
     <>
@@ -25,16 +27,21 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
         />
         <div className="fixed hidden py-6 top-0 right-0 h-screen bg-[var(--rating-color)] gap-16 md:flex flex-col w-[30%] lg:w-1/6 ">
           <div className="flex lg:gap-0 lg:flex-row items-center md:p-4 lg:p-0 rounded-lg justify-around ">
-            <h1 className="text-white">name of the user</h1>
+            <h1 className="text-white">{bmiData?.name} {bmiData?.lastName}</h1>
           </div>
-          <ul className=" rounded-lg h-screen pr-4">
+          <ul className="flex flex-col rounded-lg h-screen py-4 ps-4 gap-4 ">
+          <Link href={`/user/${user}/panel`}>
+              <li className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md">
+                پیشخوان
+              </li>
+            </Link>
             <Link href={"/"}>
-              <li className="hover:text-[var(--rating-color)] text-lg cursor-pointer hover:text-black text-white hover:bg-zinc-100 hover:bg-full ease-in-out transition-all duration-150 p-2 rounded-s-md">
+              <li className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md">
                 خانه
               </li>
             </Link>
-            <Link href={`/user/${user}/panel/diets`}>
-              <li className="hover:text-[var(--rating-color)] text-lg cursor-pointer hover:text-black text-white hover:bg-zinc-100 hover:bg-full ease-in-out transition-all duration-150 p-2 rounded-s-md">
+            <Link className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md" href={`/user/${user}/panel/diets`}>
+              <li className="flex items-center gap-3">
                 رژیم ها
               </li>
             </Link>
