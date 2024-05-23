@@ -6,6 +6,7 @@ import FormIcon from '/public/svg/adminPanelSvgs/Form.svg';
 import MedicalDocIcon from '/public/svg/adminPanelSvgs/Medical-Documentation.svg'
 
 const LayoutAdmin = ({ children }: { children: ReactNode }) => {
+
   return (
     <>
       <div className="sticky flex justify-end w-full top-0 z-40">
