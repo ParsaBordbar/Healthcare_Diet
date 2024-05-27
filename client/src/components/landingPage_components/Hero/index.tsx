@@ -24,7 +24,7 @@ const Hero = () => {
                   <MainButton
                     standard
                     className="text-2xl px-20 py-3"
-                    value="ثبت نام کنید"
+                    value="دریافت رژیم"
                   />
                 </Link>
             </div>

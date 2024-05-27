@@ -63,7 +63,7 @@ const FormLogin = ({ type }: LoginFormType) => {
             type="submit"
             simple
             className="bg-[var(--rating-color)] py-2.5 !text-xl !text-white w-full"
-            value={"ارسال کد ورود"}
+            value={"ارسال کد "}
           />
         </>
       );
@@ -75,7 +75,7 @@ const FormLogin = ({ type }: LoginFormType) => {
       onSubmit={handleSubmit(handelValueInputs)}
       className="flex w-full gap-10 flex-col justify-center"
     >
-      <h1 className="text-center font-bold text-2xl">ورود</h1>
+      <h1 className="text-center font-bold text-2xl"> دریافت رژیم/ ورود</h1>
       <section className="flex w-full flex-col items-center gap-[3.125rem]">
         {CheckTypeRender()}
       </section>
