@@ -11,7 +11,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <div className="sticky flex justify-end w-full top-0 z-40">
-        <div className="fixed top-0 right-0 bg-[var(--rating-color)] gap-16 flex flex-col h-screen w-1/6 pb-4">
+        <div className="fixed top-0 right-0 bg-[var(--panel-blue)] gap-16 flex flex-col h-screen w-1/6 pb-4">
           <div className="flex items-center py-2 rounded-lg justify-around bg-IslamicArt h-64 bg-cover bg-center">
           </div>
           <h1 className="text-white text-2xl font-semibold bg-custom-IslamicArt flex justify-center">نام دکتر</h1>
