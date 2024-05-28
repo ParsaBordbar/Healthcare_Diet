@@ -11,7 +11,7 @@ const doctorsComment = mongoose.model('doctors_comment' ,new mongoose.Schema({
         required: true,
     },
     receiver:{
-        type: mongoose.type.ObjectId,
+        type: String, //mongoose.type.ObjectId
         ref: "Bmi_form",
         required: true,
     },
