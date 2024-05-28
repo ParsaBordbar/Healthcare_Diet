@@ -5,6 +5,7 @@ const app = express();
 const bmi = require('./routes/bmi');
 const mediterranean = require('./routes/mediterranean');
 const adminLogin = require('./routes/admin');
+const doctorsComment = require('./routes/docComments');
 require('dotenv').config();
 
 
@@ -13,13 +14,11 @@ app.use(express.json());
 app.use('/api/bmi', bmi);
 app.use('/api/mediterranean', mediterranean);
 app.use('/api/admin', adminLogin);
+app.use('/api/doctorsComment', doctorsComment);
 
-// DB_CONNECTION_STRING=mongodb://zahra:zahra$1234@70.34.217.65/:8080/healthcare
 mongoose.connect(process.env.DB_CONNECTION_STRING)
     .then(() => console.log("Connected to Mongodb :)"))
     .catch(() => (console.error("Could not connect to Mongodb.")));
-    console.log("This is ", process.env.DB_CONNECTION_STRING);
-
 
 app.get('/', async( req, res) => {
     res.send("This is the BackEnd of the Diet Project")
