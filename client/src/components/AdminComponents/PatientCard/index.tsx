@@ -14,7 +14,7 @@ const PatientCard = ({name, lastName, gender, phoneNumber, linkTo }: BmiType) =>
                     <div className="flex flex-col gap-4 w-1/2">
                         <div className="flex  items-center pt-2.5 gap-5">
                             <h2 className="text-3xl ">{name} {lastName}</h2>
-                            <Link className="text-blue-500 text-xs" href={`${linkTo}`}>اطلاعات بیشتر</Link>
+                            {linkTo?<Link className="pt-2 text-blue-500 text-xs" href={`${linkTo}`}>اطلاعات بیشتر</Link> : null}
                         </div>
                         <div className="flex gap-2">
                             <PhoneIcon />
@@ -32,7 +32,7 @@ const PatientCard = ({name, lastName, gender, phoneNumber, linkTo }: BmiType) =>
                     <div className="flex flex-col gap-4 px-8 w-1/2">
                     <div className="flex  items-center pt-2.5 gap-5">
                             <h2 className="text-3xl ">{name} {lastName}</h2>
-                            <Link className="text-blue-500 text-xs" href={`${linkTo}`}>اطلاعات بیشتر</Link>
+                            {linkTo?<Link className="pt-2 text-blue-500 text-xs" href={`${linkTo}`}>اطلاعات بیشتر</Link> : null}
                         </div>
                         <div className="flex gap-2">
                             <PhoneIcon />
