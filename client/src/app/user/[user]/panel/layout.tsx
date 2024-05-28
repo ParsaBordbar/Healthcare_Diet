@@ -25,7 +25,8 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
           linkOne={"/"}
           linkTwo={`/user/${user}/panel/diets`}
         />
-        <div className="fixed hidden py-6 top-0 right-0 h-screen bg-[var(--rating-color)] gap-16 md:flex flex-col w-[30%] lg:w-1/6 ">
+        <div className="fixed hidden pb-6 top-0 right-0 h-screen bg-[var(--rating-color)] gap-16 md:flex flex-col w-[30%] lg:w-1/6 ">
+          <div className="flex items-center pb-2 rounded-lg justify-around bg-IslamicArt h-64 bg-cover bg-center"></div>
           <div className="flex lg:gap-0 lg:flex-row items-center md:p-4 lg:p-0 rounded-lg justify-around ">
             <h1 className="text-white">{bmiData?.name} {bmiData?.lastName}</h1>
           </div>
