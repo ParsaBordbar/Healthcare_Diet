@@ -4,7 +4,6 @@ import Link from "next/link";
 import AdminPanelLogo from '/public/svg/adminPanelSvgs/Stethoscope.svg';
 import FormIcon from '/public/svg/adminPanelSvgs/Form.svg';
 import MedicalDocIcon from '/public/svg/adminPanelSvgs/Medical-Documentation.svg'
-import IslamicArt from '/public/svg/adminPanelSvgs/IslamicArt.svg'
 
 const LayoutAdmin = ({ children }: { children: ReactNode }) => {
 
@@ -18,9 +17,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
 
           
           <ul className="flex flex-col rounded-lg h-screen py-4 ps-4 gap-4">
-            {/* <div>
-              <IslamicArt />
-            </div> */}
+
             <Link
               href={"/admin/panel/"}
               className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
