@@ -116,7 +116,7 @@ const useBmi = () => {
     try{
       const response = await api.post('/bmi', data);
       console.log("This is response.data: ", response);
-      push("/user/panel");
+      push(`/user/${data.phoneNumber}/panel`);
       toast.success("خوش آمدید");
     }
     catch{
