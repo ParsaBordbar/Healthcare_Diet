@@ -8,7 +8,7 @@ import { CommentType } from '@/types';
 
 const CommentSchema = yup.object().shape({
   sender: yup.string().required('Sender is required'),
-  body: yup.string().required('Body is required'),
+  body: yup.string().required('لطفا متن پیام را اضافه کنید'),
   receiver: yup.string().required('Receiver is required'),
 });
 
@@ -27,9 +27,9 @@ const useComment = () => {
   const handleValueInputs: SubmitHandler<CommentType> = useCallback(async (data) => {
     try {
       const response = await api.post('/doctorsComment', data);
-      toast.success('Comment submitted successfully');
+      toast.success('پیام با موفقیت ارسال شد');
     } catch (error) {
-      console.error('There was an error!', error);
+      console.error('مشکلی در ارسال پیام پیش آمد', error);
       toast.error('An error occurred while submitting the comment');
     }
   }, []);
