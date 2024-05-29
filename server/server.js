@@ -2,6 +2,9 @@ const express = require("express");
 const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
+const multer = require("multer");
+
+const uploader = require("./middlewares/multer");
 const bmi = require('./routes/bmi');
 const mediterranean = require('./routes/mediterranean');
 const adminLogin = require('./routes/admin');
@@ -15,6 +18,11 @@ app.use('/api/bmi', bmi);
 app.use('/api/mediterranean', mediterranean);
 app.use('/api/admin', adminLogin);
 app.use('/api/doctorsComment', doctorsComment);
+
+
+app.post("/", uploader.array("doc", 3), async (req, res) => {
+    res.json(req.files);
+  });
 
 mongoose.connect(process.env.DB_CONNECTION_STRING)
     .then(() => console.log("Connected to Mongodb :)"))
