@@ -6,7 +6,7 @@ import PatientBox from '../PatientBox';
 function NewPatientsBox() {
   const  bmiForms = useFetchBmi();    
   return (
-    <section className='flex flex-col items-center rounded-2xl my-4'>
+    <section className='flex flex-col items-start rounded-2xl my-4'>
       <h2 className='text-lg'>جدیدترین بیمارها</h2>
         {bmiForms.slice(-3).map((form) => {
             return <PatientBox
