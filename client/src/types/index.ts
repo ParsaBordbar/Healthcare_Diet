@@ -70,6 +70,7 @@ export interface BmiType {
     height?: string,
     weight?: string,
     bmi?: string,
+    linkTo?: string
 }
 
 export type WelcomeBoxType ={
@@ -112,4 +113,10 @@ export interface MediterraneanFormType{
   medicine?: String ,
   phoneNumber: string ,
   isChecked: boolean
+}
+
+export interface CommentType {
+  sender: string,
+  body: string,
+  receiver: string,
 }

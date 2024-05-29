@@ -23,7 +23,7 @@ const Navbar = () => {
       </ul>
       <div className="lg:flex hidden flex-row gap-12 justify-center items-center">
         <Link href={"/register/login/enterNumber"}>
-          <MainButton trasparent className="py-2 px-5 " value={"ثبت نام"} />
+          <MainButton trasparent className="py-2 px-5 " value={"دریافت رژیم"} />
         </Link>
         <Link href={"/register/login/enterNumber"}>
           <MainButton simple value={"ورود"} />

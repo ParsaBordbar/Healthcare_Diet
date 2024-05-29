@@ -14,6 +14,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "header-register-banner": "url('/svgs/header-register.svg')",
         "bg-banner": "url('/svgs/loginBanner.svg')",
+        "IslamicArt" : "url(/svg/adminPanelSvgs/IslamicArt.svg)"
       },
     },
   },

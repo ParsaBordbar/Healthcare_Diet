@@ -62,11 +62,17 @@ const useRegister = () => {
   const { push } = useRouter();
 
   const handelValueInputs = useCallback((data: SignUpDataType) => {
-    console.log(data);
-    push("/register/diets-bmi");
-    toast.clearWaitingQueue();
-    toast.success("خوش آمدید");
-  }, []);
+    try{
+      console.log(data);
+      push("/register/diets-bmi");
+      toast.clearWaitingQueue();
+      toast.success("خوش آمدید");
+    }
+    catch{
+      console.log("Something went wrong.");
+    }
+  }, [push]);
+
 
   return {
     control,

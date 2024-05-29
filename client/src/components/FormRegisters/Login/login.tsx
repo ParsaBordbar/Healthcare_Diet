@@ -2,7 +2,6 @@
 import { LoginFormType } from "@/types";
 import MainButton from "../../MainButton";
 import MainInput from "../../MainInput";
-import Email from "/public/svg/email.svg";
 import { useCallback, useEffect, useRef } from "react";
 import { Controller } from "react-hook-form";
 import useEnterNumber from "@/validations/login/enterNumber/useEnterNumber";
@@ -28,10 +27,6 @@ const FormLogin = ({ type }: LoginFormType) => {
                 error={!!errors.phoneNumber}
                 ref={phoneNumberRef}
                 iconFirst={Phone}
-                // onChange={() => {
-                // setBmi(phoneNumberRef.current?.value);
-                // }}
-                // value={Bmi.phoneNumber}
                 parentClassName="col-span-2 lg:col-span-4"
                 label="شماره تماس"
                 placeholder="شماره تماس خود را وارد کنید"
@@ -58,10 +53,6 @@ const FormLogin = ({ type }: LoginFormType) => {
                 iconFirst={Phone}
                 error={!!errors.phoneNumber}
                 ref={phoneNumberRef}
-                // onChange={() => {
-                // setBmi(phoneNumberRef.current?.value);
-                // }}
-                // value={Bmi.phoneNumber}
                 parentClassName="col-span-2 lg:col-span-4"
                 label="شماره تماس"
                 placeholder="شماره تماس خود را وارد کنید"
@@ -72,7 +63,7 @@ const FormLogin = ({ type }: LoginFormType) => {
             type="submit"
             simple
             className="bg-[var(--rating-color)] py-2.5 !text-xl !text-white w-full"
-            value={"ارسال کد ورود"}
+            value={"ارسال کد "}
           />
         </>
       );
@@ -84,7 +75,7 @@ const FormLogin = ({ type }: LoginFormType) => {
       onSubmit={handleSubmit(handelValueInputs)}
       className="flex w-full gap-10 flex-col justify-center"
     >
-      <h1 className="text-center font-bold text-2xl">ورود</h1>
+      <h1 className="text-center font-bold text-2xl"> دریافت رژیم/ ورود</h1>
       <section className="flex w-full flex-col items-center gap-[3.125rem]">
         {CheckTypeRender()}
       </section>

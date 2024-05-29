@@ -103,7 +103,7 @@ const BmiForm = () => {
           <MainButton
             type="submit"
             className="w-full my-10 py-3 !text-white bg-[var(--rating-color)] font-bold text-2xl"
-            value={"امروز شروع کنید"}
+            value={"همین حالا رژیم خود را دریافت کنید"}
           />
         </form>
       </div>

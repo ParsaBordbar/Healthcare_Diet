@@ -113,16 +113,16 @@ const useBmi = () => {
   
   const handelValueInputs = useCallback(async(data: BmiDataType) => {
     console.log("This is data",data);
-    // try{
-    // }
-    // catch{
-    //   console.error("There was an error!", errors);
-    //   toast.error("An error occurred while submitting the form.");
-    // }
-    const response = await api.post('/bmi', data);
-    console.log("This is response.data: ", response);
-    push("/user/panel");
-    toast.success("خوش آمدید");
+    try{
+      const response = await api.post('/bmi', data);
+      console.log("This is response.data: ", response);
+      push("/user/panel");
+      toast.success("خوش آمدید");
+    }
+    catch{
+      console.error("There was an error!", errors);
+      toast.error("An error occurred while submitting the form.");
+    }
   }, [push]);
 
   return {
