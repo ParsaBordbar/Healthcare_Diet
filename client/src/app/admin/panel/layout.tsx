@@ -16,9 +16,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
           </div>
           <h1 className="text-white text-2xl font-semibold bg-custom-IslamicArt flex justify-center"> مشاور تغذیه</h1>
 
-          
           <ul className="flex flex-col rounded-lg h-screen pb-4 ps-4 gap-4">
-
             <Link
               href={"/admin/panel/"}
               className="group text-xl cursor-pointer hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
@@ -53,7 +51,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
           </ul>
         </div>
         <main className="w-5/6 flex flex-col py-16 gap-10 px-28 bg-white   h-screen">
-          <MainInput parentClassName="!w-1/2 mx-auto" type="search" placeholder="نام بیمار مورد نظر خود را وارد کنید"/>
+          {/* <MainInput parentClassName="!w-1/2 mx-auto" type="search" placeholder="نام بیمار مورد نظر خود را وارد کنید"/> */}
           <div className="">{children}</div>
         </main>
       </div>
