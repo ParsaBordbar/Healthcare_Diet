@@ -13,7 +13,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
         <div className="fixed top-0 right-0 bg-[var(--panel-blue)] gap-16 flex flex-col h-screen w-1/6 pb-4">
           <div className="flex items-center pb-2 rounded-lg justify-around bg-IslamicArt h-64 bg-cover bg-center">
           </div>
-          <h1 className="text-white text-2xl font-semibold bg-custom-IslamicArt flex justify-center">نام دکتر</h1>
+          <h1 className="text-white text-2xl font-semibold bg-custom-IslamicArt flex justify-center"> مشاور تغذیه</h1>
 
           
           <ul className="flex flex-col rounded-lg h-screen pb-4 ps-4 gap-4">
