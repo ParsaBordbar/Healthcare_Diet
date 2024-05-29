@@ -4,6 +4,7 @@ import Link from "next/link";
 import AdminPanelLogo from '/public/svg/adminPanelSvgs/Stethoscope.svg';
 import FormIcon from '/public/svg/adminPanelSvgs/Form.svg';
 import MedicalDocIcon from '/public/svg/adminPanelSvgs/Medical-Documentation.svg'
+import MainInput from "@/components/MainInput";
 
 const LayoutAdmin = ({ children }: { children: ReactNode }) => {
 
@@ -20,38 +21,39 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
 
             <Link
               href={"/admin/panel/"}
-              className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
+              className="group text-xl cursor-pointer hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
-              <li className="flex items-center gap-3"> <AdminPanelLogo />پنل اصلی</li>
+              <li className="flex items-center gap-3 text-white group-hover:text-[var(--new-green)]"> <AdminPanelLogo />پنل اصلی</li>
             </Link>
             <Link
               href={"/admin/panel/patients/"}
-              className="hover:text-[var(--rating-color)] text-xl group cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
+              className=" text-xl group cursor-p-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
-              <li className="flex gap-2 items-center justify-start"> <MedicalDocIcon/>سوابق بیمارها  </li>
+              <li className="flex gap-2 items-center text-white group-hover:text-[var(--new-green)] justify-start"> <MedicalDocIcon/>سوابق بیمارها  </li>
             </Link>
             <Link
               href={"/admin/panel/bmi/"}
-              className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
+              className="group text-xl cursor-pointer hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
-              <li className="flex gap-2 items-center"><FormIcon/> فرم‌های BMI</li>
+              <li className="flex gap-2 items-center text-white group-hover:text-[var(--new-green)]"><FormIcon/> فرم‌های BMI</li>
             </Link>
             <Link
               href={"/admin/panel/mediterranean/"}
-              className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
+              className="group text-xl cursor-pointer hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
-              <li className="flex gap-2 items-center justify-start"><FormIcon/>فرم‌های رژیم مدیترانه‌ای</li>
+              <li className="flex gap-2 items-center text-white group-hover:text-[var(--new-green)] justify-start"><FormIcon/>فرم‌های رژیم مدیترانه‌ای</li>
             </Link>
 
             <Link
               href={"/admin/panel/mediterranean/"}
-              className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
+              className="group text-xl cursor-pointer hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
-              <li className="flex gap-2 items-center justify-start"><FormIcon/>فرم‌های پاسخ داده نشده</li>
+              <li className="flex gap-2 items-center text-white group-hover:text-[var(--new-green)] justify-start"><FormIcon/>فرم‌های پاسخ داده نشده</li>
             </Link>
           </ul>
         </div>
-        <main className="w-5/6 p-28 bg-white">
+        <main className="w-5/6 flex flex-col py-16 gap-10 px-28 bg-white   h-screen">
+          <MainInput parentClassName="!w-1/2 mx-auto" type="search" placeholder="نام بیمار مورد نظر خود را وارد کنید"/>
           <div className="">{children}</div>
         </main>
       </div>
