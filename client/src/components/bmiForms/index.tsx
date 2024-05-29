@@ -24,10 +24,10 @@ const BmiFormDiet = () => {
     nameRef,
     lastNameRef,
     phoneNumberRef,
-    ageRef,
     genderRef,
-    heightRef,
     weightRef,
+    ageRef,
+    heightRef,
   ];
 
   useEffect(() => {
