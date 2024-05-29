@@ -114,3 +114,9 @@ export interface MediterraneanFormType{
   phoneNumber: string ,
   isChecked: boolean
 }
+
+export interface CommentType {
+  sender: string,
+  body: string,
+  receiver: string,
+}
