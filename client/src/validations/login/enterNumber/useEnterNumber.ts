@@ -27,6 +27,7 @@ const useEnterNumber = () => {
   } = useForm<LoginDataType>({
     resolver: yupResolver(EnterNumberSchema),
   });
+
   useEffect(() => {
     if (errors.phoneNumber) {
       toast.error(errors.phoneNumber.message);
@@ -35,22 +36,28 @@ const useEnterNumber = () => {
 
   const { push } = useRouter();
   console.log(errors);
-  const handelValueInputs = useCallback(async(data: LoginDataType) => {
-    try{
-      console.log(data);
-      const response = await api.get(`/bmi/${data.phoneNumber}`);  
 
-      //Check if the phoneNumber Exists:     
-      if(response && response.data){
-        localStorage.setItem('user', response.data.phoneNumber)
+  const handelValueInputs = useCallback(async (data: LoginDataType) => {
+    try {
+      console.log(data);
+      const response = await api.get(`/bmi/${data.phoneNumber}`);
+
+      localStorage.removeItem('user');
+
+      // Check if the phone number exists
+      if (response && response.data) {
+        localStorage.setItem('user', response.data.phoneNumber);
+        toast.clearWaitingQueue();
+        toast.success("خوش آمدید");
+        push("/register/login/enterTheCode");
       }
+    } catch (error) {
+      console.error("Error fetching phone number:", error);
+      localStorage.removeItem('user');
       toast.clearWaitingQueue();
-      toast.success("خوش آمدید");
-      push("/register/login/enterTheCode");     
-      //Some code will be added for just redirecting to next page 
-    }
-    catch{
-      console.log(errors);
+      toast.info("شماره تماس یافت نشد، لطفا اطلاعات خود را وارد کنید");
+      push("/register/login/enterTheCode");
+      // toast.error("خطا در ارتباط با سرور");
     }
   }, [push]);
 
