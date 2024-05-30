@@ -12,7 +12,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
     <>
       <div className=" flex justify-end w-full top-0 z-40">
       <HamburgerNavbar
-          className="!bg-transparent !fixed !right-0 !py-6 !px-6 md:!hidden !w-fit !inline-block"
+          className="!bg-white !fixed !right-0 !py-6 !px-6 md:!hidden !w-full !inline-block"
           valueOne="خانه"
           valueTwo="پنل اصلی"
           linkOne={"/"}
@@ -65,7 +65,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
             </Link>
           </ul>
         </div>
-        <main className="w-full md:w-[75%] lg:w-5/6 flex flex-col py-16 gap-10 px-16 bg-white   h-screen">
+        <main className="w-full mt-6 md:w-[75%] lg:w-5/6 flex flex-col py-16 gap-10 px-16 bg-white   h-screen">
           {/* <MainInput parentClassName="!w-1/2 mx-auto" type="search" placeholder="نام بیمار مورد نظر خود را وارد کنید"/> */}
           <div className="">{children}</div>
         </main>
