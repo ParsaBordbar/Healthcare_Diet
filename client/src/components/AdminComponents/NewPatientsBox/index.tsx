@@ -12,7 +12,7 @@ function NewPatientsBox() {
       <main className="grid grid-cols-2 w-full justify-between">
         {bmiForms.slice(-4).map((form) => {
           return (
-            <div className="col-span-1 " key={form.phoneNumber}>
+            <div className="min-[1107px]:col-span-1 col-span-2" key={form.phoneNumber}>
               <PatientCard
                 linkTo={`/admin/panel/patients/${form.phoneNumber}`}
                 name={form.name}
