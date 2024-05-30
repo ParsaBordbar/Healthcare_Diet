@@ -21,7 +21,7 @@ const PatientCard = ({
   }, []);
 
   return (
-    <div className="flex m-3 col-span-full bg-[var(--primary)] px-4 sm:px-8 gap-8 py-4 rounded-lg shadow-md ">
+    <div className="flex col-span-full bg-[var(--primary)] px-4 sm:px-8 gap-8 py-4 rounded-lg shadow-md ">
       {ChoseAvatar}
       <div className="flex flex-col gap-4  w-full">
         <div className="flex justify-between items-center pt-2.5 ">
