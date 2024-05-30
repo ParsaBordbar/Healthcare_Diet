@@ -17,9 +17,9 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
   const { user } = params;
   return (
     <>
-      <div className="sticky  flex justify-end w-full top-0 z-40">
+      <div className="flex justify-end w-full top-0 z-40">
         <HamburgerNavbar
-          className="!bg-transparent "
+          className="!bg-transparent !fixed !right-0 !py-6 !px-6 md:!hidden !w-fit !inline-block"
           valueOne="خانه"
           valueTwo="رژیم ها"
           linkOne={"/"}
@@ -48,7 +48,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
             </Link>
           </ul>
         </div>
-        <main className=" sm:w-full md:w-[70%] lg:w-5/6 p-20 bg-white">
+        <main className="w-full md:w-[70%] lg:w-5/6 sm:px-20 px-6 md:px-28 py-20 md:py-16 bg-white">
           <div className="">{children}</div>
         </main>
       </div>
