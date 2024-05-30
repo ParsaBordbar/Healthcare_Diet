@@ -9,15 +9,15 @@ function NewCommentsBox () {
   const allComments = useFetchComments()
 
   return (
-    <div className='my-3 flex justify-center flex-col mx-1 '>
-        <h2 className="text-lg px-10">جدیدترین پیام‌ها</h2>
-                <div className='flex flex-col-reverse'>
-                  {allComments? allComments.slice(-3).map((data): React.ReactNode => {
-                      return <CommentBox key={data.receiver} sender={data.sender}body={data.body} receiver={data.receiver} createdAtJalali={data.createdAtJalali}/>
+    <div className='my-3 flex justify-center  flex-col '>
+        <h2 className="text-lg mb-6">جدیدترین پیام‌ها</h2>
+                <div className='flex max-h-[590px] gap-6 custom-scroll flex-col'>
+                  {allComments? allComments.slice(-4).map((data): React.ReactNode => {
+                      return <CommentBox className='lg:min-w-[75%] lg:w-min w-full' key={data.receiver} sender={data.sender}body={data.body} receiver={data.receiver} createdAtJalali={data.createdAtJalali}/>
                   }): null
                   }
                 </div>
-        <Link className="pt-3 mx-2 text-lg px-10 text-blue-600 " href={"/admin/panel/comments"}> دیدن‌ همه‌ی پیام‌ها</Link>
+        <Link className="pt-3 mx-2 text-lg  text-blue-600 " href={"/admin/panel/comments"}> دیدن‌ همه‌ی پیام‌ها</Link>
     </div>
   )
 }
