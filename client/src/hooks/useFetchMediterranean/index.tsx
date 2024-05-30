@@ -2,7 +2,7 @@ import api from "@/apis";
 import { MediterraneanFormType } from "@/types";
 import { useState, useEffect } from "react";
 
-const useFetchMediterranean = () => {
+const useFetchMediterranean = (url?: string) => {
     const [mediterraneanForms, SetMediterraneanForms] = useState<MediterraneanFormType[]>([])
 
     useEffect(()=>{
@@ -11,8 +11,14 @@ const useFetchMediterranean = () => {
 
     const fetchMediterraneanForms = async() => {
         try{
-            const response = await api.get('/mediterranean');
-            SetMediterraneanForms(response.data);
+            if(url){
+                const response = await api.get(`/mediterranean${url}`);
+                return SetMediterraneanForms(response.data);
+            }
+            else{
+                const response = await api.get('/mediterranean');
+                return SetMediterraneanForms(response.data);
+            }
         }
         catch(err : any){
            if (err.response){

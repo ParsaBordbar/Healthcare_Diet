@@ -24,7 +24,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
           valueFive="فرم های رژیم مدیترانه ای"
           linkFive="/admin/panel/mediterranean"
           valueSix="فرم های پاسخ داده نشده"
-          linkSix="/admin/panel/mediterranean"
+          linkSix="/admin/panel/unvisited_diets"
         />
         <div className="fixed w-[25%] lg:w-1/6 md:flex top-0 right-0 bg-[var(--new-green)] gap-16 hidden flex-col h-screen pb-4">
           <div className="flex items-center pb-2 rounded-lg justify-around bg-IslamicArt h-64 bg-cover bg-center">
@@ -58,7 +58,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
             </Link>
 
             <Link
-              href={"/admin/panel/mediterranean/"}
+              href={"/admin/panel/unvisited_diets"}
               className="group text-xl cursor-pointer hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
               <li className="flex gap-2 items-center text-white group-hover:text-[var(--new-green)] justify-start"><FormIcon/>فرم‌های پاسخ داده نشده</li>

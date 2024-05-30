@@ -5,28 +5,41 @@ const { MediterraneanForm, validateMediterranean } = require('../models/mediterr
 router.get('/', async (req, res) => {
     if (MediterraneanForm) {
         const mediterraneanForms = await MediterraneanForm.find().sort(req.params.id);
-        return res.send(mediterraneanForms); // Use return
+        return res.send(mediterraneanForms); 
     } else {
-        return res.send({ "DataBase": "NO mediterraneanForms yet!" }); // Use return
+        return res.send({ "DataBase": "NO mediterraneanForms yet!" }); 
     }
 });
 
 router.get('/:phoneNumber', async (req, res) => {
     const mediterraneanForm = await MediterraneanForm.findOne({ phoneNumber: req.params.phoneNumber });
     if (!mediterraneanForm) {
-        return res.status(404).send("Mediterranean with this phoneNumber was not found."); // Use return
+        return res.status(404).send("Mediterranean with this phoneNumber was not found."); 
     }
-    return res.send(mediterraneanForm); // Use return
+    return res.send(mediterraneanForm); 
+});
+
+
+router.get('/checking/isChecked', async (req, res) => {
+    try {
+        const mediterraneanForms = await MediterraneanForm.find({ isChecked: false });
+        if (mediterraneanForms.length === 0) {
+            return res.status(404).send("No Diets found with isChecked set to false.");
+        }
+        return res.send(mediterraneanForms);
+    } catch (error) {
+        return res.status(500).send("An error occurred while retrieving the data.");
+    }
 });
 
 router.post('/', async (req, res) => {
     const { error } = validateMediterranean(req.body);
     if (error) {
-        return res.status(400).send(error.details[0].message); // Use return
+        return res.status(400).send(error.details[0].message); 
     }
     let phoneNumberCheck = await MediterraneanForm.findOne({ phoneNumber: req.body.phoneNumber });
     if (phoneNumberCheck) {
-        return res.status(400).send("Such phone number is already registered."); // Use return
+        return res.status(400).send("Such phone number is already registered."); 
     }
     
     let mediterraneanForm = new MediterraneanForm({
@@ -65,7 +78,7 @@ router.post('/', async (req, res) => {
         phoneNumber: req.body.phoneNumber,
     });
     mediterraneanForm = await mediterraneanForm.save();
-    return res.send(mediterraneanForm); // Use return
+    return res.send(mediterraneanForm); 
 });
 
 router.put('/:phoneNumber', async (req, res) => {
@@ -75,17 +88,17 @@ router.put('/:phoneNumber', async (req, res) => {
         { new: true }
     );
     if (!editedMediterraneanForm) {
-        return res.status(404).send("Such form with this phoneNumber does not exist."); // Use return
+        return res.status(404).send("Such form with this phoneNumber does not exist."); 
     }
-    return res.send(editedMediterraneanForm); // Use return
+    return res.send(editedMediterraneanForm); 
 });
 
 router.delete('/:phoneNumber', async (req, res) => {
     const mediterraneanForm = await MediterraneanForm.findByIdAndDelete(req.params.phoneNumber);
     if (!mediterraneanForm) {
-        return res.status(404).send("Mediterranean form with this phoneNumber does not exist."); // Use return
+        return res.status(404).send("Mediterranean form with this phoneNumber does not exist."); 
     }
-    return res.send(mediterraneanForm); // Use return
+    return res.send(mediterraneanForm); 
 });
 
 module.exports = router;
