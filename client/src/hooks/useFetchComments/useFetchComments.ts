@@ -8,23 +8,30 @@ const useFetchComments = () => {
 
     useEffect(() => {
         fetchData()
-    }, [comments])
-
+    }, [])
 
     const fetchData = async() => {
         try{
             const response = await api.get('/');
-            setComments((response).data)
+            setComments(response.data)
         }
         catch(err : any){
             if (err.response){
-             console.log(err.response.data)
+                console.log(err.response.data)
             }
             else{
-             console.log(`Error: ${err.message}`);
+                console.log(`Error: ${err.message}`);
             }
-         }
+        }
     }
+
+    useEffect(() => {
+        if (comments.length > 0) {
+            console.log('Comments updated:', comments);
+        }
+    }, [comments])
+
     return comments;
 }
+
 export default useFetchComments;
