@@ -9,12 +9,11 @@ const MainPageAdminPanel = () => {
             <div className="col-span-7">
                 <WelcomeBox doctorName="نام "/>    
             </div>
-            <div className="col-span-7">
+            <div className="col-span-3">
                 <NewPatientsBox />
             </div>
-            <div className="col-span-7">
+            <div className="col-span-4">
                 <NewCommentsBox />
-                <Link href={""}> دیدن‌ همه‌ی پیام‌ها</Link>
             </div>
         </section>
     )   
