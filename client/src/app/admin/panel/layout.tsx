@@ -4,14 +4,29 @@ import Link from "next/link";
 import AdminPanelLogo from '/public/svg/adminPanelSvgs/Stethoscope.svg';
 import FormIcon from '/public/svg/adminPanelSvgs/Form.svg';
 import MedicalDocIcon from '/public/svg/adminPanelSvgs/Medical-Documentation.svg'
-import MainInput from "@/components/MainInput";
+import HamburgerNavbar from "@/components/HamburgerMenu";
 
 const LayoutAdmin = ({ children }: { children: ReactNode }) => {
 
   return (
     <>
-      <div className="sticky flex justify-end w-full top-0 z-40">
-        <div className="fixed top-0 right-0 bg-[var(--new-green)] gap-16 flex flex-col h-screen w-1/6 pb-4">
+      <div className=" flex justify-end w-full top-0 z-40">
+      <HamburgerNavbar
+          className="!bg-transparent !fixed !right-0 !py-6 !px-6 md:!hidden !w-fit !inline-block"
+          valueOne="خانه"
+          valueTwo="پنل اصلی"
+          linkOne={"/"}
+          linkTwo={`/admin/panel`}
+          valueThree="سوابق بیمارها"
+          linkThree="/admin/panel/patients"
+          valueFour="فرمBMI"
+          linkFour="admin/panel/bmi"
+          valueFive="فرم های رژیم مدیترانه ای"
+          linkFive="/admin/panel/mediterranean"
+          valueSix="فرم های پاسخ داده نشده"
+          linkSix="/admin/panel/mediterranean"
+        />
+        <div className="fixed w-[25%] lg:w-1/6 md:flex top-0 right-0 bg-[var(--new-green)] gap-16 hidden flex-col h-screen pb-4">
           <div className="flex items-center pb-2 rounded-lg justify-around bg-IslamicArt h-64 bg-cover bg-center">
           </div>
           <h1 className="text-white text-2xl font-semibold bg-custom-IslamicArt flex justify-center"> مشاور تغذیه</h1>
@@ -50,7 +65,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
             </Link>
           </ul>
         </div>
-        <main className="w-5/6 flex flex-col py-16 gap-10 px-28 bg-white   h-screen">
+        <main className="w-full md:w-[75%] lg:w-5/6 flex flex-col py-16 gap-10 px-16 bg-white   h-screen">
           {/* <MainInput parentClassName="!w-1/2 mx-auto" type="search" placeholder="نام بیمار مورد نظر خود را وارد کنید"/> */}
           <div className="">{children}</div>
         </main>
