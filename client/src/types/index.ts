@@ -77,8 +77,6 @@ export type WelcomeBoxType ={
   doctorName: string
 }
 
-
-
 export interface MediterraneanFormType{
   dailyFruit ?: String,
   dailyVegetable ?: String,
