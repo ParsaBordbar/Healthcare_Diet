@@ -13,9 +13,28 @@ router.get('/', async(req, res)=> {
 })
 
 //For all comments for a certain user
-router.get('/:phoneNumber', async(req, res) => {
+router.get('/:receiver', async (req, res) => {
+  try {
+    if (doctorsComment) {
+      const response = await doctorsComment.find({ receiver: req.params.receiver });
+      if (response.length > 0) {
+        return res.status(200).send(response);
+      } else {
+        return res.status(404).send({ "message": "No comments found for the given receiver." });
+      }
+    } else {
+      return res.status(500).send({ "error": "Database connection issue." });
+    }
+  } catch (error) {
+    return res.status(500).send({ "error": "An error occurred while fetching the comments.", "details": error.message });
+  }
+});
 
-})
+router.delete('/:receiver', async (req, res) => {
+  let response = await doctorsComment.deleteMany({ receiver: req.params.receiver });
+  response = response.delete
+  return res.send(response);
+});
 
 //For posting a new Comment
 router.post('/', async(req, res) => {
