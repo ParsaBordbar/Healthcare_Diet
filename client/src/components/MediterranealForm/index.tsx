@@ -1222,32 +1222,32 @@ const MediterranealForm = () => {
 
           <MainInput
             name="selectedOptionTwentyNine"
-            parentClassName="col-span-2"
+            parentClassName="col-span-2 [&>label]:text-base"
             onChange={handleChange}
             type="text"
-            label="سایر بیماری ها یا جراحی قبلی را اینجا بنویسید ."
+            label="سایر بیماری ها یا جراحی قبلی را اینجا بنویسید "
           />
           <MainInput
             name="selectedOptionThirty"
-            parentClassName="col-span-2"
+            parentClassName="col-span-2 [&>label]:text-base"
             onChange={handleChange}
             type="text"
-            label="چنانچه دارویی مصرف می کنید نام آن را ذکر نمایید ."
+            label="چنانچه دارویی مصرف می کنید نام آن را ذکر کنید"
           />
           <MainInput
             name="selectedOptionThirtyOne"
-            parentClassName="col-span-2"
+            parentClassName="col-span-2 [&>label]:text-base"
             onChange={handleChange}
             type="file"
             label="آخرین آزمایشات ارسال شود "
           />
         </section>
-        <a
+        {/* <a
           href="/-5836954379280827307_121.jpg"
           download="-5836954379280827307_121.jpg"
         >
           حتما این فایل را دانلود کنید
-        </a>
+        </a> */}
 
         {errors.questionTwenty ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
