@@ -114,6 +114,7 @@ export interface MediterraneanFormType{
 }
 
 export interface CommentType {
+  className?:string,
   sender: string,
   body: string,
   receiver: string,
