@@ -8,7 +8,7 @@ const MainPageAdminPanel = () => {
             <div className="col-span-7">
                 <WelcomeBox doctorName="X"/>    
             </div>
-            <div className="col-span-4">
+            <div className="col-span-7">
                 <NewPatientsBox />
             </div>
         </section>
