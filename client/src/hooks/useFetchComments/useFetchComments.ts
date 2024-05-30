@@ -12,7 +12,7 @@ const useFetchComments = () => {
 
     const fetchData = async() => {
         try{
-            const response = await api.get('/');
+            const response = await api.get('/doctorsComment');
             setComments(response.data)
         }
         catch(err : any){
@@ -24,13 +24,6 @@ const useFetchComments = () => {
             }
         }
     }
-
-    useEffect(() => {
-        if (comments.length > 0) {
-            console.log('Comments updated:', comments);
-        }
-    }, [comments])
-
     return comments;
 }
 
