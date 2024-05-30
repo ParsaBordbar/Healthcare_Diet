@@ -14,8 +14,14 @@ type THamMenu = {
   linkOne: string;
   linkTwo: string;
   linkThree?: string;
+  linkFour?: string;
+  linkFive?: string;
+  linkSix?: string;
   valueTwo: string;
   valueThree?: string;
+  valueFour?: string;
+  valueFive?: string;
+  valueSix?: string;
 };
 
 const HamburgerNavbar = (props: THamMenu) => {
@@ -43,6 +49,9 @@ const HamburgerNavbar = (props: THamMenu) => {
     { value: props.valueOne, link: props.linkOne },
     { value: props.valueTwo, link: props.linkTwo },
     { value: props.valueThree ?? "", link: props.linkThree ?? "" },
+    { value: props.valueFour ?? "", link: props.linkFour ?? "" },
+    { value: props.valueFive ?? "", link: props.linkFive ?? "" },
+    { value: props.valueSix ?? "", link: props.linkSix ?? "" },
   ];
 
   const LinkGenerate = useCallback(() => {
