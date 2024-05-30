@@ -19,75 +19,33 @@ const PatientCard = ({
       return <FemaleAvatar />;
     }
   }, []);
-  // {
-  //   if (gender === "male" || gender == "مرد") {
-  //     return (
-  //       <div className="flex m-3 col-span-full bg-[var(--primary)] gap-10 py-4 rounded-lg shadow-md ">
-  //         <div className="flex flex-col gap-4 px-8 w-full">
-  //           <div className="flex justify-between items-center pt-2.5 gap-5">
-  //             <h2 className="text-3xl text-[var(--new-green)]">
-  //               {name} {lastName}
-  //             </h2>
-  //             {linkTo ? (
-  //               <Link className="pt-2 text-blue-600 text-xs" href={`${linkTo}`}>
-  //                 اطلاعات بیشتر
-  //               </Link>
-  //             ) : null}
-  //           </div>
-  //           <div className="flex gap-2">
-  //             <PhoneIcon />
-  //             <p className="text-base text-[var(--new-green)]">
-  //               {phoneNumber}
-  //             </p>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     );
-  //   }
 
-  //   if (gender === "female" || gender === "زن") {
-  //     return (
-  //       <div className="flex m-3 col-span-full bg-[var(--primary)] gap-10 py-4 rounded-lg shadow-md ">
-  //         <div className="flex flex-col gap-4 px-8 w-full">
-  //           <div className="flex justify-between items-center pt-2.5 gap-5">
-  //             <h2 className="text-3xl text-[var(--new-green)]">
-  //               {name} {lastName}
-  //             </h2>
-  //             {linkTo ? (
-  //               <Link className="pt-2 text-blue-600 text-xs" href={`${linkTo}`}>
-  //                 اطلاعات بیشتر
-  //               </Link>
-  //             ) : null}
-  //           </div>
-  //           <div className="flex gap-2">
-  //             <PhoneIcon />
-  //             <p className="text-base text-[var(--new-green)]">
-  //               {phoneNumber}
-  //             </p>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     );
-  //   }
-  // }
   return (
-    <div className="flex m-3 col-span-full bg-[var(--primary)] px-8 gap-10 py-4 rounded-lg shadow-md ">
+    <div className="flex m-3 col-span-full bg-[var(--primary)] px-4 sm:px-8 gap-8 py-4 rounded-lg shadow-md ">
       {ChoseAvatar}
       <div className="flex flex-col gap-4  w-full">
-        <div className="flex justify-between items-center pt-2.5 gap-5">
-          <h2 className="text-3xl text-[var(--new-green)]">
+        <div className="flex justify-between items-center pt-2.5 ">
+          <h2 className="text-2xl overflow-ellipsis overflow-hidden whitespace-nowrap text-[var(--new-green)]">
             {name} {lastName}
           </h2>
           {linkTo ? (
-            <Link className="pt-2 text-blue-600 text-xs" href={`${linkTo}`}>
+            <Link className="mt-2 sm:inline-block hidden w-fit text-blue-600 text-xs" href={`${linkTo}`}>
               اطلاعات بیشتر
             </Link>
           ) : null}
         </div>
+        <section className="flex justify-between items-center">
+
         <div className="flex gap-2">
           <PhoneIcon />
-          <p className="text-base text-[var(--new-green)]">{phoneNumber}</p>
+          <p className="text-base mt-1 text-[var(--new-green)]">{phoneNumber}</p>
         </div>
+        {linkTo ? (
+            <Link className="mt-1 inline-block sm:hidden w-fit text-blue-600 text-xs" href={`${linkTo}`}>
+              اطلاعات بیشتر
+            </Link>
+          ) : null}
+        </section>
       </div>
     </div>
   );
