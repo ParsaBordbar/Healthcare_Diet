@@ -29,12 +29,12 @@ const useComment = () => {
     try {
       const createdAtGregorian = moment().toISOString();
       const createdAtJalali = momentJalaali().format('jYYYY/jM/jD HH:mm:ss');
-
-      const response = await api.post('/doctorsComment', {
+      const comment ={
         ...data,
         createdAtGregorian,
         createdAtJalali,
-      });
+      }
+      const response = await api.post('/doctorsComment', comment);
 
       toast.success('پیام با موفقیت ارسال شد');
     } catch (error) {
