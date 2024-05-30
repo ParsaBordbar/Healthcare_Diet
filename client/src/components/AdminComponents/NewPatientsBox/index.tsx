@@ -8,7 +8,7 @@ function NewPatientsBox() {
   return (
     <section className="flex flex-col items-start rounded-2xl my-4">
       <h2 className="text-lg">جدیدترین بیمارها</h2>
-      <main className=" w-full justify-between flex flex-col">
+      <main className=" w-full justify-between flex flex-col-reverse">
         {bmiForms.slice(-4).map((form) => {
           return (
             <div className=" min-[1107px]:col-span-1 col-span-2 " key={form.phoneNumber}>
