@@ -117,4 +117,6 @@ export interface CommentType {
   sender: string,
   body: string,
   receiver: string,
+  createdAtGregorian?:string,
+  createdAtJalali?: string, 
 }
