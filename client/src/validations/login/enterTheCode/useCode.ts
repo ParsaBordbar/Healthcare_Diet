@@ -55,6 +55,9 @@ const useCode = () => {
       toast.success("کد به درستی وارد شد");
       push(`/user/${userNumber}/panel`);
     }
+    else{
+      push('/register/diets-bmi')
+    }
   }, [push]);
 
   return {
