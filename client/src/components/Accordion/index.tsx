@@ -5,7 +5,7 @@ const Accordion = (props:any) => {
 		<div className="border rounded-lg mb-1"> 
 			<button 
 				className={`w-full ${!props.isOpen ? 'rounded-lg' : 'rounded-t-lg'}  flex items-center justify-between p-4 text-left hover:bg-green-800 
-						bg-[var(--rating-color)] text-white transition duration-300`}
+						bg-[var(--new-green)] text-white transition duration-300`}
 				onClick={props.toggleAccordion} 
 			> 
 				{props.title} 
