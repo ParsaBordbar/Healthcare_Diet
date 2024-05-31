@@ -8,7 +8,7 @@ function BmiPage() {
   return (
     <section>
         <h1 className='text-4xl mb-6'>فرم‌هایBMI:</h1>
-        <div className='grid grid-cols-2 gap-10'>
+        <div className='grid lg:grid-cols-2 grid-cols-1 gap-10'>
           {bmiForms.map((form) => {
             return <PatientBmiForm 
             name={form.name}
