@@ -36,32 +36,32 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
               href={"/admin/panel/"}
               className="group text-xl cursor-pointer hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
-              <li className="flex items-center gap-3 text-white group-hover:text-[var(--new-green)]"> <AdminPanelLogo />پنل اصلی</li>
+              <li className="flex items-center gap-3 text-white group-hover:text-[var(--new-green)]"> <AdminPanelLogo className='[&>path]:group-hover:fill-[var(--new-green)] '/>پنل اصلی</li>
             </Link>
             <Link
               href={"/admin/panel/patients/"}
               className=" text-xl group cursor-p-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
-              <li className="flex gap-2 items-center text-white group-hover:text-[var(--new-green)] justify-start"> <MedicalDocIcon/>سوابق بیمارها  </li>
+              <li className="flex gap-2 items-center text-white group-hover:text-[var(--new-green)] justify-start"> <MedicalDocIcon className='[&>path]:group-hover:stroke-[var(--new-green)]'/>سوابق بیمارها  </li>
             </Link>
             <Link
               href={"/admin/panel/bmi/"}
               className="group text-xl cursor-pointer hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
-              <li className="flex gap-2 items-center text-white group-hover:text-[var(--new-green)]"><FormIcon/> فرم‌های BMI</li>
+              <li className="flex gap-2 items-center text-white group-hover:text-[var(--new-green)]"><FormIcon className='[&>path]:group-hover:stroke-[var(--new-green)]'/> فرم‌های BMI</li>
             </Link>
             <Link
               href={"/admin/panel/mediterranean/"}
               className="group text-xl cursor-pointer hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
-              <li className="flex gap-2 items-center text-white group-hover:text-[var(--new-green)] justify-start"><FormIcon/>فرم‌های رژیم مدیترانه‌ای</li>
+              <li className="flex gap-2 items-center text-white group-hover:text-[var(--new-green)] justify-start"><FormIcon className='[&>path]:group-hover:stroke-[var(--new-green)]'/>فرم‌های رژیم مدیترانه‌ای</li>
             </Link>
 
             <Link
               href={"/admin/panel/unvisited_diets"}
               className="group text-xl cursor-pointer hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md"
             >
-              <li className="flex gap-2 items-center text-white group-hover:text-[var(--new-green)] justify-start"><FormIcon/>فرم‌های پاسخ داده نشده</li>
+              <li className="flex gap-2 items-center text-white group-hover:text-[var(--new-green)] justify-start"><FormIcon className='[&>path]:group-hover:stroke-[var(--new-green)]'/>فرم‌های پاسخ داده نشده</li>
             </Link>
           </ul>
         </div>
