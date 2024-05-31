@@ -21,38 +21,36 @@ const CommentBox = ({
 
   return (
     <div className="flex flex-col ml-3 col-span-full bg-[var(--milky-white)]  gap-2 rounded-lg shadow-md">
-      <div className="ps-4 py-3  flex items-start  min-[1320px]:gap-5 gap-2 pb-2 bg-[var(--new-green)] text-white rounded-lg rounded-br-none justify-between pe-4">
-        <section className="flex items-start flex-col gap-2">
+      <div className="ps-4 py-3 flex items-start  min-[1320px]:gap-5 gap-2 pb-2 bg-[var(--new-green)] text-white rounded-lg rounded-br-none justify-between pe-4">
+        <section className="flex items-center xl:flex-row sm:flex-row flex-col gap-2 justify-center">
           <div className="flex gap-2 items-center">
-            <p>ارسال کننده:</p>
-            <p className="text-xl text-ellipsis overflow-hidden whitespace-nowrap">{sender} </p>
+            <p className="md:text-sm 2xl:text-base text-xs">ارسال کننده:</p>
+            <p className="md:text-sm 2xl:text-base text-xs text-ellipsis overflow-hidden whitespace-nowrap">{sender} </p>
           </div>
           {receiver ? (
             <div className="flex gap-2 items-center">
-              <p className="w-fit">دریافت کننده:</p>
-              <p className="text-lg text-ellipsis overflow-hidden whitespace-nowrap">
+              <p className="w-fi md:text-sm 2xl:text-base text-xs">دریافت کننده:</p>
+              <p className="md:text-sm 2xl:text-base text-xs text-ellipsis overflow-hidden whitespace-nowrap">
                 {userData?.name} {userData?.lastName}{" "}
               </p>
             </div>
           ) : null}
-          <div className="flex gap-2 justify-start min-[1320px]:justify-center items-center flex-row">
+          <div className="flex gap-2 px-3 min-[1320px]:justify-center items-center flex-row">
             {" "}
-            <DateSvg />
-            {createdAtJalali}
+            <div className="flex sm:flex-row zzjustify-evenly">
+              <div className="flex flex-row justify-center items-center gap-2">
+                <DateSvg className=""width={24} />
+                <p className="pt-1.5 md:text-sm 2xl:text-base text-xs">{createdAtJalali}</p>
+              </div>
+              <Link className="ps-2" href={`/admin/panel/patients/${receiver}`}>
+                <AttachmentIcon className="w-5 md:w-full"width={24} />
+              </Link>
+            </div>
           </div>
         </section>
-        <Link href={`/admin/panel/patients/${receiver}`}>
-          <AttachmentIcon width={24} />
-        </Link>
       </div>
-      <Link
-        className="min-[1320px]:hidden inline-block"
-        href={`/admin/panel/patients/${receiver}`}
-      >
-        <AttachmentIcon width={24} />
-      </Link>
       <p
-        className="p-5 w-full pb-12"
+        className="p-5 w-full pb-12  md:text-sm 2xl:text-base text-xs"
         dangerouslySetInnerHTML={formatBody(body)}
       />
     </div>
