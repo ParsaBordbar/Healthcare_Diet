@@ -120,4 +120,5 @@ export interface CommentType {
   receiver: string,
   createdAtGregorian?:string,
   createdAtJalali?: string, 
+  isDoctor?: boolean
 }

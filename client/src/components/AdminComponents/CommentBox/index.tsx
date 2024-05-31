@@ -11,6 +11,7 @@ const CommentBox = ({
   body,
   receiver,
   createdAtJalali,
+  isDoctor,
 }: CommentType) => {
   const userData = useSpecificFetchBmi(receiver);
 
@@ -20,7 +21,7 @@ const CommentBox = ({
   };
 
   return (
-    <div className="flex flex-col ml-3 col-span-full bg-[var(--milky-white)]  gap-2 rounded-lg shadow-md">
+    <div className="flex flex-col ml-3 col-span-full bg-[var(--milky-white)]  gap-2 rounded-lg shadow-md my-6">
       <div className="ps-4 py-3 flex items-start  min-[1320px]:gap-5 gap-2 pb-2 bg-[var(--new-green)] text-white rounded-lg rounded-br-none justify-between pe-4">
         <section className="flex items-center xl:flex-row lg:flex-col lg:gap-1 sm:flex-row gap-4 justify-center flex-col">
           <div className="flex flex-col xl:flex-row xl:gap-2 lg:flex-col">
@@ -44,9 +45,11 @@ const CommentBox = ({
                 <DateSvg className="sm:flex hidden"width={24} />
                 <p className="pt-1.5 md:text-sm 2xl:text-base text-xs">{createdAtJalali}</p>
               </div>
-              <Link className="" href={`/admin/panel/patients/${receiver}`}>
+              {
+                isDoctor? <Link className="" href={`/admin/panel/patients/${receiver}`}>
                 <AttachmentIcon className="w-5 md:w-full"width={24} />
-              </Link>
+              </Link> : null
+              }
             </div>
           </div>
         </section>
