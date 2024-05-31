@@ -3,7 +3,9 @@ import { ReactNode } from "react";
 import Link from "next/link";
 import HamburgerNavbar from "@/components/HamburgerMenu";
 import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
-
+import HomeIcon from '/public/svg/userPanelSvgs/home-svgrepo-com.svg'
+import DietIcon from '/public/svg/userPanelSvgs/diet-svgrepo-com.svg'
+import CustomerFeedIcon from '/public/svg/userPanelSvgs/customer-service-svgrepo-com.svg'
 
 interface LayoutUserProps {
   children: ReactNode;
@@ -31,19 +33,22 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
             <h1 className="text-white">{bmiData?.name} {bmiData?.lastName}</h1>
           </div>
           <ul className="flex flex-col rounded-lg h-screen py-4 ps-4 gap-4 ">
-          <Link href={`/user/${user}/panel`}>
-              <li className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md">
+          <Link className="group text-xl cursor-pointer hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md" href={`/user/${user}/panel`}>
+              <li className="flex items-center gap-3 text-white group-hover:text-[var(--new-green)]">
+              <CustomerFeedIcon className='[&>path]:group-hover:fill-[var(--new-green)] ' />
                 پیشخوان
               </li>
             </Link>
-            <Link href={"/"}>
-              <li className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md">
-                خانه
+            <Link href={"/"} className="group text-xl cursor-pointer hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md">
+              <li className="flex items-center gap-3 text-white group-hover:text-[var(--new-green)]">
+                <HomeIcon className='[&>path]:group-hover:fill-[var(--new-green)] '/>
+                <p className="pt-2">خانه</p>
               </li>
             </Link>
-            <Link className="hover:text-[var(--rating-color)] text-xl cursor-pointer hover:text-black text-white hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md" href={`/user/${user}/panel/diets`}>
-              <li className="flex items-center gap-3">
-                رژیم ها
+            <Link className="group text-xl cursor-pointer hover:bg-white hover:bg-full ease-in-out transition-all duration-150 p-4 rounded-s-md" href={`/user/${user}/panel/diets`}>
+              <li className="flex items-center gap-3 text-white group-hover:text-[var(--new-green)]">
+                <DietIcon className='[&>path]:group-hover:fill-[var(--new-green)] '/>
+                <p>رژیم ها</p>
               </li>
             </Link>
           </ul>

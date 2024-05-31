@@ -6,6 +6,7 @@ import NavElement from "../landingPage_components/NavElement";
 import MainButton from "../MainButton";
 import LogoSvg from "/public/svg/Logo.svg";
 import Link from "next/link";
+import { link } from "fs";
 
 type THamMenu = {
   logo?: boolean;
@@ -58,7 +59,7 @@ const HamburgerNavbar = (props: THamMenu) => {
     return ValueArray.map((Links) => {
       if (!Links.value || !Links.link) return;
       return (
-        <Link href={Links.link}>
+        <Link href={Links.link} key={Links.value}>
           <motion.li variants={listItemVariants}>
             <MainButton simple value={Links.value} />
           </motion.li>
