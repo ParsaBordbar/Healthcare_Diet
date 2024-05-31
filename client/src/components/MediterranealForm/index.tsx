@@ -12,7 +12,7 @@ const MediterranealForm = () => {
   });
 
   const MediterrealnSchema = yup.object().shape({
-    selectedOptionOne: yup.string().required("Please select an option."),
+    dailyFruit: yup.string().required("Please select an option."),
     questionOne: yup.string().required("جواب به این سوال الزامی است"),
     questionTwo: yup.string().required("جواب به این سوال الزامی است"),
     questionThree: yup.string().required("جواب به این سوال الزامی است"),
@@ -32,87 +32,89 @@ const MediterranealForm = () => {
     questionEighteen: yup.string().required("جواب به این سوال الزامی است"),
     questionNineteen: yup.string().required("جواب به این سوال الزامی است"),
     questionTwenty: yup.string().required("جواب به این سوال الزامی است"),
+    questionTwentyOne: yup.string().required("جواب به این سوال الزامی است"),
   });
 
   const formik = useFormik({
     initialValues: {
       questionOne: "مصرف میوه به صورت روزانه؟",
-      selectedOptionOne: "",
+      dailyFruit: "",
       questionTwo: "مصرف سبزیجات به صورت روزانه؟",
-      selectedOptionTwo: "",
+      dailyVegetable: "",
       questionThree: "آیا غلات سبوس دار مصرف می کنید؟",
-      selectedOptionThree: "",
+      vegetables: "",
       questionFour: "مصرف سیب زمینی و سایر سبزیجات نشاسته ای در هفته؟",
-      selectedOptionFour: "",
+      dailyCereals: "",
       questionFive: "مصرف غلات به صورت روزانه؟",
-      selectedOptionFive: "",
+      potatoAndStarchWeekly: "",
       questionSix: "مصرف زیتون و روغن زیتون به صورت روزانه؟",
-      selectedOptionSix: "",
+      oliveAndOliveOilDaily: "",
       questionSeven: "مصرف مغز ها به صورت روزانه؟",
-      selectedOptionSeven: "",
+      nutsDaily: "",
       questionEight: "مصرف محصولات لبنی به صورت روزانه؟",
-      selectedOptionEight: "",
+      dairyDaily: "",
       questionNine: "مصرف حبوبات",
-      selectedOptionNine: "",
+      beans: "",
       questionTen: "مصرف تخم مرغ به صورت هفتگی؟",
-      selectedOptionTen: "",
+      eggWeekly: "",
       questionEleven: "مصرف ماهی به صورت هفتگی؟",
-      selectedOptionEleven: "",
+      fishWeekly: "",
       questionTwelve: "مصرف ماکیان به صورت هفتگی؟",
-      selectedOptionTwelve: "",
+      chickensWeekly: "",
       questionThirteen: "مصرف گوشت قرمز به صورت هفتگی؟",
-      selectedOptionThirteen: "",
+      redMeatWeekly: "",
       questionFourteen: "مصرف شیرینی به صورت هفتگی؟",
-      selectedOptionFourteen: "",
+      sugarWeekly: "",
       questionFifteen: "مصرف نوشیدنی الکلی به صورت هفتگی؟",
-      selectedOptionFifteen: "",
+      alcoholWeekly: "",
       questionSixteen: "مصرف محصولات تخمیری به صورت هفتگی؟",
-      selectedOptionSixteen: "",
+      fermentationWeekly: "",
       questionSeventeen: "چه مکمل هایی مصرف می کنید؟",
       selectedOptionSeventeenOne: "",
       selectedOptionSeventeenTwo: "",
       selectedOptionSeventeenThree: "",
       selectedOptionSeventeenFour: "",
       questionEighteen: "میزان فعالیت بدنی در هفته؟",
-      selectedOptionEighteen: "",
+      physicalActivity: "",
       questionNineteen: "میزان فعالیت بدنی در هفته؟",
-      selectedOptionNineteen: "",
-      selectedOptionNineteenEmpty: "",
+      diabetes: "",
       questionTwenty: "کدام یک از مشکلات زیر را دارید یا قبلا داشتید؟",
       questionTwentyOne: "سایر بیماری ها یا جراحی قبلی را اینجا بنویسید .",
-      selectedOptionTwenty: "",
-      selectedOptionTwentyEmpty: "",
-      selectedOptionTwentyOne: "",
-      selectedOptionTwentyOneEmpty: "",
-      selectedOptionTwentyTwo: "",
-      selectedOptionTwentyTwoEmpty: "",
-      selectedOptionTwentyThree: "",
-      selectedOptionTwentyThreeEmpty: "",
-      selectedOptionTwentyFour: "",
-      selectedOptionTwentyFourEmpty: "",
-      selectedOptionTwentyFive: "",
-      selectedOptionTwentySix: "",
-      selectedOptionTwentySixEmpty: "",
-      selectedOptionTwentySeven: "",
-      selectedOptionTwentyEight: "",
-      selectedOptionTwentyNine: "",
-      selectedOptionThirty: "",
-      selectedOptionThirtyOne: "",
+      anemia: "",
+      bloodPressure: "",
+      digestiveProblems: "",
+      selfSafety: "",
+      stroke: "",
+      fattyLiver: "",
+      kidneyProblems: "",
+      thyroid: "",
+      cancer: "",
+      Migraine: "",
+      otherSickness: "",
+      medicine: "",
+      phoneNumber:''
     },
     validationSchema: MediterrealnSchema,
-    onSubmit: async ({ questionOne, selectedOptionOne }) => {
-      // Handle form submission (e.g., make a request to your backend)
-      console.log(
-        "Form submitted successfully! Selected option:",
-        questionOne,
-        selectedOptionOne
+    onSubmit: async (data) => {
+      let selectedOptionSeventeen: string[] = [];
+      selectedOptionSeventeen.push(
+        data.selectedOptionSeventeenOne,
+        data.selectedOptionSeventeenTwo,
+        data.selectedOptionSeventeenThree,
+        data.selectedOptionSeventeenFour
       );
+      Object.assign(data , {supplements:selectedOptionSeventeen})
+      // Handle form submission (e.g., make a request to your backend)
+      console.log("Form submitted successfully! Selected option:", data);
+      console.log('this is answer of question severnteen ' , selectedOptionSeventeen)
+      
     },
   });
 
   const { errors, touched, values, handleChange, handleSubmit } = formik;
   console.log(values);
   console.log(values.selectedOptionSeventeenFour, "this is log");
+  console.log(errors)
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-10">
@@ -120,8 +122,8 @@ const MediterranealForm = () => {
         <h1>مصرف میوه به صورت روزانه؟</h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionOne"
-            checked={values.selectedOptionOne === "۱-۲ واحد"}
+            name="dailyFruit"
+            checked={values.dailyFruit === "۱-۲ واحد"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -129,8 +131,8 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionOne"
-            checked={values.selectedOptionOne === "۲-۳ واحد"}
+            name="dailyFruit"
+            checked={values.dailyFruit === "۲-۳ واحد"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -138,8 +140,8 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionOne"
-            checked={values.selectedOptionOne === "۳-۴ واحد"}
+            name="dailyFruit"
+            checked={values.dailyFruit === "۳-۴ واحد"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -147,15 +149,15 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionOne"
-            checked={values.selectedOptionOne === "هیچ"}
+            name="dailyFruit"
+            checked={values.dailyFruit === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionOne ? (
+        {errors.dailyFruit ? (
           <p className="text-red-600 text-sm">
             جواب دادن به سوال بالا الزامی است
           </p>
@@ -166,8 +168,8 @@ const MediterranealForm = () => {
         <h1>مصرف سبزیجات به صورت روزانه؟</h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionTwo"
-            checked={values.selectedOptionTwo === "۱-۲ واحد"}
+            name="dailyVegetable"
+            checked={values.dailyVegetable === "۱-۲ واحد"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -175,8 +177,8 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionTwo"
-            checked={values.selectedOptionTwo === "۲-۳ واحد"}
+            name="dailyVegetable"
+            checked={values.dailyVegetable === "۲-۳ واحد"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -184,8 +186,8 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionTwo"
-            checked={values.selectedOptionTwo === "۳-۴ واحد"}
+            name="dailyVegetable"
+            checked={values.dailyVegetable === "۳-۴ واحد"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -193,15 +195,15 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionTwo"
-            checked={values.selectedOptionTwo === "هیچ"}
+            name="dailyVegetable"
+            checked={values.dailyVegetable === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionTwo ? (
+        {errors.questionTwo ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -210,8 +212,8 @@ const MediterranealForm = () => {
         <h1>آیا غلات سبوس دار مصرف می کنید؟</h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionThree"
-            checked={values.selectedOptionThree === "بلی"}
+            name="vegetables"
+            checked={values.vegetables === "بلی"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -219,15 +221,15 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionThree"
-            checked={values.selectedOptionThree === "خیر"}
+            name="vegetables"
+            checked={values.vegetables === "خیر"}
             onChange={handleChange}
             value={"خیر"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionThree ? (
+        {errors.vegetables ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -236,24 +238,24 @@ const MediterranealForm = () => {
         <h1>مصرف غالت به صورت روزانه {"(نان و ماکارونی..)؟"}</h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionFour"
-            checked={values.selectedOptionFour === "۱-۲ بار"}
+            name="dailyCereals"
+            checked={values.dailyCereals === "۱-۲ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۱-۲ بار"}
           />
           <GroupRadio
-            name="selectedOptionFour"
-            checked={values.selectedOptionFour === "۲-۳ بار"}
+            name="dailyCereals"
+            checked={values.dailyCereals === "۲-۳ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۲-۳ بار"}
           />
           <GroupRadio
-            name="selectedOptionFour"
-            checked={values.selectedOptionFour === "۳-۴ بار"}
+            name="dailyCereals"
+            checked={values.dailyCereals === "۳-۴ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -261,15 +263,15 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionFour"
-            checked={values.selectedOptionFour === "هیچ"}
+            name="dailyCereals"
+            checked={values.dailyCereals === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionFour ? (
+        {errors.dailyCereals ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -278,24 +280,24 @@ const MediterranealForm = () => {
         <h1>مصرف سیب زمینی و سایر سبزیجات نشاسته ای در هفته ؟ </h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionFive"
-            checked={values.selectedOptionFive === "۱-۲ بار"}
+            name="potatoAndStarchWeekly"
+            checked={values.potatoAndStarchWeekly === "۱-۲ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۱-۲ بار"}
           />
           <GroupRadio
-            name="selectedOptionFive"
-            checked={values.selectedOptionFive === "۲-۳ بار"}
+            name="potatoAndStarchWeekly"
+            checked={values.potatoAndStarchWeekly === "۲-۳ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۲-۳ بار"}
           />
           <GroupRadio
-            name="selectedOptionFive"
-            checked={values.selectedOptionFive === "۳-۴ بار"}
+            name="potatoAndStarchWeekly"
+            checked={values.potatoAndStarchWeekly === "۳-۴ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -303,15 +305,15 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionFive"
-            checked={values.selectedOptionFive === "هیچ"}
+            name="potatoAndStarchWeekly"
+            checked={values.potatoAndStarchWeekly === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionFive ? (
+        {errors.potatoAndStarchWeekly ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -323,16 +325,16 @@ const MediterranealForm = () => {
         </h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionSix"
-            checked={values.selectedOptionSix === "۱-۲ بار"}
+            name="oliveAndOliveOilDaily"
+            checked={values.oliveAndOliveOilDaily === "۱-۲ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۱-۲ بار"}
           />
           <GroupRadio
-            name="selectedOptionSix"
-            checked={values.selectedOptionSix === "۳-۴ بار"}
+            name="oliveAndOliveOilDaily"
+            checked={values.oliveAndOliveOilDaily === "۳-۴ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -340,23 +342,23 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionSix"
-            checked={values.selectedOptionSix === "هر روز"}
+            name="oliveAndOliveOilDaily"
+            checked={values.oliveAndOliveOilDaily === "هر روز"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"هر روز"}
           />
           <GroupRadio
-            name="selectedOptionSix"
-            checked={values.selectedOptionSix === "هیچ"}
+            name="oliveAndOliveOilDaily"
+            checked={values.oliveAndOliveOilDaily === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionSix ? (
+        {errors.oliveAndOliveOilDaily ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -370,16 +372,16 @@ const MediterranealForm = () => {
         </h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionSeven"
-            checked={values.selectedOptionSeven === "۱-۲ بار"}
+            name="nutsDaily"
+            checked={values.nutsDaily === "۱-۲ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۱-۲ بار"}
           />
           <GroupRadio
-            name="selectedOptionSeven"
-            checked={values.selectedOptionSeven === "۲-۳ بار"}
+            name="nutsDaily"
+            checked={values.nutsDaily === "۲-۳ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -387,23 +389,23 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionSeven"
-            checked={values.selectedOptionSeven === "۳-۴ بار"}
+            name="nutsDaily"
+            checked={values.nutsDaily === "۳-۴ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۳-۴ بار"}
           />
           <GroupRadio
-            name="selectedOptionSeven"
-            checked={values.selectedOptionSeven === "هیچ"}
+            name="nutsDaily"
+            checked={values.nutsDaily === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionSeven ? (
+        {errors.nutsDaily ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -412,16 +414,16 @@ const MediterranealForm = () => {
         <h1>مصرف محصولات لبنی به صورت روزانه ؟ </h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionEight"
-            checked={values.selectedOptionEight === "۱ بار"}
+            name="dairyDaily"
+            checked={values.dairyDaily === "۱ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۱ بار"}
           />
           <GroupRadio
-            name="selectedOptionEight"
-            checked={values.selectedOptionEight === "۲ بار"}
+            name="dairyDaily"
+            checked={values.dairyDaily === "۲ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -429,23 +431,23 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionEight"
-            checked={values.selectedOptionEight === "بیشتر از ۲ بار"}
+            name="dairyDaily"
+            checked={values.dairyDaily === "بیشتر از ۲ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"بیشتر از ۲ بار"}
           />
           <GroupRadio
-            name="selectedOptionEight"
-            checked={values.selectedOptionEight === "هیچ"}
+            name="dairyDaily"
+            checked={values.dairyDaily === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionEight ? (
+        {errors.dairyDaily ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -454,16 +456,16 @@ const MediterranealForm = () => {
         <h1>مصرف حبوبات {"(عدس و نخود و لوبیا و...)؟"}</h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionNine"
-            checked={values.selectedOptionNine === "روزانه"}
+            name="beans"
+            checked={values.beans === "روزانه"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"روزانه"}
           />
           <GroupRadio
-            name="selectedOptionNine"
-            checked={values.selectedOptionNine === "هفتگی"}
+            name="beans"
+            checked={values.beans === "هفتگی"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -471,23 +473,23 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionNine"
-            checked={values.selectedOptionNine === "ماهیانه"}
+            name="beans"
+            checked={values.beans === "ماهیانه"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"ماهیانه"}
           />
           <GroupRadio
-            name="selectedOptionNine"
-            checked={values.selectedOptionNine === "هیچ"}
+            name="beans"
+            checked={values.beans === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionNine ? (
+        {errors.beans ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -496,16 +498,16 @@ const MediterranealForm = () => {
         <h1>مصرف تخم مرغ به صورت هفتگی ؟ </h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionTen"
-            checked={values.selectedOptionTen === "۱-۲ بار"}
+            name="eggWeekly"
+            checked={values.eggWeekly === "۱-۲ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۱-۲ بار"}
           />
           <GroupRadio
-            name="selectedOptionTen"
-            checked={values.selectedOptionTen === "۲-۳ بار"}
+            name="eggWeekly"
+            checked={values.eggWeekly === "۲-۳ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -513,23 +515,23 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionTen"
-            checked={values.selectedOptionTen === "هر روز"}
+            name="eggWeekly"
+            checked={values.eggWeekly === "هر روز"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"هر روز"}
           />
           <GroupRadio
-            name="selectedOptionTen"
-            checked={values.selectedOptionTen === "هیچ"}
+            name="eggWeekly"
+            checked={values.eggWeekly === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionTen ? (
+        {errors.eggWeekly ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -538,16 +540,16 @@ const MediterranealForm = () => {
         <h1>مصرف ماهی به صورت هفتگی ؟</h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionEleven"
-            checked={values.selectedOptionEleven === "۱ بار"}
+            name="fishWeekly"
+            checked={values.fishWeekly === "۱ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۱ بار"}
           />
           <GroupRadio
-            name="selectedOptionEleven"
-            checked={values.selectedOptionEleven === "۲ بار"}
+            name="fishWeekly"
+            checked={values.fishWeekly === "۲ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -555,23 +557,23 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionEleven"
-            checked={values.selectedOptionEleven === "۳ بار"}
+            name="fishWeekly"
+            checked={values.fishWeekly === "۳ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۳ بار"}
           />
           <GroupRadio
-            name="selectedOptionEleven"
-            checked={values.selectedOptionEleven === "هیچ"}
+            name="fishWeekly"
+            checked={values.fishWeekly === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionEleven ? (
+        {errors.fishWeekly ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -580,16 +582,16 @@ const MediterranealForm = () => {
         <h1>مصرف ماکیان به صورت هفتگی ؟</h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionTwelve"
-            checked={values.selectedOptionTwelve === "۱-۲ بار"}
+            name="chickensWeekly"
+            checked={values.chickensWeekly === "۱-۲ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۱-۲ بار"}
           />
           <GroupRadio
-            name="selectedOptionTwelve"
-            checked={values.selectedOptionTwelve === "۳-۴ بار"}
+            name="chickensWeekly"
+            checked={values.chickensWeekly === "۳-۴ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -597,23 +599,23 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionTwelve"
-            checked={values.selectedOptionTwelve === "هر روز"}
+            name="chickensWeekly"
+            checked={values.chickensWeekly === "هر روز"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"هر روز"}
           />
           <GroupRadio
-            name="selectedOptionTwelve"
-            checked={values.selectedOptionTwelve === "هیچ"}
+            name="chickensWeekly"
+            checked={values.chickensWeekly === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionTwelve ? (
+        {errors.chickensWeekly ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -622,16 +624,16 @@ const MediterranealForm = () => {
         <h1>مصرف گوشت قرمز به صورت هفتگی ؟ </h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionThirteen"
-            checked={values.selectedOptionThirteen === "۱-۲ بار"}
+            name="redMeatWeekly"
+            checked={values.redMeatWeekly === "۱-۲ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۱-۲ بار"}
           />
           <GroupRadio
-            name="selectedOptionThirteen"
-            checked={values.selectedOptionThirteen === "۳-۴ بار"}
+            name="redMeatWeekly"
+            checked={values.redMeatWeekly === "۳-۴ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -639,23 +641,23 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionThirteen"
-            checked={values.selectedOptionThirteen === "هر روز"}
+            name="redMeatWeekly"
+            checked={values.redMeatWeekly === "هر روز"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"هر روز"}
           />
           <GroupRadio
-            name="selectedOptionThirteen"
-            checked={values.selectedOptionThirteen === "هیچ"}
+            name="redMeatWeekly"
+            checked={values.redMeatWeekly === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionThirteen ? (
+        {errors.redMeatWeekly ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -664,16 +666,16 @@ const MediterranealForm = () => {
         <h1>مصرف شیرینی به صورت هفتگی ؟</h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionFourteen"
-            checked={values.selectedOptionFourteen === "۱ بار"}
+            name="sugarWeekly"
+            checked={values.sugarWeekly === "۱ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۱ بار"}
           />
           <GroupRadio
-            name="selectedOptionFourteen"
-            checked={values.selectedOptionFourteen === "۱-۲ بار"}
+            name="sugarWeekly"
+            checked={values.sugarWeekly === "۱-۲ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -681,23 +683,23 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionFourteen"
-            checked={values.selectedOptionFourteen === "هر روز"}
+            name="sugarWeekly"
+            checked={values.sugarWeekly === "هر روز"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"هر روز"}
           />
           <GroupRadio
-            name="selectedOptionFourteen"
-            checked={values.selectedOptionFourteen === "هیچ"}
+            name="sugarWeekly"
+            checked={values.sugarWeekly === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionFourteen ? (
+        {errors.sugarWeekly ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -706,16 +708,16 @@ const MediterranealForm = () => {
         <h1>مصرف نوشیدنی الکلی به صورت هفتگی ؟</h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionFifteen"
-            checked={values.selectedOptionFifteen === "۱ بار"}
+            name="alcoholWeekly"
+            checked={values.alcoholWeekly === "۱ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۱ بار"}
           />
           <GroupRadio
-            name="selectedOptionFifteen"
-            checked={values.selectedOptionFifteen === "۲-۳ بار"}
+            name="alcoholWeekly"
+            checked={values.alcoholWeekly === "۲-۳ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -723,23 +725,23 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionFifteen"
-            checked={values.selectedOptionFifteen === "هر روز"}
+            name="alcoholWeekly"
+            checked={values.alcoholWeekly === "هر روز"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"هر روز"}
           />
           <GroupRadio
-            name="selectedOptionFifteen"
-            checked={values.selectedOptionFifteen === "هیچ"}
+            name="alcoholWeekly"
+            checked={values.alcoholWeekly === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionFifteen ? (
+        {errors.alcoholWeekly ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -750,16 +752,16 @@ const MediterranealForm = () => {
         </h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionSixteen"
-            checked={values.selectedOptionSixteen === "۱-۲ بار"}
+            name="fermentationWeekly"
+            checked={values.fermentationWeekly === "۱-۲ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۱-۲ بار"}
           />
           <GroupRadio
-            name="selectedOptionSixteen"
-            checked={values.selectedOptionSixteen === "۳-۴ بار"}
+            name="fermentationWeekly"
+            checked={values.fermentationWeekly === "۳-۴ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -767,23 +769,23 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionSixteen"
-            checked={values.selectedOptionSixteen === "هر روز"}
+            name="fermentationWeekly"
+            checked={values.fermentationWeekly === "هر روز"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"هر روز"}
           />
           <GroupRadio
-            name="selectedOptionSixteen"
-            checked={values.selectedOptionSixteen === "هیچ"}
+            name="fermentationWeekly"
+            checked={values.fermentationWeekly === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionSixteen ? (
+        {errors.fermentationWeekly ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -863,16 +865,16 @@ const MediterranealForm = () => {
         <h1> میزان فعالیت بدنی در هفته ؟ </h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionEighteen"
-            checked={values.selectedOptionEighteen === "۱ تا ۲ روز"}
+            name="physicalActivity"
+            checked={values.physicalActivity === "۱ تا ۲ روز"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"۱ تا ۲ روز"}
           />
           <GroupRadio
-            name="selectedOptionEighteen"
-            checked={values.selectedOptionEighteen === "۳-۴ روز"}
+            name="physicalActivity"
+            checked={values.physicalActivity === "۳-۴ روز"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -880,23 +882,23 @@ const MediterranealForm = () => {
           />
 
           <GroupRadio
-            name="selectedOptionEighteen"
-            checked={values.selectedOptionEighteen === "هر روز"}
+            name="physicalActivity"
+            checked={values.physicalActivity === "هر روز"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"هر روز"}
           />
           <GroupRadio
-            name="selectedOptionEighteen"
-            checked={values.selectedOptionEighteen === "هیچ"}
+            name="physicalActivity"
+            checked={values.physicalActivity === "هیچ"}
             onChange={handleChange}
             value={"هیچ"}
             type="radio"
             header
           />
         </section>
-        {errors.selectedOptionEighteen ? (
+        {errors.physicalActivity ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -906,38 +908,38 @@ const MediterranealForm = () => {
         <section className="grid grid-cols-6 gap-4 items-center ">
           <select
             onChange={handleChange}
-            name="selectedOptionNineteen"
+            name="diabetes"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
               selected={
-                values.selectedOptionNineteen === "null" ||
-                values.selectedOptionNineteen === ""
+                values.diabetes === "null" ||
+                values.diabetes === ""
               }
               value="null"
             >
               دیابت
             </option>
             <option
-              selected={values.selectedOptionNineteen === "دیابت نوع ۱"}
+              selected={values.diabetes === "دیابت نوع ۱"}
               value="دیابت نوع ۱"
             >
               دیابت نوع ۱
             </option>
             <option
-              selected={values.selectedOptionNineteen === "دیابت نوع ۲"}
+              selected={values.diabetes === "دیابت نوع ۲"}
               value="دیابت نوع ۲"
             >
               دیابت نوع ۲
             </option>
             <option
-              selected={values.selectedOptionNineteen === "دیابت بارداری"}
+              selected={values.diabetes === "دیابت بارداری"}
               value="دیابت بارداری"
             >
               دیابت بارداری
             </option>
             <option
-              selected={values.selectedOptionNineteenEmpty === "ندارم"}
+              selected={values.diabetes === "ندارم"}
               value="ندارم"
             >
               ندارم
@@ -946,29 +948,29 @@ const MediterranealForm = () => {
 
           <select
             onChange={handleChange}
-            name="selectedOptionTwenty"
+            name="anemia"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
-              selected={values.selectedOptionTwenty === "null"}
+              selected={values.anemia === "null"}
               value="null"
             >
               فشار خون
             </option>
             <option
-              selected={values.selectedOptionTwenty === "بالا بودن فشار خون"}
+              selected={values.anemia === "بالا بودن فشار خون"}
               value="بالا بودن فشار خون"
             >
               بالا بودن فشار خون
             </option>
             <option
-              selected={values.selectedOptionTwenty === "پایین بودن فشار خون"}
+              selected={values.anemia === "پایین بودن فشار خون"}
               value="پایین بودن فشار خون"
             >
               پایین بودن فشار خون
             </option>
             <option
-              selected={values.selectedOptionTwentyEmpty === "ندارم"}
+              selected={values.anemia === "ندارم"}
               value="ندارم"
             >
               ندارم
@@ -977,35 +979,35 @@ const MediterranealForm = () => {
 
           <select
             onChange={handleChange}
-            name="selectedOptionTwentyOne"
+            name="bloodPressure"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
-              selected={values.selectedOptionTwentyOne === "null"}
+              selected={values.bloodPressure === "null"}
               value="null"
             >
               مشکلات گوارشی
             </option>
             <option
-              selected={values.selectedOptionTwentyOne === "ریفالکس)ترش کردن)"}
+              selected={values.bloodPressure === "ریفالکس)ترش کردن)"}
               value="ریفالکس)ترش کردن)"
             >
               ریفالکس{"(ترش کردن)"}
             </option>
             <option
-              selected={values.selectedOptionTwentyOne === "نفخ"}
+              selected={values.bloodPressure === "نفخ"}
               value="نفخ"
             >
               نفخ
             </option>
             <option
-              selected={values.selectedOptionTwentyOne === "یبوست"}
+              selected={values.bloodPressure === "یبوست"}
               value="یبوست"
             >
               یبوست
             </option>
             <option
-              selected={values.selectedOptionTwentyOneEmpty === "ندارم"}
+              selected={values.bloodPressure === "ندارم"}
               value="ندارم"
             >
               ندارم
@@ -1014,49 +1016,49 @@ const MediterranealForm = () => {
 
           <select
             onChange={handleChange}
-            name="selectedOptionTwentyTwo"
+            name="digestiveProblems"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
-              selected={values.selectedOptionTwentyTwo === "null"}
+              selected={values.digestiveProblems === "null"}
               value="null"
             >
               خودایمنی
             </option>
             <option
-              selected={values.selectedOptionTwentyTwo === "آسم و آلرژی"}
+              selected={values.digestiveProblems === "آسم و آلرژی"}
               value="آسم و آلرژی"
             >
               آسم و آلرژی
             </option>
             <option
-              selected={values.selectedOptionTwentyTwo === "ام اس"}
+              selected={values.digestiveProblems === "ام اس"}
               value="ام اس"
             >
               ام اس
             </option>
             <option
-              selected={values.selectedOptionTwentyTwo === "لوپوس"}
+              selected={values.digestiveProblems === "لوپوس"}
               value="لوپوس"
             >
               لوپوس
             </option>
             <option
-              selected={values.selectedOptionTwentyTwo === "آرتریت روماتوئید"}
+              selected={values.digestiveProblems === "آرتریت روماتوئید"}
               value="آرتریت روماتوئید"
             >
               آرتریت روماتوئید
             </option>
             <option
               selected={
-                values.selectedOptionTwentyTwo === "سایر بیماری های خودایمنی"
+                values.digestiveProblems === "سایر بیماری های خودایمنی"
               }
               value="سایر بیماری های خودایمنی"
             >
               سایر بیماری های خودایمنی
             </option>
             <option
-              selected={values.selectedOptionTwentyTwoEmpty === "ندارم"}
+              selected={values.digestiveProblems === "ندارم"}
               value="ندارم"
             >
               ندارم
@@ -1065,29 +1067,29 @@ const MediterranealForm = () => {
 
           <select
             onChange={handleChange}
-            name="selectedOptionTwentyThree"
+            name="selfSafety"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
-              selected={values.selectedOptionTwentyThree === "null"}
+              selected={values.selfSafety === "null"}
               value="null"
             >
               سکته
             </option>
             <option
-              selected={values.selectedOptionTwentyThree === "سکته قلبی"}
+              selected={values.selfSafety === "سکته قلبی"}
               value="سکته قلبی"
             >
               سکته قلبی
             </option>
             <option
-              selected={values.selectedOptionTwentyThree === "سکته مغزی"}
+              selected={values.selfSafety === "سکته مغزی"}
               value="سکته مغزی"
             >
               سکته مغزی
             </option>
             <option
-              selected={values.selectedOptionTwentyThreeEmpty === "ندارم"}
+              selected={values.selfSafety === "ندارم"}
               value="ندارم"
             >
               ندارم
@@ -1096,35 +1098,35 @@ const MediterranealForm = () => {
 
           <select
             onChange={handleChange}
-            name="selectedOptionTwentyFour"
+            name="stroke"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
-              selected={values.selectedOptionTwentyFour === "null"}
+              selected={values.stroke === "null"}
               value="null"
             >
               کبد چرب
             </option>
             <option
-              selected={values.selectedOptionTwentyFour === "کبد چرب گرید ۱"}
+              selected={values.stroke === "کبد چرب گرید ۱"}
               value="کبد چرب گرید ۱"
             >
               کبد چرب گرید ۱
             </option>
             <option
-              selected={values.selectedOptionTwentyFour === "کبد چرب گرید ۲"}
+              selected={values.stroke === "کبد چرب گرید ۲"}
               value="کبد چرب گرید ۲"
             >
               کبد چرب گرید ۲
             </option>
             <option
-              selected={values.selectedOptionTwentyFour === "کبد چرب گرید ۳"}
+              selected={values.stroke === "کبد چرب گرید ۳"}
               value="کبد چرب گرید ۳"
             >
               کبد چرب گرید ۳
             </option>
             <option
-              selected={values.selectedOptionTwentyFourEmpty === "ندارم"}
+              selected={values.stroke === "ندارم"}
               value="ندارم"
             >
               ندارم
@@ -1133,30 +1135,30 @@ const MediterranealForm = () => {
 
           <select
             onChange={handleChange}
-            name="selectedOptionTwentyFive"
+            name="fattyLiver"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
-              selected={values.selectedOptionTwentyFive === "null"}
+              selected={values.fattyLiver === "null"}
               value="null"
             >
               مشکلات کلیوی
             </option>
             <option
-              selected={values.selectedOptionTwentyFive === "سنگ کلیه"}
+              selected={values.fattyLiver === "سنگ کلیه"}
               value="سنگ کلیه"
             >
               سنگ کلیه
             </option>
             <option
-              selected={values.selectedOptionTwentyFive === "نارسایی کلیه"}
+              selected={values.fattyLiver === "نارسایی کلیه"}
               value="نارسایی کلیه"
             >
               نارسایی کلیه
             </option>
             <option
               selected={
-                values.selectedOptionTwentyFive === "عفونت مجاری ادرار "
+                values.fattyLiver === "عفونت مجاری ادرار "
               }
               value="عفونت مجاری ادرار "
             >
@@ -1166,37 +1168,37 @@ const MediterranealForm = () => {
 
           <select
             onChange={handleChange}
-            name="selectedOptionTwentySix"
+            name="kidneyProblems"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option
-              selected={values.selectedOptionTwentySix === "null"}
+              selected={values.kidneyProblems === "null"}
               value="null"
             >
               تیروئید
             </option>
             <option
-              selected={values.selectedOptionTwentySix === "کم کار"}
+              selected={values.kidneyProblems === "کم کار"}
               value="کم کار"
             >
               کم کار
             </option>
             <option
-              selected={values.selectedOptionTwentySix === "پرکار"}
+              selected={values.kidneyProblems === "پرکار"}
               value="پرکار"
             >
               پرکار
             </option>
             <option
               selected={
-                values.selectedOptionTwentySix === "گره و التهاب تیروئید"
+                values.kidneyProblems === "گره و التهاب تیروئید"
               }
               value="گره و التهاب تیروئید"
             >
               گره و التهاب تیروئید
             </option>
             <option
-              selected={values.selectedOptionTwentySixEmpty === "ندارم"}
+              selected={values.kidneyProblems === "ندارم"}
               value="ندارم"
             >
               ندارم
@@ -1204,16 +1206,16 @@ const MediterranealForm = () => {
           </select>
 
           <GroupRadio
-            name="selectedOptionTwentySeven"
-            checked={values.selectedOptionTwentySeven === "سرطان"}
+            name="thyroid"
+            checked={values.thyroid === "سرطان"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"سرطان"}
           />
           <GroupRadio
-            name="selectedOptionTwentyEight"
-            checked={values.selectedOptionTwentyEight === "میگرن"}
+            name="cancer"
+            checked={values.cancer === "میگرن"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -1221,21 +1223,21 @@ const MediterranealForm = () => {
           />
 
           <MainInput
-            name="selectedOptionTwentyNine"
+            name="Migraine"
             parentClassName="col-span-2 [&>label]:text-base"
             onChange={handleChange}
             type="text"
             label="سایر بیماری ها یا جراحی قبلی را اینجا بنویسید "
           />
           <MainInput
-            name="selectedOptionThirty"
+            name="otherSickness"
             parentClassName="col-span-2 [&>label]:text-base"
             onChange={handleChange}
             type="text"
             label="چنانچه دارویی مصرف می کنید نام آن را ذکر کنید"
           />
           <MainInput
-            name="selectedOptionThirtyOne"
+            name="medicine"
             parentClassName="col-span-2 [&>label]:text-base"
             onChange={handleChange}
             type="file"
