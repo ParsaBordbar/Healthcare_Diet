@@ -1,6 +1,7 @@
 'use client';
 
 import CommentBox from '@/components/AdminComponents/CommentBox';
+import PatientCardLazy from '@/components/AdminComponents/lazyLoadingComponents/PatientCardLazy';
 import MediterraneanForm from '@/components/AdminComponents/MediterraneanForm';
 import PatientBmiForm from '@/components/AdminComponents/PatientBmiForm';
 import PatientCard from '@/components/AdminComponents/PatientCard';
@@ -40,7 +41,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
             />
           </>
         ) : (
-          <h2 className='flex justify-center items-center'>Loading</h2>
+          <PatientCardLazy /> 
         )}
 
         <h2 className='text-3xl mt-8'>رژیم‌ها:</h2>
