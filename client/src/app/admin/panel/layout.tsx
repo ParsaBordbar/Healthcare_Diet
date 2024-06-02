@@ -20,7 +20,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
           valueThree="سوابق بیمارها"
           linkThree="/admin/panel/patients"
           valueFour="فرمBMI"
-          linkFour="admin/panel/bmi"
+          linkFour="/admin/panel/bmi"
           valueFive="فرم های رژیم مدیترانه ای"
           linkFive="/admin/panel/mediterranean"
           valueSix="فرم های پاسخ داده نشده"
