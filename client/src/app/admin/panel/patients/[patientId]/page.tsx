@@ -92,7 +92,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
         )}
         <h2 className='text-3xl mt-8'>پیام‌های ارسال شده:</h2>
         {commentData ? commentData.map((comment) => 
-        <CommentBox key={comment.receiver} sender={comment.sender} body={comment.body} receiver={comment.receiver} createdAtJalali={comment.createdAtJalali} /> ) :null}
+        <CommentBox key={comment.receiver} sender={comment.sender} body={comment.body} receiver={comment.receiver} createdAtJalali={comment.createdAtJalali} isDoctor={true} /> ) : <p>هنوز پیامی وجود ندارد</p>}
         <ReplyBox receiver={params.patientId} />
       </section>
     </main>
