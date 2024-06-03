@@ -1,6 +1,7 @@
 'use client';
 
 import CommentBox from '@/components/AdminComponents/CommentBox';
+import PatientBmiFormLazy from '@/components/AdminComponents/lazyLoadingComponents/PatientBmiForm';
 import PatientCardLazy from '@/components/AdminComponents/lazyLoadingComponents/PatientCardLazy';
 import MediterraneanForm from '@/components/AdminComponents/MediterraneanForm';
 import PatientBmiForm from '@/components/AdminComponents/PatientBmiForm';
@@ -41,7 +42,11 @@ function PatientId({ params }: { params: { patientId: string } }) {
             />
           </>
         ) : (
-          <PatientCardLazy /> 
+          <>
+            <PatientCardLazy /> 
+            <div className='bg-gray-200 h-5 me-6 mt-7 mb-2 w-1/12'></div>
+            <PatientBmiFormLazy />
+          </>
         )}
 
         <h2 className='text-3xl mt-8'>رژیم‌ها:</h2>
