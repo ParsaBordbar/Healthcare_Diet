@@ -44,7 +44,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
         ) : (
           <>
             <PatientCardLazy /> 
-            <div className='bg-gray-200 h-5 me-6 mt-7 mb-2 w-1/12'></div>
+            <div className='bg-gray-200 h-5 me-6 mt-7 mb-2 w-1/12 animate-pulse'></div>
             <PatientBmiFormLazy />
           </>
         )}
