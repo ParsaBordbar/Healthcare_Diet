@@ -13,7 +13,7 @@ function NewCommentsBox () {
         <h2 className="text-lg mb-6">جدیدترین پیام‌ها</h2>
                 <div className='flex max-h-[590px] gap-6 custom-scroll flex-col-reverse'>
                   {allComments? allComments.slice(-4).map((data): React.ReactNode => {
-                      return <CommentBox className='lg:min-w-[75%] lg:w-min w-full' key={data.receiver} sender={data.sender}body={data.body} receiver={data.receiver} createdAtJalali={data.createdAtJalali} isDoctor={true}/>
+                      return <CommentBox className='xl:w-full lg:min-w-[75%] lg:w-min w-full' key={data.receiver} sender={data.sender}body={data.body} receiver={data.receiver} createdAtJalali={data.createdAtJalali} isDoctor={true}/>
                   }): null
                   }
                 </div>
