@@ -30,7 +30,22 @@ router.get('/certain/patientId/:receiver', async (req, res) => {
   }
 });
 
-
+router.get('/certain/username:username', async (req, res) => {
+  try {
+    if (doctorsComment) {
+      const response = await doctorsComment.findAll({ username: req.params.username });
+      if (response.length > 0) {
+        return res.status(200).send(response);
+      } else {
+        return res.status(404).send({ "message": "No comments found for the given username." });
+      }
+    } else {
+      return res.status(500).send({ "error": "Database connection issue." });
+    }
+  } catch (error) {
+    return res.status(500).send({ "error": "An error occurred while fetching the comments.", "details": error.message });
+  }
+});
 
 //For getting all comments sorted by date
 router.get('/comments', async (req, res) => {
