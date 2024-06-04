@@ -7,7 +7,7 @@ const MainPageAdminPanel = () => {
     return(
         <section className="grid min-[1320px]:grid-cols-8 grid-cols-7 gap-8">
             <div className="col-span-full">
-                <WelcomeBox doctorName="نام "/>    
+                <WelcomeBox doctorName="admin"/>    
             </div>
             <div className="col-span-full">
                 <QuickLinSection />
