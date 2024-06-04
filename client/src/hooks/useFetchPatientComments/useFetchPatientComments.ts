@@ -13,9 +13,9 @@ const useFetchPatientComments = (phoneNumber?: string, userName?: string) => {
         try {
             let response;
             if (phoneNumber) {
-                response = await api.get(`/doctorsComment/certain/${phoneNumber}`);
+                response = await api.get(`/doctorsComment/certain/patientId/${phoneNumber}`);
             } else if (userName) {
-                response = await api.get(`/doctorsComment/certain/${userName}`);
+                response = await api.get(`/doctorsComment/certain/username/${userName}`);
             } else {
                 throw new Error("Either phoneNumber or userName must be provided");
             }
