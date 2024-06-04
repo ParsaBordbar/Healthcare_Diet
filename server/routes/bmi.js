@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 });
 
 // This will check for the User's phoneNumber from the frontEnd, and Gives back a Response
-router.get('/:phoneNumber', async (req, res) => {
+router.get('/phone:phoneNumber', async (req, res) => {
     try {
         const result = await BmiForm.findOne({ phoneNumber: req.params.phoneNumber });
         if (result) {
@@ -26,6 +26,36 @@ router.get('/:phoneNumber', async (req, res) => {
         return res.status(500).send('Server Error');
     }
 });
+
+
+router.get('/search', async (req, res) => {
+    const { query } = req.query;
+
+    if (!query) {
+        return res.status(400).send('Query parameter is required');
+    }
+    //regex for case-insensitive 
+    const searchRegex = new RegExp(query, 'i');
+    try {
+        const results = await BmiForm.find({
+            $or: [
+                { phoneNumber: searchRegex },
+                { name: searchRegex },
+                { lastName: searchRegex }
+            ]
+        });
+
+        if (results.length > 0) {
+            return res.status(200).send(results);
+        } else {
+            return res.status(404).send('No matching records found');
+        }
+    } catch (error) {
+        console.error('Error during search:', error);
+        return res.status(500).send('Server Error');
+    }
+});
+
 
 router.post('/', async (req, res) => {
     try {
@@ -51,7 +81,6 @@ router.post('/', async (req, res) => {
         weight: req.body.weight,
         bmi: (req.body.weight / (req.body.height * req.body.height)).toFixed(4), // Calculate BMI
       });
-  
       form = await form.save();
       return res.send(form);
   

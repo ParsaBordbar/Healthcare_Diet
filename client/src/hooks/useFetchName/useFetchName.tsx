@@ -13,7 +13,7 @@ const useSpecificFetchBmi = (phoneNumber: string) => {
     const fetchBmiPatientForms = async () => {
       try{
         console.log(bmiForms);
-          const response = await api.get(`/bmi/${phoneNumber}`);
+          const response = await api.get(`/bmi/phone${phoneNumber}`);
           setBmiForms(response.data);
       }
       catch(err : any){
