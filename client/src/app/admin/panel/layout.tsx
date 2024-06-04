@@ -66,7 +66,6 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
           </ul>
         </div>
         <main className="w-full mt-6 md:w-[75%] lg:w-5/6 flex flex-col py-16 gap-10 px-16 bg-white   h-screen">
-          {/* <MainInput parentClassName="!w-1/2 mx-auto" type="search" placeholder="نام بیمار مورد نظر خود را وارد کنید"/> */}
           <div className="">{children}</div>
         </main>
       </div>
