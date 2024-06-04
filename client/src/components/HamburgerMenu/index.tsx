@@ -1,12 +1,9 @@
-"use client";
-import React, { useCallback, useMemo, useState } from "react";
+"use client";;
+import { useCallback, useMemo, useState } from "react";
 import Styles from "./navbar.module.scss";
 import { motion } from "framer-motion";
-import NavElement from "../landingPage_components/NavElement";
-import MainButton from "../MainButton";
 import LogoSvg from "/public/svg/Logo.svg";
 import Link from "next/link";
-import { link } from "fs";
 
 type THamMenu = {
   logo?: boolean;
@@ -59,9 +56,9 @@ const HamburgerNavbar = (props: THamMenu) => {
     return ValueArray.map((Links) => {
       if (!Links.value || !Links.link) return;
       return (
-        <Link href={Links.link} key={Links.value}>
-          <motion.li variants={listItemVariants}>
-            <MainButton simple value={Links.value} />
+        <Link className="group" href={Links.link} key={Links.value}>
+          <motion.li className="!p-0" variants={listItemVariants}>
+            <p className="group-hover:text-[var(--new-green)]">{Links.value}</p>
           </motion.li>
         </Link>
       );
@@ -103,11 +100,11 @@ const HamburgerNavbar = (props: THamMenu) => {
   return (
     <div className="lg:hidden shadow-lg">
       <div
-        className={` ${Styles.navbar}  ${
+        className={` ${Styles.navbar} z-50  ${
           burgerMenuActive ? Styles.active : ""
         }`}
       >
-        <div className={`${Styles.navigation} ${props.className}`}>
+        <div className={`${Styles.navigation} bg-[var(--primary)] ${props.className}`}>
           <div
             className={Styles.burgerMenuContainer}
             onClick={() => toggleBurgerMenu()}
@@ -119,6 +116,7 @@ const HamburgerNavbar = (props: THamMenu) => {
         </div>
         <div className={Styles.content}>
           <motion.ul
+          className="flex flex-col gap-6"
             animate={burgerMenuActive ? "open" : "closed"}
             variants={motionVariants}
           >
