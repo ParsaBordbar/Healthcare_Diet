@@ -122,3 +122,10 @@ export interface CommentType {
   createdAtJalali?: string, 
   isDoctor?: boolean
 }
+
+export interface QuickLinkBoxType{
+  tittle:string, 
+  desc:string,
+  url:string,
+  counter: string,
+}
