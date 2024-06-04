@@ -23,16 +23,16 @@ const CommentBox = ({
   return (
     <div className={`flex ${className} flex-col col-span-full bg-[var(--milky-white)]  gap-2 rounded-lg shadow-md`}>
       <div className="ps-4 py-3 flex items-start  min-[1320px]:gap-5 gap-2 pb-2 bg-[var(--new-green)] text-white rounded-lg rounded-br-none  pe-4">
-        <section className="flex w-full items-start 2xl:items-center 2xl:flex-row lg:flex-col lg:gap-1 sm:flex-row gap-4 2xl:justify-between justify-between lg:justify-center flex-col">
+        <section className="flex w-full items-start 2xl:items-center 2xl:flex-row lg:flex-col lg:gap-1 sm:flex-row gap-1 2xl:justify-between justify-between lg:justify-center flex-col">
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center">
-              <p className="md:text-sm 2xl:text-base text-xs">ارسال کننده:</p>
-              <p className="md:text-sm 2xl:text-base text-xs text-ellipsis overflow-hidden whitespace-nowrap">{sender} </p>
+              <p className="md:text-sm text-base">ارسال کننده:</p>
+              <p className="md:text-sm text-base text-ellipsis overflow-hidden whitespace-nowrap">{sender} </p>
             </div>
             {receiver ? (
               <div className="flex gap-2 items-center">
-                <p className="w-fit md:text-sm 2xl:text-base text-xs">دریافت کننده:</p>
-                <p className="md:text-sm 2xl:text-base text-xs text-ellipsis overflow-hidden whitespace-nowrap">
+                <p className="w-fit md:text-sm text-base">دریافت کننده:</p>
+                <p className="md:text-sm text-base text-ellipsis overflow-hidden whitespace-nowrap">
                   {userData?.name} {userData?.lastName}{" "}
                 </p>
               </div>
@@ -43,7 +43,7 @@ const CommentBox = ({
             <div className="flex sm:flex-row gap-4">
               <div className="flex flex-row justify-center items-center gap-2">
                 <DateSvg className="sm:flex hidden"width={24} />
-                <p className="pt-1.5 md:text-sm 2xl:text-base text-xs">{createdAtJalali}</p>
+                <p className="pt-1.5 md:text-sm text-base">{createdAtJalali}</p>
               </div>
               {
                 isDoctor? <Link className="" href={`/admin/panel/patients/${receiver}`}>
@@ -55,7 +55,7 @@ const CommentBox = ({
         </section>
       </div>
       <p
-        className="p-5 w-full pb-12  md:text-sm 2xl:text-base text-xs"
+        className="p-5 w-full pb-12  text-base "
         dangerouslySetInnerHTML={formatBody(body)}
       />
     </div>
