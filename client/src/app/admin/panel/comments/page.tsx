@@ -2,11 +2,11 @@
 import CommentBox from '@/components/AdminComponents/CommentBox'
 import MainInput from '@/components/MainInput'
 import useFetchComments from '@/hooks/useFetchComments/useFetchComments'
-import useFetchPatientComments from '@/hooks/useFetchPatientComments/useFetchPatientComments'
 import SearchIcon from "/public/svg/search-normal.svg";
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import useFilterComments from '@/hooks/useFilterComments/useFilterComments'
-import { date } from 'yup'
+import { date } from 'yup';
+import api from '@/apis';
 
 
 const CommentsPage = () => {
@@ -15,6 +15,18 @@ const CommentsPage = () => {
   const [filter, setFilter] = useState(allComments)
   const oldest = useFilterComments('/doctorsComment/comments?sort=newest')
   const newest = useFilterComments('/doctorsComment/comments?sort=oldest')
+
+  const [searchValue, setSearchValue] = useState<string>('');
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      console.log('Event value:', event.target.value);
+      setSearchValue(event.target.value);
+  };
+
+  useEffect(() => {
+      console.log('Search value updated:', searchValue);
+  }, [searchValue]);
+
   
   const newestFilterHandler = () => {
     setFilter(newest)
@@ -24,24 +36,44 @@ const CommentsPage = () => {
     setFilter(oldest)
   }
 
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log('Searching for:', searchValue);
+    const endpoint = `/doctorsComment/certain/patientId/${searchValue}`;
+    console.log('This is endpoint', endpoint);
+
+    try {
+      const response = await api.get(endpoint);
+      setFilter(response.data);
+    } catch (error) {
+      console.error('Error fetching search results:', error);
+    }
+  };
+
   useEffect(() => {
     setFilter(allComments);
   }, [allComments]);
 
   return (
     <section className='flex gap-3 flex-col'>
-      <header className='flex gap-10 mb-10'>
-        <MainInput
-        iconFirst={SearchIcon}
-        parentClassName="!w-1/2 "
-        type="search"
-        placeholder="نام بیمار مورد نظر خود را وارد کنید"
-        />
+      <header className='flex gap-8 mb-10 justify-start'>
+        <form  className='w-1/2' action="" onSubmit={handleSubmit}>
+          <MainInput
+          iconFirst={SearchIcon}
+          parentClassName="!w-full "
+          type="search"
+          value={searchValue}
+          onChange={handleChange} 
+          placeholder="نام بیمار مورد نظر خود را وارد کنید"
+          />
+          <button type="submit">جست و جو</button>
+        </form>
         <p className='ps-10'>فیلتر کردن براساس:</p>
-        <button onClick={newestFilterHandler} className='bg-[var(--orange)] rounded-lg px-4 hover:bg-[var(--new-green)] ease-in-out duration-100 hover:text-white text-sm'>
+        <button onClick={newestFilterHandler} className='bg-[var(--orange)] rounded-lg px-4 h-11 hover:bg-[var(--new-green)] ease-in-out duration-100 hover:text-white text-sm'>
           قدیمی‌ترین  
         </button>
-        <button onClick={oldestFilterHandler} className='bg-[var(--orange)] rounded-lg px-4 hover:bg-[var(--new-green)] ease-in-out duration-100 hover:text-white text-sm'>
+        <button onClick={oldestFilterHandler} className='bg-[var(--orange)] rounded-lg px-4 h-11 hover:bg-[var(--new-green)] ease-in-out duration-100 hover:text-white text-sm'>
           جدیدترین
         </button>
       </header>
