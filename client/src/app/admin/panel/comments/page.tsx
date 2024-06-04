@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react'
 import useFilterComments from '@/hooks/useFilterComments/useFilterComments'
 import { date } from 'yup';
 import api from '@/apis';
+import useFetchSingleBmi from '@/hooks/useFetchSingleBmi/useFetchSingleBmi';
 
 
 const CommentsPage = () => {
@@ -15,7 +16,6 @@ const CommentsPage = () => {
   const [filter, setFilter] = useState(allComments)
   const oldest = useFilterComments('/doctorsComment/comments?sort=newest')
   const newest = useFilterComments('/doctorsComment/comments?sort=oldest')
-
   const [searchValue, setSearchValue] = useState<string>('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +27,8 @@ const CommentsPage = () => {
       console.log('Search value updated:', searchValue);
   }, [searchValue]);
 
-  
+  const getPatientId = useFetchSingleBmi(searchValue)
+  console.log(JSON.stringify(getPatientId));
   const newestFilterHandler = () => {
     setFilter(newest)
   }
@@ -39,10 +40,9 @@ const CommentsPage = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('Searching for:', searchValue);
-    const endpoint = `/doctorsComment/certain/patientId/${searchValue}`;
+    const endpoint = `/doctorsComment/certain/patientId/${getPatientId}`;
     console.log('This is endpoint', endpoint);
-
+    
     try {
       const response = await api.get(endpoint);
       setFilter(response.data);
