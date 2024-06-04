@@ -30,6 +30,38 @@ router.get('/:receiver', async (req, res) => {
   }
 });
 
+
+//NOTE: Reformating to have query's is better It will be implemented in the next Update.
+
+// For getting all comments sorted by newest
+router.get('/comments/newest', async (req, res) => {
+  try {
+    const response = await doctorsComment.find().sort({ createdAtGregorian: -1 });
+    if (response.length > 0) {
+      return res.status(200).send(response);
+    } else {
+      return res.status(404).send({ "message": "No comments found." });
+    }
+  } catch (error) {
+    return res.status(500).send({ "error": "An error occurred while fetching the comments.", "details": error.message });
+  }
+});
+
+// For getting all comments sorted by oldest
+router.get('/comments/oldest', async (req, res) => {
+  try {
+    const response = await doctorsComment.find().sort({ createdAtGregorian: 1 });
+    if (response.length > 0) {
+      return res.status(200).send(response);
+    } else {
+      return res.status(404).send({ "message": "No comments found." });
+    }
+  } catch (error) {
+    return res.status(500).send({ "error": "An error occurred while fetching the comments.", "details": error.message });
+  }
+});
+
+
 router.delete('/:receiver', async (req, res) => {
   let response = await doctorsComment.deleteMany({ receiver: req.params.receiver });
   response = response.delete
