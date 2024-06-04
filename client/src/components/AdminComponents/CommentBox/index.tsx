@@ -26,13 +26,13 @@ const CommentBox = ({
         <section className="flex w-full items-start 2xl:items-center 2xl:flex-row lg:flex-col lg:gap-1 sm:flex-row gap-1 2xl:justify-between justify-between lg:justify-center flex-col">
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center">
-              <p className="md:text-sm text-base">ارسال کننده:</p>
-              <p className="md:text-sm text-base text-ellipsis overflow-hidden whitespace-nowrap">{sender} </p>
+              <p className=" text-base">ارسال کننده:</p>
+              <p className=" text-base text-ellipsis overflow-hidden whitespace-nowrap">{sender} </p>
             </div>
             {receiver ? (
               <div className="flex gap-2 items-center">
-                <p className="w-fit md:text-sm text-base">دریافت کننده:</p>
-                <p className="md:text-sm text-base text-ellipsis overflow-hidden whitespace-nowrap">
+                <p className="w-fit  text-base">دریافت کننده:</p>
+                <p className=" text-base text-ellipsis overflow-hidden whitespace-nowrap">
                   {userData?.name} {userData?.lastName}{" "}
                 </p>
               </div>
@@ -43,7 +43,7 @@ const CommentBox = ({
             <div className="flex sm:flex-row gap-4">
               <div className="flex flex-row justify-center items-center gap-2">
                 <DateSvg className="sm:flex hidden"width={24} />
-                <p className="pt-1.5 md:text-sm text-base">{createdAtJalali}</p>
+                <p className="pt-1.5  text-base">{createdAtJalali}</p>
               </div>
               {
                 isDoctor? <Link className="" href={`/admin/panel/patients/${receiver}`}>
