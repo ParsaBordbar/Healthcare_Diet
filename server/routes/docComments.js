@@ -13,7 +13,7 @@ router.get('/', async(req, res)=> {
 })
 
 //For all comments for a certain user
-router.get('/certain/:receiver', async (req, res) => {
+router.get('/certain/patientId/:receiver', async (req, res) => {
   try {
     if (doctorsComment) {
       const response = await doctorsComment.find({ receiver: req.params.receiver });
@@ -31,7 +31,6 @@ router.get('/certain/:receiver', async (req, res) => {
 });
 
 
-//NOTE: Reformating to have query's is better It will be implemented in the next Update => DONE
 
 //For getting all comments sorted by date
 router.get('/comments', async (req, res) => {
@@ -49,9 +48,7 @@ router.get('/comments', async (req, res) => {
 });
 
 
-
-
-router.delete('/certain/:receiver', async (req, res) => {
+router.delete('/certain/patientId/:receiver', async (req, res) => {
   let response = await doctorsComment.deleteMany({ receiver: req.params.receiver });
   response = response.delete
   return res.send(response);
