@@ -1,28 +1,35 @@
-    import api from "@/apis";
-    import { CommentType } from "@/types";
-    import { useState, useEffect } from "react";
+import api from "@/apis";
+import { CommentType } from "@/types";
+import { useState, useEffect } from "react";
 
-    const useFetchPatientComments = (phoneNumber: string) => {
+const useFetchPatientComments = (phoneNumber?: string, userName?: string) => {
+    const [comments, setComments] = useState<CommentType[]>([]);
 
-        const [comments, setComments] = useState<CommentType[]>([]);
-        useEffect(()=> {
-            fetchComments()
-        }, [comments])
+    useEffect(() => {
+        fetchComments();
+    }, [phoneNumber, userName]);
 
-        const fetchComments = async () => {
-            try{
-                const response = await api.get(`/doctorsComment/${phoneNumber}`);
-                setComments(response.data);
+    const fetchComments = async () => {
+        try {
+            let response;
+            if (phoneNumber) {
+                response = await api.get(`/doctorsComment/${phoneNumber}`);
+            } else if (userName) {
+                response = await api.get(`/doctorsCommentByUsername/${userName}`);
+            } else {
+                throw new Error("Either phoneNumber or userName must be provided");
             }
-            catch(err : any){
-            if (err.response){
-                console.log(err.response.data)
-            }
-            else{
+            setComments(response.data);
+        } catch (err: any) {
+            if (err.response) {
+                console.log(err.response.data);
+            } else {
                 console.log(`Error: ${err.message}`);
             }
-            }
         }
-        return comments;
-    }
-    export default useFetchPatientComments;
+    };
+
+    return comments;
+};
+
+export default useFetchPatientComments;
