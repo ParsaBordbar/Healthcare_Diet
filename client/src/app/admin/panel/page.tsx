@@ -6,7 +6,7 @@ import WelcomeBox from "@/components/AdminComponents/WelcomeBox"
 const MainPageAdminPanel = () => {
     return(
         <section className="grid min-[1320px]:grid-cols-8 grid-cols-7 gap-8">
-            <div className="col-span-7">
+            <div className="col-span-full">
                 <WelcomeBox doctorName="نام "/>    
             </div>
             <div className="col-span-full">
