@@ -52,7 +52,7 @@ const MainInput = forwardRef<
         <section
           className={` rounded-lg py-3 px-4 border ${
             props.error ? "border-red-600" : "border-[var(--border-color)]"
-          }  flex items-center gap-1  bg-white `}
+          }  flex items-center gap-2  bg-white `}
         >
           {FirstIcon()}
           <input
