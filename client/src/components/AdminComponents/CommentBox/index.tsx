@@ -1,7 +1,7 @@
 import { CommentType } from "@/types";
 import React from "react";
 import AttachmentIcon from "/public/svg/adminPanelSvgs/attachment-svgrepo-com.svg";
-import DateSvg from "/public/svg/adminPanelSvgs/date-range-svgrepo-com.svg";
+import DateSvg from "/public/svg/adminPanelSvgs/calendar.svg";
 import Link from "next/link";
 import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
 
@@ -42,7 +42,7 @@ const CommentBox = ({
             {" "}
             <div className="flex sm:flex-row gap-4">
               <div className="flex flex-row justify-center items-center gap-2">
-                <DateSvg className="sm:flex hidden"width={24} />
+                <DateSvg className="sm:flex [&>path]:stroke-white  hidden"width={24} />
                 <p className="pt-1.5  text-base">{createdAtJalali}</p>
               </div>
               {
