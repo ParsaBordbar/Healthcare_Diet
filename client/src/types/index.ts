@@ -127,5 +127,5 @@ export interface QuickLinkBoxType{
   tittle:string, 
   desc:string,
   url:string,
-  counter: string,
+  counter: number,
 }
