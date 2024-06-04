@@ -1,5 +1,5 @@
 import api from "@/apis";
-import { BmiType, CommentType } from "@/types";
+import { CommentType } from "@/types";
 import { useState, useEffect } from "react";
 
 const useFilterComments = (endpoint: string) => {
