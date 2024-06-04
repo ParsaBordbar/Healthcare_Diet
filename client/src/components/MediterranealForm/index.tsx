@@ -25,19 +25,20 @@ const MediterranealForm = () => {
     fermentationWeekly: yup.string().required("جواب به این سوال الزامی است"),
     physicalActivity: yup.string().required("جواب به این سوال الزامی است"),
     diabetes: yup.string().required("جواب به این سوال الزامی است"),
-    anemia: yup.string().required("جواب به این سوال الزامی است"),
+    // anemia: yup.string().required("جواب به این سوال الزامی است"),
     bloodPressure: yup.string().required("جواب به این سوال الزامی است"),
     digestiveProblems: yup.string().required("جواب به این سوال الزامی است"),
     selfSafety: yup.string().required("جواب به این سوال الزامی است"),
     stroke: yup.string().required("جواب به این سوال الزامی است"),
     fattyLiver: yup.string().required("جواب به این سوال الزامی است"),
     kidneyProblems: yup.string().required("جواب به این سوال الزامی است"),
-    thyroid: yup.string().required("جواب به این سوال الزامی است"),
-    cancer: yup.string().required("جواب به این سوال الزامی است"),
+    thyroid: yup.string(),
+    cancer: yup.string(),
     supplements: yup.array(),
     Migraine: yup.string().required("جواب به این سوال الزامی است"),
     otherSickness: yup.string().required("جواب به این سوال الزامی است"),
     medicine: yup.string().required("جواب به این سوال الزامی است"),
+    phoneNumber: yup.string(),
   });
 
   const formik = useFormik({
@@ -85,8 +86,8 @@ const MediterranealForm = () => {
       diabetes: "",
       questionTwenty: "کدام یک از مشکلات زیر را دارید یا قبلا داشتید؟",
       questionTwentyOne: "سایر بیماری ها یا جراحی قبلی را اینجا بنویسید .",
-      anemia: "",
-      supplements:[],
+      // anemia: "",
+      supplements: [],
       bloodPressure: "",
       digestiveProblems: "",
       selfSafety: "",
@@ -236,7 +237,7 @@ const MediterranealForm = () => {
       </div>
 
       <div className="flex flex-col gap-4">
-        <h1>مصرف غالت به صورت روزانه {"(نان و ماکارونی..)؟"}</h1>
+        <h1>مصرف غلات به صورت روزانه {"(نان و ماکارونی..)؟"}</h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
             name="dailyCereals"
@@ -904,7 +905,7 @@ const MediterranealForm = () => {
       </div>
 
       <div className="flex flex-col gap-4">
-        <h1>کدام یک از مشکال ت زیر را دارید یا قبال داشتید؟</h1>
+        <h1>کدام یک از مشکلات زیر را دارید یا قبلا داشتید؟</h1>
         <section className="grid grid-cols-6 gap-4 items-center ">
           <select
             onChange={handleChange}
@@ -942,48 +943,23 @@ const MediterranealForm = () => {
 
           <select
             onChange={handleChange}
-            name="anemia"
+            name="bloodPressure"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
-            <option selected={values.anemia === "null"} value="null">
+            <option selected={values.bloodPressure === "null"} value="null">
               فشار خون
             </option>
             <option
-              selected={values.anemia === "بالا بودن فشار خون"}
+              selected={values.bloodPressure === "بالا بودن فشار خون"}
               value="بالا بودن فشار خون"
             >
               بالا بودن فشار خون
             </option>
             <option
-              selected={values.anemia === "پایین بودن فشار خون"}
+              selected={values.bloodPressure === "پایین بودن فشار خون"}
               value="پایین بودن فشار خون"
             >
               پایین بودن فشار خون
-            </option>
-            <option selected={values.anemia === "ندارم"} value="ندارم">
-              ندارم
-            </option>
-          </select>
-
-          <select
-            onChange={handleChange}
-            name="bloodPressure"
-            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
-          >
-            <option selected={values.bloodPressure === "null"} value="null">
-              مشکلات گوارشی
-            </option>
-            <option
-              selected={values.bloodPressure === "ریفالکس)ترش کردن)"}
-              value="ریفالکس)ترش کردن)"
-            >
-              ریفالکس{"(ترش کردن)"}
-            </option>
-            <option selected={values.bloodPressure === "نفخ"} value="نفخ">
-              نفخ
-            </option>
-            <option selected={values.bloodPressure === "یبوست"} value="یبوست">
-              یبوست
             </option>
             <option selected={values.bloodPressure === "ندارم"} value="ندارم">
               ندارم
@@ -996,37 +972,22 @@ const MediterranealForm = () => {
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option selected={values.digestiveProblems === "null"} value="null">
-              خودایمنی
+              مشکلات گوارشی
             </option>
             <option
-              selected={values.digestiveProblems === "آسم و آلرژی"}
-              value="آسم و آلرژی"
+              selected={values.digestiveProblems === "ریفالکس)ترش کردن)"}
+              value="ریفالکس)ترش کردن)"
             >
-              آسم و آلرژی
+              ریفالکس{"(ترش کردن)"}
+            </option>
+            <option selected={values.digestiveProblems === "نفخ"} value="نفخ">
+              نفخ
             </option>
             <option
-              selected={values.digestiveProblems === "ام اس"}
-              value="ام اس"
+              selected={values.digestiveProblems === "یبوست"}
+              value="یبوست"
             >
-              ام اس
-            </option>
-            <option
-              selected={values.digestiveProblems === "لوپوس"}
-              value="لوپوس"
-            >
-              لوپوس
-            </option>
-            <option
-              selected={values.digestiveProblems === "آرتریت روماتوئید"}
-              value="آرتریت روماتوئید"
-            >
-              آرتریت روماتوئید
-            </option>
-            <option
-              selected={values.digestiveProblems === "سایر بیماری های خودایمنی"}
-              value="سایر بیماری های خودایمنی"
-            >
-              سایر بیماری های خودایمنی
+              یبوست
             </option>
             <option
               selected={values.digestiveProblems === "ندارم"}
@@ -1042,19 +1003,31 @@ const MediterranealForm = () => {
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option selected={values.selfSafety === "null"} value="null">
-              سکته
+              خودایمنی
             </option>
             <option
-              selected={values.selfSafety === "سکته قلبی"}
-              value="سکته قلبی"
+              selected={values.selfSafety === "آسم و آلرژی"}
+              value="آسم و آلرژی"
             >
-              سکته قلبی
+              آسم و آلرژی
+            </option>
+            <option selected={values.selfSafety === "ام اس"} value="ام اس">
+              ام اس
+            </option>
+            <option selected={values.selfSafety === "لوپوس"} value="لوپوس">
+              لوپوس
             </option>
             <option
-              selected={values.selfSafety === "سکته مغزی"}
-              value="سکته مغزی"
+              selected={values.selfSafety === "آرتریت روماتوئید"}
+              value="آرتریت روماتوئید"
             >
-              سکته مغزی
+              آرتریت روماتوئید
+            </option>
+            <option
+              selected={values.selfSafety === "سایر بیماری های خودایمنی"}
+              value="سایر بیماری های خودایمنی"
+            >
+              سایر بیماری های خودایمنی
             </option>
             <option selected={values.selfSafety === "ندارم"} value="ندارم">
               ندارم
@@ -1067,25 +1040,13 @@ const MediterranealForm = () => {
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option selected={values.stroke === "null"} value="null">
-              کبد چرب
+              سکته
             </option>
-            <option
-              selected={values.stroke === "کبد چرب گرید ۱"}
-              value="کبد چرب گرید ۱"
-            >
-              کبد چرب گرید ۱
+            <option selected={values.stroke === "سکته قلبی"} value="سکته قلبی">
+              سکته قلبی
             </option>
-            <option
-              selected={values.stroke === "کبد چرب گرید ۲"}
-              value="کبد چرب گرید ۲"
-            >
-              کبد چرب گرید ۲
-            </option>
-            <option
-              selected={values.stroke === "کبد چرب گرید ۳"}
-              value="کبد چرب گرید ۳"
-            >
-              کبد چرب گرید ۳
+            <option selected={values.stroke === "سکته مغزی"} value="سکته مغزی">
+              سکته مغزی
             </option>
             <option selected={values.stroke === "ندارم"} value="ندارم">
               ندارم
@@ -1098,25 +1059,28 @@ const MediterranealForm = () => {
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option selected={values.fattyLiver === "null"} value="null">
-              مشکلات کلیوی
+              کبد چرب
             </option>
             <option
-              selected={values.fattyLiver === "سنگ کلیه"}
-              value="سنگ کلیه"
+              selected={values.fattyLiver === "کبد چرب گرید ۱"}
+              value="کبد چرب گرید ۱"
             >
-              سنگ کلیه
+              کبد چرب گرید ۱
             </option>
             <option
-              selected={values.fattyLiver === "نارسایی کلیه"}
-              value="نارسایی کلیه"
+              selected={values.fattyLiver === "کبد چرب گرید ۲"}
+              value="کبد چرب گرید ۲"
             >
-              نارسایی کلیه
+              کبد چرب گرید ۲
             </option>
             <option
-              selected={values.fattyLiver === "عفونت مجاری ادرار "}
-              value="عفونت مجاری ادرار "
+              selected={values.fattyLiver === "کبد چرب گرید ۳"}
+              value="کبد چرب گرید ۳"
             >
-              عفونت مجاری ادرار
+              کبد چرب گرید ۳
+            </option>
+            <option selected={values.fattyLiver === "ندارم"} value="ندارم">
+              ندارم
             </option>
           </select>
 
@@ -1126,39 +1090,64 @@ const MediterranealForm = () => {
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
             <option selected={values.kidneyProblems === "null"} value="null">
-              تیروئید
+              مشکلات کلیوی
             </option>
             <option
-              selected={values.kidneyProblems === "کم کار"}
-              value="کم کار"
+              selected={values.kidneyProblems === "سنگ کلیه"}
+              value="سنگ کلیه"
             >
+              سنگ کلیه
+            </option>
+            <option
+              selected={values.kidneyProblems === "نارسایی کلیه"}
+              value="نارسایی کلیه"
+            >
+              نارسایی کلیه
+            </option>
+            <option
+              selected={values.kidneyProblems === "عفونت مجاری ادرار "}
+              value="عفونت مجاری ادرار "
+            >
+              عفونت مجاری ادرار
+            </option>
+          </select>
+
+          <select
+            onChange={handleChange}
+            name="thyroid"
+            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
+          >
+            <option selected={values.thyroid === "null"} value="null">
+              تیروئید
+            </option>
+            <option selected={values.thyroid === "کم کار"} value="کم کار">
               کم کار
             </option>
-            <option selected={values.kidneyProblems === "پرکار"} value="پرکار">
+            <option selected={values.thyroid === "پرکار"} value="پرکار">
               پرکار
             </option>
             <option
-              selected={values.kidneyProblems === "گره و التهاب تیروئید"}
+              selected={values.thyroid === "گره و التهاب تیروئید"}
               value="گره و التهاب تیروئید"
             >
               گره و التهاب تیروئید
             </option>
-            <option selected={values.kidneyProblems === "ندارم"} value="ندارم">
+            <option selected={values.thyroid === "ندارم"} value="ندارم">
               ندارم
             </option>
           </select>
 
           <GroupRadio
-            name="thyroid"
-            checked={values.thyroid === "سرطان"}
+            name="cancer"
+            checked={values.cancer === "سرطان"}
             onChange={handleChange}
             header={false}
             type="radio"
             value={"سرطان"}
           />
           <GroupRadio
-            name="cancer"
-            checked={values.cancer === "میگرن"}
+            name="Migraine"
+            checked={values.Migraine === "میگرن"}
             onChange={handleChange}
             header={false}
             type="radio"
@@ -1166,27 +1155,33 @@ const MediterranealForm = () => {
           />
 
           <MainInput
-            name="Migraine"
+            name="otherSickness"
             parentClassName="col-span-2 [&>label]:text-base"
             onChange={handleChange}
             type="text"
             label="سایر بیماری ها یا جراحی قبلی را اینجا بنویسید "
           />
           <MainInput
-            name="otherSickness"
+            name="medicine"
             parentClassName="col-span-2 [&>label]:text-base"
             onChange={handleChange}
             type="text"
             label="چنانچه دارویی مصرف می کنید نام آن را ذکر کنید"
           />
           <MainInput
-            name="medicine"
+            name="phoneNumber"
             parentClassName="col-span-2 [&>label]:text-base"
             onChange={handleChange}
             type="file"
             label="آخرین آزمایشات ارسال شود "
           />
         </section>
+        {errors.digestiveProblems ||
+        errors.diabetes ||
+        errors.bloodPressure ||
+        errors.selfSafety || errors.stroke || errors.fattyLiver || errors.kidneyProblems || errors.thyroid || errors.otherSickness || errors.medicine ? (
+          <p className="text-red-600">جواب دادن به سوالات بالا الزامی است</p>
+        ) : null}
         {/* <a
           href="/-5836954379280827307_121.jpg"
           download="-5836954379280827307_121.jpg"
@@ -1194,9 +1189,6 @@ const MediterranealForm = () => {
           حتما این فایل را دانلود کنید
         </a> */}
 
-        {errors.digestiveProblems ? (
-          <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
-        ) : null}
       </div>
 
       {/* {errors.questionOne && <span>{errors.questionOne}</span>} */}
