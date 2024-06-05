@@ -5,7 +5,7 @@ import MainInput from "@/components/MainInput";
 import SearchIcon from "/public/svg/search-normal.svg";
 import useSearchCommentsPage from "@/hooks/useSearch/useSearch";
 import MainButton from "@/components/MainButton";
-
+import FilterIcon from "/public/svg/adminPanelSvgs/filter.svg";
 const CommentsPage = () => {
   const {
     filter,
@@ -34,9 +34,10 @@ const CommentsPage = () => {
           />
         </form>
         <div className="lg:col-span-2 col-span-full grid grid-cols-3 gap-8 items-center">
-          <p className=" w-fit col-span-full md:col-span-1 text-base ">
-            فیلتر کردن براساس:
-          </p>
+          <section className="flex col-span-full md:col-span-1 items-center gap-2">
+            <FilterIcon className='[&>path]:stroke-black [&>path]:stroke-2'/>
+            <p className=" w-fit text-base ">فیلتر کردن براساس:</p>
+          </section>
           <section className=" col-span-full md:col-span-2 grid grid-cols-2 gap-8 w-full">
             <MainButton
               modern

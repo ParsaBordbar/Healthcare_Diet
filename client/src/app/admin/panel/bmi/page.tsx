@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import PatientBmiForm from "@/components/AdminComponents/PatientBmiForm";
 import MainButton from "@/components/MainButton";
 import MainInput from "@/components/MainInput";
@@ -7,6 +7,8 @@ import SearchIcon from "/public/svg/search-normal.svg";
 import { useState } from "react";
 import { useEffect } from "react";
 import DocumentIcon from "/public/svg/adminPanelSvgs/document.svg";
+import FilterIcon from "/public/svg/adminPanelSvgs/filter.svg";
+
 function BmiPage() {
   const bmiForms = useFetchBmi();
   const [filter, setFilter] = useState(bmiForms);
@@ -33,7 +35,7 @@ function BmiPage() {
   return (
     <section className="grid lg:grid-cols-1 grid-cols-1 gap-10">
       <section className="flex mb-6 items-center gap-2">
-        <DocumentIcon className='[&>path]:stroke-black [&>path]:stroke-2'/>
+        <DocumentIcon className="[&>path]:stroke-black [&>path]:stroke-2" />
         <h1 className="text-3xl">فرم‌هایBMI:</h1>
       </section>
       <form
@@ -52,9 +54,10 @@ function BmiPage() {
       </form>
 
       <div className="lg:col-span-2 col-span-full grid grid-cols-3 gap-8 items-start">
-        <p className=" w-fit col-span-full md:col-span-1 text-base">
-          فیلتر کردن براساس:
-        </p>
+        <section className="flex col-span-full md:col-span-1 items-center gap-2">
+          <FilterIcon className="[&>path]:stroke-black [&>path]:stroke-2" />
+          <p className=" w-fit  text-base">فیلتر کردن براساس:</p>
+        </section>
         <section className=" col-span-full md:col-span-2 grid grid-cols-6 gap-8 w-full">
           <MainButton
             modern
