@@ -49,7 +49,7 @@ router.get('/certain/username:username', async (req, res) => {
 
 //For getting all comments sorted by date
 router.get('/comments', async (req, res) => {
-  const sort = req.query.sort === 'newest' ? { createdAtGregorian: -1 } : { createdAtGregorian: 1 };
+  const sort = req.query.sort === 'newest' ? { createdAtJalali: -1 } : { createdAtJalali: 1 };
   try {
     const response = await doctorsComment.find().sort(sort);
     if (response.length > 0) {
