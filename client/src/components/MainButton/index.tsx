@@ -6,7 +6,7 @@ import {
   useMemo,
 } from "react";
 type TButton = ButtonHTMLAttributes<HTMLButtonElement> & {
-  value: string;
+  value?: string;
   className?: string;
   iconSrc?: FunctionComponent;
   standard?: boolean;
