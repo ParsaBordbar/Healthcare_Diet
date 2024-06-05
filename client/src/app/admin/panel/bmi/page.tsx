@@ -34,52 +34,54 @@ function BmiPage() {
 
   return (
     <section className="grid lg:grid-cols-1 grid-cols-1 gap-10">
-      <section className="flex mb-6 items-center gap-2">
+      <section className="flex mb-6 col-span-full items-center gap-2">
         <DocumentIcon className="[&>path]:stroke-black [&>path]:stroke-2" />
         <h1 className="text-3xl">فرم‌هایBMI:</h1>
       </section>
-      <form
-        className="lg:col-span-2 col-span-full"
-        onSubmit={handleSubmit}
-        action=""
-      >
-        <MainInput
-          iconFirst={SearchIcon}
-          parentClassName="!w-full "
-          type="search"
-          placeholder="نام بیمار مورد نظر خود را وارد کنید"
-          value={searchValue}
-          onChange={handleChange}
-        />
-      </form>
+      <div className="grid grid-cols-10 gap-8 items-center">
+        <form
+          className="xl:col-span-5 col-span-full"
+          onSubmit={handleSubmit}
+          action=""
+        >
+          <MainInput
+            iconFirst={SearchIcon}
+            parentClassName="!w-full "
+            type="search"
+            placeholder="نام بیمار مورد نظر خود را وارد کنید"
+            value={searchValue}
+            onChange={handleChange}
+          />
+        </form>
 
-      <div className="lg:col-span-2 col-span-full grid grid-cols-3 gap-8 items-start">
-        <section className="flex col-span-full md:col-span-1 items-center gap-2">
-          <FilterIcon className="[&>path]:stroke-black [&>path]:stroke-2" />
-          <p className=" w-fit  text-base">فیلتر کردن براساس:</p>
-        </section>
-        <section className=" col-span-full md:col-span-2 grid grid-cols-6 gap-8 w-full">
-          <MainButton
-            modern
-            className="rounded-lg col-span-1 py-3 px-4 !text-sm"
-            value={"قدیمی ترین"}
-          />
-          <MainButton
-            modern
-            className="rounded-lg col-span-1 py-3 px-4 !text-sm"
-            value={" جدیدترین"}
-          />
-          <MainButton
-            modern
-            className="rounded-lg col-span-1 py-3 px-4 !text-sm"
-            value={"مرد"}
-          />
-          <MainButton
-            modern
-            className="rounded-lg col-span-1 py-3 px-4 !text-sm"
-            value={"زن"}
-          />
-        </section>
+        <div className="xl:col-span-5 col-span-full grid grid-cols-3 gap-8 items-center">
+          <section className="flex col-span-full md:col-span-1 items-center gap-2">
+            <FilterIcon className="[&>path]:stroke-black [&>path]:stroke-2" />
+            <p className=" w-fit  text-base">فیلتر کردن براساس:</p>
+          </section>
+          <section className=" col-span-full md:col-span-2 grid grid-cols-4 gap-4 w-full">
+            <MainButton
+              modern
+              className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
+              value={"قدیمی ترین"}
+            />
+            <MainButton
+              modern
+              className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
+              value={" جدیدترین"}
+            />
+            <MainButton
+              modern
+              className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
+              value={"مرد"}
+            />
+            <MainButton
+              modern
+              className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
+              value={"زن"}
+            />
+          </section>
+        </div>
       </div>
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-10">
         {filter.map((form) => {
