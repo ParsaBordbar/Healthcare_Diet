@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import {
   ChangeEvent,
   FunctionComponent,
@@ -7,6 +7,7 @@ import {
   useCallback,
   useState,
 } from "react";
+import MainButton from "../MainButton";
 
 type TInput = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
@@ -29,7 +30,11 @@ const MainInput = forwardRef<
       return (
         <div onClick={() => setShowPassword(!showPassword)}>
           {showPassword ? (
-            <img src="/svg/eye-slash.svg" alt="Close Eye" className="opacity-50" />
+            <img
+              src="/svg/eye-slash.svg"
+              alt="Close Eye"
+              className="opacity-50"
+            />
           ) : (
             <img src="/svg/eye.svg" alt="Open Eye" className="opacity-50" />
           )}
@@ -50,24 +55,32 @@ const MainInput = forwardRef<
           {props.label}
         </label>
         <section
-          className={` rounded-lg py-3 px-4 border ${
+          className={` rounded-lg  justify-between py-3 px-4 border ${
             props.error ? "border-red-600" : "border-[var(--border-color)]"
-          }  flex items-center gap-2  bg-white `}
+          }  ${props.type == 'search' ? 'sm:flex-row !gap-4 flex-col sm:items-center ' : ' items-center'} flex gap-2  bg-white `}
         >
-          {FirstIcon()}
-          <input
-            {...props.register}
-            className={`${props.inputClassName} placeholder:text-[var(--border-color)] w-full border-none outline-none bg-transparent`}
-            {...props}
-            ref={ref}
-            type={showPassword ? "text" : props.type}
-          />
+          <div className="flex flex-grow items-center gap-2">
+            {FirstIcon()}
+            <input
+              {...props.register}
+              className={`${props.inputClassName} placeholder:text-[var(--border-color)] w-full border-none outline-none bg-transparent`}
+              {...props}
+              ref={ref}
+              type={showPassword ? "text" : props.type}
+            />
+          </div>
+         {props.type == 'search' && <MainButton
+            modern
+            type="submit"
+            className="!text-sm  px-4 py-2 sm:py-3"
+            value={"جست و جو"}
+          />}
         </section>
       </div>
     </>
   );
 });
 
-MainInput.displayName = 'MainInput';
+MainInput.displayName = "MainInput";
 
 export default MainInput;

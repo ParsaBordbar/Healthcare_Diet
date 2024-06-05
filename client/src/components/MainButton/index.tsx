@@ -12,8 +12,9 @@ type TButton = ButtonHTMLAttributes<HTMLButtonElement> & {
   standard?: boolean;
   simple?: boolean;
   trasparent?: boolean;
-  url?: string,
-  gradient?:boolean
+  url?: string;
+  gradient?: boolean;
+  modern?: boolean;
 };
 
 const MainButton = (props: TButton) => {
@@ -22,8 +23,10 @@ const MainButton = (props: TButton) => {
       return "bg-gradient-to-t to-[var(--hero-btn)] from-[var(--logo-bg)] shadow-lg bg-[var(--hero-btn)]";
     } else if (props.trasparent) {
       return " border  border-[var(--tittle-box)]";
-    } else if(props.gradient){
+    } else if (props.gradient) {
       return "gradient-third-green";
+    } else if (props.modern) {
+      return `bg-[var(--orange)] hover:bg-[var(--new-green)] transition-all ease-in-out duration-200`;
     }
   }, []);
   const checkIcon = useCallback(() => {
@@ -31,12 +34,17 @@ const MainButton = (props: TButton) => {
   }, []);
   return (
     <button
-      className={`${props.className} ${declearModleOfButton} ${
-        props.iconSrc && "flex items-center gap-2"
-      } text-center rounded-lg`}
+      {...props}
+      className={`${
+        props.className
+      }  ${declearModleOfButton} ${
+        props.iconSrc && "flex  items-center gap-2"
+      } text-center rounded-lg text-base md:text-xl ` }
     >
       {checkIcon()}
-      <span className=" font-medium text-base md:text-xl md:font-semibold">{props.value}</span>
+      <span className=" font-medium md:font-semibold">
+        {props.value}
+      </span>
     </button>
   );
 };
