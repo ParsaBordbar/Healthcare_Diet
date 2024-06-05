@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import useComment from '@/hooks/useComment/useComment'; 
-import SendIcon from '/public/svg/adminPanelSvgs/send-alt-1-svgrepo-com.svg';
+import SendIcon from '/public/svg/adminPanelSvgs/send.svg';
 import AttachmentIcon from '/public/svg/adminPanelSvgs/attachment-svgrepo-com.svg';
+import MainButton from '@/components/MainButton';
 
 interface ReplyBoxProps {
   receiver: string;
@@ -40,13 +41,11 @@ const ReplyBox: React.FC<ReplyBoxProps> = ({ receiver }) => {
           {...register('receiver')}
         />
         <div className='flex gap-4'>
-          <button type="submit" className="bg-[var(--orange)] text-white text-2xl p-2 rounded-2xl w-1/6 transition-all duration-200 hover:bg-[var(--new-green)] ease-in-out flex gap-4 justify-center items-center">
-            <SendIcon />
-            ارسال 
-          </button>
-          <button className='bg-[var(--orange)] rounded-full p-2 hover:bg-[var(--new-green)] ease-in-out'>
+          <MainButton value={'ارسال'} modern type="submit" className="!text-white py-2 px-6" iconSrc={SendIcon}/>
+          
+          {/* <button className='bg-[var(--orange)] rounded-full p-2 hover:bg-[var(--new-green)] ease-in-out'>
             <AttachmentIcon />
-          </button>
+          </button> */}
         </div>  
       </form>
     </div>
