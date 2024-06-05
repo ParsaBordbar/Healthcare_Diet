@@ -62,9 +62,9 @@ export type MediterranealDataType = {
 };
 
 export interface BmiType {
-    name: string,
-    lastName: string,
-    phoneNumber: string,
+    name?: string,
+    lastName?: string,
+    phoneNumber?: string,
     gender?: string,
     age?: string,
     height?: string,

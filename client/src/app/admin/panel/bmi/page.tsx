@@ -1,31 +1,61 @@
 'use client'
-import PatientBmiForm from '@/components/AdminComponents/PatientBmiForm'
-import useFetchBmi from '@/hooks/useFetchBmi';
+import React from 'react'
+import CommentBox from '@/components/AdminComponents/CommentBox'
+import MainInput from '@/components/MainInput'
+import SearchIcon from "/public/svg/search-normal.svg"
+import useSearchCommentsPage from '@/hooks/useSearch/useSearch'
 
 
-function BmiPage() {
-  const bmiForms = useFetchBmi();    
-  let count = bmiForms.length
+const CommentsPage = () => {
+  const {
+    filter,
+    searchValue,
+    handleChange,
+    handleSubmit,
+    newestFilterHandler,
+    oldestFilterHandler,
+  } = useSearchCommentsPage()
+
   return (
-    <section>
-        <h1 className='text-4xl mb-6'>فرم‌هایBMI:</h1>
-        <div className='grid lg:grid-cols-2 grid-cols-1 gap-10'>
-          {bmiForms.map((form) => { 
-            return <PatientBmiForm 
-            name={form.name}
-            lastName={form.lastName}
-            phoneNumber={form.phoneNumber}
-            gender={form.gender}
-            age={form.age}
-            height={form.height}
-            weight={form.weight}
-            bmi={form.bmi}
-            key={form.phoneNumber}
+    <section className='flex gap-3 flex-col'>
+      <header className='flex gap-8 mb-10 justify-start'>
+        <form className='w-1/2' onSubmit={handleSubmit}>
+          <MainInput
+            iconFirst={SearchIcon}
+            parentClassName="!w-full "
+            type="search"
+            value={searchValue}
+            onChange={handleChange}
+            placeholder="نام بیمار مورد نظر خود را وارد کنید"
           />
-          })}
-        </div>
+          <button type="submit">جست و جو</button>
+        </form>
+        <p className='ps-10'>فیلتر کردن براساس:</p>
+        <button
+          onClick={newestFilterHandler}
+          className='bg-[var(--orange)] rounded-lg px-4 h-11 hover:bg-[var(--new-green)] ease-in-out duration-100 hover:text-white text-sm'
+        >
+          قدیمی‌ترین
+        </button>
+        <button
+          onClick={oldestFilterHandler}
+          className='bg-[var(--orange)] rounded-lg px-4 h-11 hover:bg-[var(--new-green)] ease-in-out duration-100 hover:text-white text-sm'
+        >
+          جدیدترین
+        </button>
+      </header>
+      {filter ? filter.map((data) => (
+        <CommentBox
+          key={data.receiver + data.createdAtJalali}
+          sender={data.sender}
+          body={data.body}
+          receiver={data.receiver}
+          createdAtJalali={data.createdAtJalali}
+          isDoctor={true}
+        />
+      )) : null}
     </section>
   )
 }
 
-export default BmiPage
+export default CommentsPage
