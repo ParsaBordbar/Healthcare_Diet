@@ -3,7 +3,7 @@ import { BmiType } from "@/types";
 import { useState, useEffect } from "react";
 
 const useFetchSingleBmi = (query: string) => {
-    const [bmiForms, setBmiForms] = useState<BmiType | null>(null);
+    const [bmiForms, setBmiForms] = useState<BmiType[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {

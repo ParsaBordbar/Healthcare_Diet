@@ -27,8 +27,8 @@ const CommentsPage = () => {
       console.log('Search value updated:', searchValue);
   }, [searchValue]);
 
-  const getPatientId = useFetchSingleBmi(searchValue)
-  console.log(JSON.stringify(getPatientId));
+  const fetchBmi = useFetchSingleBmi(searchValue)
+  const getPatientId = fetchBmi[0]?.phoneNumber
   const newestFilterHandler = () => {
     setFilter(newest)
   }
