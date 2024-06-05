@@ -61,7 +61,7 @@ const MediterraneanForm = ({
             className="sm:rounded-full rounded-full rounded-r-none flex justify-center items-center  sm:px-10"
           >
             {checked ? (
-              <p className="text-white text-xl bg-[var(--new-green)] rsm:rounded-full rounded-full rounded-r-none py-2.5 my-2 sm:my-12 flex flex-row items-center justify-center gap-2 w-52">
+              <p className="text-white text-xl bg-[var(--new-green)] sm:rounded-full rounded-full rounded-r-none py-2.5 my-2 sm:my-12 flex flex-row items-center justify-center gap-2 w-52">
                 {" "}
                 <Tick />
                 ویزیت شده
