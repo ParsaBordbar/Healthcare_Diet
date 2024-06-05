@@ -22,8 +22,8 @@ const useSearchCommentsPage = () => {
   }, [searchValue])
 
   const fetchBmi = useFetchSingleBmi(searchValue)
-  const getPatientId = fetchBmi[0]?.phoneNumber
-
+  
+  
   const newestFilterHandler = () => {
     setFilter(newest)
   }
@@ -34,15 +34,18 @@ const useSearchCommentsPage = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const endpoint = `/doctorsComment/certain/patientId/${getPatientId}`
-    console.log('This is endpoint', endpoint)
-
-    try {
-      const response = await api.get(endpoint)
-      setFilter(response.data)
-    } catch (error) {
-      console.error('Error fetching search results:', error)
+    const results = []
+    for (const patient of fetchBmi) {
+      const endpoint = `/doctorsComment/certain/patientId/${patient.phoneNumber}`
+      console.log('This is endpoint', endpoint)
+      try {
+        const response = await api.get(endpoint)
+        results.push(...response.data)
+      } catch (error) {
+        console.error('Error fetching search results:', error)
+      }
     }
+    setFilter(results)
   }
 
   useEffect(() => {
