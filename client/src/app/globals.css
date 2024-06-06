@@ -16,10 +16,10 @@
   --upgrade-box: rgb(221, 247, 227);
   --bg-footer-color: rgb(190, 235, 194);
   /* New color Palet */
-  --orange: #FFA301;
-  --new-green: #17B97A;
-  --panel-blue: #0099cb;
-  --milky-white: #EEF7F8;
+  --orange: #ffa301;
+  --new-green: #0099cb;
+  --soft-blue: #73A9DF;
+  --milky-white: #eef7f8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -105,16 +105,17 @@ body {
 }
 
 /*remove arrows in input by type number*/
-input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type='number']{
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.custom-scroll{
+.custom-scroll {
   overflow-y: scroll;
 }
 
@@ -128,6 +129,6 @@ input[type='number']{
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-  background: #17B97A;
+  background: var(--new-green);
   border-radius: 8px;
 }
