@@ -7,10 +7,11 @@ type TSideBarItems = {
   value: string;
   href: string;
   icon: FunctionComponent;
-  router: string;
+  router?: string;
 };
 
 const SideBarItems = (props: TSideBarItems) => {
+    console.log(props.router , props.href)
   const SelectionStyles = useMemo(() => {
     if (props.router == props.href && props.value == "رژیم ها") {
       return true;
@@ -21,7 +22,25 @@ const SideBarItems = (props: TSideBarItems) => {
     if (props.router == props.href && props.value == "خانه") {
       return true;
     }
-  }, [props.router]);
+    if (props.router == props.href && props.value == "پنل اصلی") {
+      return true;
+    }
+    if (props.router == props.href && props.value == "سوابق بیمارها") {
+      return true;
+    }
+    if (props.router == props.href && props.value == "فرم های BMI") {
+      return true;
+    }
+    if (
+      props.router == props.href &&
+      props.value == "فرم های رژیم مدیترانه ای"
+    ) {
+      return true;
+    }
+    if (props.router == props.href && props.value == "فرم های پاسخ داده نشده") {
+      return true;
+    }
+  }, [props.router , props.value]);
 
   return (
     <Link href={props.href}>
