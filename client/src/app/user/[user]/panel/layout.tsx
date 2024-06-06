@@ -21,7 +21,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
   const bmiData = useSpecificFetchBmi(params.user);
   const { user } = params;
   const router = usePathname();
-  
+
   console.log("rendering layout of user panel");
   return (
     <>
@@ -30,20 +30,15 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
           className="!bg-transparent !fixed !right-0 !py-6 !px-6 md:!hidden !w-fit !inline-block"
           valueOne="خانه"
           valueTwo="رژیم ها"
-          valueThree="پیشخوان"
+          valueThree="پروفایل شخصی"
           linkOne={"/"}
           linkThree={`/user/${user}/panel`}
           linkTwo={`/user/${user}/panel/diets`}
         />
         <div className="fixed hidden pb-6 top-0 right-0 h-screen bg-[var(--new-green)] gap-16 md:flex flex-col w-[25%] lg:w-1/6 ">
           <div className="flex items-center pb-2 rounded-lg justify-around bg-IslamicArt h-64 bg-cover bg-center"></div>
-          <div className="flex lg:gap-0 lg:flex-row items-center md:p-4 lg:p-0 rounded-lg justify-around ">
-            <h1 className="text-white">
-              {bmiData?.name} {bmiData?.lastName}
-            </h1>
-          </div>
           <ul className="flex flex-col rounded-lg h-screen py-4 ps-4 gap-4 ">
-          <SideBarItems
+            <SideBarItems
               router={router}
               value={"خانه"}
               href={`/`}
@@ -60,6 +55,12 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
               router={router}
               value={"رژیم ها"}
               href={`/user/${user}/panel/diets`}
+              icon={DocumentIcon}
+            />
+            <SideBarItems
+              router={router}
+              value={"برنامه های شما"}
+              href={`/user/${user}/panel/plans`}
               icon={DocumentIcon}
             />
           </ul>
