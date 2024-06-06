@@ -43,7 +43,7 @@ const BmiForm = mongoose.model("Bmi_form", new mongoose.Schema({
     joinedAtGregorian: {
         type: Date,
       },
-      joinedAtJalali: {
+    joinedAtJalali: {
         type: String,
         // default: () => momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
       },
