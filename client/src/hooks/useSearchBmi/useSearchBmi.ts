@@ -8,7 +8,7 @@ const useSearchBmi = (filterUrl: string) => {
   const bmi = useFetchBmi()
   const [filter, setFilter] = useState<BmiType[]>(bmi);
   const [searchValue, setSearchValue] = useState<string>('')
-    
+
   useEffect(() => {
     const fetchInitialData = async () => {
       const data: BmiType[] = await fetchFilteredData(`${filterUrl}?sort=newest`);
@@ -36,6 +36,22 @@ const useSearchBmi = (filterUrl: string) => {
     }
   }
 
+  const fetchSearchData = async (query: string) => {
+    try {
+      const response = await api.get(`/bmi/search?query=${query}`)
+      return response.data
+    } catch (error) {
+      console.error('Error fetching search data:', error)
+      return []
+    }
+  }
+
+  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const searchData = await fetchSearchData(searchValue)
+    setFilter(searchData)
+  }
+
   const newestFilterHandler = async () => {
     const data: BmiType[] = await fetchFilteredData(`${filterUrl}?sort=newest`)
     setFilter(data)
@@ -55,7 +71,7 @@ const useSearchBmi = (filterUrl: string) => {
     const data = await fetchFilteredData(`${filterUrl}?sort=female`)
     setFilter(data)
   }
-  
+
   return {
     filter,
     searchValue,
@@ -64,6 +80,7 @@ const useSearchBmi = (filterUrl: string) => {
     oldestFilterHandler,
     maleFilterHandler,
     femaleFilterHandler,
+    submitHandler,
   }
 }
 
