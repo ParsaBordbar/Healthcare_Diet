@@ -2,7 +2,7 @@
 "use client";
 import CommentBox from "@/components/AdminComponents/CommentBox";
 import useFetchPatientComments from "@/hooks/useFetchPatientComments/useFetchPatientComments";
-import { FC } from "react";
+import { FC, memo } from "react";
 import MassegeIcon from "/public/svg/adminPanelSvgs/messages.svg";
 interface UserPanelProps {
   params: {
@@ -39,4 +39,4 @@ const UserPanel: FC<UserPanelProps> = ({ params }) => {
   );
 };
 
-export default UserPanel;
+export default memo(UserPanel);
