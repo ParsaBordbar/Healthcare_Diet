@@ -21,6 +21,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
   const bmiData = useSpecificFetchBmi(params.user);
   const { user } = params;
   const router = usePathname();
+  
   console.log("rendering layout of user panel");
   return (
     <>
