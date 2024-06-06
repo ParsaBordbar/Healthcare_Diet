@@ -4,7 +4,7 @@ const Accordion = (props:any) => {
 	return ( 
 		<div className="border rounded-lg mb-1"> 
 			<button 
-				className={`w-full ${!props.isOpen ? 'rounded-lg' : 'rounded-t-lg'}  flex items-center justify-between p-4 text-left hover:bg-green-800 
+				className={`w-full ${!props.isOpen ? 'rounded-lg' : 'rounded-t-lg'}  flex items-center justify-between p-4 text-left hover:bg-blue-300
 						bg-[var(--new-green)] text-white transition duration-300`}
 				onClick={props.toggleAccordion} 
 			> 
@@ -16,7 +16,7 @@ const Accordion = (props:any) => {
 				</span> 
 			</button> 
 			{props.isOpen && ( 
-				<div className="p-4 bg-green-100"> 
+				<div className="p-4 bg-blue-100"> 
 					{props.data} 
 				</div> 
 			)} 
