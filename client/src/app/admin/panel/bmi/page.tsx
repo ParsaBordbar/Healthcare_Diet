@@ -81,6 +81,8 @@ function BmiPage() {
             weight={form.weight}
             bmi={form.bmi}
             key={form.phoneNumber}
+            abdominalCircumference={form.abdominalCircumference}
+            joinedAtJalali={form.joinedAtJalali}
           />
         ))}
       </div>
