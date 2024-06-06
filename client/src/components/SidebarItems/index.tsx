@@ -11,7 +11,7 @@ type TSideBarItems = {
 };
 
 const SideBarItems = (props: TSideBarItems) => {
-    console.log(props.router , props.href)
+  console.log(props.router, props.href);
   const SelectionStyles = useMemo(() => {
     if (props.router == props.href && props.value == "رژیم ها") {
       return true;
@@ -40,12 +40,12 @@ const SideBarItems = (props: TSideBarItems) => {
     if (props.router == props.href && props.value == "فرم های پاسخ داده نشده") {
       return true;
     }
-  }, [props.router , props.value]);
+  }, [props.router, props.value]);
 
   return (
     <Link href={props.href}>
       <label
-        className={`group [&>svg>path]:hover:stroke-[var(--new-green)] [&>svg>path]:stroke-white  [&>svg&>path]:stroke-2  text-xl ${
+        className={`group [&>svg>path]:hover:stroke-[var(--new-green)] [&>svg>path]:stroke-white  [&>svg>path]:stroke-2  text-xl ${
           SelectionStyles && "bg-white [&>svg>path]:!stroke-[var(--new-green)]"
         } cursor-pointer hover:bg-white   ease-in-out transition-all duration-150 p-4 flex items-center gap-2  rounded-s-md`}
       >
