@@ -6,6 +6,7 @@ import SearchIcon from "/public/svg/search-normal.svg";
 import useSearchCommentsPage from "@/hooks/useSearch/useSearch";
 import MainButton from "@/components/MainButton";
 import FilterIcon from "/public/svg/adminPanelSvgs/filter.svg";
+
 const CommentsPage = () => {
   const {
     filter,
