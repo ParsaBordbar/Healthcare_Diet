@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { validateBmi, BmiForm } = require('../models/bmiForm');
+const moment = require('moment');
+const momentJalaali = require('moment-jalaali');
 
 router.get('/', async (req, res) => {
     if (BmiForm) {
@@ -57,13 +59,31 @@ router.get('/search', async (req, res) => {
 });
 
 router.get('/sort', async(req, res)=>{
-    try {
-        const sort =  req.query.sort == 'male' ? { gender: "مرد" } : { gender: "زن" };
-        const response = await BmiForm.find(sort)
-        res.send(response)
-    } catch (error) {
-        console.error('Error during Filtering:', error);
-        return res.status(500).send('Server-Side Error.');
+    if(req.query.sort == 'male'){
+        const response = await BmiForm.find({ gender: "مرد" })
+        return res.send(response)        
+    }
+    if(req.query.sort == 'female'){
+        const response = await BmiForm.find({ gender: "زن" })
+        return res.send(response)
+    }
+    if(req.query.sort == 'newest'){
+        const response = await BmiForm.find().sort({ joinedAtJalali: -1 });
+        if (response.length > 0) {
+            res.status(200).send(response);
+            } else {
+            res.status(404).send({ "message": "No comments found." });
+        }
+        return res.send(response)
+    }
+    if(req.query.sort == 'oldest'){
+        const response = await BmiForm.find().sort({ joinedAtJalali: 1 });
+        if (response.length > 0) {
+            res.status(200).send(response);
+            } else {
+            res.status(404).send({ "message": "No comments found." });
+        }
+        return res.send(response)
     }
 })
 
@@ -89,7 +109,10 @@ router.post('/', async (req, res) => {
         age: req.body.age,
         height: req.body.height,
         weight: req.body.weight,
-        bmi: (req.body.weight / (req.body.height * req.body.height)).toFixed(4), // Calculate BMI
+        abdominalCircumference: req.body.abdominalCircumference,
+        bmi: (req.body.weight / ((req.body.height / 100) ** 2)).toFixed(4), // Calculate BMI in metric units
+        joinedAtJalali: new Date(),
+        joinedAtJalali: momentJalaali().format('jYYYY/jM/jD HH:mm:ss')
       });
       form = await form.save();
       return res.send(form);
