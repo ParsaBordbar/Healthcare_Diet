@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Joi = require('joi');
+const moment = require('moment');
+const momentJalaali = require('moment-jalaali');
 
 const BmiForm = mongoose.model("Bmi_form", new mongoose.Schema({
     name: {
@@ -38,10 +40,13 @@ const BmiForm = mongoose.model("Bmi_form", new mongoose.Schema({
         type: Number,
         required: true
     },
-    joinedAtJalali: {
+    joinedAtGregorian: {
+        type: Date,
+      },
+      joinedAtJalali: {
         type: String,
-        default: () => momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
-    },
+        // default: () => momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
+      },
     bmi: {
         type: Number,
         required: true
@@ -76,10 +81,11 @@ const validateBmi = (BmiForm) => {
         weight: Joi.number().required().messages({
             'any.required': `وزن را وارد کنید`
         }),
-        abdominalCircumference: Joi.number().required().message({
+        abdominalCircumference: Joi.number().required().messages({
             'any.required': `دور شکم را وارد کنید`
         }),
-        joinedAtJalali: Joi.string().required(),
+        joinedAtGregorian: Joi.string().isoDate(),
+        joinedAtJalali: Joi.string(),
     });
     return schema.validate(BmiForm);
 }
