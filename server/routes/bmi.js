@@ -70,20 +70,18 @@ router.get('/sort', async(req, res)=>{
     if(req.query.sort == 'newest'){
         const response = await BmiForm.find().sort({ joinedAtJalali: -1 });
         if (response.length > 0) {
-            res.status(200).send(response);
+            return res.status(200).send(response);
             } else {
-            res.status(404).send({ "message": "No comments found." });
+            return res.status(404).send({ "message": "No comments found." });
         }
-        return res.send(response)
     }
     if(req.query.sort == 'oldest'){
         const response = await BmiForm.find().sort({ joinedAtJalali: 1 });
         if (response.length > 0) {
-            res.status(200).send(response);
+            return res.status(200).send(response);
             } else {
-            res.status(404).send({ "message": "No comments found." });
+            return res.status(404).send({ "message": "No comments found." });
         }
-        return res.send(response)
     }
 })
 
