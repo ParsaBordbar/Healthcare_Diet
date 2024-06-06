@@ -71,6 +71,9 @@ export interface BmiType {
     weight?: string,
     bmi?: string,
     linkTo?: string
+    abdominalCircumference?: string
+    joinedAtGregorian?: string
+    joinedAtJalali?: string
 }
 
 export type WelcomeBoxType ={
