@@ -9,7 +9,7 @@ import PersonalIcon from "/public/svg/userPanelSvgs/personal.svg";
 import SideBarItems from "@/components/SidebarItems";
 import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
-
+import SideBarBanner from "/public/svg/sideBarBanner.svg";
 interface LayoutUserProps {
   children: ReactNode;
   params: {
@@ -35,9 +35,9 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
           linkThree={`/user/${user}/panel`}
           linkTwo={`/user/${user}/panel/diets`}
         />
-        <div className="fixed hidden pb-6 top-0 right-0 h-screen bg-[var(--new-green)] gap-16 md:flex flex-col w-[25%] lg:w-1/6 ">
-          <div className="flex items-center pb-2 rounded-lg justify-around bg-IslamicArt h-64 bg-cover bg-center"></div>
-          <ul className="flex flex-col rounded-lg h-screen py-4 ps-4 gap-4 ">
+        <div className="fixed hidden pb-6 top-0 right-0 h-screen bg-[var(--new-green)]  md:flex w-[25%] lg:w-1/6 ">
+          <SideBarBanner width={100}/>
+          <ul className="flex flex-col w-full rounded-lg h-screen py-4 ps-4 gap-4 ">
             <SideBarItems
               router={router}
               value={"خانه"}
