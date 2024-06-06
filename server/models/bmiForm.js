@@ -34,6 +34,14 @@ const BmiForm = mongoose.model("Bmi_form", new mongoose.Schema({
         type: Number,
         required: true
     },
+    abdominalCircumference: {
+        type: Number,
+        required: true
+    },
+    joinedAtJalali: {
+        type: String,
+        default: () => momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
+    },
     bmi: {
         type: Number,
         required: true
@@ -68,6 +76,10 @@ const validateBmi = (BmiForm) => {
         weight: Joi.number().required().messages({
             'any.required': `وزن را وارد کنید`
         }),
+        abdominalCircumference: Joi.number().required().message({
+            'any.required': `دور شکم را وارد کنید`
+        }),
+        joinedAtJalali: Joi.string().required(),
     });
     return schema.validate(BmiForm);
 }
