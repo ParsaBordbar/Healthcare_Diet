@@ -16,6 +16,7 @@ function BmiPage() {
     oldestFilterHandler,
     maleFilterHandler,
     femaleFilterHandler,
+    submitHandler,
   } = useSearchBmi('/bmi/sort')
 
   return (
@@ -25,7 +26,7 @@ function BmiPage() {
         <h1 className="text-3xl">فرم‌های BMI:</h1>
       </section>
       <div className="grid grid-cols-10 gap-8 items-center">
-        <form className="xl:col-span-5 col-span-full" action="">
+        <form className="xl:col-span-5 col-span-full" action="" onSubmit={submitHandler}>
           <MainInput
             iconFirst={SearchIcon}
             parentClassName="!w-full "
