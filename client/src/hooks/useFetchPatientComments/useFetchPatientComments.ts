@@ -7,7 +7,7 @@ const useFetchPatientComments = (phoneNumber?: string, userName?: string) => {
 
     useEffect(() => {
         fetchComments();
-    }, [phoneNumber, userName, comments]);
+    }, [phoneNumber, userName]);
 
     const fetchComments = async () => {
         try {
