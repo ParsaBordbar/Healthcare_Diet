@@ -56,6 +56,16 @@ router.get('/search', async (req, res) => {
     }
 });
 
+router.get('/sort', async(req, res)=>{
+    try {
+        const sort =  req.query.sort == 'male' ? { gender: "مرد" } : { gender: "زن" };
+        const response = await BmiForm.find(sort)
+        res.send(response)
+    } catch (error) {
+        console.error('Error during Filtering:', error);
+        return res.status(500).send('Server-Side Error.');
+    }
+})
 
 router.post('/', async (req, res) => {
     try {
