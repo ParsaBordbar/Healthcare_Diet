@@ -17,7 +17,7 @@ const ReplyBox: React.FC<ReplyBoxProps> = ({ receiver }) => {
     setValue('sender', sender);
     setValue('receiver', receiver);
   }, [receiver, setValue]);
-
+  
   return (
     <div className="flex flex-col bg-[var(--primary)] my-10 rounded-lg text-lg shadow-md justify-center">
       <h2 className="text-3xl px-20 pt-8 text-[var(--new-green)]">ثبت پیام جدید</h2>

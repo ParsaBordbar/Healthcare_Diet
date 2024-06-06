@@ -1,20 +1,32 @@
-import { CommentType } from "@/types";
-import React from "react";
+import { BmiType, CommentType } from "@/types";
+import React, { useEffect, useState } from "react";
 import AttachmentIcon from "/public/svg/adminPanelSvgs/attachment-svgrepo-com.svg";
 import DateSvg from "/public/svg/adminPanelSvgs/calendar.svg";
 import Link from "next/link";
 import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
 
 const CommentBox = ({
-    className,
+  className,
   sender,
   body,
   receiver,
   createdAtJalali,
   isDoctor,
 }: CommentType) => {
-  const userData = useSpecificFetchBmi(receiver);
+  const [userData, setUserData] = useState<BmiType>();
 
+  const fetchedData = useSpecificFetchBmi(receiver);
+
+  useEffect(() => {
+    if (fetchedData) {
+      setUserData(fetchedData);
+    }
+  }, [fetchedData]);
+
+  useEffect(()=>{
+    setUserData(fetchedData);
+  },[])
+  
   // Convert newlines to <br> tags
   const formatBody = (text: string) => {
     return { __html: text.replace(/\n/g, "<br/>") };
