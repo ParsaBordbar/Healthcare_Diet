@@ -7,7 +7,7 @@ const bmi = require('./routes/bmi');
 const mediterranean = require('./routes/mediterranean');
 const adminLogin = require('./routes/admin');
 const doctorsComment = require('./routes/docComments');
-const uploader = require('./routes/uploader');
+const uploader = require('./routes/uploader'); // Import uploader middleware
 const path = require("path");
 require('dotenv').config();
 
@@ -18,8 +18,8 @@ app.use('/api/mediterranean', mediterranean);
 app.use('/api/admin', adminLogin);
 app.use('/api/doctorsComment', doctorsComment);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-app.use('/uploader', uploader)
 
+app.use('/api/uploader', uploader);
 
 mongoose.connect(process.env.DB_CONNECTION_STRING)
     .then(() => console.log("Connected to Mongodb :)"))
