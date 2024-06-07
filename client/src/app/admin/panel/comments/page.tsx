@@ -59,6 +59,7 @@ const CommentsPage = () => {
       <main className="grid grid-cols-2 gap-8">
         {filter
           ? filter.map((data): React.ReactNode => {
+            console.log(data)
               return (
                 <CommentBox
                   className="sm:!col-span-1"
@@ -68,6 +69,7 @@ const CommentsPage = () => {
                   receiver={data.receiver}
                   createdAtJalali={data.createdAtJalali}
                   isDoctor={true}
+                  files={data.files}
                 />
               );
             })
