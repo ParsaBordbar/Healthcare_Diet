@@ -4,6 +4,7 @@ import AttachmentIcon from "/public/svg/adminPanelSvgs/attachment-svgrepo-com.sv
 import DateSvg from "/public/svg/adminPanelSvgs/calendar.svg";
 import Link from "next/link";
 import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
+import PatientPageIcon from '/public/svg/User.svg'
 
 const CommentBox = ({
   className,
@@ -58,7 +59,8 @@ const CommentBox = ({
                 <p className="pt-1.5  text-base">{createdAtJalali}</p>
               </div>
               {isDoctor ? (
-                <Link className="" href={`/admin/panel/patients/${receiver}`}>
+                <Link className="px-3 flex items-center" href={`/admin/panel/patients/${receiver}`}>
+                    <PatientPageIcon />
                 </Link>
               ) : null}
             </div>
@@ -71,11 +73,12 @@ const CommentBox = ({
           <div className="flex flex-row">
             <h4 className="text-base  font-semibold mb-2 ">پیوست‌ها:</h4>
           </div>
-          <ul className="list-disc list-inside">
+          <ul className="list-disc list-inside grid grid-cols-2">
             {files.map((file: FileType) => (
-              <li key={file.filename}>
+              <li className="flex gap-2 items-center my-1" key={file.filename}>
+                <AttachmentIcon />
                 {/* This should be The server host and port */}
-                <a href={`http://localhost:8080/uploads/${file.filename}`} download={file.originalName} className="text-blue-400 hover:underline">
+                <a href={`http://localhost:8080/uploads/${file.filename}`} download={file.originalName} className="text-blue-400 hover:underline pt-2 text-sm col-span-1">
                   {file.originalName}
                 </a>
               </li>
