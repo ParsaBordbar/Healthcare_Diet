@@ -41,11 +41,16 @@ const ReplyBox: React.FC<ReplyBoxProps> = ({ receiver }) => {
           {...register('receiver')}
         />
         <div className='flex gap-4'>
-          <MainButton value={'ارسال'} modern type="submit" className="!text-white py-2 px-6" iconSrc={SendIcon}/>
-          
-          {/* <button className='bg-[var(--orange)] rounded-full p-2 hover:bg-[var(--new-green)] ease-in-out'>
+          <label className='flex justify-center items-center bg-[var(--orange)] rounded-full px-4 hover:bg-[var(--new-green)] ease-in-out'>
             <AttachmentIcon />
-          </button> */}
+            <input 
+              type="file" 
+              multiple 
+              // onChange={handleFileChange} 
+              className="hidden" 
+            />
+          </label>
+          <MainButton value={'ارسال'} modern type="submit" className="!text-white py-2 px-6" iconSrc={SendIcon}/>
         </div>  
       </form>
     </div>
