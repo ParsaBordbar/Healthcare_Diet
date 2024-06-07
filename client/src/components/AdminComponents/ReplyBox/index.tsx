@@ -63,8 +63,10 @@ const ReplyBox: React.FC<ReplyBoxProps> = ({ receiver }) => {
               type="file" 
               multiple 
               onChange={handleFileChange} 
+              className='hidden'
             />
           </label>
+         
           <MainButton value={'ارسال'} modern type="submit" className="!text-white py-2 px-6" iconSrc={SendIcon}/>
         </div>  
       </form>
