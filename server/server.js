@@ -8,6 +8,7 @@ const mediterranean = require('./routes/mediterranean');
 const adminLogin = require('./routes/admin');
 const doctorsComment = require('./routes/docComments');
 const uploader = require('./routes/uploader');
+const path = require("path");
 require('dotenv').config();
 
 app.use(cors());
@@ -16,6 +17,7 @@ app.use('/api/bmi', bmi);
 app.use('/api/mediterranean', mediterranean);
 app.use('/api/admin', adminLogin);
 app.use('/api/doctorsComment', doctorsComment);
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use('/uploader', uploader)
 
 
