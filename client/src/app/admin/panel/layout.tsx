@@ -40,7 +40,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
             <SideBarItems
               router={router}
               value={"پنل اصلی"}
-              href={"/admin/panel/"}
+              href={"/admin/panel"}
               icon={AdminPanelLogo}
             />
             <SideBarItems
