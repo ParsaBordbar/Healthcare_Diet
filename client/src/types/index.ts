@@ -116,6 +116,13 @@ export interface MediterraneanFormType{
   isChecked: boolean
 }
 
+export interface FileType {
+  originalName: string;
+  filename: string;
+  path: string;
+  size: number;
+  mimetype: string;
+}
 export interface CommentType {
   className?:string,
   sender: string,
@@ -123,8 +130,10 @@ export interface CommentType {
   receiver: string,
   createdAtGregorian?:string,
   createdAtJalali?: string, 
-  isDoctor?: boolean
+  isDoctor?: boolean,
+  files?: FileType[]; 
 }
+
 
 export interface QuickLinkBoxType{
   tittle:string, 
