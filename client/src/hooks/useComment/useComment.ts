@@ -5,8 +5,6 @@ import { toast } from 'react-toastify';
 import * as yup from 'yup';
 import api from '@/apis'; 
 import { CommentType } from '@/types';
-import moment from 'moment';
-import momentJalaali from 'moment-jalaali';
 
 const CommentSchema = yup.object().shape({
   sender: yup.string().required('Sender is required'),
@@ -25,27 +23,29 @@ const useComment = () => {
     resolver: yupResolver(CommentSchema),
   });
 
-  const handleValueInputs: SubmitHandler<CommentType> = useCallback(async (data) => {
+  const handleValueInputs: SubmitHandler<CommentType> = useCallback(async (formData) => {
+    
     try {
-      const createdAtGregorian = moment().toISOString();
-      const createdAtJalali = momentJalaali().format('jYYYY/jM/jD HH:mm:ss');
-      const comment ={
-        ...data,
-        createdAtGregorian,
-        createdAtJalali,
-      }
-      const response = await api.post('/doctorsComment', comment);
+      const response = await api.post('/uploader/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
 
-      toast.success('پیام با موفقیت ارسال شد');
+      if (response.status === 200) {
+        toast.success('پیام با موفقیت ارسال شد');
+      } else {
+        throw new Error('Upload failed');
+      }
     } catch (error) {
-      console.error('مشکلی در ارسال پیام پیش آمد', error);
+      console.error('مشکلی در ارسال پیام پیش آمد', error);  
       toast.error('مشکلی در ارسال پیام پیش آمد');
     }
   }, []);
 
   return {
     control,
-    handleValueInputs,
+    handleValueInputs,  
     register,
     errors,
     handleSubmit,
