@@ -13,7 +13,7 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
           <CommentIcon className="[&>path]:stroke-black" />
           <h1>جدیدترین پیام های دریافتی شما</h1>
         </section>
-        {comments
+        {comments.length > 0
           ? comments.map((comment, index) => {
               if (index >= 3) return;
               return (
@@ -27,7 +27,7 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
                 />
               );
             })
-          : null}
+          : <h1 className="text-2xl text-center">پیامی ندارید</h1>}
       </div>
     </main>
   );
