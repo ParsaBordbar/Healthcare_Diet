@@ -35,7 +35,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
           linkTwo={`/user/${user}/panel/diets`}
         />
         <div className="fixed hidden pb-6 top-0 right-0 h-screen bg-[var(--new-green)]  md:flex w-[25%] lg:w-[20%]">
-          <SideBarBanner width={100} />
+          <SideBarBanner width={100}/>
           <ul className="flex flex-col w-full rounded-lg h-screen py-4 ps-4 gap-4 ">
             <SideBarItems
               router={router}
@@ -49,12 +49,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
               href={`/user/${user}/panel`}
               icon={PersonalIcon}
             />
-            <SideBarItems
-              router={router}
-              value={"پیام های شما"}
-              href={`/user/${user}/panel/massege`}
-              icon={PersonalIcon}
-            />
+
             <SideBarItems
               router={router}
               value={"رژیم ها"}
