@@ -6,7 +6,6 @@ const DietBmiForm = mongoose.model("Diet_Bmi_form", new mongoose.Schema({
         type: String,
         required: true,
         maxlength: 11,
-        unique: true,    
     },
     gender: {
         type: String,
