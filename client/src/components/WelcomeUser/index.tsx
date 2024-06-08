@@ -19,7 +19,7 @@ const WelcomeUser = ({ userID }: { userID: string }) => {
     <>
       <div className="col-span-4 bg-[var(--milky-white)] shadow-md flex items-center gap-4 p-4 rounded-lg">
         <MaleAvatar />
-        <section className="flex items-start justify-between w-full">
+        <section className="flex items-center justify-between w-full">
           <div className="flex flex-col gap-2">
             <h1 className="text-2xl">
               {patients?.name + " " + patients?.lastName}
