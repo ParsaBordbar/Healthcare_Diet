@@ -37,8 +37,8 @@ const PatientCard = ({
         <section className="flex justify-between items-center">
 
         <div className="flex gap-2">
-          <PhoneIcon className='[&>path]:stroke-[var(--new-green)]'/>
-          <p className="text-base mt-1 text-[var(--new-green)]">{phoneNumber}</p>
+          <PhoneIcon className=''/>
+          <p className="text-base mt-1">{phoneNumber}</p>
         </div>
         {linkTo ? (
             <Link className="mt-1 inline-block sm:hidden w-fit text-blue-600 text-xs" href={`${linkTo}`}>
