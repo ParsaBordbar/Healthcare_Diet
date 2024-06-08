@@ -26,7 +26,7 @@ const useComment = () => {
   const handleValueInputs: SubmitHandler<CommentType> = useCallback(async (formData) => {
     
     try {
-      const response = await api.post('/uploader/upload', formData, {
+      const response = await api.post('/uploader/upload/type?type=comments', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
