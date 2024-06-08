@@ -35,10 +35,21 @@ const MediterranealForm = () => {
     thyroid: yup.string(),
     cancer: yup.string(),
     supplements: yup.array(),
-    Migraine: yup.string().required("جواب به این سوال الزامی است"),
+    Migraine: yup.string(),
     otherSickness: yup.string().required("جواب به این سوال الزامی است"),
     medicine: yup.string().required("جواب به این سوال الزامی است"),
     phoneNumber: yup.string(),
+    firstName: yup.string().required("جواب به این سوال الزامی است"),
+    lastName: yup.string().required("جواب به این سوال الزامی است"),
+    phoneNumberBMI: yup.string().required("جواب به این سوال الزامی است"),
+    age: yup.string().required("جواب به این سوال الزامی است"),
+    height: yup.string().required("جواب به این سوال الزامی است"),
+    weight: yup.string().required("جواب به این سوال الزامی است"),
+    gender: yup.string().required("جواب به این سوال الزامی است"),
+    abdominalCircumference: yup
+      .string()
+      .required("جواب به این سوال الزامی است"),
+    filePayment: yup.string(),
   });
 
   const formik = useFormik({
@@ -100,6 +111,15 @@ const MediterranealForm = () => {
       otherSickness: "",
       medicine: "",
       phoneNumber: "",
+      firstName: "",
+      lastName: "",
+      phoneNumberBMI: "",
+      age: "",
+      height: "",
+      weight: "",
+      gender: "",
+      abdominalCircumference: "",
+      filePayment: "",
     },
     validationSchema: MediterrealnSchema,
     onSubmit: async (data) => {
@@ -1110,6 +1130,9 @@ const MediterranealForm = () => {
             >
               عفونت مجاری ادرار
             </option>
+            <option selected={values.kidneyProblems === "ندارم"} value="ندارم">
+              ندارم
+            </option>
           </select>
 
           <select
@@ -1179,7 +1202,13 @@ const MediterranealForm = () => {
         {errors.digestiveProblems ||
         errors.diabetes ||
         errors.bloodPressure ||
-        errors.selfSafety || errors.stroke || errors.fattyLiver || errors.kidneyProblems || errors.thyroid || errors.otherSickness || errors.medicine ? (
+        errors.selfSafety ||
+        errors.stroke ||
+        errors.fattyLiver ||
+        errors.kidneyProblems ||
+        errors.thyroid ||
+        errors.otherSickness ||
+        errors.medicine ? (
           <p className="text-red-600">جواب دادن به سوالات بالا الزامی است</p>
         ) : null}
         {/* <a
@@ -1189,6 +1218,107 @@ const MediterranealForm = () => {
           حتما این فایل را دانلود کنید
         </a> */}
 
+        <section className="flex flex-col gap-6 mt-4">
+          <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg">
+            فرم BMI
+          </h1>
+          <div className="grid grid-cols-4 gap-4">
+            <MainInput
+              name="firstName"
+              onChange={handleChange}
+              parentClassName="[&>label]:text-base"
+              placeholder="نام خود را اینجا وارد کنید"
+              label="نام"
+            />
+            <MainInput
+              name="lastName"
+              onChange={handleChange}
+              parentClassName="[&>label]:text-base"
+              placeholder="نام حانوادگی خود را اینجا وارد کنید"
+              label="نام حانوادگی"
+            />
+            <MainInput
+              name="phoneNumberBMI"
+              onChange={handleChange}
+              parentClassName="[&>label]:text-base"
+              placeholder="شماره تماس خود را اینجا وارد کنید"
+              label="شماره تماس"
+            />
+            <MainInput
+              name="age"
+              onChange={handleChange}
+              parentClassName="[&>label]:text-base"
+              placeholder="سن خود را اینجا وارد کنید"
+              label="سن"
+            />
+            <MainInput
+              name="height"
+              onChange={handleChange}
+              parentClassName="[&>label]:text-base"
+              placeholder="قد خود را اینجا وارد کنید"
+              label="قد"
+            />
+            <MainInput
+              name="weight"
+              onChange={handleChange}
+              parentClassName="[&>label]:text-base"
+              placeholder="وزن خود را اینجا وارد کنید"
+              label="وزن"
+            />
+            <section className="col-span-1 flex flex-col gap-1">
+              <label
+                htmlFor="gender"
+                className={`block  text-base font-medium `}
+              >
+                جنسیت
+              </label>
+
+              <select
+                name="gender"
+                onChange={handleChange}
+                className={`rounded-lg w-full outline-none   py-2.5 px-4 border   flex items-center gap-1  bg-white `}
+              >
+                <option value="null" selected>
+                  جنسیت
+                </option>
+                <option value="مرد">مرد</option>
+                <option value="زن">زن</option>
+              </select>
+            </section>
+            <MainInput
+              name="abdominalCircumference"
+              onChange={handleChange}
+              parentClassName="[&>label]:text-base"
+              placeholder="اندازه ی دور کمر خود را اینجا وارد کنید"
+              label="اندازه ی دور کمر"
+            />
+          </div>
+        </section>
+        {errors.firstName ||
+        errors.lastName ||
+        errors.phoneNumberBMI ||
+        errors.age ||
+        errors.height ||
+        errors.weight ||
+        errors.gender ||
+        errors.abdominalCircumference ? (
+          <p className="text-red-600">جواب دادن به سوالات بالا الزامی است</p>
+        ) : null}
+
+        <section className="flex flex-col gap-6 mt-4">
+          <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg">
+            ارسال فایل رسید پرداختی
+          </h1>
+          <div className="grid grid-cols-4 gap-4">
+            <MainInput
+              onChange={handleChange}
+              name="filePayment"
+              parentClassName="[&>label]:text-base"
+              type="file"
+              label="فایل رسید پرداختی"
+            />
+          </div>
+        </section>
       </div>
 
       {/* {errors.questionOne && <span>{errors.questionOne}</span>} */}
