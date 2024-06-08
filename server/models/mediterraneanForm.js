@@ -1,6 +1,15 @@
 const mongoose = require('mongoose');
 const Joi = require('joi');
 
+
+const fileSchema = new mongoose.Schema({
+    originalName: String,
+    filename: String,
+    path: String,
+    size: Number,
+    mimetype: String,
+  });
+
 const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     dailyFruit : {
         type: String,
@@ -159,7 +168,8 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     isChecked: {
         type: Boolean,
         default: false,
-    }
+    },
+    files: [fileSchema],
 }))
 
 
@@ -197,11 +207,16 @@ const validateMediterranean = (mediterraneanForm) => {
         otherSickness: Joi.string().required(),
         medicine: Joi.string().required(),
         phoneNumber: Joi.string().required(),
-        isChecked: Joi.boolean()
+        isChecked: Joi.boolean(),
+        files: Joi.array().items(Joi.object({
+            originalName: Joi.string().required(),
+            filename: Joi.string().required(),
+            path: Joi.string().required(),
+            size: Joi.number().required(),
+            mimetype: Joi.string().required(),
+          })),
     })
     return schema.validate(mediterraneanForm);
 }
-
-
 exports.MediterraneanForm = MediterraneanForm;
 exports.validateMediterranean = validateMediterranean
