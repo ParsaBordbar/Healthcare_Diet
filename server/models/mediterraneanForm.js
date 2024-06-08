@@ -170,6 +170,14 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
         default: false,
     },
     files: [fileSchema],
+    createdAtGregorian: {
+        type: Date,
+        default: Date.now,
+      },
+      createdAtJalali: {
+        type: String,
+        default: () => momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
+      },
 }))
 
 
@@ -215,6 +223,8 @@ const validateMediterranean = (mediterraneanForm) => {
             size: Joi.number().required(),
             mimetype: Joi.string().required(),
           })),
+        createdAtGregorian: Joi.string().isoDate().required(),
+        createdAtJalali: Joi.string().required(),
     })
     return schema.validate(mediterraneanForm);
 }
