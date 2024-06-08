@@ -32,7 +32,7 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
           <h1 className="text-2xl text-center">پیامی ندارید</h1>
         )}
       </div>
-      <Link className="mt-2 text-blue-600 text-lg" href={`/user/${userID}/panel/massege`}>دیدن همه ی پیام ها</Link>
+      <Link className="mt-2 text-[var(--soft-blue)] text-lg" href={`/user/${userID}/panel/massege`}>دیدن همه ی پیام ها</Link>
     </main>
   );
 };
