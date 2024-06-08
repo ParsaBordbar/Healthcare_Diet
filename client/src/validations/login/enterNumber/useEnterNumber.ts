@@ -40,7 +40,7 @@ const useEnterNumber = () => {
   const handelValueInputs = useCallback(async (data: LoginDataType) => {
     try {
       console.log(data);
-      const response = await api.get(`/bmi/${data.phoneNumber}`);
+      const response = await api.get(`/bmi/phone${data.phoneNumber}`);
 
       localStorage.removeItem('user');
 
