@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 
 const useFetchOneMediterranean = (phoneNumber: string) => {
     
-    const [medForm, setMedForm] = useState<MediterraneanFormType>();
+    const [medForm, setMedForm] = useState<MediterraneanFormType[]>([]);
     useEffect(()=> {
         fetchForm()
     }, [])
