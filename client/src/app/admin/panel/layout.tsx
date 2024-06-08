@@ -29,7 +29,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
           valueSix="فرم های پاسخ داده نشده"
           linkSix="/admin/panel/unvisited_diets"
         />
-        <div className="fixed w-[25%] lg:w-1/6 md:flex top-0 right-0 bg-[var(--new-green)] gap-16 hidden flex-col h-screen pb-4">
+        <div className="fixed w-[25%] lg:w-[20%] md:flex top-0 right-0 bg-[var(--new-green)] gap-16 hidden flex-col h-screen pb-4">
           <div className="flex items-center pb-2 rounded-lg justify-around bg-IslamicArt h-64 bg-cover bg-center"></div>
           <h1 className="text-white text-2xl font-semibold bg-custom-IslamicArt flex justify-center">
             {" "}
@@ -69,7 +69,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
             />
           </ul>
         </div>
-        <main className="w-full mt-6 md:w-[75%] lg:w-5/6 flex flex-col py-16 gap-10 px-16 bg-white   h-screen">
+        <main className="w-full mt-6 md:w-[75%] lg:w-[80%] flex flex-col py-16 gap-10 px-16 bg-white   h-screen">
           <div className="">{children}</div>
         </main>
       </div>
