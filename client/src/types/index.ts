@@ -26,6 +26,7 @@ export type BmiDataType = BmiLandingDataType & {
   name: string;
   lastName: string;
   gender: string;
+  abdominalCircumference: number;
   age: number;
 };
 
@@ -62,58 +63,58 @@ export type MediterranealDataType = {
 };
 
 export interface BmiType {
-    name?: string,
-    lastName?: string,
-    phoneNumber?: string,
-    gender?: string,
-    age?: string,
-    height?: string,
-    weight?: string,
-    bmi?: string,
-    linkTo?: string
-    abdominalCircumference?: string
-    joinedAtGregorian?: string
-    joinedAtJalali?: string
+  name?: string;
+  lastName?: string;
+  phoneNumber?: string;
+  gender?: string;
+  age?: string;
+  height?: string;
+  weight?: string;
+  bmi?: string;
+  linkTo?: string;
+  abdominalCircumference?: string;
+  joinedAtGregorian?: string;
+  joinedAtJalali?: string;
 }
 
-export type WelcomeBoxType ={
-  doctorName: string
-}
+export type WelcomeBoxType = {
+  doctorName: string;
+};
 
-export interface MediterraneanFormType{
-  dailyFruit ?: String,
-  dailyVegetable ?: String,
-  Cereals?: String ,
-  dailyCereals?: String ,
-  potatoAndStarchWeekly?: String,
-  oliveAndOliveOilDaily?: String ,
-  nutsDaily?: String ,
-  dairyDaily?: String ,
-  beans?: String ,
-  eggWeekly?: String ,
-  fishWeekly?: String ,
-  chickensWeekly?: String ,
-  redMeatWeekly?: String,
-  sugarWeekly?: String ,
-  alcoholWeekly?: String ,
-  fermentationWeekly?: String ,
-  supplements?: String ,
-  physicalActivity?: String,
-  diabetes?: String ,
-  anemia?: String ,
-  bloodPressure?: String ,
-  digestiveProblems?: String ,
-  selfSafety?: String ,
-  stroke?: String ,
-  fattyLiver?: String ,
-  kidneyProblems?: String ,
-  thyroid?: String ,
-  cancer?: boolean ,
-  Migraine?: boolean ,
-  otherSickness?: String ,
-  medicine?: String ,
-  phoneNumber: string ,
-  isChecked: boolean
+export interface MediterraneanFormType {
+  dailyFruit?: String;
+  dailyVegetable?: String;
+  Cereals?: String;
+  dailyCereals?: String;
+  potatoAndStarchWeekly?: String;
+  oliveAndOliveOilDaily?: String;
+  nutsDaily?: String;
+  dairyDaily?: String;
+  beans?: String;
+  eggWeekly?: String;
+  fishWeekly?: String;
+  chickensWeekly?: String;
+  redMeatWeekly?: String;
+  sugarWeekly?: String;
+  alcoholWeekly?: String;
+  fermentationWeekly?: String;
+  supplements?: String;
+  physicalActivity?: String;
+  diabetes?: String;
+  anemia?: String;
+  bloodPressure?: String;
+  digestiveProblems?: String;
+  selfSafety?: String;
+  stroke?: String;
+  fattyLiver?: String;
+  kidneyProblems?: String;
+  thyroid?: String;
+  cancer?: boolean;
+  Migraine?: boolean;
+  otherSickness?: String;
+  medicine?: String;
+  phoneNumber: string;
+  isChecked: boolean;
 }
 
 export interface FileType {
@@ -124,20 +125,19 @@ export interface FileType {
   mimetype: string;
 }
 export interface CommentType {
-  className?:string,
-  sender: string,
-  body: string,
-  receiver: string,
-  createdAtGregorian?:string,
-  createdAtJalali?: string, 
-  isDoctor?: boolean,
-  files?: FileType[]; 
+  className?: string;
+  sender: string;
+  body: string;
+  receiver: string;
+  createdAtGregorian?: string;
+  createdAtJalali?: string;
+  isDoctor?: boolean;
+  files?: FileType[];
 }
 
-
-export interface QuickLinkBoxType{
-  tittle:string, 
-  desc:string,
-  url:string,
-  counter: number,
+export interface QuickLinkBoxType {
+  tittle: string;
+  desc: string;
+  url: string;
+  counter: number;
 }
