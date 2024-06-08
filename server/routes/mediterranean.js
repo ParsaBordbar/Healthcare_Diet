@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:phoneNumber', async (req, res) => {
-    const mediterraneanForm = await MediterraneanForm.findOne({ phoneNumber: req.params.phoneNumber });
+    const mediterraneanForm = await MediterraneanForm.find({ phoneNumber: req.params.phoneNumber });
     if (!mediterraneanForm) {
         return res.status(404).send("Mediterranean with this phoneNumber was not found."); 
     }
