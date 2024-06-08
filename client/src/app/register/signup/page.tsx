@@ -9,7 +9,7 @@ const SignUpPage = () => {
         <FormSignUp />
         <Link href={"/register/login/enterNumber"} className="text-[var(--text)] text-xl">
           آیا حساب دارید؟{" "}
-          <mark className="bg-transparent text-[var(--rating-color)]">
+          <mark className="bg-transparent text-[var(--new-green)]">
             ورود
           </mark>
         </Link>

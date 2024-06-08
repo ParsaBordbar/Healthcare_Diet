@@ -133,8 +133,8 @@ const UserIdentifyForm = () => {
         />
         <MainButton
           type="submit"
-          simple
-          className="bg-[var(--rating-color)] py-2.5 !text-xl !text-white col-span-5 w-full"
+          modern
+          className=" py-2.5 !text-xl !text-white col-span-5 w-full"
           value={"تایید"}
         />
       </form>
