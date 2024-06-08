@@ -115,6 +115,9 @@ export interface MediterraneanFormType {
   medicine?: String;
   phoneNumber: string;
   isChecked: boolean;
+  createdAtGregorian?: string;
+  createdAtJalali?: string;
+  files?: FileType[];
 }
 
 export interface FileType {
