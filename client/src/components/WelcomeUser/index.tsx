@@ -35,7 +35,8 @@ const WelcomeUser = ({ userID }: { userID: string }) => {
               <p className="text-black col-span-1">سن : {patients?.age}</p>
               <p className="text-black col-span-1">قد : {patients?.height}</p>
               <p className="text-black col-span-1">وزن : {patients?.weight}</p>
-              <p className="text-black col-span-1">
+              <p className="text-black col-span-1">دور کمر : {patients?.abdominalCircumference}</p>
+              <p className="text-black col-span-2">
                 جنسیت : {patients?.gender}
               </p>
             </div>
