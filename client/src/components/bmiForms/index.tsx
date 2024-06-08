@@ -9,10 +9,12 @@ import { AllContextType, useMyContext } from "@/hooks/useContext/Context";
 const BmiFormDiet = () => {
   // const { Bmi, setBmi } = useMyContext();
 
-  const { control, handelValueInputs, register, errors, handleSubmit } = useBmi();
+  const { control, handelValueInputs, register, errors, handleSubmit } =
+    useBmi();
   const nameRef = useRef<HTMLInputElement | null>(null);
   const lastNameRef = useRef<HTMLInputElement | null>(null);
   const phoneNumberRef = useRef<HTMLInputElement | null>(null);
+  const abdominalCircumferenceRef = useRef<HTMLInputElement | null>(null);
   const ageRef = useRef<HTMLInputElement | null>(null);
   const heightRef = useRef<HTMLInputElement | null>(null);
   const weightRef = useRef<HTMLInputElement | null>(null);
@@ -24,6 +26,7 @@ const BmiFormDiet = () => {
     nameRef,
     lastNameRef,
     phoneNumberRef,
+    abdominalCircumferenceRef,
     genderRef,
     weightRef,
     ageRef,
@@ -38,6 +41,8 @@ const BmiFormDiet = () => {
       lastNameRef.current?.focus();
     } else if (errors.phoneNumber) {
       phoneNumberRef.current?.focus();
+    } else if (errors.abdominalCircumference) {
+      abdominalCircumferenceRef.current?.focus();
     } else if (errors.gender) {
       genderRef.current?.focus();
     } else if (errors.weight) {
@@ -62,7 +67,7 @@ const BmiFormDiet = () => {
       }
     }
   };
- 
+
   return (
     <form
       action=""
@@ -112,9 +117,23 @@ const BmiFormDiet = () => {
               {...field}
               error={!!errors.phoneNumber}
               ref={phoneNumberRef}
-              parentClassName="col-span-2 lg:col-span-4"
+              parentClassName="col-span-2 lg:col-span-2"
               label="شماره تماس"
-              placeholder="شماره تماس خود را وارد کنید"
+              placeholder=" شماره تماس خود را وارد کنید"
+            />
+          )}
+        />
+        <Controller
+          control={control}
+          name="abdominalCircumference"
+          render={({ field }) => (
+            <MainInput
+              {...field}
+              error={!!errors.abdominalCircumference}
+              ref={abdominalCircumferenceRef}
+              parentClassName="col-span-2 lg:col-span-2"
+              label="دور کمر"
+              placeholder="اندازه دور کمر خود را وارد کنید"
             />
           )}
         />
@@ -143,7 +162,7 @@ const BmiFormDiet = () => {
               >
                 <option value="null" selected>
                   جنسیت
-                </option> 
+                </option>
                 <option value="مرد">مرد</option>
                 <option value="زن">زن</option>
               </select>
