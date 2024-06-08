@@ -52,49 +52,44 @@ function PatientId({ params }: { params: { patientId: string } }) {
         )}
 
         <h2 className='text-3xl mt-8'>رژیم‌ها:</h2>
-        {medData ? (
-          <MediterraneanForm 
-            phoneNumber={params.patientId} 
-            isChecked={medData?.isChecked} 
-            dailyFruit={medData.dailyFruit} 
-            dailyVegetable={medData.dailyVegetable} 
-            Cereals={medData.Cereals} 
-            dailyCereals={medData.dailyCereals} 
-            potatoAndStarchWeekly={medData.potatoAndStarchWeekly} 
-            oliveAndOliveOilDaily={medData.oliveAndOliveOilDaily} 
-            nutsDaily={medData.nutsDaily} 
-            dairyDaily={medData.dairyDaily} 
-            beans={medData.beans} 
-            eggWeekly={medData.eggWeekly} 
-            fishWeekly={medData.fishWeekly} 
-            chickensWeekly={medData.chickensWeekly} 
-            sugarWeekly={medData.sugarWeekly} 
-            alcoholWeekly={medData.alcoholWeekly} 
-            fermentationWeekly={medData.fermentationWeekly} 
-            supplements={medData.sugarWeekly} 
-            physicalActivity={medData.physicalActivity} 
-            diabetes={medData.diabetes} 
-            anemia={medData.anemia} 
-            bloodPressure={medData.bloodPressure} 
-            digestiveProblems={medData.digestiveProblems} 
-            selfSafety={medData.selfSafety} 
-            stroke={medData.stroke} 
-            fattyLiver={medData.fattyLiver} 
-            kidneyProblems={medData.kidneyProblems} 
-            thyroid={medData.thyroid} 
-            cancer={medData.cancer} 
-            Migraine={medData.Migraine} 
-            otherSickness={medData.otherSickness} 
-            medicine={medData.medicine} 
-            createdAtJalali={medData.createdAtJalali}
-            files={medData.files}
-            redMeatWeekly={medData.redMeatWeekly}
-          />
-        ) : (
-          <h2 className='flex justify-center items-center'>
-            <p className='text-3xl flex col-span-full justify-start'>رژیمی ندارد</p>
-          </h2>
-        )}
+        {medData ? medData.map((form) =>
+        <MediterraneanForm key={`${params.patientId} ${form.createdAtJalali}`}
+        phoneNumber={params.patientId} 
+        isChecked={form?.isChecked} 
+        dailyFruit={form.dailyFruit} 
+        dailyVegetable={form.dailyVegetable} 
+        Cereals={form.Cereals} 
+        dailyCereals={form.dailyCereals} 
+        potatoAndStarchWeekly={form.potatoAndStarchWeekly} 
+        oliveAndOliveOilDaily={form.oliveAndOliveOilDaily} 
+        nutsDaily={form.nutsDaily} 
+        dairyDaily={form.dairyDaily} 
+        beans={form.beans} 
+        eggWeekly={form.eggWeekly} 
+        fishWeekly={form.fishWeekly} 
+        chickensWeekly={form.chickensWeekly} 
+        sugarWeekly={form.sugarWeekly} 
+        alcoholWeekly={form.alcoholWeekly} 
+        fermentationWeekly={form.fermentationWeekly} 
+        supplements={form.sugarWeekly} 
+        physicalActivity={form.physicalActivity} 
+        diabetes={form.diabetes} 
+        anemia={form.anemia} 
+        bloodPressure={form.bloodPressure} 
+        digestiveProblems={form.digestiveProblems} 
+        selfSafety={form.selfSafety} 
+        stroke={form.stroke} 
+        fattyLiver={form.fattyLiver} 
+        kidneyProblems={form.kidneyProblems} 
+        thyroid={form.thyroid} 
+        cancer={form.cancer} 
+        Migraine={form.Migraine} 
+        otherSickness={form.otherSickness} 
+        medicine={form.medicine} 
+        createdAtJalali={form.createdAtJalali}
+        files={form.files}
+        redMeatWeekly={form.redMeatWeekly}
+      />) : null}
         <h2 className='text-3xl mt-8'>پیام‌های ارسال شده:</h2>
         {commentData ? commentData.map((comment) => 
         <CommentBox key={comment.receiver} sender={comment.sender} body={comment.body} receiver={comment.receiver} createdAtJalali={comment.createdAtJalali} isDoctor={true} files={comment.files} /> ) : <p>هنوز پیامی وجود ندارد</p>}
