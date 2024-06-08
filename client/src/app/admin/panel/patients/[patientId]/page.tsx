@@ -86,6 +86,9 @@ function PatientId({ params }: { params: { patientId: string } }) {
             Migraine={medData.Migraine} 
             otherSickness={medData.otherSickness} 
             medicine={medData.medicine} 
+            createdAtJalali={medData.createdAtJalali}
+            files={medData.files}
+            redMeatWeekly={medData.redMeatWeekly}
           />
         ) : (
           <h2 className='flex justify-center items-center'>
