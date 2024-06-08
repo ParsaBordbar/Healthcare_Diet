@@ -35,8 +35,8 @@ const FormLogin = ({ type }: LoginFormType) => {
           />
           <MainButton
             type="submit"
-            simple
-            className="bg-[var(--rating-color)] py-2.5 !text-xl !text-white w-full"
+            modern
+            className=" py-2.5 !text-xl !text-white w-full"
             value={"ورود"}
           />
         </>
@@ -61,8 +61,8 @@ const FormLogin = ({ type }: LoginFormType) => {
           />
           <MainButton
             type="submit"
-            simple
-            className="bg-[var(--rating-color)] py-2.5 !text-xl !text-white w-full"
+            modern
+            className=" py-2.5 !text-xl !text-white w-full"
             value={"ارسال کد "}
           />
         </>

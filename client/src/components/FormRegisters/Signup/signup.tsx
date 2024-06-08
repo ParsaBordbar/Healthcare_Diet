@@ -119,18 +119,18 @@ const FormSignUp = () => {
 
         <section className="flex flex-col col-span-2 mt-5 gap-1 justify-center">
           <MainButton
-            simple
-            className="bg-[var(--rating-color)] py-2.5 !text-xl !text-white w-full"
+            modern
+            className=" py-2.5 !text-xl !text-white w-full"
             value="ثبت نام"
           />
           <p className="text-xl text-center  text-[var(--text)]">
             با ثبت نام، با
-            <mark className="bg-transparent text-[var(--rating-color)]">
+            <mark className="bg-transparent text-[var(--new-green)]">
               {" "}
               سیاست حفظ حریم خصوصی{" "}
             </mark>
             و
-            <mark className="bg-transparent text-[var(--rating-color)]">
+            <mark className="bg-transparent text-[var(--new-green)]">
               {" "}
               شرایط{" "}
             </mark>

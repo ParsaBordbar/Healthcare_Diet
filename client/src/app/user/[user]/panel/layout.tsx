@@ -18,7 +18,6 @@ interface LayoutUserProps {
 }
 
 const LayoutUser = ({ children, params }: LayoutUserProps) => {
-  const bmiData = useSpecificFetchBmi(params.user);
   const { user } = params;
   const router = usePathname();
 
@@ -35,7 +34,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
           linkThree={`/user/${user}/panel`}
           linkTwo={`/user/${user}/panel/diets`}
         />
-        <div className="fixed hidden pb-6 top-0 right-0 h-screen bg-[var(--new-green)]  md:flex w-[25%] lg:w-1/6 ">
+        <div className="fixed hidden pb-6 top-0 right-0 h-screen bg-[var(--new-green)]  md:flex w-[25%] lg:w-[20%]">
           <SideBarBanner width={100}/>
           <ul className="flex flex-col w-full rounded-lg h-screen py-4 ps-4 gap-4 ">
             <SideBarItems
@@ -65,7 +64,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
             />
           </ul>
         </div>
-        <main className="w-full md:w-[75%] lg:w-5/6 sm:px-10 px-6 md:px-16 py-20 md:py-16 bg-white">
+        <main className="w-full md:w-[75%] lg:w-[80%] sm:px-10 px-6 md:px-16 py-20 md:py-16 bg-white">
           <div className="">{children}</div>
         </main>
       </div>

@@ -28,7 +28,7 @@ const AdminLogin = () => {
   };
 
   useEffect(() => {
-    usernameRef.current?.focus()
+    usernameRef.current?.focus();
     if (errors.username) {
       usernameRef.current?.focus();
     } else if (errors.password) {
@@ -72,7 +72,8 @@ const AdminLogin = () => {
         />
 
         <MainButton
-          className="w-full py-3 !text-white bg-[var(--rating-color)] font-bold text-2xl"
+          modern
+          className="w-full py-3 !text-white font-bold text-2xl"
           value={"ورود"}
         />
       </form>
