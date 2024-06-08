@@ -10,7 +10,7 @@ function QuickLinkBox({tittle, desc, url, counter}: QuickLinkBoxType) {
                     <h1 className="text-xl text-[var(--secondary-blue)]">{tittle}</h1>
                     <p className="text-base ">{desc}</p>
                 </div>
-                <div className="-top-5 -right-5 rounded-full flex justify-center items-center text-lg w-14 h-14  bg-[var(--orange)] text-white z-10 shadow-md  shadow-green-300 absolute">
+                <div className="-top-5 -right-5 rounded-full flex justify-center items-center text-lg w-14 h-14  bg-[var(--new-green)] text-white z-10 shadow-md  shadow-blue-300 absolute">
                         {counter}
                 </div> 
             </div>
