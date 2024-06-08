@@ -163,7 +163,6 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
         type: String,
         required: true,
         maxlength: 11,
-        unique: true,    
     },
     isChecked: {
         type: Boolean,
@@ -172,11 +171,11 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     files: [fileSchema],
     createdAtGregorian: {
         type: Date,
-        default: Date.now,
+        // default: Date.now,
       },
       createdAtJalali: {
         type: String,
-        default: () => momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
+        // default: () => momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
       },
 }))
 
