@@ -72,8 +72,9 @@ const AdminLogin = () => {
         />
 
         <MainButton
-          modern
-          className="w-full py-3 !text-white font-bold text-2xl"
+          modern={true}
+          type="submit"
+          className="w-full py-3 !text-white font-bold text-2xl "
           value={"ورود"}
         />
       </form>

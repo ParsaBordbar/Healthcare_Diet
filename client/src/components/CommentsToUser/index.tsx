@@ -2,6 +2,7 @@
 import useFetchPatientComments from "@/hooks/useFetchPatientComments/useFetchPatientComments";
 import CommentBox from "../AdminComponents/CommentBox";
 import CommentIcon from "/public/svg/adminPanelSvgs/messages.svg";
+import Link from "next/link";
 
 const CommentsToUser = ({ userID }: { userID: string }) => {
   const comments = useFetchPatientComments(userID);
@@ -13,22 +14,25 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
           <CommentIcon className="[&>path]:stroke-black" />
           <h1>جدیدترین پیام های دریافتی شما</h1>
         </section>
-        {comments.length > 0
-          ? comments.map((comment, index) => {
-              if (index >= 3) return;
-              return (
-                <CommentBox
-                  className="col-span-full"
-                  key={comment.createdAtJalali}
-                  sender={comment.sender}
-                  body={comment.body}
-                  receiver={comment.receiver}
-                  createdAtJalali={comment.createdAtJalali}
-                />
-              );
-            })
-          : <h1 className="text-2xl text-center">پیامی ندارید</h1>}
+        {comments.length > 0 ? (
+          comments.map((comment, index) => {
+            if (index >= 3) return;
+            return (
+              <CommentBox
+                className="col-span-full"
+                key={comment.createdAtJalali}
+                sender={comment.sender}
+                body={comment.body}
+                receiver={comment.receiver}
+                createdAtJalali={comment.createdAtJalali}
+              />
+            );
+          })
+        ) : (
+          <h1 className="text-2xl text-center">پیامی ندارید</h1>
+        )}
       </div>
+      <Link className="mt-2 text-blue-600 text-lg" href={`/user/${userID}/panel/massege`}>دیدن همه ی پیام ها</Link>
     </main>
   );
 };
