@@ -132,8 +132,8 @@ const BmiFormDiet = () => {
               error={!!errors.abdominalCircumference}
               ref={abdominalCircumferenceRef}
               parentClassName="col-span-2 lg:col-span-2"
-              label="دور کمر"
-              placeholder="اندازه دور کمر خود را وارد کنید"
+              label="دور شکم"
+              placeholder="اندازه دور شکم خود را وارد کنید"
             />
           )}
         />
