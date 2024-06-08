@@ -40,6 +40,9 @@ const SideBarItems = (props: TSideBarItems) => {
     if (props.router == props.href && props.value == "فرم های پاسخ داده نشده") {
       return true;
     }
+    if (props.router == props.href && props.value == "برنامه های شما") {
+      return true;
+    }
     if (props.router == props.href && props.value == "پیام های شما") {
       return true;
     }
