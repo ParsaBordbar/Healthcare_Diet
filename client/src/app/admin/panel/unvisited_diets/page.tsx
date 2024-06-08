@@ -48,6 +48,9 @@ function UnvisitedDiets() {
             phoneNumber={form.phoneNumber}
             key={form.phoneNumber}
             isChecked={form.isChecked}
+            files={form.files}
+            redMeatWeekly={form.redMeatWeekly}
+            createdAtJalali={form.createdAtJalali}
           />
         );
       })}
