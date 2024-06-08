@@ -21,11 +21,11 @@ const PatientCard = ({
   }, []);
 
   return (
-    <div className="flex col-span-full bg-[var(--milky-white)] px-4 sm:px-8 gap-8 py-4 rounded-lg shadow-md ">
+    <div className="flex col-span-full bg-[var(--primary)] px-4 sm:px-8 gap-8 py-4 rounded-lg shadow-md ">
       {ChoseAvatar}
       <div className="flex flex-col gap-4  w-full">
         <div className="flex justify-between items-center pt-2.5 ">
-          <h2 className="text-2xl overflow-ellipsis overflow-hidden whitespace-nowrap text-[var(--secondary-blue)]">
+          <h2 className="text-2xl overflow-ellipsis overflow-hidden whitespace-nowrap text-[var(--new-green)]">
             {name} {lastName}
           </h2>
           {linkTo ? (
@@ -37,8 +37,8 @@ const PatientCard = ({
         <section className="flex justify-between items-center">
 
         <div className="flex gap-2">
-          <PhoneIcon className=''/>
-          <p className="text-base mt-1">{phoneNumber}</p>
+          <PhoneIcon className='[&>path]:stroke-[var(--new-green)]'/>
+          <p className="text-base mt-1 text-[var(--new-green)]">{phoneNumber}</p>
         </div>
         {linkTo ? (
             <Link className="mt-1 inline-block sm:hidden w-fit text-blue-600 text-xs" href={`${linkTo}`}>
