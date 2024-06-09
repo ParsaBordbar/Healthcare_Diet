@@ -57,13 +57,6 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
             />
             <SideBarItems
               router={router}
-              value={"پیام های شما"}
-              href={`/user/${user}/panel/massege`}
-              icon={PersonalIcon}
-            />
-
-            <SideBarItems
-              router={router}
               value={"رژیم ها"}
               href={`/user/${user}/panel/diets`}
               icon={DocumentIcon}
