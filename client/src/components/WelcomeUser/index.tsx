@@ -52,7 +52,7 @@ const WelcomeUser = ({ userID }: { userID: string }) => {
             parentClassName="col-span-3"
             placeholder="پبام خود را اینجا وارد کنید..."
           /> */}
-          <textarea name="" id="" className="col-span-3 border rounded-md p-2" rows={5} placeholder="پیام خود را اینجا وارد کنید" ></textarea>
+          <textarea name="" id="" className="col-span-3 resize-none border rounded-md p-2" rows={5} placeholder="پیام خود را اینجا وارد کنید" ></textarea>
           <section className="gap-4  col-span-1 grid grid-cols-1">
             <select
               name="reciver"
