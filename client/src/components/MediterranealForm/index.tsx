@@ -34,7 +34,7 @@ const MediterranealForm = () => {
     kidneyProblems: yup.string().required("جواب به این سوال الزامی است"),
     thyroid: yup.string(),
     cancer: yup.string(),
-    supplements: yup.array(),
+    supplements: yup.array().required("جواب به این سوال الزامی است"),
     Migraine: yup.string(),
     otherSickness: yup.string().required("جواب به این سوال الزامی است"),
     medicine: yup.string().required("جواب به این سوال الزامی است"),
@@ -54,51 +54,26 @@ const MediterranealForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      questionOne: "مصرف میوه به صورت روزانه؟",
       dailyFruit: "",
-      questionTwo: "مصرف سبزیجات به صورت روزانه؟",
       dailyVegetable: "",
-      questionThree: "آیا غلات سبوس دار مصرف می کنید؟",
       vegetables: "",
-      questionFour: "مصرف سیب زمینی و سایر سبزیجات نشاسته ای در هفته؟",
       dailyCereals: "",
-      questionFive: "مصرف غلات به صورت روزانه؟",
       potatoAndStarchWeekly: "",
-      questionSix: "مصرف زیتون و روغن زیتون به صورت روزانه؟",
       oliveAndOliveOilDaily: "",
-      questionSeven: "مصرف مغز ها به صورت روزانه؟",
       nutsDaily: "",
-      questionEight: "مصرف محصولات لبنی به صورت روزانه؟",
       dairyDaily: "",
-      questionNine: "مصرف حبوبات",
       beans: "",
-      questionTen: "مصرف تخم مرغ به صورت هفتگی؟",
       eggWeekly: "",
-      questionEleven: "مصرف ماهی به صورت هفتگی؟",
       fishWeekly: "",
-      questionTwelve: "مصرف ماکیان به صورت هفتگی؟",
       chickensWeekly: "",
-      questionThirteen: "مصرف گوشت قرمز به صورت هفتگی؟",
       redMeatWeekly: "",
-      questionFourteen: "مصرف شیرینی به صورت هفتگی؟",
       sugarWeekly: "",
-      questionFifteen: "مصرف نوشیدنی الکلی به صورت هفتگی؟",
       alcoholWeekly: "",
-      questionSixteen: "مصرف محصولات تخمیری به صورت هفتگی؟",
       fermentationWeekly: "",
-      questionSeventeen: "چه مکمل هایی مصرف می کنید؟",
-      selectedOptionSeventeenOne: "",
-      selectedOptionSeventeenTwo: "",
-      selectedOptionSeventeenThree: "",
-      selectedOptionSeventeenFour: "",
-      questionEighteen: "میزان فعالیت بدنی در هفته؟",
       physicalActivity: "",
-      questionNineteen: "میزان فعالیت بدنی در هفته؟",
       diabetes: "",
-      questionTwenty: "کدام یک از مشکلات زیر را دارید یا قبلا داشتید؟",
-      questionTwentyOne: "سایر بیماری ها یا جراحی قبلی را اینجا بنویسید .",
       // anemia: "",
-      supplements: [],
+      supplements: [""],
       bloodPressure: "",
       digestiveProblems: "",
       selfSafety: "",
@@ -123,14 +98,7 @@ const MediterranealForm = () => {
     },
     validationSchema: MediterrealnSchema,
     onSubmit: async (data) => {
-      let selectedOptionSeventeen: string[] = [];
-      selectedOptionSeventeen.push(
-        data.selectedOptionSeventeenOne,
-        data.selectedOptionSeventeenTwo,
-        data.selectedOptionSeventeenThree,
-        data.selectedOptionSeventeenFour
-      );
-      Object.assign(data, { supplements: selectedOptionSeventeen });
+      Object.assign(data);
       // Handle form submission (e.g., make a request to your backend)
       console.log(data);
     },
@@ -817,27 +785,29 @@ const MediterranealForm = () => {
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
             name="selectedOptionSeventeenOne"
-            checked={
-              values.selectedOptionSeventeenOne === "ویتامین و مواد معدنی" &&
-              values.selectedOptionSeventeenFour == "null"
-            }
+            checked={values.supplements.includes("ویتامین و مواد معدنی")}
             onChange={handleChange}
             header={false}
             onClick={() => {
-              values.selectedOptionSeventeenFour = "null";
+              values.supplements.push("ویتامین و مواد معدنی");
+              values.supplements = values.supplements.filter(
+                (e) => e !== "هیچکدام"
+              );
+              console.log(values.supplements);
             }}
             type="radio"
             value={"ویتامین و مواد معدنی"}
           />
           <GroupRadio
             name="selectedOptionSeventeenTwo"
-            checked={
-              values.selectedOptionSeventeenTwo === "مکمل پروتئینی" &&
-              values.selectedOptionSeventeenFour == "null"
-            }
+            checked={values.supplements.includes("مکمل پروتئینی")}
             onChange={handleChange}
             onClick={() => {
-              values.selectedOptionSeventeenFour = "null";
+              values.supplements.push("مکمل پروتئینی");
+              values.supplements = values.supplements.filter(
+                (e) => e !== "هیچکدام"
+              );
+              console.log(values.supplements);
             }}
             header={false}
             type="radio"
@@ -848,12 +818,13 @@ const MediterranealForm = () => {
             name="selectedOptionSeventeenThree"
             // checked={values.selectedOptionSeventeenThree === "مکمل الغری و چربی سوز"}
             onChange={handleChange}
-            checked={
-              values.selectedOptionSeventeenThree === "مکمل الغری و چربی سوز" &&
-              values.selectedOptionSeventeenFour == "null"
-            }
+            checked={values.supplements.includes("مکمل الغری و چربی سوز")}
             onClick={() => {
-              values.selectedOptionSeventeenFour = "null";
+              values.supplements.push("مکمل الغری و چربی سوز");
+              values.supplements = values.supplements.filter(
+                (e) => e !== "هیچکدام"
+              );
+              console.log(values.supplements.length);
             }}
             header={false}
             type="radio"
@@ -861,16 +832,20 @@ const MediterranealForm = () => {
           />
           <GroupRadio
             name="selectedOptionSeventeenFour"
-            checked={
-              values.selectedOptionSeventeenFour != "null" &&
-              values.selectedOptionSeventeenFour == "هیچکدام"
-            }
+            checked={values.supplements.includes("هیچکدام")}
             onChange={handleChange}
             onClick={() => {
-              values.selectedOptionSeventeenFour == "هیچکدام";
-              values.selectedOptionSeventeenOne = "null";
-              values.selectedOptionSeventeenTwo = "null";
-              values.selectedOptionSeventeenThree = "null";
+              values.supplements.push("هیچکدام");
+              values.supplements = values.supplements.filter(
+                (e) => e !== "ویتامین و مواد معدنی"
+              );
+              values.supplements = values.supplements.filter(
+                (e) => e !== "مکمل الغری و چربی سوز"
+              );
+              values.supplements = values.supplements.filter(
+                (e) => e !== "مکمل پروتئینی"
+              );
+              console.log(values.supplements);
             }}
             value={"هیچکدام"}
             type="radio"
@@ -1300,7 +1275,6 @@ const MediterranealForm = () => {
         </section>
       </div>
 
-      {/* {errors.questionOne && <span>{errors.questionOne}</span>} */}
       <MainButton
         modern
         className="py-2.5 !text-xl !text-white col-span-5 w-full"
