@@ -52,8 +52,8 @@ const SideBarItems = (props: TSideBarItems) => {
     <Link href={props.href}>
       <label
         className={`group [&>svg>path]:hover:stroke-[var(--new-green)] [&>svg>path]:stroke-white  [&>svg>path]:stroke-2  text-xl ${
-          SelectionStyles && "bg-white [&>svg>path]:!stroke-[var(--new-green)]"
-        } cursor-pointer hover:bg-white   ease-in-out transition-all duration-150 p-4 flex items-center gap-2  rounded-s-md`}
+          SelectionStyles && " [&>svg>path]:!stroke-[var(--new-green)]"
+        } cursor-pointer ease-in-out transition-all duration-200 p-4 flex items-center gap-2  rounded-md`}
       >
         <input
           className="hidden peer items-center gap-3 checked:hidden text-white group-hover:text-[var(--new-green)]"
