@@ -107,11 +107,11 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
         required: true,
         enum: ['۱دیابت', 'دیابت۲','دیابت بارداری']  
     },
-    anemia: {
-        type: String,
-        required: true,
-        enum: ['فقر آهن', 'مینتور']
-    },
+    // anemia: {
+    //     type: String,
+    //     required: true,
+    //     enum: ['فقر آهن', 'مینتور']
+    // },
     bloodPressure: {
         type: String,
         required: true,
@@ -201,7 +201,7 @@ const validateMediterranean = (mediterraneanForm) => {
         supplements: Joi.string().required(),
         physicalActivity: Joi.string().required(),
         diabetes: Joi.string().required(),
-        anemia: Joi.string().required(),
+        // anemia: Joi.string().required(),
         bloodPressure: Joi.string().required(),
         digestiveProblems: Joi.string().required(),
         selfSafety: Joi.string().required(),

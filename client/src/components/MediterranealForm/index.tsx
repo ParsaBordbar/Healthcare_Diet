@@ -4,108 +4,20 @@ import MainInput from "../MainInput";
 import { useFormik } from "formik";
 import GroupRadio from "../GroupRadio";
 import MainButton from "../MainButton";
+import useMediterraneanForm from "@/validations/login/useMediterraneanForm";
 
 const MediterranealForm = () => {
-  const MediterrealnSchema = yup.object().shape({
-    dailyFruit: yup.string().required("Please select an option."),
-    dailyVegetable: yup.string().required("جواب به این سوال الزامی است"),
-    Cereals: yup.string().required("جواب به این سوال الزامی است"),
-    dailyCereals: yup.string().required("جواب به این سوال الزامی است"),
-    potatoAndStarchWeekly: yup.string().required("جواب به این سوال الزامی است"),
-    oliveAndOliveOilDaily: yup.string().required("جواب به این سوال الزامی است"),
-    nutsDaily: yup.string().required("جواب به این سوال الزامی است"),
-    dairyDaily: yup.string().required("جواب به این سوال الزامی است"),
-    beans: yup.string().required("جواب به این سوال الزامی است"),
-    eggWeekly: yup.string().required("جواب به این سوال الزامی است"),
-    fishWeekly: yup.string().required("جواب به این سوال الزامی است"),
-    chickensWeekly: yup.string().required("جواب به این سوال الزامی است"),
-    redMeatWeekly: yup.string().required("جواب به این سوال الزامی است"),
-    sugarWeekly: yup.string().required("جواب به این سوال الزامی است"),
-    alcoholWeekly: yup.string().required("جواب به این سوال الزامی است"),
-    fermentationWeekly: yup.string().required("جواب به این سوال الزامی است"),
-    physicalActivity: yup.string().required("جواب به این سوال الزامی است"),
-    diabetes: yup.string().required("جواب به این سوال الزامی است"),
-    // anemia: yup.string().required("جواب به این سوال الزامی است"),
-    bloodPressure: yup.string().required("جواب به این سوال الزامی است"),
-    digestiveProblems: yup.string().required("جواب به این سوال الزامی است"),
-    selfSafety: yup.string().required("جواب به این سوال الزامی است"),
-    stroke: yup.string().required("جواب به این سوال الزامی است"),
-    fattyLiver: yup.string().required("جواب به این سوال الزامی است"),
-    kidneyProblems: yup.string().required("جواب به این سوال الزامی است"),
-    thyroid: yup.string(),
-    cancer: yup.string(),
-    supplements: yup.array().required("جواب به این سوال الزامی است"),
-    Migraine: yup.string(),
-    otherSickness: yup.string().required("جواب به این سوال الزامی است"),
-    medicine: yup.string().required("جواب به این سوال الزامی است"),
-    phoneNumber: yup.string(),
-    // firstName: yup.string().required("جواب به این سوال الزامی است"),
-    // lastName: yup.string().required("جواب به این سوال الزامی است"),
-    // phoneNumberBMI: yup.string().required("جواب به این سوال الزامی است"),
-    // age: yup.string().required("جواب به این سوال الزامی است"),
-    // height: yup.string().required("جواب به این سوال الزامی است"),
-    // weight: yup.string().required("جواب به این سوال الزامی است"),
-    // gender: yup.string().required("جواب به این سوال الزامی است"),
-    // abdominalCircumference: yup
-    //   .string()
-    //   .required("جواب به این سوال الزامی است"),
-    // filePayment: yup.string(),
-  });
 
-  const formik = useFormik({
-    initialValues: {
-      dailyFruit: "",
-      dailyVegetable: "",
-      Cereals: "",
-      dailyCereals: "",
-      potatoAndStarchWeekly: "",
-      oliveAndOliveOilDaily: "",
-      nutsDaily: "",
-      dairyDaily: "",
-      beans: "",
-      eggWeekly: "",
-      fishWeekly: "",
-      chickensWeekly: "",
-      redMeatWeekly: "",
-      sugarWeekly: "",
-      alcoholWeekly: "",
-      fermentationWeekly: "",
-      physicalActivity: "",
-      diabetes: "",
-      // anemia: "",
-      supplements: [],
-      bloodPressure: "",
-      digestiveProblems: "",
-      selfSafety: "",
-      stroke: "",
-      fattyLiver: "",
-      kidneyProblems: "",
-      thyroid: "",
-      cancer: false,
-      Migraine: false,
-      otherSickness: "",
-      medicine: "",
-      phoneNumber: localStorage.getItem('user'),
-      // firstName: "",
-      // lastName: "",
-      // phoneNumberBMI: "",
-      // age: "",
-      // height: "",
-      // weight: "",
-      // gender: "",
-      // abdominalCircumference: "",
-      // filePayment: "",
-    },
-    validationSchema: MediterrealnSchema,
-    onSubmit: async (data) => {
-      Object.assign(data);
-      // Handle form submission (e.g., make a request to your backend)
-      console.log(data);
-    },
-  });
 
-  const { errors, touched, values, handleChange, handleSubmit } = formik;
-  console.log(errors);
+  const {
+    errors,
+    touched,
+    values,
+    handleChange,
+    handleSubmit,
+  } = useMediterraneanForm();
+
+
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-10">
       <div className="flex flex-col gap-4">
@@ -782,7 +694,7 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>چه مکمل هایی مصرف می کنید؟ </h1>
-        <section className="grid grid-cols-4 items-center ">
+        {/* <section className="grid grid-cols-4 items-center ">
           <GroupRadio
             name="selectedOptionSeventeenOne"
             checked={values.supplements.includes("ویتامین و مواد معدنی")}
@@ -851,7 +763,7 @@ const MediterranealForm = () => {
             type="radio"
             header
           />
-        </section>
+        </section> */}
         {errors.supplements ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
@@ -1186,93 +1098,6 @@ const MediterranealForm = () => {
         errors.medicine ? (
           <p className="text-red-600">جواب دادن به سوالات بالا الزامی است</p>
         ) : null}
-        {/* <a
-          href="/-5836954379280827307_121.jpg"
-          download="-5836954379280827307_121.jpg"
-        >
-          حتما این فایل را دانلود کنید
-        </a> */}
-
-        {/* <section className="flex flex-col gap-6 mt-4">
-          <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg">
-            فرم BMI
-          </h1>
-          <div className="grid grid-cols-4 gap-4">
-            <MainInput
-              name="age"
-              onChange={handleChange}
-              parentClassName="[&>label]:text-base"
-              placeholder="سن خود را اینجا وارد کنید"
-              label="سن"
-            />
-            <MainInput
-              name="height"
-              onChange={handleChange}
-              parentClassName="[&>label]:text-base"
-              placeholder="قد خود را اینجا وارد کنید"
-              label="قد"
-            />
-            <MainInput
-              name="weight"
-              onChange={handleChange}
-              parentClassName="[&>label]:text-base"
-              placeholder="وزن خود را اینجا وارد کنید"
-              label="وزن"
-            />
-            <section className="col-span-1 flex flex-col gap-1">
-              <label
-                htmlFor="gender"
-                className={`block  text-base font-medium `}
-              >
-                جنسیت
-              </label>
-
-              <select
-                name="gender"
-                onChange={handleChange}
-                className={`rounded-lg w-full outline-none   py-2.5 px-4 border   flex items-center gap-1  bg-white `}
-              >
-                <option value="null" selected>
-                  جنسیت
-                </option>
-                <option value="مرد">مرد</option>
-                <option value="زن">زن</option>
-              </select>
-            </section>
-            <MainInput
-              name="abdominalCircumference"
-              onChange={handleChange}
-              parentClassName="[&>label]:text-base"
-              placeholder="اندازه ی دور کمر خود را اینجا وارد کنید"
-              label="اندازه ی دور کمر"
-            />
-          </div>
-        </section>
-        {errors.firstName ||
-        errors.lastName ||
-        errors.phoneNumberBMI ||
-        errors.age ||
-        errors.height ||
-        errors.weight ||
-        errors.gender ||
-        errors.abdominalCircumference ? (
-          <p className="text-red-600">جواب دادن به سوالات بالا الزامی است</p>
-        ) : null}
-
-        <section className="flex flex-col gap-6 mt-4">
-          <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg">
-            ارسال فایل رسید پرداختی
-          </h1>
-          <div className="grid grid-cols-4 gap-4">
-            <MainInput
-              onChange={handleChange}
-              name="filePayment"
-              parentClassName="[&>label]:text-base"
-              type="file"
-              label="فایل رسید پرداختی"
-            />
-          </div>
-        </section> */}
       </div>
 
       <MainButton

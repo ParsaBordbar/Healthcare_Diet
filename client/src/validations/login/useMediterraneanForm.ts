@@ -1,15 +1,13 @@
-import api from "@/apis";
-import { yupResolver } from '@hookform/resolvers/yup';
-import { MediterraneanFormType } from "@/types";
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { useCallback } from 'react';
-import { toast } from 'react-toastify';
+import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { toast } from 'react-toastify';
+import api from '@/apis';
 
-export const MediterraneanSchema = yup.object().shape({
+const useMediterraneanForm = () => {
+  const mediterraneanSchema = yup.object().shape({
     dailyFruit: yup.string().required("Please select an option."),
     dailyVegetable: yup.string().required("جواب به این سوال الزامی است"),
-    vegetables: yup.string().required("جواب به این سوال الزامی است"),
+    Cereals: yup.string().required("جواب به این سوال الزامی است"),
     dailyCereals: yup.string().required("جواب به این سوال الزامی است"),
     potatoAndStarchWeekly: yup.string().required("جواب به این سوال الزامی است"),
     oliveAndOliveOilDaily: yup.string().required("جواب به این سوال الزامی است"),
@@ -33,50 +31,70 @@ export const MediterraneanSchema = yup.object().shape({
     kidneyProblems: yup.string().required("جواب به این سوال الزامی است"),
     thyroid: yup.string(),
     cancer: yup.string(),
-    supplements: yup.array(),
+    supplements: yup.array().required("جواب به این سوال الزامی است"),
     Migraine: yup.string(),
     otherSickness: yup.string().required("جواب به این سوال الزامی است"),
     medicine: yup.string().required("جواب به این سوال الزامی است"),
     phoneNumber: yup.string(),
   });
 
-const useMediterraneanForm = () => {
-  const {
-    control,
-    handleSubmit,
-    register,
-    formState: { errors },
-    setValue,
-  } = useForm<MediterraneanFormType, any>({
-    resolver: yupResolver(MediterraneanSchema),
+  const formik = useFormik({
+    initialValues: {
+      dailyFruit: "",
+      dailyVegetable: "",
+      Cereals: "",
+      dailyCereals: "",
+      potatoAndStarchWeekly: "",
+      oliveAndOliveOilDaily: "",
+      nutsDaily: "",
+      dairyDaily: "",
+      beans: "",
+      eggWeekly: "",
+      fishWeekly: "",
+      chickensWeekly: "",
+      redMeatWeekly: "",
+      sugarWeekly: "",
+      alcoholWeekly: "",
+      fermentationWeekly: "",
+      physicalActivity: "",
+      diabetes: "",
+      supplements: [],
+      bloodPressure: "",
+      digestiveProblems: "",
+      selfSafety: "",
+      stroke: "",
+      fattyLiver: "",
+      kidneyProblems: "",
+      thyroid: "",
+      cancer: false,
+      Migraine: false,
+      otherSickness: "",
+      medicine: "",
+      phoneNumber: localStorage.getItem('user'),
+    },
+    validationSchema: mediterraneanSchema,
+    onSubmit: async (data) => {
+      console.log(data);
+      try {
+        const response = await api.post('/uploader/upload/type?type=mediterranean', data, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (response.status === 200) {
+          toast.success('Form submitted successfully');
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        console.error('Error submitting form', error);
+        toast.error('Error submitting form');
+      }
+    },
   });
 
-  const handleMediterraneanFormSubmit: SubmitHandler<MediterraneanFormType> = useCallback(async (formData) => {
-    try {
-      const response = await api.post('/uploader/upload/type?type=mediterranean', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-
-      if (response.status === 200) {
-        toast.success('Form submitted successfully');
-      } else {
-        throw new Error('Upload failed');
-      }
-    } catch (error) {
-      console.error('An error occurred while submitting the form', error);  
-      toast.error('An error occurred while submitting the form');
-    }
-  }, []);
-
-  return {
-    control,
-    handleSubmit: handleSubmit(handleMediterraneanFormSubmit),
-    register,
-    errors,
-    setValue,
-  };
+  return formik;
 };
 
 export default useMediterraneanForm;
