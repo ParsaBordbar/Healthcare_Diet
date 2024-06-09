@@ -35,7 +35,9 @@ const WelcomeUser = ({ userID }: { userID: string }) => {
               <p className="text-black col-span-1">سن : {patients?.age}</p>
               <p className="text-black col-span-1">قد : {patients?.height}</p>
               <p className="text-black col-span-1">وزن : {patients?.weight}</p>
-              <p className="text-black col-span-1">دور کمر : {patients?.abdominalCircumference}</p>
+              <p className="text-black col-span-1">
+                دور کمر : {patients?.abdominalCircumference}
+              </p>
               <p className="text-black col-span-2">
                 جنسیت : {patients?.gender}
               </p>
@@ -46,18 +48,19 @@ const WelcomeUser = ({ userID }: { userID: string }) => {
       <div className="col-span-4 flex flex-col gap-2">
         <h1>ارسال پیام جدید</h1>
         <form action="" className="grid grid-cols-4 gap-2">
-          <select
-            name="reciver"
-            className={`col-span-2 rounded-lg outline-none py-3 px-4 border flex items-center gap-1  bg-white `}
-          >
-            <option value="null">ارسال به...</option>
-            <option value="admin">admin</option>
-          </select>
-          <section className="gap-4 items-center col-span-full grid grid-cols-3">
-            <MainInput
-              parentClassName="col-span-2"
-              placeholder="پبام خود را اینجا وارد کنید..."
-            />
+          {/* <MainInput
+            parentClassName="col-span-3"
+            placeholder="پبام خود را اینجا وارد کنید..."
+          /> */}
+          <textarea name="" id="" className="col-span-3 border rounded-md p-2" rows={5} placeholder="پیام خود را اینجا وارد کنید" ></textarea>
+          <section className="gap-4  col-span-1 grid grid-cols-1">
+            <select
+              name="reciver"
+              className={`col-span-1 rounded-lg outline-none py-3 px-4 border flex items-center gap-1  bg-white `}
+            >
+              <option value="null">ارسال به...</option>
+              <option value="admin">admin</option>
+            </select>
             <MainButton
               iconSrc={SendMassege}
               modern
