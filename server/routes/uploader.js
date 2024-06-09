@@ -82,7 +82,19 @@ router.post("/upload/type", uploader.array("document", 5), async (req, res) => {
                 medicine: req.body.medicine,
                 phoneNumber: req.body.phoneNumber,
                 files: filesWithMetadata,
-                createdAtJalali: momentJalaali().format('jYYYY/jM/jD HH:mm:ss')
+                createdAtJalali: momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
+                dietBmi: {
+                    name: req.body.name,
+                    lastName: req.body.lastName,
+                    phoneNumber: req.body.phoneNumber,
+                    gender: req.body.gender,
+                    age: req.body.age,
+                    height: req.body.height,
+                    weight: req.body.weight,
+                    abdominalCircumference: req.body.abdominalCircumference,
+                    dietName: req.body.dietName,
+                    bmi: (req.body.weight / ((req.body.height / 100) ** 2)).toFixed(4),
+                  },
             });
 
             try {
