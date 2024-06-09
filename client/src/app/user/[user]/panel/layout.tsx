@@ -34,8 +34,8 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
           linkThree={`/user/${user}/panel`}
           linkTwo={`/user/${user}/panel/diets`}
         />
-        <div className="fixed hidden pb-6 top-0 right-0 h-screen bg-[var(--new-green)]  md:flex w-[25%] lg:w-[20%]">
-          <SideBarBanner width={100} />
+        <div className="fixed hidden pb-6 px-2  top-0 right-0 h-screen bg-[var(--soft-blue)]  md:flex w-[25%] lg:w-[20%]">
+          <SideBarBanner className='py-2 rounded-2xl' width={100} />
           <ul className="flex flex-col w-full rounded-lg h-screen py-4 ps-4 gap-4 ">
             <SideBarItems
               router={router}
