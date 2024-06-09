@@ -28,25 +28,25 @@ const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
         <ul className="col-span-full grid grid-cols-4 gap-8">
           <li>
             <QuickLinkBox
-              tittle={"پیام ها"}
-              desc={"لیست تمام پیام های دریافتی"}
+              tittle={"پیام های دریافتی"}
+              desc={"لیست تمام پیام های دریافتی شما"}
               url={`/user/${userID}/panel/massege`}
               counter={comments.length}
             />
           </li>
           <li>
             <QuickLinkBox
-              tittle={"پیام ها"}
-              desc={"لیست تمام پیام های دریافتی"}
-              url={`/user/${userID}/panel/massege`}
+              tittle={"پبام های ارسالی"}
+              desc={"لیست تمام پیام های ارسالی شما"}
+              url={`/user/${userID}/panel/diets`}
               counter={comments.length}
             />
           </li>
           <li>
             <QuickLinkBox
-              tittle={"پیام ها"}
-              desc={"لیست تمام پیام های دریافتی"}
-              url={`/user/${userID}/panel/massege`}
+              tittle={"رژیم ها"}
+              desc={"لیست تمام رژیم های شما"}
+              url={`/user/${userID}/panel/plans`}
               counter={comments.length}
             />
           </li>
