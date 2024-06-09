@@ -10,6 +10,52 @@ const fileSchema = new mongoose.Schema({
     mimetype: String,
   });
 
+  const bmiSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+        maxlength: 20,
+    },
+    lastName: {
+        type: String,
+        required: true,
+        maxlength: 20,
+    },
+    phoneNumber: {
+        type: String,
+        required: true,
+        maxlength: 11,
+    },
+    gender: {
+        type: String,
+        enum: ['مرد', 'زن']
+    },
+    age: {
+        type: Number,
+        required: true
+    },
+    height: {
+        type: Number,
+        required: true
+    },
+    weight: {
+        type: Number,
+        required: true
+    },
+    abdominalCircumference: {
+        type: Number,
+        required: true
+    },
+    dietName: {
+        type: String,
+        required: true
+    },
+    bmi: {
+        type: Number,
+        required: true
+    }
+  })
+
 const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     dailyFruit : {
         type: String,
@@ -177,6 +223,7 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
         type: String,
         // default: () => momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
       },
+      dietBmi: bmiSchema,
 }))
 
 
@@ -224,6 +271,38 @@ const validateMediterranean = (mediterraneanForm) => {
           })),
         createdAtGregorian: Joi.string().isoDate().required(),
         createdAtJalali: Joi.string().required(),
+        dietBmi: Joi.object({
+            name: Joi.string().required().messages({
+                'string.empty': `نام نمی‌تواند خالی باشد`,
+                'any.required': `نام خودتون رو وارد کنید`
+              }),
+            lastName: Joi.string().required().messages({
+                'string.empty': `نام خانوادگی نمی‌تواند خالی باشد`,
+                'any.required': `نام خانوادگی خودتون رو وارد کنید`
+              }),
+            phoneNumber: Joi.string().pattern(/^[0-9]+$/).required().max(11).min(11).messages({
+                'string.max': "شماره تماس یازده رقم است" ,
+                'string.min': "شماره تماس یازده رقم است", 
+                'string.pattern.base': 'شماره تماس تنها شامل اعداد می‌باشد'
+            }),
+            gender: Joi.string().required().messages({
+                'string.empty': `لطفا جنسیت را تعیین کنید`,
+                'any.required': `لطفا جنسیت را تعیین کنید`,
+              }),
+            age: Joi.number().required().messages({
+                'any.required': `سن را وارد کنید`
+            }),
+            height: Joi.number().required().messages({
+                'any.required': `قد را وارد کنید`
+            }),
+            weight: Joi.number().required().messages({
+                'any.required': `وزن را وارد کنید`
+            }),
+            abdominalCircumference: Joi.number().required().messages({
+                'any.required': `دور شکم را وارد کنید`
+            }),
+            dietName: Joi.string().required(),
+        })
     })
     return schema.validate(mediterraneanForm);
 }
