@@ -22,7 +22,7 @@ const MainButton = (props: TButton) => {
     if (props.standard) {
       return "bg-gradient-to-t to-[var(--hero-btn)] from-[var(--logo-bg)] shadow-lg bg-[var(--hero-btn)]";
     } else if (props.trasparent) {
-      return " border  border-[var(--tittle-box)]";
+      return " border  border-[var(--new-green)]";
     } else if (props.gradient) {
       return "gradient-third-green";
     } else if (props.modern) {
