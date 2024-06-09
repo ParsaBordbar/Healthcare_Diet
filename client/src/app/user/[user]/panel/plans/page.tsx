@@ -6,12 +6,19 @@ import MainButton from "@/components/MainButton";
 const PlansPage = ({ params }: { params: { user: string } }) => {
   const userID = params.user;
   const comments = useFetchPatientComments(userID);
-
+  async function DownloadFile(file: any) {
+    console.log(file);
+    const anchor = document.createElement("a");
+    anchor.href = `http://localhost:8080/uploads/${file.filename} `;
+    anchor.download = file.originalName;
+    anchor.click();
+  }
   return (
     <div>
       <section className="flex items-center gap-2">
         <DocumentIcon className="[&>path]:stroke-black [&>path]:stroke-2" />
         <h1 className="text-3xl">برنامه های شما</h1>
+        <img className="w-10 h-10" src="/1717966653661-105346677.png" alt="" />
       </section>
       <main>
         <section>
@@ -22,22 +29,26 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                 <div>
                   <CommentBox
                     className="col-span-full"
-                    sender={"admin"}
-                    body={
-                      "سلام این رژیم شماست به صورت هفته به هفته رژیم جدید ارسال مبشه براتون"
-                    }
-                    receiver={"mohammad mosavat"}
+                    sender={comment.sender}
+                    body={comment.body}
+                    receiver={comment.receiver}
+                    files={comment.files}
+                    createdAtJalali={comment.createdAtJalali}
+                    createdAtGregorian={comment.createdAtGregorian}
                   />
                   <section className="grid grid-cols-3 gap-3">
                     <MainButton
+                      // onClick={() => DownloadFile(comment.files)}
                       className="bg-[var(--new-green)] p-2.5 col-span-1 !text-white"
                       value={"دانلود رژیم"}
                     />
                     <MainButton
+                      // onClick={() => DownloadFile(comment.files)}
                       className="bg-[var(--orange)] p-2.5 col-span-1 !text-white"
                       value={"دانلود رژیم مدیترانه ای"}
                     />
                     <MainButton
+                      // onClick={() => DownloadFile(comment.files)}
                       trasparent
                       className="p-2.5 col-span-1 !text-[var(--new-green)]"
                       value={"دانلود تغذیه"}
