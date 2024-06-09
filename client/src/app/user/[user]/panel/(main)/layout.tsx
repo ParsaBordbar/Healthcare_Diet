@@ -1,4 +1,10 @@
+"use client";
+import QuickLinkBox from "@/components/AdminComponents/QuickLinkBox";
 import WelcomeUser from "@/components/WelcomeUser";
+import useFetchBmi from "@/hooks/useFetchBmi";
+import useFetchComments from "@/hooks/useFetchComments/useFetchComments";
+import useFetchMediterranean from "@/hooks/useFetchMediterranean";
+import useFetchPatientComments from "@/hooks/useFetchPatientComments/useFetchPatientComments";
 import { ReactNode, memo, useEffect } from "react";
 
 interface LayoutMainPageUserProps {
@@ -9,10 +15,50 @@ interface LayoutMainPageUserProps {
 }
 
 const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
+  const mediterraneanForms = useFetchMediterranean("/checking/isChecked");
+  const unvisitedMediterraneanFormsCount = mediterraneanForms.length;
+  const bmiForms = useFetchBmi();
+  const bmiCount = bmiForms.length;
   const userID = params.user;
+  const comments = useFetchPatientComments(userID);
+
   return (
     <>
       <div className="grid min-[1320px]:grid-cols-8 grid-cols-7 gap-8">
+        <ul className="col-span-full grid grid-cols-4 gap-8">
+          <li>
+            <QuickLinkBox
+              tittle={"پیام ها"}
+              desc={"لیست تمام پیام های دریافتی"}
+              url={`/user/${userID}/panel/massege`}
+              counter={comments.length}
+            />
+          </li>
+          <li>
+            <QuickLinkBox
+              tittle={"پیام ها"}
+              desc={"لیست تمام پیام های دریافتی"}
+              url={`/user/${userID}/panel/massege`}
+              counter={comments.length}
+            />
+          </li>
+          <li>
+            <QuickLinkBox
+              tittle={"پیام ها"}
+              desc={"لیست تمام پیام های دریافتی"}
+              url={`/user/${userID}/panel/massege`}
+              counter={comments.length}
+            />
+          </li>
+          <li>
+            <QuickLinkBox
+              tittle={"پیام ها"}
+              desc={"لیست تمام پیام های دریافتی"}
+              url={`/user/${userID}/panel/massege`}
+              counter={comments.length}
+            />
+          </li>
+        </ul>
         <WelcomeUser userID={userID} />
         {children}
       </div>
