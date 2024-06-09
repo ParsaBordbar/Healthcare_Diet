@@ -1224,27 +1224,6 @@ const MediterranealForm = () => {
           </h1>
           <div className="grid grid-cols-4 gap-4">
             <MainInput
-              name="firstName"
-              onChange={handleChange}
-              parentClassName="[&>label]:text-base"
-              placeholder="نام خود را اینجا وارد کنید"
-              label="نام"
-            />
-            <MainInput
-              name="lastName"
-              onChange={handleChange}
-              parentClassName="[&>label]:text-base"
-              placeholder="نام حانوادگی خود را اینجا وارد کنید"
-              label="نام حانوادگی"
-            />
-            <MainInput
-              name="phoneNumberBMI"
-              onChange={handleChange}
-              parentClassName="[&>label]:text-base"
-              placeholder="شماره تماس خود را اینجا وارد کنید"
-              label="شماره تماس"
-            />
-            <MainInput
               name="age"
               onChange={handleChange}
               parentClassName="[&>label]:text-base"
