@@ -4,7 +4,7 @@ import React from 'react'
 
 function QuickLinkBox({tittle, desc, url, counter}: QuickLinkBoxType) {
   return (
-    <Link href={`${url}`}>
+    <Link href={url}>
             <div className=" flex p-4 py-9 flex-col bg-[var(--milky-white)] rounded-lg relative z-0 shadow-md  w-full h-36">
                 <div className="flex flex-col gap-1 h-[-webkit-fill-available] justify-between">
                     <h1 className="text-xl text-[var(--secondary-blue)]">{tittle}</h1>
