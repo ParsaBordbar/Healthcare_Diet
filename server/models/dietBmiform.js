@@ -1,7 +1,18 @@
 const mongoose = require('mongoose');
 const Joi = require('joi');
 
+
 const DietBmiForm = mongoose.model("Diet_Bmi_form", new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+        maxlength: 20,
+    },
+    lastName: {
+        type: String,
+        required: true,
+        maxlength: 20,
+    },
     phoneNumber: {
         type: String,
         required: true,
@@ -45,6 +56,14 @@ const DietBmiForm = mongoose.model("Diet_Bmi_form", new mongoose.Schema({
 
 const validateDietBmi = (DietBmiForm) => {
     const schema = Joi.object({
+        name: Joi.string().required().messages({
+            'string.empty': `نام نمی‌تواند خالی باشد`,
+            'any.required': `نام خودتون رو وارد کنید`
+          }),
+        lastName: Joi.string().required().messages({
+            'string.empty': `نام خانوادگی نمی‌تواند خالی باشد`,
+            'any.required': `نام خانوادگی خودتون رو وارد کنید`
+          }),
         phoneNumber: Joi.string().pattern(/^[0-9]+$/).required().max(11).min(11).messages({
             'string.max': "شماره تماس یازده رقم است" ,
             'string.min': "شماره تماس یازده رقم است", 
