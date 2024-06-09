@@ -47,13 +47,13 @@ const WelcomeUser = ({ userID }: { userID: string }) => {
       </div>
       <div className="col-span-4 flex flex-col gap-2">
         <h1>ارسال پیام جدید</h1>
-        <form action="" className="grid grid-cols-4 gap-2">
+        <form action="" className="grid grid-cols-5 gap-2">
           {/* <MainInput
             parentClassName="col-span-3"
             placeholder="پبام خود را اینجا وارد کنید..."
           /> */}
-          <textarea name="" id="" className="col-span-3 resize-none border rounded-md p-2" rows={5} placeholder="پیام خود را اینجا وارد کنید" ></textarea>
-          <section className="gap-4  col-span-1 grid grid-cols-1">
+          <textarea name="" id="" className="col-span-3 focus:outline-[var(--orange)] resize-none border rounded-md p-2" rows={5} placeholder="پیام خود را اینجا وارد کنید" ></textarea>
+          <section className="gap-4  col-span-2 grid grid-cols-1">
             <select
               name="reciver"
               className={`col-span-1 rounded-lg outline-none py-3 px-4 border flex items-center gap-1  bg-white `}
