@@ -9,7 +9,7 @@ const MediterranealForm = () => {
   const MediterrealnSchema = yup.object().shape({
     dailyFruit: yup.string().required("Please select an option."),
     dailyVegetable: yup.string().required("جواب به این سوال الزامی است"),
-    vegetables: yup.string().required("جواب به این سوال الزامی است"),
+    Cereals: yup.string().required("جواب به این سوال الزامی است"),
     dailyCereals: yup.string().required("جواب به این سوال الزامی است"),
     potatoAndStarchWeekly: yup.string().required("جواب به این سوال الزامی است"),
     oliveAndOliveOilDaily: yup.string().required("جواب به این سوال الزامی است"),
@@ -39,24 +39,24 @@ const MediterranealForm = () => {
     otherSickness: yup.string().required("جواب به این سوال الزامی است"),
     medicine: yup.string().required("جواب به این سوال الزامی است"),
     phoneNumber: yup.string(),
-    firstName: yup.string().required("جواب به این سوال الزامی است"),
-    lastName: yup.string().required("جواب به این سوال الزامی است"),
-    phoneNumberBMI: yup.string().required("جواب به این سوال الزامی است"),
-    age: yup.string().required("جواب به این سوال الزامی است"),
-    height: yup.string().required("جواب به این سوال الزامی است"),
-    weight: yup.string().required("جواب به این سوال الزامی است"),
-    gender: yup.string().required("جواب به این سوال الزامی است"),
-    abdominalCircumference: yup
-      .string()
-      .required("جواب به این سوال الزامی است"),
-    filePayment: yup.string(),
+    // firstName: yup.string().required("جواب به این سوال الزامی است"),
+    // lastName: yup.string().required("جواب به این سوال الزامی است"),
+    // phoneNumberBMI: yup.string().required("جواب به این سوال الزامی است"),
+    // age: yup.string().required("جواب به این سوال الزامی است"),
+    // height: yup.string().required("جواب به این سوال الزامی است"),
+    // weight: yup.string().required("جواب به این سوال الزامی است"),
+    // gender: yup.string().required("جواب به این سوال الزامی است"),
+    // abdominalCircumference: yup
+    //   .string()
+    //   .required("جواب به این سوال الزامی است"),
+    // filePayment: yup.string(),
   });
 
   const formik = useFormik({
     initialValues: {
       dailyFruit: "",
       dailyVegetable: "",
-      vegetables: "",
+      Cereals: "",
       dailyCereals: "",
       potatoAndStarchWeekly: "",
       oliveAndOliveOilDaily: "",
@@ -73,7 +73,7 @@ const MediterranealForm = () => {
       physicalActivity: "",
       diabetes: "",
       // anemia: "",
-      supplements: [""],
+      supplements: [],
       bloodPressure: "",
       digestiveProblems: "",
       selfSafety: "",
@@ -81,20 +81,20 @@ const MediterranealForm = () => {
       fattyLiver: "",
       kidneyProblems: "",
       thyroid: "",
-      cancer: "",
-      Migraine: "",
+      cancer: false,
+      Migraine: false,
       otherSickness: "",
       medicine: "",
-      phoneNumber: "",
-      firstName: "",
-      lastName: "",
-      phoneNumberBMI: "",
-      age: "",
-      height: "",
-      weight: "",
-      gender: "",
-      abdominalCircumference: "",
-      filePayment: "",
+      phoneNumber: localStorage.getItem('user'),
+      // firstName: "",
+      // lastName: "",
+      // phoneNumberBMI: "",
+      // age: "",
+      // height: "",
+      // weight: "",
+      // gender: "",
+      // abdominalCircumference: "",
+      // filePayment: "",
     },
     validationSchema: MediterrealnSchema,
     onSubmit: async (data) => {
@@ -202,24 +202,24 @@ const MediterranealForm = () => {
         <h1>آیا غلات سبوس دار مصرف می کنید؟</h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="vegetables"
-            checked={values.vegetables === "بلی"}
+            name="Cereals"
+            checked={values.Cereals === "بله"}
             onChange={handleChange}
             header={false}
             type="radio"
-            value={"بلی"}
+            value={"بله"}
           />
 
           <GroupRadio
-            name="vegetables"
-            checked={values.vegetables === "خیر"}
+            name="Cereals"
+            checked={values.Cereals === "خیر"}
             onChange={handleChange}
             value={"خیر"}
             type="radio"
             header
           />
         </section>
-        {errors.vegetables ? (
+        {errors.Cereals ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
@@ -1137,7 +1137,7 @@ const MediterranealForm = () => {
 
           <GroupRadio
             name="cancer"
-            checked={values.cancer === "سرطان"}
+            checked={values.cancer? values.cancer = true: false }
             onChange={handleChange}
             header={false}
             type="radio"
@@ -1145,7 +1145,7 @@ const MediterranealForm = () => {
           />
           <GroupRadio
             name="Migraine"
-            checked={values.Migraine === "میگرن"}
+            checked={values.Migraine? values.Migraine = true: false }
             onChange={handleChange}
             header={false}
             type="radio"
@@ -1167,7 +1167,7 @@ const MediterranealForm = () => {
             label="چنانچه دارویی مصرف می کنید نام آن را ذکر کنید"
           />
           <MainInput
-            name="phoneNumber"
+            name="files"
             parentClassName="col-span-2 [&>label]:text-base"
             onChange={handleChange}
             type="file"
@@ -1193,7 +1193,7 @@ const MediterranealForm = () => {
           حتما این فایل را دانلود کنید
         </a> */}
 
-        <section className="flex flex-col gap-6 mt-4">
+        {/* <section className="flex flex-col gap-6 mt-4">
           <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg">
             فرم BMI
           </h1>
@@ -1272,7 +1272,7 @@ const MediterranealForm = () => {
               label="فایل رسید پرداختی"
             />
           </div>
-        </section>
+        </section> */}
       </div>
 
       <MainButton
