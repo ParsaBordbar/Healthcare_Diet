@@ -18,7 +18,6 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
       <section className="flex items-center gap-2">
         <DocumentIcon className="[&>path]:stroke-black [&>path]:stroke-2" />
         <h1 className="text-3xl">برنامه های شما</h1>
-        <img className="w-10 h-10" src="/1717966653661-105346677.png" alt="" />
       </section>
       <main>
         <section>
