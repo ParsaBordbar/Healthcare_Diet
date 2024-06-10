@@ -45,14 +45,15 @@ const MediterraneanFormsPage = () => {
             otherSickness={form.otherSickness}
             medicine={form.medicine}
             phoneNumber={form.phoneNumber}
-            key={form.phoneNumber}
+            key={form._id}
             isChecked={form.isChecked}
             files={form.files}
             redMeatWeekly={form.redMeatWeekly}
             createdAtJalali={form?.createdAtJalali}
             dietBmi={form.dietBmi}
             payment={form.payment}
-          />
+            _id={form._id}
+            />
         );
       })}
     </section>
