@@ -51,6 +51,9 @@ function UnvisitedDiets() {
             files={form.files}
             redMeatWeekly={form.redMeatWeekly}
             createdAtJalali={form.createdAtJalali}
+            payment={form.payment}
+            dietBmi={form.dietBmi}
+            _id={form._id}
           />
         );
       })}
