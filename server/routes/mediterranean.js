@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:phoneNumber', async (req, res) => {
+router.get('/certain/:phoneNumber', async (req, res) => {
     const mediterraneanForm = await MediterraneanForm.find({ phoneNumber: req.params.phoneNumber });
     if (!mediterraneanForm) {
         return res.status(404).send("Mediterranean with this phoneNumber was not found."); 
@@ -33,83 +33,22 @@ router.get('/checking/isChecked', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
-    const { error } = validateMediterranean(req.body);
-    if (error) {
-        return res.status(400).send(error.details[0].message); 
-    }
-    let phoneNumberCheck = await MediterraneanForm.findOne({ phoneNumber: req.body.phoneNumber });
-    if (phoneNumberCheck) {
-        return res.status(400).send("Such phone number is already registered."); 
-    }
-    
-    let mediterraneanForm = new MediterraneanForm({
-        dailyFruit: req.body.dailyFruit,
-        dailyVegetable: req.body.dailyVegetable,
-        vegetables: req.body.vegetables,
-        Cereals: req.body.Cereals,
-        dailyCereals: req.body.dailyCereals,
-        potatoAndStarchWeekly: req.body.potatoAndStarchWeekly,
-        oliveAndOliveOilDaily: req.body.oliveAndOliveOilDaily,
-        nutsDaily: req.body.nutsDaily,
-        dairyDaily: req.body.dairyDaily,
-        beans: req.body.beans,
-        eggWeekly: req.body.eggWeekly,
-        fishWeekly: req.body.fishWeekly,
-        chickensWeekly: req.body.chickensWeekly,
-        redMeatWeekly: req.body.redMeatWeekly,
-        sugarWeekly: req.body.sugarWeekly,
-        alcoholWeekly: req.body.alcoholWeekly,
-        fermentationWeekly: req.body.fermentationWeekly,
-        supplements: req.body.supplements,
-        physicalActivity: req.body.physicalActivity,
-        diabetes: req.body.diabetes,
-        anemia: req.body.anemia,
-        bloodPressure: req.body.bloodPressure,
-        digestiveProblems: req.body.digestiveProblems,
-        selfSafety: req.body.selfSafety,
-        stroke: req.body.stroke,
-        fattyLiver: req.body.fattyLiver,
-        kidneyProblems: req.body.kidneyProblems,
-        thyroid: req.body.thyroid,
-        cancer: req.body.cancer,
-        Migraine: req.body.Migraine,
-        otherSickness: req.body.otherSickness,
-        medicine: req.body.medicine,
-        phoneNumber: req.body.phoneNumber,
-        dietBmi: {
-            name: req.body.name,
-            lastName: req.body.lastName,
-            phoneNumber: req.body.phoneNumber,
-            gender: req.body.gender,
-            age: req.body.age,
-            height: req.body.height,
-            weight: req.body.weight,
-            abdominalCircumference: req.body.abdominalCircumference,
-            dietName: req.body.dietName,
-            bmi: (req.body.weight / ((req.body.height / 100) ** 2)).toFixed(4),
-          }
-    });
-    mediterraneanForm = await mediterraneanForm.save();
-    return res.send(mediterraneanForm); 
-});
 
-router.put('/:phoneNumber', uploader.fields([{ name: 'document', maxCount: 5 }, { name: 'payment', maxCount: 1 }]), async (req, res) => {
+router.put('/edit/:id', uploader.fields([{ name: 'document', maxCount: 5 }, { name: 'payment', maxCount: 1 }]), async (req, res) => {
     try {
-        const existingForm = await MediterraneanForm.findOne({ phoneNumber: req.params.phoneNumber });
+        const { id } = req.params;
+        const existingForm = await MediterraneanForm.findById(id);
         
         if (!existingForm) {
-            return res.status(404).send("Such form with this phoneNumber does not exist.");
+            return res.status(404).send("Such form with this ID does not exist.");
         }
 
-        // Update fields from req.body
         Object.keys(req.body).forEach(key => {
             if (key in existingForm) {
                 existingForm[key] = req.body[key];
             }
         });
 
-        // Handle file uploads
         if (req.files) {
             if (req.files.document) {
                 const documentFiles = req.files.document.map(file => ({
@@ -141,6 +80,8 @@ router.put('/:phoneNumber', uploader.fields([{ name: 'document', maxCount: 5 }, 
         return res.status(400).send(err.message);
     }
 });
+
+
 
 router.delete('/:phoneNumber', async (req, res) => {
     const mediterraneanForm = await MediterraneanForm.findByIdAndDelete(req.params.phoneNumber);
