@@ -50,6 +50,8 @@ const MediterraneanFormsPage = () => {
             files={form.files}
             redMeatWeekly={form.redMeatWeekly}
             createdAtJalali={form?.createdAtJalali}
+            dietBmi={form.dietBmi}
+            payment={form.payment}
           />
         );
       })}
