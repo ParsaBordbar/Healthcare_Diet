@@ -9,6 +9,7 @@ import AttachmentIcon from "/public/svg/adminPanelSvgs/attachment-svgrepo-com.sv
 import DateSvg from "/public/svg/adminPanelSvgs/calendar.svg";
 import PatientPageIcon from '/public/svg/User.svg'
 import Link from "next/link";
+import PatientCard from "../PatientCard";
 
 
 const MediterraneanForm = ({
@@ -48,6 +49,7 @@ const MediterraneanForm = ({
   createdAtGregorian,
   createdAtJalali,
   files = [],
+  dietBmi
 }: MediterraneanFormType) => {
   const data = useSpecificFetchBmi(phoneNumber);
   const [checked, setChecked] = useState(isChecked);
@@ -233,6 +235,7 @@ const MediterraneanForm = ({
           </ul>
         </li>
         
+            
         {files.length > 0 && (
         <div className="pe-8 py-2 flex justify-start flex-col">
           <div className="flex flex-row">
