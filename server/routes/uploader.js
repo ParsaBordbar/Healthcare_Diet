@@ -5,7 +5,7 @@ const { doctorsComment } = require('../models/doctorComment');
 const { MediterraneanForm } = require('../models/mediterraneanForm');
 const momentJalaali = require('moment-jalaali');
 
-router.post("/upload/type", uploader.array("document", 5), async (req, res) => {
+router.post("/upload/type", uploader.fields([{ name: 'document', maxCount: 5 }, { name: 'payment', maxCount: 1 }]), async (req, res) => {
     const type = req.query.type;
 
     if (type === "comments") {
@@ -15,13 +15,13 @@ router.post("/upload/type", uploader.array("document", 5), async (req, res) => {
         }
 
         if (req.files) {
-            const filesWithMetadata = req.files.map(file => ({
+            const filesWithMetadata = req.files.document ? req.files.document.map(file => ({
                 originalName: file.originalname,
                 filename: file.filename,
                 path: file.path,
                 size: file.size,
                 mimetype: file.mimetype,
-            }));
+            })) : [];
 
             const comment = new doctorsComment({
                 sender,
@@ -39,13 +39,26 @@ router.post("/upload/type", uploader.array("document", 5), async (req, res) => {
 
     if (type === 'mediterranean') {
         if (req.files) {
-            const filesWithMetadata = req.files.map(file => ({
+            const filesWithMetadata = req.files.document ? req.files.document.map(file => ({
                 originalName: file.originalname,
                 filename: file.filename,
                 path: file.path,
                 size: file.size,
                 mimetype: file.mimetype,
-            }));
+            })) : [];
+
+            // Handle the payment file separately and check if it exists
+            let paymentFile = null;
+            if (req.files.payment && req.files.payment.length > 0) {
+                const payment = req.files.payment[0];
+                paymentFile = {
+                    originalName: payment.originalname,
+                    filename: payment.filename,
+                    path: payment.path,
+                    size: payment.size,
+                    mimetype: payment.mimetype,
+                };
+            }
 
             const mediterraneanForm = new MediterraneanForm({
                 dailyFruit: req.body.dailyFruit,
@@ -82,6 +95,7 @@ router.post("/upload/type", uploader.array("document", 5), async (req, res) => {
                 medicine: req.body.medicine,
                 phoneNumber: req.body.phoneNumber,
                 files: filesWithMetadata,
+                payment: paymentFile, // Include the payment file if it exists
                 createdAtJalali: momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
                 dietBmi: {
                     age: req.body.age,
@@ -90,7 +104,7 @@ router.post("/upload/type", uploader.array("document", 5), async (req, res) => {
                     abdominalCircumference: req.body.abdominalCircumference,
                     dietName: req.body.dietName,
                     bmi: (req.body.weight / ((req.body.height / 100) ** 2)).toFixed(4),
-                  },
+                },
             });
 
             try {
