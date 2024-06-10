@@ -9,7 +9,6 @@ import AttachmentIcon from "/public/svg/adminPanelSvgs/attachment-svgrepo-com.sv
 import DateSvg from "/public/svg/adminPanelSvgs/calendar.svg";
 import PatientPageIcon from '/public/svg/User.svg'
 import Link from "next/link";
-import PatientCard from "../PatientCard";
 import DietBmi from "../DietBmi";
 
 

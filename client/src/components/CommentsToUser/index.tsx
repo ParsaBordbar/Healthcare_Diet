@@ -16,7 +16,6 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
         </section>
         {comments.length > 0 ? (
           comments.map((comment, index) => {
-            if (index >= 3) return;
             return (
               <CommentBox
                 className="col-span-full"
@@ -25,6 +24,7 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
                 body={comment.body}
                 receiver={comment.receiver}
                 createdAtJalali={comment.createdAtJalali}
+                files={comment.files}
               />
             );
           })
