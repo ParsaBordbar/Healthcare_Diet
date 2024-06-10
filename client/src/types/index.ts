@@ -126,6 +126,7 @@ export interface MediterraneanFormType {
     abdominalCircumference?: string;
   },
   payment?:FileType,
+  _id: string;
 }
 
 export interface FileType {
