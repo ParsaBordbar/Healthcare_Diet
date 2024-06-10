@@ -89,13 +89,13 @@ router.post("/upload/type", uploader.fields([{ name: 'document', maxCount: 5 }, 
                 fattyLiver: req.body.fattyLiver,
                 kidneyProblems: req.body.kidneyProblems,
                 thyroid: req.body.thyroid,
-                cancer: req.body.cancer === "true", // Convert string to boolean
-                Migraine: req.body.Migraine === "true", // Convert string to boolean
+                cancer: req.body.cancer === "true", 
+                Migraine: req.body.Migraine === "true", 
                 otherSickness: req.body.otherSickness,
                 medicine: req.body.medicine,
                 phoneNumber: req.body.phoneNumber,
                 files: filesWithMetadata,
-                payment: paymentFile, // Include the payment file if it exists
+                payment: paymentFile, 
                 createdAtJalali: momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
                 dietBmi: {
                     age: req.body.age,

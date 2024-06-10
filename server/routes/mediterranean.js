@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { MediterraneanForm, validateMediterranean } = require('../models/mediterraneanForm');
+const uploader = require('../middlewares/multer');
 
 router.get('/', async (req, res) => {
     if (MediterraneanForm) {
@@ -93,16 +94,52 @@ router.post('/', async (req, res) => {
     return res.send(mediterraneanForm); 
 });
 
-router.put('/:phoneNumber', async (req, res) => {
-    const editedMediterraneanForm = await MediterraneanForm.findOneAndUpdate(
-        { phoneNumber: req.params.phoneNumber },
-        req.body,
-        { new: true }
-    );
-    if (!editedMediterraneanForm) {
-        return res.status(404).send("Such form with this phoneNumber does not exist."); 
+router.put('/:phoneNumber', uploader.fields([{ name: 'document', maxCount: 5 }, { name: 'payment', maxCount: 1 }]), async (req, res) => {
+    try {
+        const existingForm = await MediterraneanForm.findOne({ phoneNumber: req.params.phoneNumber });
+        
+        if (!existingForm) {
+            return res.status(404).send("Such form with this phoneNumber does not exist.");
+        }
+
+        // Update fields from req.body
+        Object.keys(req.body).forEach(key => {
+            if (key in existingForm) {
+                existingForm[key] = req.body[key];
+            }
+        });
+
+        // Handle file uploads
+        if (req.files) {
+            if (req.files.document) {
+                const documentFiles = req.files.document.map(file => ({
+                    originalName: file.originalname,
+                    filename: file.filename,
+                    path: file.path,
+                    size: file.size,
+                    mimetype: file.mimetype,
+                }));
+                existingForm.files = documentFiles;
+            }
+
+            if (req.files.payment && req.files.payment.length > 0) {
+                const payment = req.files.payment[0];
+                existingForm.payment = {
+                    originalName: payment.originalname,
+                    filename: payment.filename,
+                    path: payment.path,
+                    size: payment.size,
+                    mimetype: payment.mimetype,
+                };
+            }
+        }
+
+        const updatedForm = await existingForm.save();
+        return res.send(updatedForm);
+
+    } catch (err) {
+        return res.status(400).send(err.message);
     }
-    return res.send(editedMediterraneanForm); 
 });
 
 router.delete('/:phoneNumber', async (req, res) => {
