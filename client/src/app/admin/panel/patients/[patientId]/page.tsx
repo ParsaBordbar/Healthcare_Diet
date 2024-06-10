@@ -89,6 +89,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
         createdAtJalali={form.createdAtJalali}
         files={form.files}
         redMeatWeekly={form.redMeatWeekly}
+        dietBmi={form.dietBmi}
       />) : null}
         <h2 className='text-3xl mt-8'>پیام‌های ارسال شده:</h2>
         {commentData ? commentData.map((comment) => 
