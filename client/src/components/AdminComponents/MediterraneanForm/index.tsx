@@ -11,6 +11,7 @@ import PatientPageIcon from '/public/svg/User.svg'
 import Link from "next/link";
 import PatientCard from "../PatientCard";
 import DietBmi from "../DietBmi";
+import useCheckedState from "@/hooks/useChecked/useChecked";
 
 
 const MediterraneanForm = ({
@@ -51,16 +52,13 @@ const MediterraneanForm = ({
   createdAtJalali,
   files = [],
   dietBmi,
-  payment
-}: MediterraneanFormType) => {
+  payment,
+  _id,
+}: MediterraneanFormType)  => {
+ 
   const data = useSpecificFetchBmi(phoneNumber);
-  const [checked, setChecked] = useState(isChecked);
-  useUpdateIsChecked(phoneNumber, checked);
-
-  const handleClickChecked = () => {
-    setChecked(!checked);
-  };
-
+  const { checked, toggleChecked } = useCheckedState(isChecked, _id);
+  
   return (
     <div className="flex flex-row bg-[var(--milky-white)] my-10 rounded-lg text-lg shadow-md">
       <ul className="flex w-full flex-col">
@@ -70,7 +68,7 @@ const MediterraneanForm = ({
             <p>{data?.name} {data?.lastName}</p>
           </li>
           <button
-            onClick={handleClickChecked}
+            onClick={toggleChecked}
             className="sm:rounded-full rounded-full rounded-r-none flex justify-center items-center  sm:px-10"
           >
             {checked ? (
