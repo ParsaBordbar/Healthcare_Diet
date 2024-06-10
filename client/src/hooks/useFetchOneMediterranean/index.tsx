@@ -11,7 +11,7 @@ const useFetchOneMediterranean = (phoneNumber: string) => {
 
     const fetchForm = async () => {
         try{
-            const response = await api.get(`/mediterranean/${phoneNumber}`);
+            const response = await api.get(`/mediterranean/certain/${phoneNumber}`);
             setMedForm(response.data);
         }
         catch(err : any){
