@@ -145,6 +145,7 @@ export interface CommentType {
   createdAtJalali?: string;
   isDoctor?: boolean;
   files?: FileType[];
+  _id: string
 }
 
 export interface QuickLinkBoxType {

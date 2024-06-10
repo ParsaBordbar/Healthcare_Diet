@@ -63,7 +63,7 @@ const CommentsPage = () => {
               return (
                 <CommentBox
                   className="sm:!col-span-1"
-                  key={data.receiver + data.createdAtJalali}
+                  key={data._id}
                   sender={data.sender}
                   body={data.body}
                   receiver={data.receiver}

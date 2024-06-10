@@ -95,7 +95,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
       />) : <p>رژیم ندارد</p>}
         <h2 className='text-3xl mt-8'>پیام‌های ارسال شده:</h2>
         {commentData ? commentData.map((comment) => 
-        <CommentBox key={comment.receiver} sender={comment.sender} body={comment.body} receiver={comment.receiver} createdAtJalali={comment.createdAtJalali} isDoctor={true} files={comment.files} /> ) : <p>هنوز پیامی وجود ندارد</p>}
+        <CommentBox key={comment.receiver} sender={comment.sender} body={comment.body} receiver={comment.receiver} createdAtJalali={comment.createdAtJalali} isDoctor={true} files={comment.files} _id={comment._id} /> ) : <p>هنوز پیامی وجود ندارد</p>}
         <ReplyBox receiver={params.patientId} />
       </section>
     </main>
