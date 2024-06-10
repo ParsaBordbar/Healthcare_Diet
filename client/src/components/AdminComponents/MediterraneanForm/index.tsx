@@ -50,7 +50,8 @@ const MediterraneanForm = ({
   createdAtGregorian,
   createdAtJalali,
   files = [],
-  dietBmi
+  dietBmi,
+  payment
 }: MediterraneanFormType) => {
   const data = useSpecificFetchBmi(phoneNumber);
   const [checked, setChecked] = useState(isChecked);
@@ -266,11 +267,21 @@ const MediterraneanForm = ({
         </div>
       )}
 
-        <div className="pe-8 py-2 flex justify-start flex-col">
-            <div className="flex flex-row">
+        {payment?<div className="pe-8 py-2 flex justify-start">
+              <div className="flex gap-2 my-1 pb-6 flex-col">
                 <h4 className="text-2xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4">رسید پرداخت:</h4>
-            </div>
-          </div>
+                <div className="flex gap-2 items-center px-10">
+                  <AttachmentIcon />
+                  <a
+                  href={`http://localhost:8080/uploads/${payment.filename}`}
+                  download={payment.originalName}
+                  className="text-blue-400 hover:underdivne pt-2 text-sm col-span-1"
+                >
+                  {payment.originalName}
+                </a>
+                </div>
+              </div>
+            </div>: null}
       </ul>
     </div>
   );
