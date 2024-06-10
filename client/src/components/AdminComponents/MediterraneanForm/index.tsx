@@ -10,6 +10,7 @@ import DateSvg from "/public/svg/adminPanelSvgs/calendar.svg";
 import PatientPageIcon from '/public/svg/User.svg'
 import Link from "next/link";
 import PatientCard from "../PatientCard";
+import DietBmi from "../DietBmi";
 
 
 const MediterraneanForm = ({
@@ -234,28 +235,43 @@ const MediterraneanForm = ({
             </li>
           </ul>
         </li>
-        
+        <div className="pe-8 py-2 flex justify-start flex-col">
+          <div className="flex flex-row">
+            <h4 className="text-2xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4">فرم BMI:</h4>
+          </div>
+          <DietBmi height={dietBmi?.height} weight={dietBmi?.weight} abdominalCircumference={dietBmi?.abdominalCircumference} bmi={dietBmi?.bmi}/>
+      </div>
             
         {files.length > 0 && (
         <div className="pe-8 py-2 flex justify-start flex-col">
           <div className="flex flex-row">
-            <h4 className="text-2xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">پیوست‌ها:</h4>
+            <h4 className="text-2xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">آزمایش‌ها:</h4>
           </div>
+
           <ul className="list-disc list-inside grid grid-cols-3 px-8">
             {files?.map((file: FileType) => (
               <li className="flex gap-2 items-center my-1 pb-6" key={file.filename}>
                 <AttachmentIcon />
                 {/* This should be The server host and port */}
-                <a href={`http://localhost:8080/uploads/${file.filename}`} download={file.originalName} className="text-blue-400 hover:underline pt-2 text-sm col-span-1">
-                  {file.originalName}
-                </a>
+                <a
+                href={`http://localhost:8080/uploads/${file.filename}`}
+                download={file.originalName}
+                className="text-blue-400 hover:underline pt-2 text-sm col-span-1"
+              >
+                {file.originalName}
+              </a>
               </li>
             ))}
           </ul>
         </div>
       )}
+
+        <div className="pe-8 py-2 flex justify-start flex-col">
+            <div className="flex flex-row">
+                <h4 className="text-2xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4">رسید پرداخت:</h4>
+            </div>
+          </div>
       </ul>
-      
     </div>
   );
 };
