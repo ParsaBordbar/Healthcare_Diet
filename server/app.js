@@ -8,7 +8,6 @@ const mediterranean = require('./routes/mediterranean');
 const adminLogin = require('./routes/admin');
 const doctorsComment = require('./routes/docComments');
 const uploader = require('./routes/uploader'); 
-const bmiDiet = require('./routes/dietBmi')
 
 
 const uploadsDir = path.join(__dirname, "uploads")
@@ -27,5 +26,4 @@ app.use('/api/admin', adminLogin);
 app.use('/api/doctorsComment', doctorsComment);
 app.use("/uploads", express.static(uploadsDir));
 app.use('/api/uploader', uploader);
-app.use('/api/dietBmi', bmiDiet);
 module.exports = app;

@@ -76,6 +76,18 @@ router.post('/', async (req, res) => {
         otherSickness: req.body.otherSickness,
         medicine: req.body.medicine,
         phoneNumber: req.body.phoneNumber,
+        dietBmi: {
+            name: req.body.name,
+            lastName: req.body.lastName,
+            phoneNumber: req.body.phoneNumber,
+            gender: req.body.gender,
+            age: req.body.age,
+            height: req.body.height,
+            weight: req.body.weight,
+            abdominalCircumference: req.body.abdominalCircumference,
+            dietName: req.body.dietName,
+            bmi: (req.body.weight / ((req.body.height / 100) ** 2)).toFixed(4),
+          }
     });
     mediterraneanForm = await mediterraneanForm.save();
     return res.send(mediterraneanForm); 

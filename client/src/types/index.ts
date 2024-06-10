@@ -58,7 +58,7 @@ export type AdminDataType = {
   password: string;
 };
 
-export type MediterranealDataType = {
+export type MediterranealDataType = { //??????
   questionOne: string;
 };
 
@@ -118,6 +118,13 @@ export interface MediterraneanFormType {
   createdAtGregorian?: string;
   createdAtJalali?: string;
   files?: FileType[];
+  dietBmi?: {
+    height?: string;
+    weight?: string;
+    bmi?: string;
+    linkTo?: string;
+    abdominalCircumference?: string;
+  }
 }
 
 export interface FileType {

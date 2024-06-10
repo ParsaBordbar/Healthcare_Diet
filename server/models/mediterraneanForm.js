@@ -10,6 +10,33 @@ const fileSchema = new mongoose.Schema({
     mimetype: String,
   });
 
+  const bmiSchema = new mongoose.Schema({
+    age: {
+        type: Number,
+        required: true
+    },
+    height: {
+        type: Number,
+        required: true
+    },
+    weight: {
+        type: Number,
+        required: true
+    },
+    abdominalCircumference: {
+        type: Number,
+        required: true
+    },
+    dietName: {
+        type: String,
+        required: true
+    },
+    bmi: {
+        type: Number,
+        required: true
+    }
+  })
+
 const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     dailyFruit : {
         type: String,
@@ -107,11 +134,6 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
         required: true,
         enum: ['۱دیابت', 'دیابت۲','دیابت بارداری']  
     },
-    // anemia: {
-    //     type: String,
-    //     required: true,
-    //     enum: ['فقر آهن', 'مینتور']
-    // },
     bloodPressure: {
         type: String,
         required: true,
@@ -177,6 +199,7 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
         type: String,
         // default: () => momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
       },
+      dietBmi: bmiSchema,
 }))
 
 
@@ -224,6 +247,21 @@ const validateMediterranean = (mediterraneanForm) => {
           })),
         createdAtGregorian: Joi.string().isoDate().required(),
         createdAtJalali: Joi.string().required(),
+        dietBmi: Joi.object({
+            age: Joi.number().required().messages({
+                'any.required': `سن را وارد کنید`
+            }),
+            height: Joi.number().required().messages({
+                'any.required': `قد را وارد کنید`
+            }),
+            weight: Joi.number().required().messages({
+                'any.required': `وزن را وارد کنید`
+            }),
+            abdominalCircumference: Joi.number().required().messages({
+                'any.required': `دور شکم را وارد کنید`
+            }),
+            dietName: Joi.string().required(),
+        })
     })
     return schema.validate(mediterraneanForm);
 }
