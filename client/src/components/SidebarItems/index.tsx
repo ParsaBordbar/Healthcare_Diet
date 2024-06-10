@@ -51,20 +51,20 @@ const SideBarItems = (props: TSideBarItems) => {
   return (
     <Link href={props.href}>
       <label
-        className={`group [&>svg>path]:hover:stroke-[var(--new-green)] [&>svg>path]:stroke-white  [&>svg>path]:stroke-2  text-xl ${
-          SelectionStyles && " [&>svg>path]:!stroke-[var(--new-green)]"
+        className={`group [&>svg>path]:stroke-[var(--new-green)] hover:bg-[var(--new-green)] [&>svg>path]:hover:stroke-white  [&>svg>path]:stroke-2  text-xl ${
+          SelectionStyles && " [&>svg>path]:!stroke-white bg-[var(--new-green)]"
         } cursor-pointer ease-in-out transition-all duration-200 p-4 flex items-center gap-2  rounded-md`}
       >
         <input
-          className="hidden peer items-center gap-3 checked:hidden text-white group-hover:text-[var(--new-green)]"
+          className="hidden peer items-center gap-3 checked:hidden text-white text-[var(--new-green)]"
           type="radio"
           name="radio"
         />
         {<props.icon />}
         <p
-          className={`group-hover:text-[var(--new-green)] ${
-            SelectionStyles && "!text-[var(--new-green)]"
-          } text-white`}
+          className={`text-[var(--new-green)] ${
+            SelectionStyles && "!text-white"
+          } group-hover:text-white`}
         >
           {props.value}
         </p>
