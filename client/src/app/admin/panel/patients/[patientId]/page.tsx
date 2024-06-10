@@ -91,6 +91,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
         redMeatWeekly={form.redMeatWeekly}
         dietBmi={form.dietBmi}
         payment={form.payment}
+        _id={form._id}
       />) : <p>رژیم ندارد</p>}
         <h2 className='text-3xl mt-8'>پیام‌های ارسال شده:</h2>
         {commentData ? commentData.map((comment) => 

@@ -1,10 +1,11 @@
 import api from "@/apis"
 import { useEffect } from "react";
 
-const useUpdateIsChecked = (phoneNumber: string, checked: boolean) => {
+const useUpdateIsChecked = (id: string, checked: boolean) => {
     useEffect(() => {
+        // console.log(id);
         const update = async() => {
-            const response = await api.put(`mediterranean/${phoneNumber}`, {
+            const response = await api.put(`mediterranean/edit/${id}`, {
                 isChecked: checked
             })
             console.log(response);
@@ -12,6 +13,7 @@ const useUpdateIsChecked = (phoneNumber: string, checked: boolean) => {
         }
         update();
     }, [checked]); // Add 'checked' to the dependency array
+    
 }
 
 export default useUpdateIsChecked;
