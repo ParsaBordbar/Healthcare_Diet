@@ -11,25 +11,6 @@ const fileSchema = new mongoose.Schema({
   });
 
   const bmiSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        maxlength: 20,
-    },
-    lastName: {
-        type: String,
-        required: true,
-        maxlength: 20,
-    },
-    phoneNumber: {
-        type: String,
-        required: true,
-        maxlength: 11,
-    },
-    gender: {
-        type: String,
-        enum: ['مرد', 'زن']
-    },
     age: {
         type: Number,
         required: true
@@ -153,11 +134,6 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
         required: true,
         enum: ['۱دیابت', 'دیابت۲','دیابت بارداری']  
     },
-    // anemia: {
-    //     type: String,
-    //     required: true,
-    //     enum: ['فقر آهن', 'مینتور']
-    // },
     bloodPressure: {
         type: String,
         required: true,
@@ -272,23 +248,6 @@ const validateMediterranean = (mediterraneanForm) => {
         createdAtGregorian: Joi.string().isoDate().required(),
         createdAtJalali: Joi.string().required(),
         dietBmi: Joi.object({
-            name: Joi.string().required().messages({
-                'string.empty': `نام نمی‌تواند خالی باشد`,
-                'any.required': `نام خودتون رو وارد کنید`
-              }),
-            lastName: Joi.string().required().messages({
-                'string.empty': `نام خانوادگی نمی‌تواند خالی باشد`,
-                'any.required': `نام خانوادگی خودتون رو وارد کنید`
-              }),
-            phoneNumber: Joi.string().pattern(/^[0-9]+$/).required().max(11).min(11).messages({
-                'string.max': "شماره تماس یازده رقم است" ,
-                'string.min': "شماره تماس یازده رقم است", 
-                'string.pattern.base': 'شماره تماس تنها شامل اعداد می‌باشد'
-            }),
-            gender: Joi.string().required().messages({
-                'string.empty': `لطفا جنسیت را تعیین کنید`,
-                'any.required': `لطفا جنسیت را تعیین کنید`,
-              }),
             age: Joi.number().required().messages({
                 'any.required': `سن را وارد کنید`
             }),
