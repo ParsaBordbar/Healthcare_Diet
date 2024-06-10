@@ -84,10 +84,6 @@ router.post("/upload/type", uploader.array("document", 5), async (req, res) => {
                 files: filesWithMetadata,
                 createdAtJalali: momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
                 dietBmi: {
-                    name: req.body.name,
-                    lastName: req.body.lastName,
-                    phoneNumber: req.body.phoneNumber,
-                    gender: req.body.gender,
                     age: req.body.age,
                     height: req.body.height,
                     weight: req.body.weight,
