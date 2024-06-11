@@ -1,7 +1,10 @@
-import { useFormik } from 'formik';
-import * as yup from 'yup';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useCallback } from 'react';
 import { toast } from 'react-toastify';
-import api from '@/apis';
+import * as yup from 'yup';
+import api from '@/apis'; 
+import { CommentType, MediterraneanFormType } from '@/types';
 
 const useMediterraneanForm = () => {
   const mediterraneanSchema = yup.object().shape({
@@ -29,72 +32,83 @@ const useMediterraneanForm = () => {
     stroke: yup.string().required("جواب به این سوال الزامی است"),
     fattyLiver: yup.string().required("جواب به این سوال الزامی است"),
     kidneyProblems: yup.string().required("جواب به این سوال الزامی است"),
-    thyroid: yup.string(),
-    cancer: yup.string(),
-    supplements: yup.array().required("جواب به این سوال الزامی است"),
-    Migraine: yup.string(),
+    thyroid: yup.string().required("جواب به این سوال الزامی است"),
+    cancer: yup.boolean().required("جواب به این سوال الزامی است"),
+    Migraine: yup.boolean().required("جواب به این سوال الزامی است"),
+    supplements: yup.array().of(yup.string().required("جواب به این سوال الزامی است")),
     otherSickness: yup.string().required("جواب به این سوال الزامی است"),
     medicine: yup.string().required("جواب به این سوال الزامی است"),
-    phoneNumber: yup.string(),
-  });
+    phoneNumber: yup.string().required("جواب به این سوال الزامی است"),
+    createdAtGregorian: yup.date().required("تاریخ میلادی را وارد کنید"),
+    createdAtJalali: yup.string().required("تاریخ شمسی را وارد کنید"),
+    files: yup.array().of(yup.object().shape({
+      originalName: yup.string().required("نام فایل اصلی را وارد کنید"),
+      filename: yup.string().required("نام فایل را وارد کنید"),
+      path: yup.string().required("مسیر فایل را وارد کنید"),
+      size: yup.number().required("اندازه فایل را وارد کنید"),
+      mimetype: yup.string().required("نوع فایل را وارد کنید")
+    })),
+    dietBmi: yup.object().shape({
+      abdominalCircumference: yup.number().required("اندازه ی دور کمر الزامی است"),
+      age: yup
+        .number()
+        .min(17, "حداقل سن هفده میباشد")
+        .max(60, "حداکثر سن شصت مبیاشد")
+        .required("سن الزامی است"),
+      height: yup
+        .number()
+        .min(130, "حداقل قد صد و سی میباشد")
+        .max(300, "حذاکثر قد سیصد میباشد")
+        .required("قد الزامی است"),
+      weight: yup
+        .number()
+        .min(30, "حداقل وزن سی میاشد")
+        .max(600, "حداکثر وزن ششصد میباشد")
+        .required("وزن الزامی است"),
+      dietName: yup.string().required("نام رژیم را وارد کنید"),
+    }),
+    payment: yup.object().shape({
+      originalName: yup.string().required(),
+      filename: yup.string().required(),
+      path: yup.string().required(),
+      size: yup.number().required(),
+      mimetype: yup.string().required()
+    }),
+})
 
-  const formik = useFormik({
-    initialValues: {
-      dailyFruit: "",
-      dailyVegetable: "",
-      Cereals: "",
-      dailyCereals: "",
-      potatoAndStarchWeekly: "",
-      oliveAndOliveOilDaily: "",
-      nutsDaily: "",
-      dairyDaily: "",
-      beans: "",
-      eggWeekly: "",
-      fishWeekly: "",
-      chickensWeekly: "",
-      redMeatWeekly: "",
-      sugarWeekly: "",
-      alcoholWeekly: "",
-      fermentationWeekly: "",
-      physicalActivity: "",
-      diabetes: "",
-      supplements: [],
-      bloodPressure: "",
-      digestiveProblems: "",
-      selfSafety: "",
-      stroke: "",
-      fattyLiver: "",
-      kidneyProblems: "",
-      thyroid: "",
-      cancer: false,
-      Migraine: false,
-      otherSickness: "",
-      medicine: "",
-      phoneNumber: localStorage.getItem('user'),
-    },
-    validationSchema: mediterraneanSchema,
-    onSubmit: async (data) => {
-      console.log(data);
+  const useMediterraneanForm = () => {
+    const {
+      control,
+      handleSubmit,
+      register,
+      formState: { errors },
+      setValue,
+    } = useForm<MediterraneanFormType, any>({
+      resolver: yupResolver(mediterraneanSchema),
+    });
+  
+    const handleValueInputs: SubmitHandler<MediterraneanFormType> = useCallback(async (formData) => {
       try {
-        const response = await api.post('/uploader/upload/type?type=mediterranean', data, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
+        const response = await api.post('/mediterranean_form_endpoint', formData);
         if (response.status === 200) {
           toast.success('Form submitted successfully');
         } else {
           throw new Error('Form submission failed');
         }
       } catch (error) {
-        console.error('Error submitting form', error);
-        toast.error('Error submitting form');
+        console.error('Error submitting form:', error);
+        toast.error('Failed to submit form');
       }
-    },
-  });
-
-  return formik;
-};
-
+    }, []);
+  
+    return {
+      control,
+      handleValueInputs,  
+      register,
+      errors,
+      handleSubmit,
+      setValue,
+    };
+  };
+}
 export default useMediterraneanForm;
