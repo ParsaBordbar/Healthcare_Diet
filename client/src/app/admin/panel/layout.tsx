@@ -31,7 +31,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
           linkSix="/admin/panel/unvisited_diets"
         />
         <div className="fixed w-[25%] lg:w-[20%] md:flex top-0 right-0 bg-[var(--soft-blue)] gap-2   hidden  h-screen pb-6 px-2 ">
-          <SideBarBanner width={100} className='py-2 rounded-2xl'  />
+          <SideBarBanner width={80} className='py-2 rounded-2xl'  />
           <section className="w-full flex flex-col gap-6 py-4">
             <h1 className="text-[var(--secondary-blue)] text-2xl font-semibold bg-custom-IslamicArt">
               {" "}

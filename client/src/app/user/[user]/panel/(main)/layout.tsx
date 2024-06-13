@@ -24,9 +24,9 @@ const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
 
   return (
     <>
-      <div className="grid min-[1320px]:grid-cols-8 grid-cols-7 gap-8">
+      <div className="grid grid-cols-8 gap-8">
         <ul className="col-span-full grid grid-cols-4 gap-8">
-          <li>
+          <li className="col-span-full md:col-span-2 lg:col-span-1">
             <QuickLinkBox
               tittle={"پیام های دریافتی"}
               desc={"لیست تمام پیام های دریافتی شما"}
@@ -34,7 +34,7 @@ const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
               counter={comments.length}
             />
           </li>
-          <li>
+          <li className="col-span-full md:col-span-2 lg:col-span-1">
             <QuickLinkBox
               tittle={"پبام های ارسالی"}
               desc={"لیست تمام پیام های ارسالی شما"}
@@ -42,7 +42,7 @@ const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
               counter={comments.length}
             />
           </li>
-          <li>
+          <li className="col-span-full md:col-span-2 lg:col-span-1">
             <QuickLinkBox
               tittle={"رژیم ها"}
               desc={"لیست تمام رژیم های شما"}
@@ -50,7 +50,7 @@ const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
               counter={comments.length}
             />
           </li>
-          <li>
+          <li className="col-span-full md:col-span-2 lg:col-span-1">
             <QuickLinkBox
               tittle={"پیام ها"}
               desc={"لیست تمام پیام های دریافتی"}
