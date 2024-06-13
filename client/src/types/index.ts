@@ -119,11 +119,11 @@ export interface MediterraneanFormType {
   createdAtJalali?: string;
   files?: FileType[];
   dietBmi?: {
-    height?: string;
-    weight?: string;
-    bmi?: string;
+    height?: number;
+    weight?: number;
+    bmi?: number;
     linkTo?: string;
-    abdominalCircumference?: string;
+    abdominalCircumference?: number;
   },
   payment?:FileType,
   _id: string;
