@@ -8,7 +8,7 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
   const comments = useFetchPatientComments(userID);
 
   return (
-    <main className="grid col-span-4 custom-scroll pl-6 grid-cols-1 ">
+    <main className="grid col-span-full lg:col-span-4 custom-scroll pl-6 grid-cols-1 ">
       <div className="col-span-full flex flex-col gap-6">
         <section className="flex items-center gap-2">
           <CommentIcon className="[&>path]:stroke-black" />
@@ -26,6 +26,7 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
                 receiver={comment.receiver}
                 createdAtJalali={comment.createdAtJalali}
                 files={comment.files}
+                _id={comment._id}
               />
             );
           })
