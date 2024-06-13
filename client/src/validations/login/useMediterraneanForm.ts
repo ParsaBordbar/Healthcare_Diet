@@ -75,38 +75,61 @@ const mediterraneanSchema = yup.object().shape({
   }),
 })
 
-  const useMediterraneanForm = () => {
-    const {
-      control,
-      handleSubmit,
-      register,
-      formState: { errors },
-      setValue,
-    } = useForm<MediterraneanFormType, any>({
-      resolver: yupResolver(mediterraneanSchema),
-    });
-  
-    const handleValueInputs: SubmitHandler<MediterraneanFormType> = useCallback(async (formData) => {
-      try {
-        const response = await api.post('/uploader/upload/type?type=mediterranean', formData);
-        if (response.status === 200) {
-          toast.success('Form submitted successfully');
-        } else {
-          throw new Error('Form submission failed');
+const useMediterraneanForm = () => {
+  const {
+    control,
+    handleSubmit,
+    register,
+    formState: { errors },
+    setValue,
+    getValues,
+  } = useForm<MediterraneanFormType>({
+    resolver: yupResolver(mediterraneanSchema),
+  });
+
+  const handleValueInputs: SubmitHandler<MediterraneanFormType> = useCallback(async (formData) => {
+    try {
+      const data = new FormData();
+
+      Object.keys(formData).forEach((key) => {
+        const value = formData[key as keyof MediterraneanFormType];
+        if (key === 'files' && value && Array.isArray(value)) {
+          value.forEach((file) => {
+            data.append('document', file as any);
+          });
+        } else if (key === 'payment' && value instanceof Blob) {
+          data.append('payment', value);
+        } else if (value !== undefined) {
+          data.append(key, String(value));
         }
-      } catch (error) {
-        console.error('Error submitting form:', error);
-        toast.error('Failed to submit form');
+      });
+
+      const response = await api.post('/uploader/upload/type?type=mediterranean', data, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      if (response.status === 200) {
+        toast.success('Form submitted successfully');
+      } else {
+        throw new Error('Form submission failed');
       }
-    }, []);
-  
-    return {
-      control,
-      handleValueInputs,  
-      register,
-      errors,
-      handleSubmit,
-      setValue,
-    };
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('Failed to submit form');
+    }
+  }, []);
+
+  return {
+    control,
+    handleValueInputs,
+    register,
+    errors,
+    handleSubmit,
+    setValue,
+    getValues,
   };
+};
+
 export default useMediterraneanForm;
