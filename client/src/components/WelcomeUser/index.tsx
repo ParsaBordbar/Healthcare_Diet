@@ -17,7 +17,7 @@ const WelcomeUser = ({ userID }: { userID: string }) => {
   const patients = useSpecificFetchBmi(userID);
   return (
     <>
-      <div className="col-span-4 bg-[var(--milky-white)] shadow-md flex items-center gap-4 p-4 rounded-lg">
+      <div className="col-span-full bg-[var(--milky-white)] shadow-md flex items-center gap-4 p-4 rounded-lg">
         <MaleAvatar />
         <section className="flex items-center justify-between w-full">
           <div className="flex flex-col gap-2">
@@ -45,13 +45,13 @@ const WelcomeUser = ({ userID }: { userID: string }) => {
           </section>
         </section>
       </div>
-      <div className="col-span-4 flex flex-col gap-2">
+      {/* <div className="col-span-4 flex flex-col gap-2">
         <h1>ارسال پیام جدید</h1>
         <form action="" className="grid grid-cols-5 gap-2">
-          {/* <MainInput
+          <MainInput
             parentClassName="col-span-3"
             placeholder="پبام خود را اینجا وارد کنید..."
-          /> */}
+          />
           <textarea name="" id="" className="col-span-3 focus:outline-[var(--orange)] resize-none border rounded-md p-2" rows={5} placeholder="پیام خود را اینجا وارد کنید" ></textarea>
           <section className="gap-4  col-span-2 grid grid-cols-1">
             <select
@@ -69,7 +69,7 @@ const WelcomeUser = ({ userID }: { userID: string }) => {
             />
           </section>
         </form>
-      </div>
+      </div> */}
     </>
   );
 };
