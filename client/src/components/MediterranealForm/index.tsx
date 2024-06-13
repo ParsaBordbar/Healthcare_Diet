@@ -8,7 +8,6 @@ import useMediterraneanForm from "@/validations/login/useMediterraneanForm";
 
 const MediterranealForm = () => {
 
-
   const {
     errors,
     touched,
@@ -228,28 +227,28 @@ const MediterranealForm = () => {
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
             name="oliveAndOliveOilDaily"
-            checked={values.oliveAndOliveOilDaily === "۱-۲ بار"}
+            checked={values.oliveAndOliveOilDaily === "۱ واحد"}
             onChange={handleChange}
             header={false}
             type="radio"
-            value={"۱-۲ بار"}
+            value={"۱ واحد"}
           />
           <GroupRadio
             name="oliveAndOliveOilDaily"
-            checked={values.oliveAndOliveOilDaily === "۳-۴ بار"}
+            checked={values.oliveAndOliveOilDaily === "۲ واحد"}
             onChange={handleChange}
             header={false}
             type="radio"
-            value={"۳-۴ بار"}
+            value={"۲ واحد"}
           />
 
           <GroupRadio
             name="oliveAndOliveOilDaily"
-            checked={values.oliveAndOliveOilDaily === "هر روز"}
+            checked={values.oliveAndOliveOilDaily === "۳ واحد یا بیشتر "}
             onChange={handleChange}
             header={false}
             type="radio"
-            value={"هر روز"}
+            value={"۳ واحد یا بیشتر "}
           />
           <GroupRadio
             name="oliveAndOliveOilDaily"
@@ -317,19 +316,19 @@ const MediterranealForm = () => {
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
             name="dairyDaily"
-            checked={values.dairyDaily === "۱ بار"}
+            checked={values.dairyDaily === "۱-۲ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
-            value={"۱ بار"}
+            value={"۱-۲ بار"}
           />
           <GroupRadio
             name="dairyDaily"
-            checked={values.dairyDaily === "۲ بار"}
+            checked={values.dairyDaily === "۲-۳ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
-            value={"۲ بار"}
+            value={"۲-۳ بار"}
           />
 
           <GroupRadio
@@ -409,11 +408,11 @@ const MediterranealForm = () => {
           />
           <GroupRadio
             name="eggWeekly"
-            checked={values.eggWeekly === "۲-۳ بار"}
+            checked={values.eggWeekly === "۳-۴ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
-            value={"۲-۳ بار"}
+            value={"۳-۴ بار"}
           />
 
           <GroupRadio
@@ -577,11 +576,11 @@ const MediterranealForm = () => {
           />
           <GroupRadio
             name="sugarWeekly"
-            checked={values.sugarWeekly === "۱-۲ بار"}
+            checked={values.sugarWeekly === "۲-۳ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
-            value={"۱-۲ بار"}
+            value={"۲-۳ بار"}
           />
 
           <GroupRadio
@@ -692,9 +691,9 @@ const MediterranealForm = () => {
         ) : null}
       </div>
 
-      <div className="flex flex-col gap-4">
+      {/* <div className="flex flex-col gap-4">
         <h1>چه مکمل هایی مصرف می کنید؟ </h1>
-        {/* <section className="grid grid-cols-4 items-center ">
+        <section className="grid grid-cols-4 items-center ">
           <GroupRadio
             name="selectedOptionSeventeenOne"
             checked={values.supplements.includes("ویتامین و مواد معدنی")}
@@ -763,11 +762,11 @@ const MediterranealForm = () => {
             type="radio"
             header
           />
-        </section> */}
+        </section>
         {errors.supplements ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
-      </div>
+      </div> */}
 
       <div className="flex flex-col gap-4">
         <h1> میزان فعالیت بدنی در هفته ؟ </h1>
@@ -969,20 +968,20 @@ const MediterranealForm = () => {
               کبد چرب
             </option>
             <option
-              selected={values.fattyLiver === "کبد چرب گرید ۱"}
-              value="کبد چرب گرید ۱"
+              selected={values.fattyLiver === "گرید۱"}
+              value="گرید۱"
             >
               کبد چرب گرید ۱
             </option>
             <option
-              selected={values.fattyLiver === "کبد چرب گرید ۲"}
-              value="کبد چرب گرید ۲"
+              selected={values.fattyLiver === "گرید۲"}
+              value="گرید۲"
             >
               کبد چرب گرید ۲
             </option>
             <option
-              selected={values.fattyLiver === "کبد چرب گرید ۳"}
-              value="کبد چرب گرید ۳"
+              selected={values.fattyLiver === "گرید۳"}
+              value="گرید۳"
             >
               کبد چرب گرید ۳
             </option>
@@ -1012,8 +1011,8 @@ const MediterranealForm = () => {
               نارسایی کلیه
             </option>
             <option
-              selected={values.kidneyProblems === "عفونت مجاری ادرار "}
-              value="عفونت مجاری ادرار "
+              selected={values.kidneyProblems === "عفونت مجاری ادرار"}
+              value="عفونت مجاری ادرار"
             >
               عفونت مجاری ادرار
             </option>
@@ -1099,6 +1098,66 @@ const MediterranealForm = () => {
           <p className="text-red-600">جواب دادن به سوالات بالا الزامی است</p>
         ) : null}
       </div>
+      <section className="flex flex-col gap-6 mt-4">
+          <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg">
+            فرم BMI
+          </h1>
+          <div className="grid grid-cols-4 gap-4">
+            <MainInput
+              name="age"
+              onChange={handleChange}
+              parentClassName="[&>label]:text-base"
+              placeholder="سن خود را اینجا وارد کنید"
+              label="سن"
+            />
+            <MainInput
+              name="height"
+              onChange={handleChange}
+              parentClassName="[&>label]:text-base"
+              placeholder="قد خود را اینجا وارد کنید"
+              label="قد"
+            />
+            <MainInput
+              name="weight"
+              onChange={handleChange}
+              parentClassName="[&>label]:text-base"
+              placeholder="وزن خود را اینجا وارد کنید"
+              label="وزن"
+            />
+            <section className="col-span-1 flex flex-col gap-1">
+             
+            </section>
+            <MainInput
+              name="abdominalCircumference"
+              onChange={handleChange}
+              parentClassName="[&>label]:text-base"
+              placeholder="اندازه ی دور کمر خود را اینجا وارد کنید"
+              label="اندازه ی دور کمر"
+            />
+          </div>
+        </section>
+        {
+        errors.age ||
+        errors.height ||
+        errors.weight ||
+        errors.abdominalCircumference ? (
+          <p className="text-red-600">جواب دادن به سوالات بالا الزامی است</p>
+        ) : null}
+
+        <section className="flex flex-col gap-6 mt-4">
+          <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg">
+            ارسال فایل رسید پرداختی
+          </h1>
+          <div className="grid grid-cols-4 gap-4">
+            <MainInput
+              onChange={handleChange}
+              name="payment"
+              parentClassName="[&>label]:text-base"
+              type="file"
+              label="فایل رسید پرداختی"
+            />
+          </div>
+        </section>
 
       <MainButton
         modern

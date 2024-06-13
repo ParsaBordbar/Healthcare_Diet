@@ -58,7 +58,7 @@ const useMediterraneanForm = () => {
       fermentationWeekly: "",
       physicalActivity: "",
       diabetes: "",
-      supplements: [],
+      supplements: ["SMT"],
       bloodPressure: "",
       digestiveProblems: "",
       selfSafety: "",
@@ -71,21 +71,38 @@ const useMediterraneanForm = () => {
       otherSickness: "",
       medicine: "",
       phoneNumber: localStorage.getItem('user'),
+      age: '',
+      height: "",
+      weight: "",
+      abdominalCircumference: "",
+      dietName: "mediterranean",
+      bmi: "",
+      // createdAtGregorian:"",
+      // createdAtJalali: ""
     },
     validationSchema: mediterraneanSchema,
-    onSubmit: async (data) => {
-      console.log(data);
+    onSubmit: async (values) => {
+      const formData = new FormData();
+      Object.entries(values).forEach(([key, value]) => {
+        if (Array.isArray(value)) {
+          value.forEach(val => formData.append(`${key}[]`, val));
+        } else if (value !== null && value !== undefined) {
+          formData.append(key, value.toString());
+        }
+      });
+      console.log(formData);
       try {
-        const response = await api.post('/uploader/upload/type?type=mediterranean', data, {
+        const response = await api.post('/uploader/upload/type?type=mediterranean', 
+        formData, {
           headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'multipart/form-data',
           },
         });
-
+        console.log(response);
         if (response.status === 200) {
-          toast.success('Form submitted successfully');
+          toast.success('رژیم با موفقیت ثبت شد');
         } else {
-          throw new Error('Form submission failed');
+          throw new Error('مشکلی به وجود آمد دوباره تلاش کنید');
         }
       } catch (error) {
         console.error('Error submitting form', error);

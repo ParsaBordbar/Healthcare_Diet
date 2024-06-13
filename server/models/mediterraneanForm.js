@@ -117,27 +117,26 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     fermentationWeekly:{
         type: String,
         required: true,
-        enum: ['۱-۲ بار', '۴-۳ بار','هر روز', 'هیچ']  
+        enum: ['۱-۲ بار', '۳-۴ بار','هر روز', 'هیچ']  
     },
     supplements: { 
-        type: String,
+        type: [String],
         required: true,
-        selected: [String]
     },
     physicalActivity: {
         type: String,
         required: true,
-        enum: ['۱-۲ بار', '۴-۳ بار','هر روز', 'هیچ']  
+        enum: ['۱ تا ۲ روز', '۳-۴ روز','هر روز', 'هیچ']  
     },
     diabetes: {
         type: String,
         required: true,
-        enum: ['۱دیابت', 'دیابت۲','دیابت بارداری']  
+        enum: ['دیابت نوع ۱', 'دیابت نوع ۲','دیابت بارداری']  
     },
     bloodPressure: {
         type: String,
         required: true,
-        enum: ['بالا بودن فشار خون', 'پایین بودن فشارخون']
+        enum: ['بالا بودن فشار خون', 'پایین بودن فشار خون']
     },
     digestiveProblems: {
         type: String,
@@ -190,11 +189,9 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     files: [fileSchema],
     createdAtGregorian: {
         type: Date,
-        // default: Date.now,
       },
       createdAtJalali: {
         type: String,
-        // default: () => momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
       },
       dietBmi: bmiSchema,
       isChecked: {
@@ -222,7 +219,7 @@ const validateMediterranean = (mediterraneanForm) => {
         sugarWeekly: Joi.string().required(),
         alcoholWeekly: Joi.string().required(),
         fermentationWeekly: Joi.string().required(),
-        supplements: Joi.string().required(),
+        supplements: Joi.array().items(Joi.string().required()),
         physicalActivity: Joi.string().required(),
         diabetes: Joi.string().required(),
         // anemia: Joi.string().required(),
@@ -260,15 +257,15 @@ const validateMediterranean = (mediterraneanForm) => {
             abdominalCircumference: Joi.number().required().messages({
                 'any.required': `دور شکم را وارد کنید`
             }),
-            payment:Joi.object({originalName: Joi.string().required(),
-                filename: Joi.string().required(),
-                path: Joi.string().required(),
-                size: Joi.number().required(),
-                mimetype: Joi.string().required()
-            }),
             dietName: Joi.string().required(),
-            isChecked: Joi.boolean(),
-        })
+        }),
+        payment:Joi.object({originalName: Joi.string().required(),
+            filename: Joi.string().required(),
+            path: Joi.string().required(),
+            size: Joi.number().required(),
+            mimetype: Joi.string().required()
+        }),
+        isChecked: Joi.boolean(),
     })
     return schema.validate(mediterraneanForm);
 }
