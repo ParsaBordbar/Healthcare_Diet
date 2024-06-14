@@ -691,7 +691,7 @@ const MediterranealForm = () => {
         ) : null}
       </div>
 
-      {/* <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4">
         <h1>چه مکمل هایی مصرف می کنید؟ </h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
@@ -766,7 +766,7 @@ const MediterranealForm = () => {
         {errors.supplements ? (
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
-      </div> */}
+      </div>
 
       <div className="flex flex-col gap-4">
         <h1> میزان فعالیت بدنی در هفته ؟ </h1>
