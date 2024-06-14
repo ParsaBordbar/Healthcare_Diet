@@ -190,11 +190,11 @@ const MediterranealForm = () => {
           />
           <GroupRadio
             name="potatoAndStarchWeekly"
-            checked={values.potatoAndStarchWeekly === "۲-۳ بار"}
+            checked={values.potatoAndStarchWeekly === "۳-۴ بار"}
             onChange={handleChange}
             header={false}
             type="radio"
-            value={"۲-۳ بار"}
+            value={"۳-۴ بار"}
           />
           <GroupRadio
             name="potatoAndStarchWeekly"
@@ -882,7 +882,7 @@ const MediterranealForm = () => {
             </option>
             <option
               selected={values.digestiveProblems === "ریفالکس)ترش کردن)"}
-              value="ریفالکس)ترش کردن)"
+              value="ریفلاکس"
             >
               ریفالکس{"(ترش کردن)"}
             </option>
@@ -1124,15 +1124,12 @@ const MediterranealForm = () => {
               placeholder="وزن خود را اینجا وارد کنید"
               label="وزن"
             />
-            <section className="col-span-1 flex flex-col gap-1">
-             
-            </section>
             <MainInput
               name="abdominalCircumference"
               onChange={handleChange}
               parentClassName="[&>label]:text-base"
-              placeholder="اندازه ی دور کمر خود را اینجا وارد کنید"
-              label="اندازه ی دور کمر"
+              placeholder="اندازه ی دور شکم خود را اینجا وارد کنید"
+              label="اندازه ی دور شکم"
             />
           </div>
         </section>
@@ -1141,7 +1138,7 @@ const MediterranealForm = () => {
         errors.height ||
         errors.weight ||
         errors.abdominalCircumference ? (
-          <p className="text-red-600">جواب دادن به سوالات بالا الزامی است</p>
+          <p className="text-red-600">{errors?.age || errors.height || errors.weight || errors.abdominalCircumference}</p>
         ) : null}
 
         <section className="flex flex-col gap-6 mt-4">
