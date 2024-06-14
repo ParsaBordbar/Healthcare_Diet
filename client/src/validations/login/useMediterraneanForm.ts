@@ -53,8 +53,8 @@ const useMediterraneanForm = () => {
     .required("قد الزامی است"),
   weight: yup.number().min(30, "حداقل وزن سی میاشد").max(600, "حداکثر وزن ششصد میباشد").required("وزن الزامی است"),
     abdominalCircumference: yup.number().required("اندازه ی دور کمر الزامی است"),
-  dietName: yup.string().required(),
-  bmi: yup.number().required(),
+  dietName: yup.string(),
+  bmi: yup.number(),
   
   });
 
@@ -135,3 +135,4 @@ const useMediterraneanForm = () => {
 };
 
 export default useMediterraneanForm;
+// "mediterranean_form validation failed: potatoAndStarchWeekly: `۲-۳ بار` is not a valid enum value for path `potatoAndStarchWeekly`."
