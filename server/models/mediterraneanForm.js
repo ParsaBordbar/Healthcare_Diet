@@ -61,7 +61,7 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     potatoAndStarchWeekly: {
         type: String,
         required: true,
-        enum: ['۱-۲ بار', '۲-۳ بار', 'هر روز' , 'هیچ']
+        enum: ['۱-۲ بار', '۳-۴ بار', 'هر روز' , 'هیچ']
     }
     ,
     oliveAndOliveOilDaily: {
@@ -87,7 +87,7 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     eggWeekly: {
         type: String,
         required: true,
-        enum: ['۱-۲ بار', '۴-۳ بار','هر روز', 'هیچ']  
+        enum: ['۱-۲ بار', '۳-۴ بار','هر روز', 'هیچ']  
     },
     fishWeekly: {
         type: String,
@@ -131,17 +131,17 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     diabetes: {
         type: String,
         required: true,
-        enum: ['دیابت نوع ۱', 'دیابت نوع ۲','دیابت بارداری']  
+        enum: ['دیابت نوع ۱', 'دیابت نوع ۲','دیابت بارداری', "ندارم"]  
     },
     bloodPressure: {
         type: String,
         required: true,
-        enum: ['بالا بودن فشار خون', 'پایین بودن فشار خون']
+        enum: ['بالا بودن فشار خون', 'پایین بودن فشار خون', "ندارم"]
     },
     digestiveProblems: {
         type: String,
         required: true,
-        enum: ['ریفلاکس', 'نفخ', 'یبوست']
+        enum: ['ریفلاکس', 'نفخ', 'یبوست', "ندارم"]
     },
     selfSafety: {
         type: String, 
@@ -151,22 +151,22 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     stroke: {
         type: String,
         required: true,
-        enum: ['سکته قلبی', 'سکته مغزی']
+        enum: ['سکته قلبی', 'سکته مغزی',"ندارم"]
     },
     fattyLiver: {
         type: String,
         required: true,
-        enum: ['گرید۱', 'گرید۲', 'گرید۳']
+        enum: ['گرید۱', 'گرید۲', 'گرید۳',"ندارم"]
     },
     kidneyProblems: {
         type: String,
         required: true,
-        enum: ['سنگ کلیه', 'نارسایی کلیه', 'عفونت مجاری ادرار']
+        enum: ['سنگ کلیه', 'نارسایی کلیه', 'عفونت مجاری ادرار',"ندارم"]
     },
     thyroid: {
         type: String,
         required: true, 
-        enum: ['کم کار', 'پرکار', 'گره و التهاب تیروئید']
+        enum: ['کم کار', 'پرکار', 'گره و التهاب تیروئید',"ندارم"]
     },
     cancer: {
         type: Boolean
