@@ -198,11 +198,11 @@ const MediterranealForm = () => {
           />
           <GroupRadio
             name="potatoAndStarchWeekly"
-            checked={values.potatoAndStarchWeekly === "۳-۴ بار"}
+            checked={values.potatoAndStarchWeekly === "هر روز"}
             onChange={handleChange}
             header={false}
             type="radio"
-            value={"۳-۴ بار"}
+            value={"هر روز"}
           />
 
           <GroupRadio
@@ -244,11 +244,11 @@ const MediterranealForm = () => {
 
           <GroupRadio
             name="oliveAndOliveOilDaily"
-            checked={values.oliveAndOliveOilDaily === "۳ واحد یا بیشتر "}
+            checked={values.oliveAndOliveOilDaily === "۳ واحد یا بیشتر"}
             onChange={handleChange}
             header={false}
             type="radio"
-            value={"۳ واحد یا بیشتر "}
+            value={"۳ واحد یا بیشتر"}
           />
           <GroupRadio
             name="oliveAndOliveOilDaily"

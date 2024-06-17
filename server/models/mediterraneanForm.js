@@ -67,7 +67,7 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     oliveAndOliveOilDaily: {
         type: String,
         required: true,
-        enum: ['۱ واحد', '۲ واحد','۳ واحد یا بیشتر ', 'هیچ']    
+        enum: ['۱ واحد', '۲ واحد','۳ واحد یا بیشتر', 'هیچ']    
     },
     nutsDaily: {
         type: String,
@@ -146,7 +146,7 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     selfSafety: {
         type: String, 
         required: true,
-        selected: [String]
+        enum: ['آسم و آلرژی', 'ام اس', 'لوپوس', 'آرتریت روماتوئید', 'سایر بیماری های خودایمنی', 'ندارم']
     },
     stroke: {
         type: String,
