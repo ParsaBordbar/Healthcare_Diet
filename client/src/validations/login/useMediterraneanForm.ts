@@ -2,13 +2,19 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { toast } from 'react-toastify';
 import api from '@/apis';
-import { useState } from 'react';
+
+const getPhoneNumberFromUrl = (): string | null => {
+  if (typeof window !== 'undefined') {
+    const pathSegments = window.location.pathname.split('/');
+    const phoneNumberIndex = pathSegments.indexOf('user') + 1;
+    return pathSegments[phoneNumberIndex] || null;
+  }
+  return null;
+};
 
 const useMediterraneanForm = () => {
-
-  // const [selectedDocuments, setSelectedDocuments] = useState<File[]>([]);
-  // const [selectedPayments, setSelectedPayments] = useState<File[]>([]); 
-
+  const phoneNumber = getPhoneNumberFromUrl();
+  console.log(phoneNumber);
   const mediterraneanSchema = yup.object().shape({
     dailyFruit: yup.string().required("Please select an option."),
     dailyVegetable: yup.string().required("جواب به این سوال الزامی است"),
@@ -41,21 +47,12 @@ const useMediterraneanForm = () => {
     otherSickness: yup.string().required("جواب به این سوال الزامی است"),
     medicine: yup.string().required("جواب به این سوال الزامی است"),
     phoneNumber: yup.string().required(),
-    age: yup
-    .number()
-    .min(17, "حداقل سن هفده میباشد")
-    .max(60, "حداکثر سن شصت مبیاشد")
-    .required("سن الزامی است"),
-  height: yup
-    .number()
-    .min(130, "حداقل قد صد و سی میباشد")
-    .max(300, "حذاکثر قد سیصد میباشد")
-    .required("قد الزامی است"),
-  weight: yup.number().min(30, "حداقل وزن سی میاشد").max(600, "حداکثر وزن ششصد میباشد").required("وزن الزامی است"),
-    abdominalCircumference: yup.number().required("اندازه ی دور کمر الزامی است"),
-  dietName: yup.string(),
-  bmi: yup.number(),
-  
+    age: yup.number().min(17, "حداقل سن هفده میباشد").max(60, "حداکثر سن شصت مبیاشد").required("سن الزامی است"),
+    height: yup.number().min(130, "حداقل قد صد و سی میباشد").max(300, "حذاکثر قد سیصد میباشد").required("قد الزامی است"),
+    weight: yup.number().min(30, "حداقل وزن سی میاشد").max(600, "حداکثر وزن ششصد میباشد").required("وزن الزامی است"),
+    abdominalCircumference: yup.number().required("اندازه ی دور شکم الزامی است"),
+    dietName: yup.string(),
+    bmi: yup.number(),
   });
 
   const formik = useFormik({
@@ -90,42 +87,48 @@ const useMediterraneanForm = () => {
       Migraine: false,
       otherSickness: "",
       medicine: "",
-      phoneNumber: localStorage.getItem('user'),
+      phoneNumber: phoneNumber || '', // Use the phone number from the URL or an empty string
       age: '',
       height: "",
       weight: "",
       abdominalCircumference: "",
       dietName: "mediterranean",
       bmi: "",
-      // createdAtGregorian:"",
-      // createdAtJalali: ""
     },
     validationSchema: mediterraneanSchema,
     onSubmit: async (values) => {
       const formData = new FormData();
+      console.log('Initial FormData:', formData);
+
       Object.entries(values).forEach(([key, value]) => {
         if (Array.isArray(value)) {
-          value.forEach(val => formData.append(`${key}[]`, val));
+          value.forEach((val) => formData.append(`${key}[]`, val));
         } else if (value !== null && value !== undefined) {
           formData.append(key, value.toString());
         }
       });
-      console.log(formData);
+
+      for (let [key, value] of formData.entries()) {
+        console.log(key, value);
+      }
+
       try {
-        const response = await api.post('/uploader/upload/type?type=mediterranean', 
-        formData, {
+        const response = await api.post('/uploader/upload/type?type=mediterranean', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
         });
-        console.log(response);
+        console.log('Response:', response);
         if (response.status === 200) {
           toast.success('رژیم با موفقیت ثبت شد');
         } else {
           throw new Error('مشکلی به وجود آمد دوباره تلاش کنید');
         }
-      } catch (error) {
+      } catch (error:any) {
         console.error('Error submitting form', error);
+        if (error.response) { 
+          console.error('Server Response:', error.response);
+        }
         toast.error('Error submitting form');
       }
     },
@@ -135,4 +138,3 @@ const useMediterraneanForm = () => {
 };
 
 export default useMediterraneanForm;
-// "mediterranean_form validation failed: potatoAndStarchWeekly: `۲-۳ بار` is not a valid enum value for path `potatoAndStarchWeekly`."

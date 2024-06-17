@@ -1,7 +1,5 @@
 "use client";
-import * as yup from "yup";
 import MainInput from "../MainInput";
-import { useFormik } from "formik";
 import GroupRadio from "../GroupRadio";
 import MainButton from "../MainButton";
 import useMediterraneanForm from "@/validations/login/useMediterraneanForm";
@@ -10,7 +8,6 @@ const MediterranealForm = () => {
 
   const {
     errors,
-    touched,
     values,
     handleChange,
     handleSubmit,
@@ -695,8 +692,7 @@ const MediterranealForm = () => {
         <h1>چه مکمل هایی مصرف می کنید؟ </h1>
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
-            name="selectedOptionSeventeenOne"
-            checked={values.supplements.includes("ویتامین و مواد معدنی")}
+            // checked={values.supplements.includes("ویتامین و مواد معدنی")}
             onChange={handleChange}
             header={false}
             onClick={() => {
@@ -711,7 +707,7 @@ const MediterranealForm = () => {
           />
           <GroupRadio
             name="selectedOptionSeventeenTwo"
-            checked={values.supplements.includes("مکمل پروتئینی")}
+            // checked={values.supplements.includes("مکمل پروتئینی")}
             onChange={handleChange}
             onClick={() => {
               values.supplements.push("مکمل پروتئینی");
@@ -881,7 +877,7 @@ const MediterranealForm = () => {
               مشکلات گوارشی
             </option>
             <option
-              selected={values.digestiveProblems === "ریفالکس)ترش کردن)"}
+              selected={values.digestiveProblems === "ریفلاکس"}
               value="ریفلاکس"
             >
               ریفالکس{"(ترش کردن)"}
