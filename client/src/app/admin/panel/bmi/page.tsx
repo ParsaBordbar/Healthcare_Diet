@@ -22,7 +22,7 @@ function BmiPage() {
   return (
     <section className="grid lg:grid-cols-1 grid-cols-1 gap-10">
       <section className="flex mb-6 col-span-full items-center gap-2">
-        <DocumentIcon className="[&>path]:stroke-black [&>path]:stroke-2" />
+        <DocumentIcon className="[&>path]:stroke-black " />
         <h1 className="text-3xl">فرم‌های BMI:</h1>
       </section>
       <div className="grid grid-cols-10 gap-8 items-center">
@@ -38,7 +38,7 @@ function BmiPage() {
         </form>
         <div className="xl:col-span-5 col-span-full grid grid-cols-3 gap-8 items-center">
           <section className="flex col-span-full md:col-span-1 items-center gap-2">
-            <FilterIcon className="[&>path]:stroke-black [&>path]:stroke-2" />
+            <FilterIcon className="[&>path]:stroke-black " />
             <p className="w-fit text-base">فیلتر کردن براساس:</p>
           </section>
           <section className="col-span-full md:col-span-2 grid grid-cols-4 gap-4 w-full">

@@ -21,7 +21,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
   return (
     <div>
       <section className="flex items-center gap-2">
-        <DocumentIcon className="[&>path]:stroke-black [&>path]:stroke-2" />
+        <DocumentIcon className="[&>path]:stroke-black" />
         <h1 className="text-3xl">برنامه های شما</h1>
       </section>
       <main>
@@ -33,6 +33,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
               return (
                 <div>
                   <CommentBox
+                    _id={comment._id}
                     className="col-span-full"
                     sender={comment.sender}
                     body={comment.body}

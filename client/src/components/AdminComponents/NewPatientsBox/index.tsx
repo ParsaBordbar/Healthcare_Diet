@@ -8,7 +8,7 @@ function NewPatientsBox() {
   return (
     <section className="flex flex-col items-start rounded-2xl my-4">
       <section className="flex items-center mb-6 gap-2">
-        <PatientIcon className="[&>path]:stroke-black [&>path]:stroke-2" />
+        <PatientIcon className="[&>path]:stroke-black" />
         <h2 className="text-lg">جدیدترین بیمارها</h2>
       </section>
       <main className=" w-full justify-between flex gap-6 flex-col-reverse">

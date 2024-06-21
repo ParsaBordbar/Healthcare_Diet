@@ -36,7 +36,7 @@ const CommentsPage = () => {
         </form>
         <div className="lg:col-span-2 col-span-full grid grid-cols-3 gap-8 items-center">
           <section className="flex col-span-full md:col-span-1 items-center gap-2">
-            <FilterIcon className='[&>path]:stroke-black [&>path]:stroke-2'/>
+            <FilterIcon className="[&>path]:stroke-black" />
             <p className=" w-fit text-base ">فیلتر کردن براساس:</p>
           </section>
           <section className=" col-span-full md:col-span-2 grid grid-cols-2 gap-8 w-full">
@@ -59,9 +59,10 @@ const CommentsPage = () => {
       <main className="grid grid-cols-2 gap-8">
         {filter
           ? filter.map((data): React.ReactNode => {
-            console.log(data)
+              console.log(data);
               return (
                 <CommentBox
+                  _id={data._id}
                   className="sm:!col-span-1"
                   key={data._id}
                   sender={data.sender}

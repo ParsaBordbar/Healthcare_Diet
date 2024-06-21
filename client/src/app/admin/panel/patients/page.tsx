@@ -23,7 +23,7 @@ const PatientsPage = () => {
     return(
         <section className="grid gap-6 grid-cols-2"> 
         <section className="mb-3 col-span-full flex items-center gap-2">
-            <PatientIcon className='[&>path]:stroke-black [&>path]:stroke-2'/>
+            <PatientIcon className='[&>path]:stroke-black '/>
             <h1 className=" text-3xl">بیمارها:</h1>
         </section>
         <div className="grid grid-cols-10 gap-8 items-center col-span-full">
@@ -37,9 +37,9 @@ const PatientsPage = () => {
             onChange={handleChange}
           />
         </form>
-        <div className="xl:col-span-5 col-span-full grid grid-cols-3 gap-8 items-center">
+        <div className="xl:col-span-5 col-span-full grid grid-cols-3 items-center">
           <section className="flex col-span-full md:col-span-1 items-center gap-2">
-            <FilterIcon className="[&>path]:stroke-black [&>path]:stroke-2" />
+            <FilterIcon className="[&>path]:stroke-black" />
             <p className="w-fit text-base">فیلتر کردن براساس:</p>
           </section>
           <section className="col-span-full md:col-span-2 grid grid-cols-4 gap-4 w-full">

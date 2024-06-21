@@ -12,8 +12,7 @@ export const metadata: Metadata = {
 };
 
 const yekanBakh = customFont({
-  src: [{path:'./../../public/fonts/YekanBakh-Regular.ttf'},
-  {path: './../../public/fonts/YekanBakh-Bold.ttf'}],
+  src: [{path:'./../../public/fonts/YekanBakh-Regular.ttf'}]
 })
 
 const inter = Inter({

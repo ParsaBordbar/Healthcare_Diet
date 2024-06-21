@@ -9,7 +9,7 @@ function UnvisitedDiets() {
   return (
     <main>
       <section className="flex items-center gap-2 mb-6">
-        <DocumentIcon className="[&>path]:stroke-black [&>path]:stroke-2" />
+        <DocumentIcon className="[&>path]:stroke-black " />
         <h1 className="text-3xl ">فرم‌های رژیم مدیترانه‌ای:</h1>
       </section>
       {mediterraneanForms.map((form) => {

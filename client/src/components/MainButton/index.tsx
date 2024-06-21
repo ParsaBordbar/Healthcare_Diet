@@ -26,7 +26,7 @@ const MainButton = (props: TButton) => {
     } else if (props.gradient) {
       return "gradient-third-green";
     } else if (props.modern) {
-      return `bg-[var(--orange)] hover:bg-[var(--new-green)] transition-all ease-in-out duration-200`;
+      return `bg-[var(--orange)] hover:bg-[var(--new-green)] !text-white transition-all ease-in-out duration-200`;
     }
   }, []);
   const checkIcon = useCallback(() => {
