@@ -1,9 +1,10 @@
-"use client";;
+"use client";
 import { useCallback, useMemo, useState } from "react";
 import Styles from "./navbar.module.scss";
 import { motion } from "framer-motion";
 import LogoSvg from "/public/svg/Logo.svg";
 import Link from "next/link";
+import SideBarBanner from "/public/svg/sideBarBanner.svg";
 
 type THamMenu = {
   logo?: boolean;
@@ -56,7 +57,12 @@ const HamburgerNavbar = (props: THamMenu) => {
     return ValueArray.map((Links) => {
       if (!Links.value || !Links.link) return;
       return (
-        <Link className="group" href={Links.link} key={Links.value}>
+        <Link
+          className="group"
+          href={Links.link}
+          onClick={() => toggleBurgerMenu()}
+          key={Links.value}
+        >
           <motion.li className="!p-0" variants={listItemVariants}>
             <p className="group-hover:text-[var(--new-green)]">{Links.value}</p>
           </motion.li>
@@ -98,13 +104,17 @@ const HamburgerNavbar = (props: THamMenu) => {
   };
 
   return (
-    <div className="lg:hidden shadow-lg">
+    <div className="lg:hidden  shadow-lg">
       <div
-        className={` ${Styles.navbar} z-50  ${
+        className={`  h-screen fixed  ${Styles.navbar} z-50  ${
           burgerMenuActive ? Styles.active : ""
         }`}
       >
-        <div className={`${Styles.navigation} bg-[var(--primary)] ${props.className}`}>
+        <div
+          className={`${Styles.navigation}  ${
+            burgerMenuActive && ` !bg-[var(--milky-white)]` 
+          } ${props.className}`}
+        >
           <div
             className={Styles.burgerMenuContainer}
             onClick={() => toggleBurgerMenu()}
@@ -114,13 +124,14 @@ const HamburgerNavbar = (props: THamMenu) => {
           </div>
           {OptionGenerate}
         </div>
-        <div className={Styles.content}>
+        <div className={Styles.content + ''}>
           <motion.ul
-          className="flex flex-col gap-6"
+            className="flex  gap-6"
             animate={burgerMenuActive ? "open" : "closed"}
             variants={motionVariants}
           >
-            {LinkGenerate()}
+            <SideBarBanner className="h-[300px] rounded-2xl" width={40} />
+            <div className="flex flex-col gap-6">{LinkGenerate()}</div>
           </motion.ul>
         </div>
       </div>
