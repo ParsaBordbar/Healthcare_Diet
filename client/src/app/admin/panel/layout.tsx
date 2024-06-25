@@ -16,7 +16,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
     <>
       <div className=" flex justify-end w-full top-0 z-40">
         <HamburgerNavbar
-          className="!bg-white !fixed !right-0 !py-6 !px-6 md:!hidden !w-full !inline-block"
+          className="!bg-transparent !fixed !right-0 !py-6 !px-6 md:!hidden !w-fit !inline-block"
           valueOne="خانه"
           valueTwo="پنل اصلی"
           linkOne={"/"}
