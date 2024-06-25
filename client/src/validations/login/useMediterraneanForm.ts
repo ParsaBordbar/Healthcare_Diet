@@ -46,7 +46,7 @@ const useMediterraneanForm = () => {
     Migraine: yup.string(),
     otherSickness: yup.string().required("جواب به این سوال الزامی است"),
     medicine: yup.string().required("جواب به این سوال الزامی است"),
-    phoneNumber: yup.string()
+    phoneNumber: yup.string(),
     age: yup.number().min(17, "حداقل سن هفده میباشد").max(60, "حداکثر سن شصت مبیاشد").required("سن الزامی است"),
     height: yup.number().min(130, "حداقل قد صد و سی میباشد").max(300, "حذاکثر قد سیصد میباشد").required("قد الزامی است"),
     weight: yup.number().min(30, "حداقل وزن سی میاشد").max(600, "حداکثر وزن ششصد میباشد").required("وزن الزامی است"),
