@@ -58,21 +58,22 @@ export type AdminDataType = {
   password: string;
 };
 
-export type MediterranealDataType = { //??????
+export type MediterranealDataType = {
+  //??????
   questionOne: string;
 };
 
 export interface BmiType {
+  height?: number;
+  weight?: number;
+  bmi?: number;
+  linkTo?: string;
+  abdominalCircumference?: number;
   name?: string;
   lastName?: string;
   phoneNumber?: string;
   gender?: string;
   age?: string;
-  height?: string;
-  weight?: string;
-  bmi?: string;
-  linkTo?: string;
-  abdominalCircumference?: string;
   joinedAtGregorian?: string;
   joinedAtJalali?: string;
 }
@@ -124,8 +125,8 @@ export interface MediterraneanFormType {
     bmi?: number;
     linkTo?: string;
     abdominalCircumference?: number;
-  },
-  payment?:FileType,
+  };
+  payment?: FileType;
   _id: string;
 }
 
@@ -145,7 +146,7 @@ export interface CommentType {
   createdAtJalali?: string;
   isDoctor?: boolean;
   files?: FileType[];
-  _id: string
+  _id: string;
 }
 
 export interface QuickLinkBoxType {
