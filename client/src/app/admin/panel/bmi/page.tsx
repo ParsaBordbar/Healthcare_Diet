@@ -36,7 +36,7 @@ function BmiPage() {
             onChange={handleChange}
           />
         </form>
-        <div className="xl:col-span-5 col-span-full grid grid-cols-3 gap-8 items-center">
+        <div className="xl:col-span-5 col-span-full grid grid-cols-3 items-center">
           <section className="flex col-span-full md:col-span-1 items-center gap-2">
             <FilterIcon className="[&>path]:stroke-black " />
             <p className="w-fit text-base">فیلتر کردن براساس:</p>
