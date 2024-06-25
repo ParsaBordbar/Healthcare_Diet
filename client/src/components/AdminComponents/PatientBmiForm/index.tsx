@@ -20,15 +20,15 @@ function PatientBmiForm({
       <div className="flex flex-col 2xl:flex-row justify-between text-[var(--text)] mt-3 items-start gap-4 2xl:gap-0 2xl:items-center ">
         <Link
           href={`/admin/panel/patients/${phoneNumber}`}
-          className="flex items-center bg-[var(--new-green)] text-white text-3xl font-semibold rounded-e-full overflow-hidden whitespace-nowrap text-ellipsis ps-6 pe-10 w-fit py-3"
+          className="flex items-center bg-[var(--new-green)] text-white text-2xl font-semibold rounded-e-full overflow-hidden whitespace-nowrap text-ellipsis ps-6 pe-10 w-fit py-3"
         >
           {name} {lastName}
         </Link>
         <section className="flex flex-col gap-2 items-end">
-          <p className="text-[var(--new-green)] text-lg font-semibold w-fit ">
+          <p className="text-[var(--new-green)] text-lg w-fit ">
             BMI: {bmi}
           </p>
-          <p className="text-[var(--new-green)] text-lg font-semibold w-fit ">
+          <p className="text-[var(--new-green)] text-lg w-fit ">
             تاریخ ثبت: {joinedAtJalali}
           </p>
         </section>
