@@ -10,14 +10,14 @@ function DietBmi({
     abdominalCircumference,
   }: BmiType) {
   return (
-        <div className="grid grid-cols-5 gap-16">
-            <p className='col-span-1'>قد: {height}</p>
-            <p className='col-span-1'>وزن: {weight}</p>
-            <p className='col-span-1'>سن: {age}</p>
-            <p className='col-span-1'>دور شکم: {abdominalCircumference}</p>
-            <p className="col-span-1 text-[var(--new-green)] text-lg w-fit ">
+        <div className="grid grid-cols-4 pr-6 gap-4">
+            <p className="min-[1000px]:col-span-3 justify-center col-span-full text-[var(--new-green)] w-fit ">
             BMI: {bmi}
             </p>
+            <p className='min-[1000px]:col-span-3 text-base col-span-2'>سن: {age}</p>
+            <p className='min-[1000px]:col-span-3 text-base col-span-2'>قد: {height}</p>
+            <p className='min-[1000px]:col-span-3 text-base col-span-2'>وزن: {weight}</p>
+            <p className='min-[1000px]:col-span-3 text-base col-span-2'>دور شکم: {abdominalCircumference}</p>
         </div>
   )
 }
