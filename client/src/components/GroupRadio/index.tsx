@@ -8,7 +8,7 @@ const GroupRadio = (props: TGroupRadio) => {
   return (
 
 
-    <label>
+    <label className={props.className}>
       <input {...props} />
       {props.value}
     </label>
