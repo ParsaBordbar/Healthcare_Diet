@@ -1044,6 +1044,7 @@ const MediterranealForm = () => {
 
           <GroupRadio
             name="cancer"
+            className="col-span-3 lg:col-span-1"
             checked={values.cancer? values.cancer = true: false }
             onChange={handleChange}
             header={false}
@@ -1052,6 +1053,7 @@ const MediterranealForm = () => {
           />
           <GroupRadio
             name="Migraine"
+            className="col-span-3 lg:col-span-1"
             checked={values.Migraine? values.Migraine = true: false }
             onChange={handleChange}
             header={false}
@@ -1061,21 +1063,21 @@ const MediterranealForm = () => {
 
           <MainInput
             name="otherSickness"
-            parentClassName="col-span-2 [&>label]:text-base"
+            parentClassName="col-span-full lg:col-span-3 [&>label]:text-base"
             onChange={handleChange}
             type="text"
             label="سایر بیماری ها یا جراحی قبلی را اینجا بنویسید "
           />
           <MainInput
             name="medicine"
-            parentClassName="col-span-2 [&>label]:text-base"
+            parentClassName="col-span-full lg:col-span-3 [&>label]:text-base"
             onChange={handleChange}
             type="text"
             label="چنانچه دارویی مصرف می کنید نام آن را ذکر کنید"
           />
           <MainInput
             name="files"
-            parentClassName="col-span-2 [&>label]:text-base"
+            parentClassName="col-span-full [&>label]:text-base"
             onChange={handleChange}
             type="file"
             label="آخرین آزمایشات ارسال شود "
@@ -1102,30 +1104,30 @@ const MediterranealForm = () => {
             <MainInput
               name="age"
               onChange={handleChange}
-              parentClassName="[&>label]:text-base"
+              parentClassName="[&>label]:text-base lg:col-span-1  col-span-2"
               placeholder="سن خود را اینجا وارد کنید"
               label="سن"
             />
             <MainInput
               name="height"
               onChange={handleChange}
-              parentClassName="[&>label]:text-base"
+              parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
               placeholder="قد خود را اینجا وارد کنید"
               label="قد"
             />
             <MainInput
               name="weight"
               onChange={handleChange}
-              parentClassName="[&>label]:text-base"
+              parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
               placeholder="وزن خود را اینجا وارد کنید"
               label="وزن"
             />
             <MainInput
               name="abdominalCircumference"
               onChange={handleChange}
-              parentClassName="[&>label]:text-base"
-              placeholder="اندازه ی دور شکم خود را اینجا وارد کنید"
-              label="اندازه ی دور شکم"
+              parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+              placeholder="دور شکم خود را اینجا وارد کنید"
+              label="دور شکم"
             />
           </div>
         </section>
@@ -1145,7 +1147,7 @@ const MediterranealForm = () => {
             <MainInput
               onChange={handleChange}
               name="payment"
-              parentClassName="[&>label]:text-base"
+              parentClassName="col-span-full [&>label]:text-base"
               type="file"
               label="فایل رسید پرداختی"
             />
