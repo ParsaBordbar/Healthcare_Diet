@@ -234,7 +234,7 @@ const MediterraneanForm = ({
             </li>
           </ul>
         </li>
-        <div className="pe-8 py-2 flex justify-start flex-col">
+        <div className="pe-6 py-2 flex justify-start flex-col">
           <div className="flex flex-row">
             <h4 className="text-2xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4">فرم BMI:</h4>
           </div>
