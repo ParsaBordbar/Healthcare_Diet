@@ -36,7 +36,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
         />
         <div className="fixed hidden pb-6 px-2  top-0 right-0 h-screen bg-[var(--soft-blue)]  md:flex w-[25%] lg:w-[20%]">
         <Image
-            src={"/svg/fff.svg"}
+            src={"/svg/sideBarBanner.svg"}
             width={80}
             height={1}
             layout="fixed"
