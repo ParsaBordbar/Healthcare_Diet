@@ -1,15 +1,12 @@
 "use Client";
 import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
-import useUpdateIsChecked from "@/hooks/useUpdateIsChecked";
 import { FileType, MediterraneanFormType } from "@/types";
-import { useState } from "react";
 import Tick from "/public/svg/adminPanelSvgs/check_ring_round.svg";
 import Cross from "/public/svg/adminPanelSvgs/close_ring_fill.svg";
 import AttachmentIcon from "/public/svg/adminPanelSvgs/attachment-svgrepo-com.svg";
 import DateSvg from "/public/svg/adminPanelSvgs/calendar.svg";
 import PatientPageIcon from '/public/svg/User.svg'
 import Link from "next/link";
-import PatientCard from "../PatientCard";
 import DietBmi from "../DietBmi";
 import useCheckedState from "@/hooks/useChecked/useChecked";
 
