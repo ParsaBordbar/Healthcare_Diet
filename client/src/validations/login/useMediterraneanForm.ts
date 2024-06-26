@@ -2,6 +2,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { toast } from 'react-toastify';
 import api from '@/apis';
+import { useState } from 'react';
 
 const getPhoneNumberFromUrl = (): string | null => {
   if (typeof window !== 'undefined') {
@@ -13,8 +14,16 @@ const getPhoneNumberFromUrl = (): string | null => {
 };
 
 const useMediterraneanForm = () => {
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setSelectedFiles(Array.from(e.target.files));
+    }
+  };
+
   const phoneNumber = getPhoneNumberFromUrl();
-  console.log(phoneNumber);
+
   const mediterraneanSchema = yup.object().shape({
     dailyFruit: yup.string().required("Please select an option."),
     dailyVegetable: yup.string().required("جواب به این سوال الزامی است"),
@@ -87,7 +96,7 @@ const useMediterraneanForm = () => {
       Migraine: false,
       otherSickness: "",
       medicine: "",
-      phoneNumber: phoneNumber || '', // Use the phone number from the URL or an empty string
+      phoneNumber: phoneNumber || '', 
       age: '',
       height: "",
       weight: "",
@@ -98,7 +107,6 @@ const useMediterraneanForm = () => {
     validationSchema: mediterraneanSchema,
     onSubmit: async (values) => {
       const formData = new FormData();
-      console.log('Initial FormData:', formData);
 
       Object.entries(values).forEach(([key, value]) => {
         if (Array.isArray(value)) {
@@ -108,9 +116,9 @@ const useMediterraneanForm = () => {
         }
       });
 
-      for (let [key, value] of formData.entries()) {
-        console.log(key, value);
-      }
+      selectedFiles.forEach((file) => {
+        formData.append('files', file);
+      });
 
       try {
         const response = await api.post('/uploader/upload/type?type=mediterranean', formData, {
@@ -118,7 +126,7 @@ const useMediterraneanForm = () => {
             'Content-Type': 'multipart/form-data',
           },
         });
-        console.log('Response:', response);
+
         if (response.status === 200) {
           toast.success('رژیم با موفقیت ثبت شد');
         } else {
@@ -134,7 +142,10 @@ const useMediterraneanForm = () => {
     },
   });
 
-  return formik;
+  return {
+    ...formik,
+    handleFileChange, 
+  };
 };
 
 export default useMediterraneanForm;
