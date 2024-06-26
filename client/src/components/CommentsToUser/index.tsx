@@ -15,12 +15,12 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
           <h1>جدیدترین پیام های دریافتی شما</h1>
         </section>
             {comments? comments.slice(-3).map((data): React.ReactNode => {
-              return <CommentBox className=' min-[1320px]:w-[96%] w-11/12' _id="" key={data.receiver} sender={data.sender}body={data.body} receiver={data.receiver} createdAtJalali={data.createdAtJalali} isDoctor={true}/>
+              return <CommentBox className=' min-[1320px]:w-[96%] w-11/12' _id="" key={data.receiver} sender={data.sender}body={data.body} receiver={data.receiver} createdAtJalali={data.createdAtJalali} isDoctor={false}/>
               }): <h2>پیامی ندارید</h2>
             }
       </div>
       <Link
-        className="mt-2 text-[var(--soft-blue)] text-lg"
+        className="mt-2 text-[var(--secondary-blue)] text-lg"
         href={`/user/${userID}/panel/massege`}
       >
         دیدن همه ی پیام ها
