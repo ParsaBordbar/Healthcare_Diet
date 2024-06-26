@@ -1048,7 +1048,7 @@ const MediterranealForm = () => {
             checked={values.cancer? values.cancer = true: false }
             onChange={handleChange}
             header={false}
-            type="radio"
+            type="checkbox"
             value={"سرطان"}
           />
           <GroupRadio
@@ -1057,7 +1057,7 @@ const MediterranealForm = () => {
             checked={values.Migraine? values.Migraine = true: false }
             onChange={handleChange}
             header={false}
-            type="radio"
+            type="checkbox"
             value={"میگرن"}
           />
 
