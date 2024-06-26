@@ -18,8 +18,7 @@ const MassegesFromUser = ({ params }: { params: { user: string } }) => {
               body={comment.body}
               files={comment.files}
               receiver={comment.receiver}
-              createdAtJalali={comment.createdAtJalali}
-            />
+              createdAtJalali={comment.createdAtJalali} _id={""}/>
           );
         })
       ) : (

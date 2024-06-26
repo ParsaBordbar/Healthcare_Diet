@@ -13,7 +13,6 @@ const UserPanel: FC<UserPanelProps> = ({ params }) => {
   return (
     <>
       <CommentsToUser userID={userID} />
-      <CommentsToUser userID={userID} />
     </>
   );
 };
