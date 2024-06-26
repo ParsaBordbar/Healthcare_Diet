@@ -73,7 +73,7 @@ export interface BmiType {
   lastName?: string;
   phoneNumber?: string;
   gender?: string;
-  age?: string;
+  age?: number;
   joinedAtGregorian?: string;
   joinedAtJalali?: string;
 }
@@ -123,6 +123,7 @@ export interface MediterraneanFormType {
     height?: number;
     weight?: number;
     bmi?: number;
+    age:number;
     linkTo?: string;
     abdominalCircumference?: number;
   };
@@ -141,7 +142,7 @@ export interface CommentType {
   className?: string;
   sender: string;
   body: string;
-  receiver: string;
+  receiver?: string;
   createdAtGregorian?: string;
   createdAtJalali?: string;
   isDoctor?: boolean;
