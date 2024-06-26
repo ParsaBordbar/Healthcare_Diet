@@ -7,11 +7,12 @@ const MassegesFromUser = ({ params }: { params: { user: string } }) => {
   const comments = useFetchPatientComments(userID);
 
   return (
-    <main className="col-span-full gap-8 grid grid-cols-2 ">
+    <main className="col-span-full gap-8 grid ">
       {comments.length > 0 ? (
         comments.map((comment) => {
           return (
             <CommentBox
+              _id=""
               className="md:col-span-1 col-span-full"
               key={comment.createdAtJalali}
               sender={comment.sender}
