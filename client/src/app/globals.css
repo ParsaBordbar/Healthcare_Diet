@@ -17,8 +17,8 @@
   --bg-footer-color: rgb(190, 235, 194);
   /* New color Palet */
   --orange: #ffa301;
-  --secondary-blue: #332FDC;
-  --new-green: #332FDC;
+  --secondary-blue: #332fdc;
+  --new-green: #332fdc;
   --soft-blue: #eef7f8;
   --milky-white: #eef7f8;
 }
@@ -54,8 +54,8 @@ body {
   }
 }
 
-input[type='radio']{
-  accent-color: var(--new-green); 
+input[type="radio"] {
+  accent-color: var(--new-green);
 }
 
 .shadow-button-orange {
@@ -136,4 +136,15 @@ input[type="number"] {
 .custom-scroll::-webkit-scrollbar-thumb {
   background: var(--new-green);
   border-radius: 8px;
+}
+
+.bg-glass {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(7.8px);
+}
+
+li{
+  list-style: none;
 }
