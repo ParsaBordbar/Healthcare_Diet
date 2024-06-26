@@ -1,77 +1,40 @@
 "use client";
-import CommentBox from "@/components/AdminComponents/CommentBox";
-import useFetchPatientComments from "@/hooks/useFetchPatientComments/useFetchPatientComments";
-import { FC, memo } from "react";
-import MassegeIcon from "/public/svg/adminPanelSvgs/messages.svg";
 import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
-import FemaleAvatar from "/public/svg/adminPanelSvgs/Group 107.svg";
 import MaleAvatar from "/public/svg/adminPanelSvgs/Group 108.svg";
 import PhoneNumber from "/public/svg/phone.svg";
-import QuickLinkBox from "@/components/AdminComponents/QuickLinkBox";
-import ReplyBox from "@/components/AdminComponents/ReplyBox";
-import MainInput from "@/components/MainInput";
-import MainButton from "@/components/MainButton";
-import SendMassege from "/public/svg/adminPanelSvgs/send.svg";
 
-const WelcomeUser = ({ userID }: { userID: string }) => {
+
+const UserInfo = ({ userID }: { userID: string }) => {
   const patients = useSpecificFetchBmi(userID);
   return (
     <>
-      <div className="col-span-full bg-[var(--milky-white)] shadow-md flex items-center gap-4 p-4 rounded-lg">
-        <MaleAvatar />
-        <section className="flex items-center justify-between w-full">
-          <div className="flex flex-col gap-2">
-            <h1 className="text-2xl">
+      <div className="col-span-full bg-[var(--secondary-blue)] shadow-md flex flex-col justify-center items-center gap-4 py-16 p-4 rounded-lg">
+        <MaleAvatar className=""/>
+        <section className="flex items-center flex-col w-full  text-white font-bold">
+          <div className="flex flex-col justify-center  gap-2">
+            <h1 className="text-4xl">
               {patients?.name + " " + patients?.lastName}
             </h1>
-            <section className="flex items-center">
-              <PhoneNumber className="[&>path]:stroke-[var(--new-green)]" />
-              <p className="text-[var(--new-green)]">{patients?.phoneNumber}</p>
+            <section className="flex items-center justify-center">
+              <PhoneNumber className="[&>path]:stroke-white " />
+              <p className="text-white">شماره تماس:{patients?.phoneNumber}</p>
             </section>
           </div>
-          <section className="flex items-center gap-2 flex-col ">
-            <p className="text-[var(--new-green)]">BMI: {patients?.bmi}</p>
-            <div className="grid grid-cols-2 place-items-center gap-2">
-              <p className="text-black col-span-1">سن : {patients?.age}</p>
-              <p className="text-black col-span-1">قد : {patients?.height}</p>
-              <p className="text-black col-span-1">وزن : {patients?.weight}</p>
-              <p className="text-black col-span-1">
-                دور کمر : {patients?.abdominalCircumference}
-              </p>
-              <p className="text-black col-span-2">
-                جنسیت : {patients?.gender}
-              </p>
+          <section className="flex items-center gap-5 flex-col">
+            <h3 className="mt-3 text-lg">مشخصات شما:</h3>
+            <div className="grid grid-cols-2 place-items-center gap-3">
+              <p className="text-white col-span-1">سن : {patients?.age}</p>
+              <p className="text-white col-span-1">قد : {patients?.height}</p>
+              <p className="text-white col-span-1">وزن : {patients?.weight}</p>
+              <p className="text-white col-span-1">دور شکم : {patients?.abdominalCircumference}</p>
+              <p className="text-white col-span-1">تاریخ شروع : {patients?.joinedAtJalali}</p>
+              <p className="text-white col-span-1"> BMI اولیه : {patients?.bmi}</p>
             </div>
           </section>
         </section>
       </div>
-      {/* <div className="col-span-4 flex flex-col gap-2">
-        <h1>ارسال پیام جدید</h1>
-        <form action="" className="grid grid-cols-5 gap-2">
-          <MainInput
-            parentClassName="col-span-3"
-            placeholder="پبام خود را اینجا وارد کنید..."
-          />
-          <textarea name="" id="" className="col-span-3 focus:outline-[var(--orange)] resize-none border rounded-md p-2" rows={5} placeholder="پیام خود را اینجا وارد کنید" ></textarea>
-          <section className="gap-4  col-span-2 grid grid-cols-1">
-            <select
-              name="reciver"
-              className={`col-span-1 rounded-lg outline-none py-3 px-4 border flex items-center gap-1  bg-white `}
-            >
-              <option value="null">ارسال به...</option>
-              <option value="admin">admin</option>
-            </select>
-            <MainButton
-              iconSrc={SendMassege}
-              modern
-              className="col-span-1 flex items-center justify-center py-2.5 !text-white"
-              value={"ارسال پیام"}
-            />
-          </section>
-        </form>
-      </div> */}
     </>
   );
 };
 
-export default WelcomeUser;
+export default UserInfo;
