@@ -14,25 +14,10 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
           <CommentIcon className="[&>path]:stroke-black" />
           <h1>جدیدترین پیام های دریافتی شما</h1>
         </section>
-        {comments.length > 0 ? (
-          comments.map((comment, index) => {
-            if (index > 3) return;
-            return (
-              <CommentBox
-                className="col-span-full"
-                key={comment.createdAtJalali}
-                sender={comment.sender}
-                body={comment.body}
-                receiver={comment.receiver}
-                createdAtJalali={comment.createdAtJalali}
-                files={comment.files}
-                _id={comment._id}
-              />
-            );
-          })
-        ) : (
-          <h1 className="text-2xl text-center">پیامی ندارید</h1>
-        )}
+            {comments? comments.slice(-3).map((data): React.ReactNode => {
+              return <CommentBox className=' min-[1320px]:w-[96%] w-11/12' _id="" key={data.receiver} sender={data.sender}body={data.body} receiver={data.receiver} createdAtJalali={data.createdAtJalali} isDoctor={true}/>
+              }): <h2>پیامی ندارید</h2>
+            }
       </div>
       <Link
         className="mt-2 text-[var(--soft-blue)] text-lg"
