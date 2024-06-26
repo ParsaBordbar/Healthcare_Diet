@@ -4,10 +4,17 @@ import useFetchPatientComments from "@/hooks/useFetchPatientComments/useFetchPat
 import DocumentIcon from "/public/svg/adminPanelSvgs/document.svg";
 import CommentBox from "@/components/AdminComponents/CommentBox";
 import MainButton from "@/components/MainButton";
+import useFetchMediterranean from "@/hooks/useFetchMediterranean";
+import moment from "moment";
+import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
+import ModalMediterraneanForm from "@/components/ModalMediterraneanForm";
+import { useEffect, useMemo, useState } from "react";
 const PlansPage = ({ params }: { params: { user: string } }) => {
   const userID = params.user;
   const comments = useFetchPatientComments(userID);
-
+  const [click, isClick] = useState<boolean>(false);
+  const [show, isShow] = useState<boolean>(false);
+  const [dateComment, isDateComment] = useState<string | undefined>("");
   const { size, elapsed, percentage, download, cancel, error, isInProgress } =
     useDownloader();
 
@@ -18,14 +25,32 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
   //   anchor.download = file;
   //   anchor.click();
   // }
+  const data = useSpecificFetchBmi(userID);
+  // useEffect(() => {
+  //   console.log(click);
+  //   console.log(data?.phoneNumber, params.user);
+  //   if (params.user != data?.phoneNumber) {
+  //     isShow(false);
+  //     console.log("flase");
+  //   } else {
+  //     isShow(true);
+  //   }
+  // }, [click]);
   return (
     <div>
+      <ModalMediterraneanForm
+        commentMoment={dateComment}
+        userPhoneNumber={userID}
+        isShow={isShow}
+        show={show}
+        className={""}
+      />
       <section className="flex items-center gap-2">
         <DocumentIcon className="[&>path]:stroke-black" />
         <h1 className="text-3xl">برنامه های شما</h1>
       </section>
       <main>
-        <section>
+        <section className="flex flex-col-reverse">
           {comments.length > 0 ? (
             comments.map((comment) => {
               console.log(comment.files);
@@ -37,7 +62,6 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                     className="col-span-full"
                     sender={comment.sender}
                     body={comment.body}
-                    receiver={comment.receiver}
                     files={comment.files}
                     createdAtJalali={comment.createdAtJalali}
                     createdAtGregorian={comment.createdAtGregorian}
@@ -46,6 +70,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                     <MainButton
                       onClick={() => {
                         if (comment.files) {
+                          console.log(comment.files, "this our files");
                           download(
                             `http://localhost:8080/${comment.files[0].path}`,
                             "رژیم مدیترانه ای.png"
@@ -57,6 +82,20 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                     />
                     <MainButton
                       onClick={() => {
+                        // if (comment.files) {
+                        //   download(
+                        //     `http://localhost:8080/${comment.files[0].path}`,
+                        //     "رژیم مدیترانه ای.png"
+                        //   );
+                        // }
+                        isDateComment(comment.createdAtJalali);
+                        isShow(true);
+                      }}
+                      className="bg-[var(--orange)] p-2.5 col-span-1 !text-white"
+                      value={"مشاهده رژیم مدیترانه ای"}
+                    />
+                    <MainButton
+                      onClick={() => {
                         if (comment.files) {
                           download(
                             `http://localhost:8080/${comment.files[0].path}`,
@@ -64,16 +103,6 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                           );
                         }
                       }}
-                      className="bg-[var(--orange)] p-2.5 col-span-1 !text-white"
-                      value={"دانلود رژیم مدیترانه ای"}
-                    />
-                    <MainButton
-                      onClick={() =>
-                        download(
-                          "/0de1e100-e43d-47e9-a49d-2348422c74e1.png",
-                          "تغذیه.png"
-                        )
-                      }
                       trasparent
                       className="p-2.5 col-span-1 !text-[var(--new-green)]"
                       value={"دانلود تغذیه"}
