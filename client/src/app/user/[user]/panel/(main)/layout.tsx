@@ -60,7 +60,7 @@ const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
             <DietStatus phoneNumber={params.user} />
             <Link
               className=" text-[var(--secondary-blue)] text-lg"
-              href={``}
+              href={"./panel/plans"}
             >
               تمام برنامه‌های شما
             </Link>
