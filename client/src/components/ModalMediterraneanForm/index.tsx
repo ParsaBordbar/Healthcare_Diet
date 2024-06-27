@@ -23,16 +23,9 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
   return (
     <>
       {mediterraneanForms.map((form) => {
-        console.log(
-          form.createdAtJalali?.split(" ")[0],
-          params.commentMoment?.split(" ")[0],
-          moment(params.commentMoment).isSameOrAfter(
-            form.createdAtJalali?.split(" ")[0]
-          )
-        );
         const resultOfCompare = moment(
-          params.commentMoment?.split(" ")[0]
-        ).isSameOrAfter(form.createdAtJalali?.split(" ")[0]);
+          params.commentMoment
+        ).isSameOrAfter(form.createdAtJalali);
         return (
           resultOfCompare &&
           params.userPhoneNumber == form?.phoneNumber && (
