@@ -11,7 +11,9 @@ import Image from "next/image";
 
 const LayoutAdmin = ({ children }: { children: ReactNode }) => {
   const router = usePathname();
-
+  const handleLogout = () => {
+    localStorage.removeItem('admin');
+  }
   return (
     <>
       <div className=" flex justify-end w-full top-0 z-40">
@@ -76,7 +78,13 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
                 href={"/admin/panel/unvisited_diets"}
                 icon={FormIcon}
               />
-              
+              <SideBarItems
+              router={router}
+              value={"خروج"}
+              href={`/`}
+              icon={FormIcon}
+              onClick={handleLogout}
+              />
             </ul>
           </section>
         </div>

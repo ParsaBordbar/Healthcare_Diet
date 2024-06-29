@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Social from "@/components/FormRegisters/Login/social";
 import FormSignUp from "@/components/FormRegisters/Signup/signup";
 
 const SignUpPage = () => {
