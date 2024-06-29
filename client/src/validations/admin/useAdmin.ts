@@ -1,13 +1,10 @@
 import * as yup from "yup";
-// import { toast } from 'react-toastify';
-
 import { useCallback } from "react";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
-import { AdminDataType, BmiDataType } from "@/types";
-import { useMyContext } from "@/hooks/useContext/Context";
+import { AdminDataType } from "@/types";
 
 export const AdminSchema = yup.object({
   username: yup
