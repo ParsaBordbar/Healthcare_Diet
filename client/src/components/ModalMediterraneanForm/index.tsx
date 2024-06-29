@@ -1,11 +1,10 @@
 import useFetchMediterranean from "@/hooks/useFetchMediterranean";
 import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
-import { MediterraneanFormType } from "@/types";
 import moment from "moment";
 import Close from "/public/svg/close.svg";
 import DocumentIcon from "/public/svg/adminPanelSvgs/document.svg";
 import DateSvg from "/public/svg/adminPanelSvgs/calendar.svg";
-import DietBmi from "../AdminComponents/DietBmi";
+import { useEffect } from "react";
 
 type ModalMediterraneanFormType = {
   userPhoneNumber: string;
@@ -16,10 +15,15 @@ type ModalMediterraneanFormType = {
 };
 
 const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
+
   const mediterraneanForms = useFetchMediterranean();
   const data = useSpecificFetchBmi(params.userPhoneNumber);
+  useEffect(() => {
+
+  }, [])
   console.log(mediterraneanForms);
-  console.log(params.commentMoment, params.show, "this showw");
+  console.log(params.commentMoment, params.show, "this show");
+  
   return (
     <>
       {mediterraneanForms.map((form) => {
