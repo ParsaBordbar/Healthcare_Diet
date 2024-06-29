@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FunctionComponent, ReactNode, useEffect, useMemo } from "react";
+
 type TSideBarItems = {
   value: string;
   href: string;
   icon: FunctionComponent;
   router?: string;
+  onClick?: () => void;
 };
 
 const SideBarItems = (props: TSideBarItems) => {
@@ -46,11 +48,19 @@ const SideBarItems = (props: TSideBarItems) => {
     if (props.router == props.href && props.value == "پیام های شما") {
       return true;
     }
+    return false; // Add this line to handle the default case
   }, [props.router, props.value]);
 
+  const handleClick = () => {
+    if (props.onClick) {
+      props.onClick();
+    }
+  };
+
   return (
-    <Link href={props.href}>
+    <Link href={props.href} passHref>
       <label
+        onClick={handleClick} 
         className={`group [&>svg>path]:stroke-[var(--new-green)] hover:bg-[var(--new-green)] [&>svg>path]:hover:stroke-white text-xl ${
           SelectionStyles && " [&>svg>path]:!stroke-white bg-[var(--new-green)]"
         } cursor-pointer ease-in-out transition-all duration-200 p-4 flex items-center gap-2  rounded-md`}
