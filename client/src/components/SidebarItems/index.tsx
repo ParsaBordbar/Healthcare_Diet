@@ -1,7 +1,5 @@
 "use client";
-
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { FunctionComponent, ReactNode, useEffect, useMemo } from "react";
 
 type TSideBarItems = {
