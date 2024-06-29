@@ -4,11 +4,10 @@ import useFetchPatientComments from "@/hooks/useFetchPatientComments/useFetchPat
 import DocumentIcon from "/public/svg/adminPanelSvgs/document.svg";
 import CommentBox from "@/components/AdminComponents/CommentBox";
 import MainButton from "@/components/MainButton";
-import useFetchMediterranean from "@/hooks/useFetchMediterranean";
-import moment from "moment";
 import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
 import ModalMediterraneanForm from "@/components/ModalMediterraneanForm";
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
+
 const PlansPage = ({ params }: { params: { user: string } }) => {
   const userID = params.user;
   const comments = useFetchPatientComments(userID);
@@ -56,8 +55,8 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
               console.log(comment.files);
               if (comment.files && !(comment.files?.length > 0)) return;
               return (
-                <div>
-                  <CommentBox
+                <div key={comment._id}>
+                  <CommentBox 
                     _id={comment._id}
                     className="col-span-full"
                     sender={comment.sender}
