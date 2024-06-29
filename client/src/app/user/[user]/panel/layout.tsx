@@ -21,6 +21,10 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
   const { user } = params;
   const router = usePathname();
 
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+  }
+
   console.log("rendering layout of user panel");
   return (
     <>
@@ -66,6 +70,13 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
               value={"برنامه های شما"}
               href={`/user/${user}/panel/plans`}
               icon={DocumentIcon}
+            />
+            <SideBarItems
+              router={router}
+              value={"خروج"}
+              href={`/`}
+              icon={DocumentIcon}
+              onClick={handleLogout}
             />
           </ul>
         </div>
