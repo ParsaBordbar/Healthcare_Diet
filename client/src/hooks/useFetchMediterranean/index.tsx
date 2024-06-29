@@ -7,7 +7,7 @@ const useFetchMediterranean = (url?: string) => {
 
     useEffect(()=>{
         fetchMediterraneanForms()
-    }, [mediterraneanForms])
+    }, [])
 
     const fetchMediterraneanForms = async() => {
         try{
