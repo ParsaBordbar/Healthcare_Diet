@@ -834,47 +834,56 @@ const MediterranealForm = () => {
       <div className="flex flex-col gap-4">
         <h1>کدام یک از مشکلات زیر را دارید یا قبلا داشتید؟</h1>
         <section className="grid grid-cols-6 gap-4 items-center ">
-          <select
-            onChange={handleChange}
-            name="diabetes"
-            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
+          <div className="flex flex-col">
+          <label 
+            htmlFor="bloodPressure" 
+            className="mb-1"
           >
-            <option
-              selected={values.diabetes === "null" || values.diabetes === ""}
-              value="null"
-            >
               دیابت
-            </option>
-            <option
-              selected={values.diabetes === "دیابت نوع ۱"}
-              value="دیابت نوع ۱"
+          </label>
+            <select
+              onChange={handleChange}
+              name="diabetes"
+              className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
             >
-              دیابت نوع ۱
-            </option>
-            <option
-              selected={values.diabetes === "دیابت نوع ۲"}
-              value="دیابت نوع ۲"
-            >
-              دیابت نوع ۲
-            </option>
-            <option
-              selected={values.diabetes === "دیابت بارداری"}
-              value="دیابت بارداری"
-            >
-              دیابت بارداری
-            </option>
             <option selected={values.diabetes === "ندارم"} value="ندارم">
-              ندارم
-            </option>
-          </select>
+                ندارم
+              </option>
+              <option
+                selected={values.diabetes === "دیابت نوع ۱"}
+                value="دیابت نوع ۱"
+              >
+                دیابت نوع ۱
+              </option>
+              <option
+                selected={values.diabetes === "دیابت نوع ۲"}
+                value="دیابت نوع ۲"
+              >
+                دیابت نوع ۲
+              </option>
+              <option
+                selected={values.diabetes === "دیابت بارداری"}
+                value="دیابت بارداری"
+              >
+                دیابت بارداری
+              </option>
+            </select>
+          </div>
 
-          <select
+         <div className="flex flex-col">
+           <label 
+            htmlFor="bloodPressure" 
+            className="mb-1"
+          >
+           فشار خون
+          </label>
+          <select 
             onChange={handleChange}
             name="bloodPressure"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
-            <option selected={values.bloodPressure === "null"} value="null">
-              فشار خون
+            <option selected={values.bloodPressure === "ندارم"} value="ندارم">
+              ندارم
             </option>
             <option
               selected={values.bloodPressure === "بالا بودن فشار خون"}
@@ -888,18 +897,26 @@ const MediterranealForm = () => {
             >
               پایین بودن فشار خون
             </option>
-            <option selected={values.bloodPressure === "ندارم"} value="ندارم">
-              ندارم
-            </option>
           </select>
+         </div>
 
+         <div className="flex flex-col">
+         <label 
+            htmlFor="bloodPressure" 
+            className="mb-1"
+          >
+              مشکلات گوارشی
+          </label>
           <select
             onChange={handleChange}
             name="digestiveProblems"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
-            <option selected={values.digestiveProblems === "null"} value="null">
-              مشکلات گوارشی
+            <option
+              selected={values.digestiveProblems === "ندارم"}
+              value="ندارم"
+            >
+              ندارم
             </option>
             <option
               selected={values.digestiveProblems === "ریفلاکس"}
@@ -916,21 +933,24 @@ const MediterranealForm = () => {
             >
               یبوست
             </option>
-            <option
-              selected={values.digestiveProblems === "ندارم"}
-              value="ندارم"
-            >
-              ندارم
-            </option>
+            
           </select>
+         </div>
 
+         <div className="flex flex-col">
+         <label 
+            htmlFor="bloodPressure" 
+            className="mb-1"
+          >
+              خودایمنی
+          </label>
           <select
             onChange={handleChange}
             name="selfSafety"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
-            <option selected={values.selfSafety === "null"} value="null">
-              خودایمنی
+            <option selected={values.selfSafety === "ندارم"} value="ندارم">
+              ندارم
             </option>
             <option
               selected={values.selfSafety === "آسم و آلرژی"}
@@ -956,37 +976,47 @@ const MediterranealForm = () => {
             >
               سایر بیماری های خودایمنی
             </option>
-            <option selected={values.selfSafety === "ندارم"} value="ندارم">
-              ندارم
-            </option>
           </select>
+         </div>
 
+         <div className="flex flex-col">
+         <label 
+            htmlFor="bloodPressure" 
+            className="mb-1"
+          >
+              سکته
+          </label>
           <select
             onChange={handleChange}
             name="stroke"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
-            <option selected={values.stroke === "null"} value="null">
-              سکته
-            </option>
-            <option selected={values.stroke === "سکته قلبی"} value="سکته قلبی">
-              سکته قلبی
-            </option>
-            <option selected={values.stroke === "سکته مغزی"} value="سکته مغزی">
-              سکته مغزی
-            </option>
-            <option selected={values.stroke === "ندارم"} value="ندارم">
+            <option selected value="ندارم">
               ندارم
             </option>
+            <option value="سکته قلبی">
+              سکته قلبی
+            </option>
+            <option value="سکته مغزی">
+              سکته مغزی
+            </option>
           </select>
+         </div>
 
+          <div className="flex flex-col">
+          <label 
+            htmlFor="bloodPressure" 
+            className="mb-1"
+          >
+              کبد چرب
+          </label>
           <select
             onChange={handleChange}
             name="fattyLiver"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
-            <option selected={values.fattyLiver === "null"} value="null">
-              کبد چرب
+            <option selected={values.fattyLiver === "ندارم"} value="ندارم">
+              ندارم
             </option>
             <option
               selected={values.fattyLiver === "گرید۱"}
@@ -1006,18 +1036,23 @@ const MediterranealForm = () => {
             >
               کبد چرب گرید ۳
             </option>
-            <option selected={values.fattyLiver === "ندارم"} value="ندارم">
-              ندارم
-            </option>
           </select>
+          </div>
 
+          <div className="flex flex-col">
+          <label 
+            htmlFor="bloodPressure" 
+            className="mb-1"
+          >
+              مشکلات کلیوی
+          </label>
           <select
             onChange={handleChange}
             name="kidneyProblems"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border flex items-center gap-1 bg-white `}
           >
-            <option selected={values.kidneyProblems === "null"} value="null">
-              مشکلات کلیوی
+            <option selected={values.kidneyProblems === "ندارم"} value="ندارم">
+              ندارم
             </option>
             <option
               selected={values.kidneyProblems === "سنگ کلیه"}
@@ -1037,18 +1072,23 @@ const MediterranealForm = () => {
             >
               عفونت مجاری ادرار
             </option>
-            <option selected={values.kidneyProblems === "ندارم"} value="ندارم">
-              ندارم
-            </option>
           </select>
+          </div>
 
+          <div className="flex flex-col">
+          <label 
+            htmlFor="bloodPressure" 
+            className="mb-1"
+          >
+              تیروئید
+          </label>
           <select
             onChange={handleChange}
             name="thyroid"
-            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none py-3 px-4 border flex items-center gap-1bg-white `}
+            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none py-3 px-4 border flex items-center gap bg-white `}
           >
-            <option selected={values.thyroid === "null"} value="null">
-              تیروئید
+            <option selected={values.thyroid === "ندارم"} value="ندارم">
+              ندارم
             </option>
             <option selected={values.thyroid === "کم کار"} value="کم کار">
               کم کار
@@ -1062,10 +1102,8 @@ const MediterranealForm = () => {
             >
               گره و التهاب تیروئید
             </option>
-            <option selected={values.thyroid === "ندارم"} value="ندارم">
-              ندارم
-            </option>
           </select>
+          </div>
 
           <GroupRadio
             name="cancer"
