@@ -7,6 +7,7 @@ import MainButton from "@/components/MainButton";
 import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
 import ModalMediterraneanForm from "@/components/ModalMediterraneanForm";
 import { useState } from "react";
+import DietStatus from "@/components/DietStatus";
 
 const PlansPage = ({ params }: { params: { user: string } }) => {
   const userID = params.user;
@@ -24,7 +25,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
   //   anchor.download = file;
   //   anchor.click();
   // }
-  const data = useSpecificFetchBmi(userID);
+  // const data = useSpecificFetchBmi(userID);
   // useEffect(() => {
   //   console.log(click);
   //   console.log(data?.phoneNumber, params.user);
@@ -37,6 +38,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
   // }, [click]);
   return (
     <div>
+      <DietStatus phoneNumber={params.user} />
       <ModalMediterraneanForm
         commentMoment={dateComment}
         userPhoneNumber={userID}
