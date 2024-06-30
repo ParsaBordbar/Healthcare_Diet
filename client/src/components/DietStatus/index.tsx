@@ -12,15 +12,15 @@ function DietStatus({phoneNumber} : LoginDataType) {
       }, [theMedi]);
     
   return (
-    <div className='flex flex-col gap-3 bg-[var(--secondary-blue)] p-4 rounded-lg text-white'>
+    <div className='flex flex-col gap-3 bg-[var(--secondary-blue)] p-4 rounded-lg text-white mt-4 mb-10'>
         <div className='flex gap-2 items-center justify-center'>
-            <h2 className='text-lg'>رژیم فعلی شما:</h2>
-            <p className='justify-items-center text-lg'>  رژیم مدیترانه‌ای</p>
+            <h2 className=''>رژیم فعلی شما:</h2>
+            <p className='justify-items-center '>  رژیم مدیترانه‌ای</p>
         </div>
-        <div className='flex gap-2 items-center justify-center text-lg'>
+        <div className='flex gap-2 items-center justify-center '>
         <Tick />
             <p> وضعیت رژیم:</p> 
-            {lastMediterraneanForm?.isChecked?<p>ویزیت شده</p>:<p>ویزیت نشده</p>}
+            {lastMediterraneanForm?.isChecked?<p className='font-bold'>ویزیت شده</p>:<p className='font-bold'>ویزیت نشده</p>}
         </div>
     </div>
   )
