@@ -3,6 +3,7 @@ import * as yup from 'yup';
 import { toast } from 'react-toastify';
 import api from '@/apis';
 import { useState } from 'react';
+import { useRouter } from "next/navigation";
 
 const getPhoneNumberFromUrl = (): string | null => {
   if (typeof window !== 'undefined') {
@@ -21,6 +22,7 @@ const useMediterraneanForm = () => {
       setSelectedFiles(Array.from(e.target.files));
     }
   };
+  const { push } = useRouter();
 
   const phoneNumber = getPhoneNumberFromUrl();
 
@@ -127,17 +129,19 @@ const useMediterraneanForm = () => {
           },
         });
 
+
         if (response.status === 200) {
           toast.success('رژیم با موفقیت ثبت شد');
+          push(`./plans`)
         } else {
           throw new Error('مشکلی به وجود آمد دوباره تلاش کنید');
         }
       } catch (error:any) {
-        console.error('Error submitting form', error);
+        console.error('مشکلی در ارسال فرم وجود داشت', error);
         if (error.response) { 
           console.error('Server Response:', error.response);
         }
-        toast.error('Error submitting form');
+        toast.error('مشکلی در ارسال فرم وجود داشت');
       }
     },
   });
