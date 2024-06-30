@@ -99,7 +99,7 @@ const CommentBox = ({
                 <a
                   onClick={() => {
                     download(
-                      `http://localhost:8080/${file.path}`,
+                      `${process.env.DOMAIN_FILES}${file.path}`,
                       "رژیم مدیترانه ای.png"
                     );
                   }}
