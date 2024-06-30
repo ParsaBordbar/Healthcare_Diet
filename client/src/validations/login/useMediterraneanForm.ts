@@ -25,7 +25,7 @@ const useMediterraneanForm = () => {
   const phoneNumber = getPhoneNumberFromUrl();
 
   const mediterraneanSchema = yup.object().shape({
-    dailyFruit: yup.string().required("Please select an option."),
+    dailyFruit: yup.string().required("جواب به این سوال الزامی است"),
     dailyVegetable: yup.string().required("جواب به این سوال الزامی است"),
     Cereals: yup.string().required("جواب به این سوال الزامی است"),
     dailyCereals: yup.string().required("جواب به این سوال الزامی است"),
@@ -53,8 +53,8 @@ const useMediterraneanForm = () => {
     cancer: yup.string(),
     supplements: yup.array().required("جواب به این سوال الزامی است"),
     Migraine: yup.string(),
-    otherSickness: yup.string().required("جواب به این سوال الزامی است"),
-    medicine: yup.string().required("جواب به این سوال الزامی است"),
+    otherSickness: yup.string(),
+    medicine: yup.string(),
     phoneNumber: yup.string(),
     age: yup.number().min(17, "حداقل سن هفده میباشد").max(60, "حداکثر سن شصت مبیاشد").required("سن الزامی است"),
     height: yup.number().min(130, "حداقل قد صد و سی میباشد").max(300, "حذاکثر قد سیصد میباشد").required("قد الزامی است"),
