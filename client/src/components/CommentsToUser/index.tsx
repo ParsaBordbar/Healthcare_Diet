@@ -23,10 +23,12 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
           </div>
 
         </section>
-            {comments? comments.slice(-3).map((data): React.ReactNode => {
-              return <CommentBox className=' min-[1320px]:w-[96%] w-11/12' _id="" key={data.receiver} sender={data.sender}body={data.body} receiver={data.receiver} createdAtJalali={data.createdAtJalali} isDoctor={false}/>
-              }): <h2>پیامی ندارید</h2>
-            }
+            <div className="flex flex-col-reverse">
+              {comments? comments.slice(-3).map((data): React.ReactNode => {
+                return <CommentBox className=' min-[1320px]:w-[96%] w-11/12' _id="" key={data.receiver} sender={data.sender}body={data.body} receiver={data.receiver} createdAtJalali={data.createdAtJalali} files={data.files} isDoctor={false}/>
+                }): <h2>پیامی ندارید</h2>
+              }
+            </div>
       </div>
       <Link
         className="mt-2 text-[var(--secondary-blue)] text-lg"
