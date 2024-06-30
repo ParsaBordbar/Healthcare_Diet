@@ -38,7 +38,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
   // }, [click]);
   return (
     <div>
-      <DietStatus phoneNumber={params.user} />
+      <DietStatus direction="flex-row" phoneNumber={params.user} />
       <ModalMediterraneanForm
         commentMoment={dateComment}
         userPhoneNumber={userID}

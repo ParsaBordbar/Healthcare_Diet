@@ -57,7 +57,7 @@ const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
         <div className="col-span-full grid grid-cols-8 gap-x-28 mt-4">
           <div className="col-span-2 flex flex-col gap-6">
             <UserInfo userID={userID} />
-            <DietStatus phoneNumber={params.user} />
+            <DietStatus direction="flex-col" phoneNumber={params.user} />
             <Link
               className=" text-[var(--secondary-blue)] text-lg"
               href={"./panel/plans"}
