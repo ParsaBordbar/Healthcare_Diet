@@ -1,15 +1,15 @@
 "use client";
-import { ReactNode, memo, useEffect } from "react";
-import Link from "next/link";
+import { ReactNode, memo } from "react";
 import HamburgerNavbar from "@/components/HamburgerMenu";
-import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
 import HomeIcon from "/public/svg/userPanelSvgs/home-2.svg";
 import DocumentIcon from "/public/svg/adminPanelSvgs/document.svg";
 import PersonalIcon from "/public/svg/userPanelSvgs/personal.svg";
+import LogOutIcon from "/public/svg/userPanelSvgs/LogOut.svg"
 import SideBarItems from "@/components/SidebarItems";
-import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+
+
 interface LayoutUserProps {
   children: ReactNode;
   params: {
@@ -75,7 +75,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
               router={router}
               value={"خروج"}
               href={`/`}
-              icon={DocumentIcon}
+              icon={LogOutIcon}
               onClick={handleLogout}
             />
           </ul>
