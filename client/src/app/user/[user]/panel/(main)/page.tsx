@@ -1,5 +1,4 @@
 import { FC, memo } from "react";
-import WelcomeUser from "@/components/WelcomeUser";
 import CommentsToUser from "@/components/CommentsToUser";
 interface UserPanelProps {
   params: {
