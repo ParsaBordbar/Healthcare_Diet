@@ -1,6 +1,6 @@
 "use client";
 import { ReactNode } from "react";
-import Link from "next/link";
+import LogOutIcon from "/public/svg/userPanelSvgs/LogOut.svg"
 import AdminPanelLogo from "/public/svg/adminPanelSvgs/Stethoscope.svg";
 import FormIcon from "/public/svg/adminPanelSvgs/document.svg";
 import MedicalDocIcon from "/public/svg/adminPanelSvgs/Medical-Documentation.svg";
@@ -82,13 +82,13 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
               router={router}
               value={"خروج"}
               href={`/`}
-              icon={FormIcon}
+              icon={LogOutIcon}
               onClick={handleLogout}
-              />
+            />
             </ul>
           </section>
         </div>
-        <main className="w-full mt-6 md:w-[75%] lg:w-[80%] flex flex-col py-16 gap-10 px-16 bg-white   h-screen">
+        <main className="w-full mt-6 md:w-[75%] lg:w-[80%] flex flex-col py-16 gap-10 px-16 bg-white h-screen">
           <div className="">{children}</div>
         </main>
       </div>
