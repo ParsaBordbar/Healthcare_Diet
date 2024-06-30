@@ -156,3 +156,8 @@ export interface QuickLinkBoxType {
   url: string;
   counter: number;
 }
+
+export interface DietStatusType{
+  phoneNumber: string, 
+  direction : string
+}
