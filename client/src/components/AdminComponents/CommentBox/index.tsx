@@ -18,17 +18,12 @@ const CommentBox = ({
 }: CommentType) => {
   const [userData, setUserData] = useState<BmiType>();
 
-  let fetchedData = undefined;
-  if (receiver) fetchedData = useSpecificFetchBmi(receiver);
+  const fetchedData = useSpecificFetchBmi(receiver);
 
   useEffect(() => {
     if (fetchedData) {
       setUserData(fetchedData);
     }
-  }, [fetchedData]);
-
-  useEffect(() => {
-    setUserData(fetchedData);
   }, [fetchedData]);
 
   // Convert newlines to <br> tags
@@ -47,28 +42,28 @@ const CommentBox = ({
         <section className="flex w-full items-start 2xl:items-center 2xl:flex-row lg:flex-col lg:gap-1 sm:flex-row gap-1 2xl:justify-between justify-between lg:justify-center flex-col">
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center">
-              <p className=" text-base">ارسال کننده:</p>
-              <p className=" text-base text-ellipsis overflow-hidden whitespace-nowrap">
+              <p className="text-base">ارسال کننده:</p>
+              <p className="text-base text-ellipsis overflow-hidden whitespace-nowrap">
                 {sender}
               </p>
             </div>
             {receiver ? (
               <div className="flex gap-2 items-center">
-                <p className="w-fit  text-base">دریافت کننده:</p>
-                <p className=" text-base text-ellipsis overflow-hidden whitespace-nowrap">
+                <p className="w-fit text-base">دریافت کننده:</p>
+                <p className="text-base text-ellipsis overflow-hidden whitespace-nowrap">
                   {userData?.name} {userData?.lastName}{" "}
                 </p>
               </div>
             ) : null}
           </div>
-          <div className="flex gap-2  min-[1320px]:justify-center items-center flex-row">
+          <div className="flex gap-2 min-[1320px]:justify-center items-center flex-row">
             <div className="flex sm:flex-row gap-4">
               <div className="flex flex-row justify-center items-center gap-2">
                 <DateSvg
-                  className="sm:flex [&>path]:stroke-white  hidden"
+                  className="sm:flex [&>path]:stroke-white hidden"
                   width={24}
                 />
-                <p className="pt-1.5  text-base">{createdAtJalali}</p>
+                <p className="pt-1.5 text-base">{createdAtJalali}</p>
               </div>
               {isDoctor ? (
                 <Link
@@ -83,13 +78,13 @@ const CommentBox = ({
         </section>
       </div>
       <p
-        className="p-5 w-full pb-12  text-base "
+        className="p-5 w-full pb-12 text-base"
         dangerouslySetInnerHTML={formatBody(body)}
       />
       {files.length > 0 && (
         <div className="px-8 py-2 flex justify-start flex-col">
           <div className="flex flex-row">
-            <h4 className="text-base  font-semibold mb-2 ">پیوست‌ها:</h4>
+            <h4 className="text-base font-semibold mb-2">پیوست‌ها:</h4>
           </div>
           <ul className="list-disc list-inside grid grid-cols-2">
             {files.map((file: FileType) => (

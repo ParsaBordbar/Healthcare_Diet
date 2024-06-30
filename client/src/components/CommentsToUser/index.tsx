@@ -4,7 +4,6 @@ import CommentBox from "../AdminComponents/CommentBox";
 import CommentIcon from "/public/svg/adminPanelSvgs/messages.svg";
 import Link from "next/link";
 import Calendar from "../Calendar";
-import Tick from '/public/svg/tttick.svg'
 
 const CommentsToUser = ({ userID }: { userID: string }) => {
   const comments = useFetchPatientComments(userID);

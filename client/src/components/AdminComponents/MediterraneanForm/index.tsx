@@ -253,7 +253,7 @@ const MediterraneanForm = ({
                 <AttachmentIcon />
                 {/* This should be The server host and port */}
                 <a
-                href={`http://localhost:8080/uploads/${file.filename}`}
+                href={`${process.env.DOMAIN_FILES}/uploads/${file.filename}`}
                 download={file.originalName}
                 className="text-blue-400 hover:underline pt-2 text-sm col-span-1"
               >
@@ -271,7 +271,7 @@ const MediterraneanForm = ({
                 <div className="flex gap-2 items-center px-10">
                   <AttachmentIcon />
                   <a
-                  href={`http://localhost:8080/uploads/${payment.filename}`}
+                  href={`${process.env.DOMAIN_FILES}${payment.filename}`}
                   download={payment.originalName}
                   className="text-blue-400 hover:underdivne pt-2 text-sm col-span-1"
                 >

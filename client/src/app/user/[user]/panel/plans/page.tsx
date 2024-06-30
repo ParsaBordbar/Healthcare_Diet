@@ -71,7 +71,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                         if (comment.files) {
                           console.log(comment.files, "this our files");
                           download(
-                            `http://localhost:8080/${comment.files[0].path}`,
+                            `${process.env.DOMAIN_FILES}${comment.files[0].path}`,
                             "رژیم مدیترانه ای.png"
                           );
                         }
@@ -97,7 +97,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                       onClick={() => {
                         if (comment.files) {
                           download(
-                            `http://localhost:8080/${comment.files[0].path}`,
+                            `${process.env.DOMAIN_FILES}${comment.files[0].path}`,
                             "رژیم مدیترانه ای.png"
                           );
                         }
