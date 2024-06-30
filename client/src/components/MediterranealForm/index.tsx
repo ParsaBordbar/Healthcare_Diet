@@ -693,15 +693,24 @@ const MediterranealForm = () => {
         <section className="grid grid-cols-4 items-center ">
           <GroupRadio
             // checked={values.supplements.includes("ویتامین و مواد معدنی")}
+            name="selectedOptionSeventeenOne"
             onChange={handleChange}
             header={false}
             onClick={() => {
-              values.supplements.push("ویتامین و مواد معدنی");
+              const isalreadyIn = values.supplements.find((element) => element === "ویتامین و مواد معدنی")
+              if(!isalreadyIn){
+                  values.supplements.push("ویتامین و مواد معدنی");
               values.supplements = values.supplements.filter(
                 (e) => e !== "هیچکدام"
               );
               console.log(values.supplements);
-            }}
+            }
+            else{
+              values.supplements.splice(isalreadyIn)
+              console.log(values.supplements);
+            }
+          }
+            } 
             type="radio"
             value={"ویتامین و مواد معدنی"}
           />
@@ -710,12 +719,19 @@ const MediterranealForm = () => {
             // checked={values.supplements.includes("مکمل پروتئینی")}
             onChange={handleChange}
             onClick={() => {
-              values.supplements.push("مکمل پروتئینی");
+              const isalreadyIn = values.supplements.find((element) => element === "مکمل پروتئینی")
+              if(!isalreadyIn){
+                  values.supplements.push("مکمل پروتئینی");
               values.supplements = values.supplements.filter(
                 (e) => e !== "هیچکدام"
               );
+              console.log(values.supplements.length);
+            }else{
+              values.supplements.splice(isalreadyIn)
               console.log(values.supplements);
-            }}
+            }
+          }
+            } 
             header={false}
             type="radio"
             value={"مکمل پروتئینی"}
@@ -727,12 +743,21 @@ const MediterranealForm = () => {
             onChange={handleChange}
             checked={values.supplements.includes("مکمل الغری و چربی سوز")}
             onClick={() => {
-              values.supplements.push("مکمل الغری و چربی سوز");
+              console.log("ENV:", process.env.customKey);
+
+              const isalreadyIn = values.supplements.find((element) => element === "مکمل الغری و چربی سوز")
+              if(!isalreadyIn){
+                  values.supplements.push("مکمل الغری و چربی سوز");
               values.supplements = values.supplements.filter(
                 (e) => e !== "هیچکدام"
               );
               console.log(values.supplements.length);
-            }}
+            }else{
+              values.supplements.splice(isalreadyIn)
+              console.log(values.supplements);
+            }
+          }
+            }              
             header={false}
             type="radio"
             value={"مکمل الغری و چربی سوز"}
@@ -989,7 +1014,7 @@ const MediterranealForm = () => {
           <select
             onChange={handleChange}
             name="kidneyProblems"
-            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
+            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border flex items-center gap-1 bg-white `}
           >
             <option selected={values.kidneyProblems === "null"} value="null">
               مشکلات کلیوی
@@ -1020,7 +1045,7 @@ const MediterranealForm = () => {
           <select
             onChange={handleChange}
             name="thyroid"
-            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
+            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none py-3 px-4 border flex items-center gap-1bg-white `}
           >
             <option selected={values.thyroid === "null"} value="null">
               تیروئید
