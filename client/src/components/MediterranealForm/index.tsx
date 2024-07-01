@@ -726,9 +726,9 @@ const MediterranealForm = () => {
               if(!isalreadyIn){
                   values.supplements.push("مکمل پروتئینی");
                   console.log(values.supplements);
-              values.supplements = values.supplements.filter(
-                (e) => e !== "هیچکدام"
-              );
+                  values.supplements = values.supplements.filter(
+                    (e) => e !== "هیچکدام"
+                  );
               console.log(values.supplements);
             }
             if(isalreadyIn){

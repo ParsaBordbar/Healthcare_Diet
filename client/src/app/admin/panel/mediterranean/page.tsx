@@ -2,6 +2,10 @@
 import MediterraneanForm from "@/components/AdminComponents/MediterraneanForm";
 import useFetchMediterranean from "@/hooks/useFetchMediterranean";
 import DocumentIcon from "/public/svg/adminPanelSvgs/document.svg";
+import MainButton from "@/components/MainButton";
+import MainInput from "@/components/MainInput";
+import SearchIcon from "/public/svg/search-normal.svg"
+import FilterIcon from "/public/svg/adminPanelSvgs/filter.svg"
 
 const MediterraneanFormsPage = () => {
   const mediterraneanForms = useFetchMediterranean();
@@ -10,6 +14,50 @@ const MediterraneanFormsPage = () => {
       <div className="flex items-center gap-2 mb-6">
         <DocumentIcon className="[&>path]:stroke-black " />
         <h1 className="text-3xl">فرم‌های رژیم مدیترانه‌ای:</h1>
+      </div>
+      <div className="grid grid-cols-10 gap-8 items-center">
+        <form className="xl:col-span-5 col-span-full" action="">
+          <MainInput
+            iconFirst={SearchIcon}
+            parentClassName="!w-full "
+            type="search"
+            placeholder="نام بیمار مورد نظر خود را وارد کنید"
+            // value={searchValue}
+            // onChange={handleChange}
+          />
+        </form>
+        <div className="xl:col-span-5 col-span-full grid grid-cols-3 items-center">
+          <section className="flex col-span-full md:col-span-1 items-center gap-2">
+            <FilterIcon className="[&>path]:stroke-black " />
+            <p className="w-fit text-base">فیلتر کردن براساس:</p>
+          </section>
+          <section className="col-span-full md:col-span-2 grid grid-cols-4 gap-4 w-full">
+            <MainButton
+              modern
+              className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
+              value={"قدیمی ترین"}
+              // onClick={oldestFilterHandler}
+            />
+            <MainButton
+              modern
+              className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
+              value={"جدیدترین"}
+              // onClick={newestFilterHandler}
+            />
+            <MainButton
+              modern
+              className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
+              value={"مرد"}
+              // onClick={maleFilterHandler}
+            />
+            <MainButton
+              modern
+              className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
+              value={"زن"}
+              // onClick={femaleFilterHandler}
+            />
+          </section>
+        </div>
       </div>
       {mediterraneanForms.map((form) => {
         return (
