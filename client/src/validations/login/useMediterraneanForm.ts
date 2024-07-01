@@ -130,7 +130,6 @@ const useMediterraneanForm = () => {
           },
         });
 
-
         if (response.status === 200) {
           toast.success('رژیم با موفقیت ثبت شد');
           push(`./plans`)
