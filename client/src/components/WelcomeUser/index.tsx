@@ -27,8 +27,8 @@ const UserInfo = ({ userID }: { userID: string }) => {
               <p className="text-white col-span-1">قد : {patients?.height}</p>
               <p className="text-white col-span-1">وزن : {patients?.weight}</p>
               <p className="text-white col-span-1">دور شکم : {patients?.abdominalCircumference}</p>
-              <p className="text-white col-span-1">تاریخ شروع : {patients?.joinedAtJalali}</p>
-              <p className="text-white col-span-1"> BMI اولیه : {patients?.bmi}</p>
+              <p className="text-white col-span-2">تاریخ شروع : {patients?.joinedAtJalali}</p>
+              <p className="text-white col-span-2"> BMI اولیه : {patients?.bmi}</p>
             </div>
           </section>
         </section>
