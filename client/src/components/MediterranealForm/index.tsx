@@ -705,8 +705,11 @@ const MediterranealForm = () => {
               );
               console.log(values.supplements);
             }
-            else{
-              values.supplements.splice(isalreadyIn)
+            if(isalreadyIn){
+              values.supplements.find((element, index) => {
+                if(element === "ویتامین و مواد معدنی"){
+                  values.supplements.splice(index, 1)
+                }})
               console.log(values.supplements);
             }
           }
@@ -722,12 +725,17 @@ const MediterranealForm = () => {
               const isalreadyIn = values.supplements.find((element) => element === "مکمل پروتئینی")
               if(!isalreadyIn){
                   values.supplements.push("مکمل پروتئینی");
+                  console.log(values.supplements);
               values.supplements = values.supplements.filter(
                 (e) => e !== "هیچکدام"
               );
-              console.log(values.supplements.length);
-            }else{
-              values.supplements.splice(isalreadyIn)
+              console.log(values.supplements);
+            }
+            if(isalreadyIn){
+              values.supplements.find((element, index) => {
+                if(element === "مکمل پروتئینی"){
+                  values.supplements.splice(index, 1)
+                }})
               console.log(values.supplements);
             }
           }
@@ -743,17 +751,19 @@ const MediterranealForm = () => {
             onChange={handleChange}
             checked={values.supplements.includes("مکمل الغری و چربی سوز")}
             onClick={() => {
-              console.log("ENV:", process.env.customKey);
-
               const isalreadyIn = values.supplements.find((element) => element === "مکمل الغری و چربی سوز")
               if(!isalreadyIn){
                   values.supplements.push("مکمل الغری و چربی سوز");
+                  console.log(values.supplements);
               values.supplements = values.supplements.filter(
                 (e) => e !== "هیچکدام"
               );
-              console.log(values.supplements.length);
-            }else{
-              values.supplements.splice(isalreadyIn)
+              console.log(values.supplements);
+            }if(isalreadyIn){
+              values.supplements.find((element, index) => {
+                if(element === "مکمل الغری و چربی سوز"){
+                  values.supplements.splice(index, 1)
+                }})
               console.log(values.supplements);
             }
           }
@@ -767,7 +777,12 @@ const MediterranealForm = () => {
             checked={values.supplements.includes("هیچکدام")}
             onChange={handleChange}
             onClick={() => {
-              values.supplements.push("هیچکدام");
+
+              const isalreadyIn = values.supplements.find((element) => element === "مکمل الغری و چربی سوز")
+              if(!isalreadyIn){
+                values.supplements.splice(0,values.supplements.length);
+                values.supplements.push("هیچکدام");
+              }
               values.supplements = values.supplements.filter(
                 (e) => e !== "ویتامین و مواد معدنی"
               );
@@ -836,7 +851,6 @@ const MediterranealForm = () => {
         <section className="grid grid-cols-6 gap-4 items-center ">
           <div className="flex flex-col">
           <label 
-            htmlFor="bloodPressure" 
             className="mb-1"
           >
               دیابت
@@ -872,7 +886,6 @@ const MediterranealForm = () => {
 
          <div className="flex flex-col">
            <label 
-            htmlFor="bloodPressure" 
             className="mb-1"
           >
            فشار خون
@@ -902,7 +915,6 @@ const MediterranealForm = () => {
 
          <div className="flex flex-col">
          <label 
-            htmlFor="bloodPressure" 
             className="mb-1"
           >
               مشکلات گوارشی
@@ -939,7 +951,6 @@ const MediterranealForm = () => {
 
          <div className="flex flex-col">
          <label 
-            htmlFor="bloodPressure" 
             className="mb-1"
           >
               خودایمنی
@@ -981,7 +992,6 @@ const MediterranealForm = () => {
 
          <div className="flex flex-col">
          <label 
-            htmlFor="bloodPressure" 
             className="mb-1"
           >
               سکته
@@ -1005,7 +1015,6 @@ const MediterranealForm = () => {
 
           <div className="flex flex-col">
           <label 
-            htmlFor="bloodPressure" 
             className="mb-1"
           >
               کبد چرب
@@ -1041,7 +1050,6 @@ const MediterranealForm = () => {
 
           <div className="flex flex-col">
           <label 
-            htmlFor="bloodPressure" 
             className="mb-1"
           >
               مشکلات کلیوی
@@ -1077,7 +1085,6 @@ const MediterranealForm = () => {
 
           <div className="flex flex-col">
           <label 
-            htmlFor="bloodPressure" 
             className="mb-1"
           >
               تیروئید

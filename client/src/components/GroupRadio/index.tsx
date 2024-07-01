@@ -6,8 +6,6 @@ export type TGroupRadio = InputHTMLAttributes<HTMLInputElement> & {
 };
 const GroupRadio = (props: TGroupRadio) => {
   return (
-
-
     <label className={props.className}>
       <input {...props} />
       {props.value}
