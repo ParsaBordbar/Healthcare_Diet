@@ -34,6 +34,37 @@ router.get('/checking/isChecked', async (req, res) => {
 });
 
 
+router.get('/sort', async(req, res)=>{
+    if(req.query.sort == 'special'){
+        const response = await MediterraneanForm.find({
+            $or:[
+                {cancer: true},
+                {Migraine: true},
+                {otherSickness: !null}
+            ]
+        }
+         )
+        return res.send(response)        
+    }
+    if(req.query.sort == 'newest'){
+        const response = await MediterraneanForm.find().sort({ createdAtJalali: -1 });
+        if (response.length > 0) {
+            return res.status(200).send(response);
+            } else {
+            return res.status(404).send({ "message": "No comments found." });
+        }
+    }
+    if(req.query.sort == 'oldest'){
+        const response = await MediterraneanForm.find().sort({ createdAtJalali: 1 });
+        if (response.length > 0) {
+            return res.status(200).send(response);
+            } else {
+            return res.status(404).send({ "message": "No comments found." });
+        }
+    }
+})
+
+
 router.put('/edit/:id', uploader.fields([{ name: 'document', maxCount: 5 }, { name: 'payment', maxCount: 1 }]), async (req, res) => {
     try {
         const { id } = req.params;
