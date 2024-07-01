@@ -14,6 +14,7 @@ const MediterranealForm = () => {
   } = useMediterraneanForm();
 
 
+  
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-10">
       <div className="flex flex-col gap-4">
@@ -850,65 +851,36 @@ const MediterranealForm = () => {
         <h1>کدام یک از مشکلات زیر را دارید یا قبلا داشتید؟</h1>
         <section className="grid grid-cols-6 gap-4 items-center ">
           <div className="flex flex-col">
-          <label 
+            <label 
             className="mb-1"
-          >
+            >
               دیابت
           </label>
-            <select
-              onChange={handleChange}
-              name="diabetes"
-              className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
-            >
-            <option selected={values.diabetes === "ندارم"} value="ندارم">
-                ندارم
-              </option>
-              <option
-                selected={values.diabetes === "دیابت نوع ۱"}
-                value="دیابت نوع ۱"
-              >
-                دیابت نوع ۱
-              </option>
-              <option
-                selected={values.diabetes === "دیابت نوع ۲"}
-                value="دیابت نوع ۲"
-              >
-                دیابت نوع ۲
-              </option>
-              <option
-                selected={values.diabetes === "دیابت بارداری"}
-                value="دیابت بارداری"
-              >
-                دیابت بارداری
-              </option>
-            </select>
-          </div>
-
-         <div className="flex flex-col">
-           <label 
-            className="mb-1"
-          >
-           فشار خون
-          </label>
-          <select 
+          <select
             onChange={handleChange}
-            name="bloodPressure"
+            name="diabetes"
             className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
           >
-            <option selected={values.bloodPressure === "ندارم"} value="ندارم">
+            <option value="ندارم" selected={values.diabetes === "ندارم"} >
               ندارم
             </option>
             <option
-              selected={values.bloodPressure === "بالا بودن فشار خون"}
-              value="بالا بودن فشار خون"
+              selected={values.diabetes === "دیابت نوع ۱"}
+              value="دیابت نوع ۱"
             >
-              بالا بودن فشار خون
+              دیابت نوع ۱
             </option>
             <option
-              selected={values.bloodPressure === "پایین بودن فشار خون"}
-              value="پایین بودن فشار خون"
+              selected={values.diabetes === "دیابت نوع ۲"}
+              value="دیابت نوع ۲"
             >
-              پایین بودن فشار خون
+              دیابت نوع ۲
+            </option>
+            <option
+              selected={values.diabetes === "دیابت بارداری"}
+              value="دیابت بارداری"
+            >
+              دیابت بارداری
             </option>
           </select>
          </div>
@@ -922,7 +894,7 @@ const MediterranealForm = () => {
           <select
             onChange={handleChange}
             name="digestiveProblems"
-            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
+            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border flex items-center gap-1  bg-white `}
           >
             <option
               selected={values.digestiveProblems === "ندارم"}
