@@ -14,7 +14,6 @@ const MediterranealForm = () => {
   } = useMediterraneanForm();
 
 
-  
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-10">
       <div className="flex flex-col gap-4">
@@ -849,7 +848,7 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>کدام یک از مشکلات زیر را دارید یا قبلا داشتید؟</h1>
-        <section className="grid grid-cols-6 gap-4 items-center ">
+        <section className="grid grid-cols-4 gap-4 items-center">
           <div className="flex flex-col">
             <label 
             className="mb-1"
@@ -1084,9 +1083,9 @@ const MediterranealForm = () => {
           </select>
           </div>
 
+          <div className="flex col-span-1 gap-5 mx-10 items-center justify-between pt-6">
           <GroupRadio
             name="cancer"
-            className="col-span-3 lg:col-span-1"
             checked={values.cancer? values.cancer = true: false }
             onChange={handleChange}
             header={false}
@@ -1095,31 +1094,31 @@ const MediterranealForm = () => {
           />
           <GroupRadio
             name="Migraine"
-            className="col-span-3 lg:col-span-1"
             checked={values.Migraine? values.Migraine = true: false }
             onChange={handleChange}
             header={false}
             type="checkbox"
             value={"میگرن"}
           />
+          </div>
 
           <MainInput
             name="otherSickness"
-            parentClassName="col-span-full lg:col-span-3 [&>label]:text-base"
+            parentClassName="lg:col-span-2 [&>label]:text-base"
             onChange={handleChange}
             type="text"
             label="سایر بیماری ها یا جراحی قبلی را اینجا بنویسید "
           />
           <MainInput
             name="medicine"
-            parentClassName="col-span-full lg:col-span-3 [&>label]:text-base"
+            parentClassName="lg:col-span-2 [&>label]:text-base"
             onChange={handleChange}
             type="text"
             label="چنانچه دارویی مصرف می کنید نام آن را ذکر کنید"
           />
           <MainInput
             name="files"
-            parentClassName="col-span-full [&>label]:text-base"
+            parentClassName="col-span-2 [&>label]:text-base"
             onChange={handleChange}
             type="file"
             label="آخرین آزمایشات ارسال شود "
