@@ -32,19 +32,24 @@ router.get('/phone:phoneNumber', async (req, res) => {
 
 router.get('/search', async (req, res) => {
     const { query } = req.query;
-
-    if (!query) {
+    //If for any reason the empty string came to back-end:
+    if (!query || query.trim === '') {
         return res.status(400).send('Query parameter is required');
     }
-    //regex for case-insensitive 
     const searchRegex = new RegExp(query, 'i');
+    const searchTerms = query.split(' ');
+
     try {
         const results = await BmiForm.find({
             $or: [
                 { phoneNumber: searchRegex },
                 { name: searchRegex },
-                { lastName: searchRegex }
-            ]
+                { lastName: searchRegex },
+                ...(searchTerms.length > 1 ? [{ $and: [
+                    { name: new RegExp(searchTerms[0], 'i') },
+                    { lastName: new RegExp(searchTerms[1], 'i') }
+                ] }] : [])
+            ],
         });
 
         if (results.length > 0) {
