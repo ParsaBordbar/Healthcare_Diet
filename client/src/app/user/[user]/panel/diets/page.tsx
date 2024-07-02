@@ -39,8 +39,8 @@ const DietsUserPanel = () => {
           className="text-[var(--new-green)] cursor-pointer"
           onClick={() => {
             download(
-              `http://localhost:8080/uploads/تغذیه.png`,
-              "تغذیه.png"
+              `http://localhost:8080/uploads/diet.pdf`,
+              "diet.pdf"
             );
           }}
         >
