@@ -38,7 +38,9 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
   // }, [click]);
   return (
     <div>
-      <DietStatus direction="!flex-row mb-10" phoneNumber={params.user} />
+      {comments.length > 0 && (
+        <DietStatus direction="!flex-row mb-10" phoneNumber={params.user} />
+      )}
       <ModalMediterraneanForm
         commentMoment={dateComment}
         userPhoneNumber={userID}
@@ -58,7 +60,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
               if (comment.files && !(comment.files?.length > 0)) return;
               return (
                 <div key={comment._id}>
-                  <CommentBox 
+                  <CommentBox
                     _id={comment._id}
                     className="col-span-full"
                     sender={comment.sender}
@@ -98,7 +100,9 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                     <MainButton
                       onClick={() => {
                         if (comment.files) {
-                          console.log(process.env.DOMAIN_FILES+comment.files[0].path)
+                          console.log(
+                            process.env.DOMAIN_FILES + comment.files[0].path
+                          );
                           download(
                             `${process.env.DOMAIN_FILES}uploads/diet.pdf`,
                             "diet.pdf"
