@@ -39,7 +39,9 @@ const useSearchMediterranean = (filterUrl: string) => {
 
   const fetchSearchData = async (query: string) => {
     try {
-      const response = await api.get(`/mediterranean/search?query=${query}`)
+      const response = await api.get(`/bmi/search?query=${query}`)
+      event?.preventDefault()
+      console.log( "THis is BMI:", response.data);
       return response.data
     } catch (error) {
       console.error('Error fetching search data:', error)
@@ -57,6 +59,7 @@ const useSearchMediterranean = (filterUrl: string) => {
     const searchData = await fetchSearchData(trimmedSearchValue)
     setFilter(searchData)
   }
+
 
   const newestFilterHandler = async () => {
     const data: MediterraneanFormType[] = await fetchFilteredData(`${filterUrl}?sort=newest`)
