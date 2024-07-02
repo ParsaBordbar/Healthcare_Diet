@@ -800,7 +800,7 @@ const MediterranealForm = () => {
           />
         </section>
         {errors.supplements ? (
-          <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
+          <p className="text-red-600">{errors.supplements}</p>
         ) : null}
       </div>
 

@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import api from '@/apis';
 import { useState } from 'react';
 import { useRouter } from "next/navigation";
-import { MediterraneanFormType } from '@/types';
 
 const getPhoneNumberFromUrl = (): string | null => {
   if (typeof window !== 'undefined') {
@@ -54,7 +53,7 @@ const useMediterraneanForm = () => {
     kidneyProblems: yup.string().required("جواب به این سوال الزامی است"),
     thyroid: yup.string(),
     cancer: yup.string(),
-    supplements: yup.array().of(yup.string().required("جواب به این سوال الزامی است")),
+    supplements: yup.array().of(yup.string()).required("جواب به این سوال الزامی است").min(1, "لطفا به این سوال پاسخ دهید"),
     Migraine: yup.string(),
     otherSickness: yup.string(),
     medicine: yup.string(),
