@@ -60,7 +60,7 @@ const HamburgerNavbar = (props: THamMenu) => {
         <Link
           className="group"
           href={Links.link}
-          onClick={() => toggleBurgerMenu()}
+          onClick={() => setBurgerMenuActive(false)}
           key={Links.value}
         >
           <motion.li className="!p-0" variants={listItemVariants}>
@@ -106,13 +106,15 @@ const HamburgerNavbar = (props: THamMenu) => {
   return (
     <div className="lg:hidden  shadow-lg">
       <div
-        className={`  h-screen fixed  ${Styles.navbar} z-50  ${
+        className={`  h-screen !fixed  ${Styles.navbar} z-50  ${
           burgerMenuActive ? Styles.active : ""
         }`}
       >
         <div
-          className={`${Styles.navigation}  ${
-            burgerMenuActive && ` !bg-[var(--milky-white)]` 
+          className={`${
+            Styles.navigation
+          } w-full !fixed !right-0 !py-6 !px-6 md:!hidden !inline-block ${
+            burgerMenuActive ? ` !bg-[var(--milky-white)]` : "!bg-white"
           } ${props.className}`}
         >
           <div
@@ -124,7 +126,7 @@ const HamburgerNavbar = (props: THamMenu) => {
           </div>
           {OptionGenerate}
         </div>
-        <div className={Styles.content + ''}>
+        <div className={Styles.content + ""}>
           <motion.ul
             className="flex  gap-6"
             animate={burgerMenuActive ? "open" : "closed"}
