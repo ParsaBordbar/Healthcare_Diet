@@ -37,16 +37,6 @@ const useSearchMediterranean = (filterUrl: string) => {
     }
   }
 
-  const fetchFilteredDataGender = async (url: string) => {
-    try {
-      const response = await api.get(url)
-      return response.data
-    } catch (error) {
-      console.error('Error fetching filtered data:', error)
-      return []
-    }
-  }
-
   const fetchSearchData = async (query: string) => {
     try {
       const response = await api.get(`/bmi/search?query=${query}`)
@@ -88,12 +78,12 @@ const useSearchMediterranean = (filterUrl: string) => {
   }
 
   const maleFilterHandler = async () => {
-    const data = await fetchFilteredDataGender(`'/bmi/sort'?sort=male`)
+    const data = await fetchFilteredData(`'/bmi/sort'?sort=male`)
     setFilter(data)
   }
 
   const femaleFilterHandler = async () => {
-    const data = await fetchFilteredDataGender(`'/bmi/sort'?sort=female`)
+    const data = await fetchFilteredData(`'/bmi/sort'?sort=female`)
     setFilter(data)
   }
 
