@@ -27,6 +27,8 @@ const MediterraneanFormsPage = () => {
     oldestFilterHandler,
     specialFilterHandler,
     submitHandler,
+    maleFilterHandler,
+    femaleFilterHandler,
   } = useSearchMediterranean('/mediterranean/sort')
 
   return (
@@ -65,18 +67,18 @@ const MediterraneanFormsPage = () => {
               onClick={newestFilterHandler}
             />
             
-            {/* <MainButton
+            <MainButton
               modern
               className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
               value={"مرد"}
-              // onClick={maleFilterHandler}
+              onClick={maleFilterHandler}
             />
             <MainButton
               modern
               className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
               value={"زن"}
-              // onClick={femaleFilterHandler}
-            /> */}
+              onClick={femaleFilterHandler}
+            />
             <Link href={'/admin/panel/unvisited_diets'}>
               <MainButton
                 modern

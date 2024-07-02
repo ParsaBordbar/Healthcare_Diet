@@ -11,7 +11,7 @@ function DietBmi({
   }: BmiType) {
   return (
         <div className="grid grid-cols-4 pr-6 gap-4">
-            <p className="min-[1000px]:col-span-3 justify-center col-span-full text-[var(--new-green)] w-fit ">
+            <p className="min-[1000px]:col-span-3 justify-center col-span-full text-[var(--black-blue)] w-fit ">
             BMI: {bmi}
             </p>
             <p className='min-[1000px]:col-span-3 text-base col-span-2'>سن: {age}</p>

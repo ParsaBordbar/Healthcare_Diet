@@ -70,7 +70,7 @@ const SideBarItems = (props: TSideBarItems) => {
         />
         {<props.icon />}
         <p
-          className={`text-[var(--dark-blue)] ${
+          className={`text-[var(--black-blue)] ${
             SelectionStyles && "!text-white"
           } group-hover:text-white`}
         >
