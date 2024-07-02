@@ -33,9 +33,15 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
           valueOne="خانه"
           valueTwo="رژیم ها"
           valueThree="پروفایل شخصی"
+          valueFour="پیام ها"
+          valueFive="برنامه ها"
+          valueSix="مشاوره"
           linkOne={"/"}
           linkThree={`/user/${user}/panel`}
+          linkFour={`/user/${user}/panel/massege`}
+          linkFive={`/user/${user}/panel/plans`}
           linkTwo={`/user/${user}/panel/diets`}
+          linkSix={`/`}
         />
         <div className="fixed hidden pb-6 px-2  top-0 right-0 h-screen bg-[var(--soft-blue)]  md:flex w-[25%] lg:w-[20%]">
         <Image
