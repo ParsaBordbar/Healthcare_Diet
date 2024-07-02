@@ -39,7 +39,7 @@ const DietsUserPanel = () => {
           className="text-[var(--new-green)] cursor-pointer"
           onClick={() => {
             download(
-              `${process.env.DOMAIN_FILES}/diet.pdf`,
+              `${process.env.DOMAIN_FILES}uploads/diet.pdf`,
               "diet.pdf"
             );
           }}
