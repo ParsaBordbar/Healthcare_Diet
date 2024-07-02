@@ -32,17 +32,18 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
           valueSix="فرم های پاسخ داده نشده"
           linkSix="/admin/panel/unvisited_diets"
         />
-        <div className="fixed w-[25%] lg:w-[20%] md:flex top-0 right-0 bg-[var(--soft-blue)] gap-2   hidden  h-screen pb-6 px-2 ">
-          <Image
-            src={"/svg/sideBarBanner.svg"}
+        
+        <div className="fixed md:flex top-0 right-0 bg-[var(--soft-blue)] hidden h-screen">
+        <Image
+            src={"/svg/userPanelSvgs/sideBarBanner.svg"}
             width={80}
             height={1}
             layout="fixed"
-            className="object-cover hidden lg:inline rounded-2xl py-2 "
+            className="object-cover h-full w-[38.33333%]"
             alt={""}
           />
           <section className="w-full flex flex-col gap-6 py-4">
-            <h1 className="text-[var(--secondary-blue)] text-2xl font-semibold bg-custom-IslamicArt">
+            <h1 className="text-[var(--dark-blue)] text-2xl font-semibold bg-custom-IslamicArt">
               {" "}
               مشاور تغذیه
             </h1>

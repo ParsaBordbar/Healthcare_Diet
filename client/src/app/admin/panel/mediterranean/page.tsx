@@ -80,7 +80,7 @@ const MediterraneanFormsPage = () => {
             <Link href={'/admin/panel/unvisited_diets'}>
               <MainButton
                 modern
-                className="rounded-lg col-span-2 lg:col-span-1 py-1 !text-sm"
+                className="rounded-lg col-span-2 lg:col-span-1 py-1 !text-sm font-extrabold"
                 value={"فرم‌های ویزیت نشده"}
               />
             </Link>
