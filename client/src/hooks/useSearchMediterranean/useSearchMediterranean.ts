@@ -73,17 +73,17 @@ const useSearchMediterranean = (filterUrl: string) => {
   }
 
   const specialFilterHandler = async () => {
-    const data = await fetchFilteredData(`'/bmi/sort'?sort=special`)
+    const data = await fetchFilteredData(`bmi/sort'?sort=special`)
     setFilter(data)
   }
 
   const maleFilterHandler = async () => {
-    const data = await fetchFilteredData(`'/bmi/sort'?sort=male`)
+    const data = await fetchFilteredData(`bmi/sort?sort=male`)
     setFilter(data)
   }
 
   const femaleFilterHandler = async () => {
-    const data = await fetchFilteredData(`'/bmi/sort'?sort=female`)
+    const data = await fetchFilteredData(`bmi/sort?sort=female`)
     setFilter(data)
   }
 
