@@ -118,7 +118,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
               );
             })
           ) : (
-            <h1 className="text-2xl text-center">پیامی ندارید</h1>
+            <h1 className="text-2xl text-center">رژیمی ندارید</h1>
           )}
         </section>
       </main>
