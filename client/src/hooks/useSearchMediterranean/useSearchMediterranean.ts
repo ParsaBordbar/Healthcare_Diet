@@ -89,6 +89,7 @@ const useSearchMediterranean = (filterUrl: string) => {
 
   const maleFilterHandler = async () => {
     const data = await fetchFilteredData(`bmi/sort?sort=male`)
+    fetchMediterraneanData(data.map((item: any) => item.phoneNumber));
     setFilter(data)
   }
 
