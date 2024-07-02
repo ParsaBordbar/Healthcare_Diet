@@ -54,8 +54,8 @@ const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
             />
           </li>
         </ul>
-        <div className="col-span-full grid grid-cols-8 gap-x-28 mt-4">
-          <div className="col-span-2 flex flex-col gap-6">
+        <div className="col-span-full grid grid-cols-8 gap-8 mt-4">
+          <div className="xl:col-span-2 col-span-full flex flex-col gap-4">
             <UserInfo userID={userID} />
             <DietStatus direction="flex-col" phoneNumber={params.user} />
             <Link
@@ -65,7 +65,7 @@ const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
               تمام برنامه‌های شما
             </Link>
           </div>
-          <div className="col-span-6">{children}</div>
+          <div className="xl:col-span-6 col-span-full">{children}</div>
           
         </div>
       </div>
