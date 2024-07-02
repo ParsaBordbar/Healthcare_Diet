@@ -31,7 +31,7 @@ const DietsUserPanel = () => {
 
   return (
     <div className="flex flex-col gap-7">
-      <section className="flex items-center gap-2">
+      <section className="flex sm:flex-row flex-col items-center gap-2">
         <h1 className="">
           قبل از پر کردن رژیم موزد نظر حتما این فایل را دانلود و مطالعه کنید
         </h1>
