@@ -100,7 +100,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                         if (comment.files) {
                           console.log(process.env.DOMAIN_FILES+comment.files[0].path)
                           download(
-                            `http://localhost:8080/uploads/diet.pdf`,
+                            `${process.env.DOMAIN_FILES}uploads/diet.pdf`,
                             "diet.pdf"
                           );
                         }
