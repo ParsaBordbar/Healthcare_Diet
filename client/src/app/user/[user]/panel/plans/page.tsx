@@ -98,8 +98,9 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                     <MainButton
                       onClick={() => {
                         if (comment.files) {
+                          console.log(process.env.DOMAIN_FILES+comment.files[0].path)
                           download(
-                            `${process.env.DOMAIN_FILES}${comment.files[0].path}`,
+                            `http://localhost:8080/uploads/تغذیه.png`,
                             "رژیم مدیترانه ای.png"
                           );
                         }
