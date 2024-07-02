@@ -78,7 +78,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                           );
                         }
                       }}
-                      className="bg-[var(--new-green)] p-2.5 col-span-1 !text-white"
+                      className="bg-[var(--new-green)] !px-1 !text-base md:text-lg col-span-1 !text-white"
                       value={"دانلود رژیم"}
                     />
                     <MainButton
@@ -92,8 +92,8 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                         isDateComment(comment.createdAtJalali);
                         isShow(true);
                       }}
-                      className="bg-[var(--orange)] p-2.5 col-span-1 !text-white"
-                      value={"مشاهده رژیم مدیترانه ای"}
+                      className="bg-[var(--orange)] !px-1 !text-base md:text-lg col-span-1 !text-white"
+                      value={"رژیم مدیترانه ای"}
                     />
                     <MainButton
                       onClick={() => {
@@ -106,7 +106,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                         }
                       }}
                       trasparent
-                      className="p-2.5 col-span-1 !text-[var(--new-green)]"
+                      className="!py-3 md:p-2.5 col-span-1 !text-base md:text-lg !text-[var(--new-green)]"
                       value={"دانلود تغذیه"}
                     />
                   </section>
