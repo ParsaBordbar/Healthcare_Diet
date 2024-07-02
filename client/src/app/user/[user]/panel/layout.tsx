@@ -30,7 +30,6 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
     <>
       <div className="flex justify-end w-full top-0 z-40">
         <HamburgerNavbar
-          className="!bg-transparent !fixed !right-0 !py-6 !px-6 md:!hidden !w-fit !inline-block"
           valueOne="خانه"
           valueTwo="رژیم ها"
           valueThree="پروفایل شخصی"
