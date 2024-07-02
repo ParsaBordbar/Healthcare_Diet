@@ -37,6 +37,16 @@ const useSearchMediterranean = (filterUrl: string) => {
     }
   }
 
+  const fetchFilteredDataGender = async (url: string) => {
+    try {
+      const response = await api.get(url)
+      return response.data
+    } catch (error) {
+      console.error('Error fetching filtered data:', error)
+      return []
+    }
+  }
+
   const fetchSearchData = async (query: string) => {
     try {
       const response = await api.get(`/bmi/search?query=${query}`)
@@ -53,6 +63,7 @@ const useSearchMediterranean = (filterUrl: string) => {
     event.preventDefault()
     const trimmedSearchValue = searchValue.trim();
     if (!trimmedSearchValue) {
+      newestFilterHandler()
       console.log('Empty search got yea!');
       return;
     }
@@ -72,19 +83,19 @@ const useSearchMediterranean = (filterUrl: string) => {
   }
 
   const specialFilterHandler = async () => {
-    const data = await fetchFilteredData(`${filterUrl}?sort=special`)
+    const data = await fetchFilteredData(`'/bmi/sort'?sort=special`)
     setFilter(data)
   }
 
-//   const maleFilterHandler = async () => {
-//     const data = await fetchFilteredData(`${filterUrl}?sort=male`)
-//     setFilter(data)
-//   }
+  const maleFilterHandler = async () => {
+    const data = await fetchFilteredDataGender(`'/bmi/sort'?sort=male`)
+    setFilter(data)
+  }
 
-//   const femaleFilterHandler = async () => {
-//     const data = await fetchFilteredData(`${filterUrl}?sort=female`)
-//     setFilter(data)
-//   }
+  const femaleFilterHandler = async () => {
+    const data = await fetchFilteredDataGender(`'/bmi/sort'?sort=female`)
+    setFilter(data)
+  }
 
   return {
     filter,
@@ -93,8 +104,8 @@ const useSearchMediterranean = (filterUrl: string) => {
     newestFilterHandler,
     oldestFilterHandler,
     specialFilterHandler,
-    // maleFilterHandler,
-    // femaleFilterHandler,
+    maleFilterHandler,
+    femaleFilterHandler,
     submitHandler,
   }
 }
