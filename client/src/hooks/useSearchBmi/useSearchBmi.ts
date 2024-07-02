@@ -49,8 +49,8 @@ const useSearchBmi = (filterUrl: string) => {
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const trimmedSearchValue = searchValue.trim();
-    if (!trimmedSearchValue) {
-      console.log('Empty search got yea!');
+    if (!trimmedSearchValue) {  
+      newestFilterHandler()
       return;
     }
     const searchData = await fetchSearchData(trimmedSearchValue)
