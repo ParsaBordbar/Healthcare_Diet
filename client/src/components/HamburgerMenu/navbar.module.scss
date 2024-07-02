@@ -4,7 +4,7 @@
     justify-content: center;
     width: 100%;
     padding: 0 10vw;
-    background-color: var(--primary-blue);
+    background-color: var(--milky-white);
     height: 0;
     position: absolute;
     top: 0;
@@ -19,7 +19,7 @@
         display: flex;
         align-items: start;
         justify-content: space-between;
-        background-color: var(--primary);
+        background-color: var(--milky-white);
 
         .button {
             background-color: transparent;
@@ -92,7 +92,8 @@
 
     .content {
     position: absolute;
-        top: 30vh;
+        top: 15vh;
+        right: 5vh;
         display: none;
 
         ul {
@@ -117,7 +118,7 @@
 }
 
 .navbar.active {
-    background-color: var(--primary);
+    background-color: var(--milky-white);
     transition: 0.75s height;
     height: 100vh;
 
