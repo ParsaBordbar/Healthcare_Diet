@@ -2,9 +2,9 @@
 import Accordion from "@/components/Accordion";
 import MediterranealForm from "@/components/MediterranealForm";
 import { useState } from "react";
+import useDownloader from "react-use-downloader";
 
 const DietsUserPanel = () => {
-    
   const [accordions, setAccordion] = useState([
     {
       key: 1,
@@ -12,8 +12,10 @@ const DietsUserPanel = () => {
       data: <MediterranealForm />,
       isOpen: false,
     },
-    
   ]);
+
+  const { size, elapsed, percentage, download, cancel, error, isInProgress } =
+    useDownloader();
 
   const toggleAccordion = (accordionkey: any) => {
     const updatedAccordions = accordions.map((accord: any) => {
@@ -29,6 +31,22 @@ const DietsUserPanel = () => {
 
   return (
     <div className="flex flex-col gap-7">
+      <section className="flex items-center gap-2">
+        <h1 className="">
+          قبل از پر کردن رژیم موزد نظر حتما این فایل را دانلود و مطالعه کنید
+        </h1>
+        <p
+          className="text-[var(--new-green)] cursor-pointer"
+          onClick={() => {
+            download(
+              `http://localhost:8080/uploads/تغذیه.png`,
+              "تغذیه.png"
+            );
+          }}
+        >
+          فایل تغذیه
+        </p>
+      </section>
       {accordions.map((accordion) => (
         <Accordion
           key={accordion.key}
