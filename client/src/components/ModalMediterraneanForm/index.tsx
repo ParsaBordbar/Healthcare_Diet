@@ -40,20 +40,20 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
                   }  fixed p-10 w-full h-screen top-0 right-0  `}
             >
               <div className="w-11/12 mx-auto overflow-y-scroll custom-scroll h-full shadow-lg bg-[var(--milky-white)] flex flex-col gap-10 p-8 rounded-lg">
-                <section className="flex flex-col gap-8 items-start">
+                <section className="flex flex-col gap-8 items-end">
                   <Close
-                    className="cursor-pointer w-8 h-8 p-1 transition-all ease-in-out duration-200 hover:!stroke-white hover:bg-red-600 rounded-full"
+                    className="cursor-pointer bg-[var(--milky-white)] fixed w-8 h-8 p-1 transition-all ease-in-out duration-200 hover:!stroke-white hover:bg-red-600 rounded-full"
                     onClick={() => {
                       params.isShow(false);
                     }}
                   />
-                  <section className="flex items-center justify-between w-full">
+                  <section className="flex mt-10 md:flex-row flex-col items-center justify-between w-full">
                     <div className="flex gap-2 items-center ">
                       <DocumentIcon className="[&>path]:stroke-[var(--new-green)]" />
-                      <h1 className="text-2xl text-[var(--new-green)]">
+                      <h1 className="sm:text-2xl text-xl text-[var(--new-green)]">
                         رژیم مدیترانه ای
                       </h1>
-                      <h1 className="text-[var(--new-green)] text-2xl">
+                      <h1 className="text-[var(--new-green)] sm:text-2xl text-xl ">
                         {data?.name + " " + data?.lastName}
                       </h1>
                     </div>
@@ -67,11 +67,11 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
                 </section>
                 <main className="w-full gap-6 flex flex-col mx-auto">
                   <div className="flex flex-col gap-4">
-                    <h1 className="text-[var(--new-green)] text-2xl">
+                    <h1 className="text-[var(--new-green)] sm:text-2xl text-xl ">
                       فرم مدیترانه ای
                     </h1>
-                    <div className="grid grid-cols-3 gap-4">
-                      <section className="col-span-full flex flex-col gap-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      <section className="lg:col-span-full col-span-full flex flex-col gap-4">
                         <li className=" bg-[var(--new-green)] text-white w-fit rounded-lg p-2">
                           مواد غذایی مصرفی:
                         </li>
@@ -223,7 +223,7 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
                         <li className=" bg-[var(--new-green)] text-white w-fit rounded-lg p-2">
                           بیماری‌ها و وضعیت‌های خاص:
                         </li>
-                        <ul className="grid grid-cols-3 pr-3 gap-2">
+                        <ul className="grid grid-cols-4 pr-3 gap-2">
                           <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
                             <p className="w-fit text-base">
                               وضعیت دیابت: {form.diabetes}
@@ -308,9 +308,9 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
                       </section>
                     </div>
                   </div>
-                  <div className="flex flex-col col-span-full gap-4">
+                  <div className="flex flex-col gap-4">
                     <h1 className="text-[var(--new-green)] text-xl">فرم BMI</h1>
-                    <ul className="grid grid-cols-5 pr-3">
+                    <ul className="grid md:grid-cols-5 gap-y-1 md:gap-0 grid-cols-2 pr-3">
                       <li className="col-span-1">سن :‌ {form.dietBmi?.age}</li>
                       <li className="col-span-1">
                         قد :‌ {form.dietBmi?.height}
