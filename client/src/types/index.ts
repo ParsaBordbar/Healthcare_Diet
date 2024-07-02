@@ -158,6 +158,7 @@ export interface QuickLinkBoxType {
 }
 
 export interface DietStatusType{
+  tick?:string
   phoneNumber: string, 
   direction : string
 }
