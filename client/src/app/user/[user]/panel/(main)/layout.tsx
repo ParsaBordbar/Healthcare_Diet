@@ -20,7 +20,7 @@ const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
   return (
     <>
       <div className="grid grid-cols-8 gap-8">
-        <ul className="col-span-full grid grid-cols-4 gap-8">
+        <ul className="col-span-full hidden md:grid grid-cols-4 gap-8">
           <li className="col-span-full md:col-span-2 lg:col-span-1">
             <QuickLinkBox
               tittle={"پیام های شما"}
