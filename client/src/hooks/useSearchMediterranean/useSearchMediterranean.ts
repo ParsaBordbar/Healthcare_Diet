@@ -1,14 +1,49 @@
 'use client'
 import { useEffect, useState } from 'react'
-import useFetchBmi from '../useFetchBmi'
 import api from '@/apis'
-import { BmiType, MediterraneanFormType } from '@/types'
-import useFetchMediterranean from '../useFetchMediterranean'
+import {  MediterraneanFormType } from '@/types'
+
 
 const useSearchMediterranean = (filterUrl: string) => {
-  const mediterraneans = useFetchMediterranean()
-  const [filter, setFilter] = useState<MediterraneanFormType[]>(mediterraneans);
-  const [searchValue, setSearchValue] = useState<string>('')
+  const [filter, setFilter] = useState<MediterraneanFormType[]>([]);
+  const [searchValue, setSearchValue] = useState<string>('');
+  const [phoneNumbers, setPhoneNumbers] = useState<string[]>([]);
+
+  const fetchFilteredData = async (url: string) => {
+    try {
+      const response = await api.get(url);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching filtered data:', error);
+      return [];
+    }
+  };
+
+  const fetchSearchData = async (query: string) => {
+    try {
+      const response = await api.get(`/bmi/search?query=${query}`);
+      const itemPhoneNumbers = response.data.map((item: any) => item.phoneNumber);
+      setPhoneNumbers(itemPhoneNumbers);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching search data:', error);
+      return [];
+    }
+  };
+
+  const fetchMediterraneanData = async (phoneNumbers: string[]) => {
+    try {
+      const allData = await Promise.all(
+        phoneNumbers.map(phoneNumber => api.get(`/mediterranean/certain/${phoneNumber}`))
+      );
+
+      const mergedData = allData.map(response => response.data).flat();
+      setFilter(mergedData);
+
+    } catch (error) {
+      console.error('Error fetching Mediterranean data:', error);
+    }
+  };
 
   useEffect(() => {
     const fetchInitialData = async () => {
@@ -19,53 +54,28 @@ const useSearchMediterranean = (filterUrl: string) => {
   }, []);
 
   useEffect(() => {
-    console.log(filter);
+    console.log(filter); 
   }, [filter]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('Event value:', event.target.value)
-    setSearchValue(event.target.value)
-  }
-
-  const fetchFilteredData = async (url: string) => {
-    try {
-      const response = await api.get(url)
-      return response.data
-    } catch (error) {
-      console.error('Error fetching filtered data:', error)
-      return []
-    }
-  }
-
-  const fetchSearchData = async (query: string) => {
-    try {
-      const response = await api.get(`/bmi/search?query=${query}`)
-      event?.preventDefault()
-      console.log( "THis is BMI:", response.data);
-      return response.data
-    } catch (error) {
-      console.error('Error fetching search data:', error)
-      return []
-    }
-  }
+    setSearchValue(event.target.value);
+  };
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+    event.preventDefault();
     const trimmedSearchValue = searchValue.trim();
     if (!trimmedSearchValue) {
-      newestFilterHandler()
-      console.log('Empty search got yea!');
+      newestFilterHandler();
       return;
     }
-    const searchData = await fetchSearchData(trimmedSearchValue)
-    setFilter(searchData)
-  }
-
+    const searchData = await fetchSearchData(trimmedSearchValue);
+    fetchMediterraneanData(searchData.map((item: any) => item.phoneNumber));
+  };
 
   const newestFilterHandler = async () => {
-    const data: MediterraneanFormType[] = await fetchFilteredData(`${filterUrl}?sort=newest`)
-    setFilter(data)
-  }
+    const data: MediterraneanFormType[] = await fetchFilteredData(`${filterUrl}?sort=newest`);
+    setFilter(data);
+  };
 
   const oldestFilterHandler = async () => {
     const data = await fetchFilteredData(`${filterUrl}?sort=oldest`)
@@ -100,4 +110,4 @@ const useSearchMediterranean = (filterUrl: string) => {
   }
 }
 
-export default useSearchMediterranean
+export default useSearchMediterranean;
