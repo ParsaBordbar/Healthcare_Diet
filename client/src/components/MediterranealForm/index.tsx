@@ -1104,21 +1104,21 @@ const MediterranealForm = () => {
 
           <MainInput
             name="otherSickness"
-            parentClassName="lg:col-span-2 [&>label]:text-base"
+            parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
             onChange={handleChange}
             type="text"
             label="سایر بیماری ها یا جراحی قبلی را اینجا بنویسید "
           />
           <MainInput
             name="medicine"
-            parentClassName="lg:col-span-2 [&>label]:text-base"
+            parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
             onChange={handleChange}
             type="text"
             label="چنانچه دارویی مصرف می کنید نام آن را ذکر کنید"
           />
           <MainInput
             name="files"
-            parentClassName="col-span-2 [&>label]:text-base"
+            parentClassName="md:col-span-2 col-span-full [&>label]:text-base"
             onChange={handleChange}
             type="file"
             label="آخرین آزمایشات ارسال شود "
