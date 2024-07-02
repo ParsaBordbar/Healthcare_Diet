@@ -219,7 +219,7 @@ const BmiFormDiet = () => {
         />
 
         <MainButton
-          gradient
+          modern
           type="submit"
           className="w-full h-fit self-end py-3 col-span-2 lg:col-span-4 !text-white"
           value={"ورود"}
