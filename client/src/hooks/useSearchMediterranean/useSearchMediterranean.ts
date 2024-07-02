@@ -83,7 +83,7 @@ const useSearchMediterranean = (filterUrl: string) => {
   }
 
   const specialFilterHandler = async () => {
-    const data = await fetchFilteredData(`bmi/sort'?sort=special`)
+    const data = await fetchFilteredData(`mediterranean/sort?sort=special`)
     setFilter(data)
   }
 
