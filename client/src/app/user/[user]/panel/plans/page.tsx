@@ -100,8 +100,8 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                         if (comment.files) {
                           console.log(process.env.DOMAIN_FILES+comment.files[0].path)
                           download(
-                            `http://localhost:8080/uploads/تغذیه.png`,
-                            "رژیم مدیترانه ای.png"
+                            `http://localhost:8080/uploads/diet.pdf`,
+                            "diet.pdf"
                           );
                         }
                       }}
