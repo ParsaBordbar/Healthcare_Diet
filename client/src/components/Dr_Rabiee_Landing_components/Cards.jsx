@@ -29,13 +29,13 @@ function CardsSection() {
   return (
     <div className="flex flex-col items-center h-screen bg-[#FEFDF9] overflow-auto relative" dir="rtl">
       <div className="container mt-8 mb-4">
-        <h1 className="text-3xl font-[YekanBakhBold] text-[#3A3A97] text-center mb-4">
+        <h1 className="text-4xl font-extrabold text-[#3A3A97] text-center mb-4">
           برنامه های سلامتی
         </h1>
-        <p className="text-lg font-[YekanBakh] text-black text-center mb-4">
+        <p className="text-lg text-black text-center mb-4">
           شما می توانید برنامه های رژیمی مختلف را مشاهده کرده و خریداری نمایید.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="flex justify-center gap-4">
           {cardsData.map((card) => (
             <div key={card.id} className="flex flex-col items-center">
               <CustomCard

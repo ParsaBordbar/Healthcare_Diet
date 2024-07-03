@@ -38,8 +38,6 @@ function Header() {
           <InputIcon className="ml-2" />
           ورود
         </Link>
-
-        
       </div>
     </header>
   );
