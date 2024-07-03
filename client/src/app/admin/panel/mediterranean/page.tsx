@@ -28,7 +28,7 @@ const MediterraneanFormsPage = () => {
         <DocumentIcon className="[&>path]:stroke-black " />
         <h1 className="text-3xl">فرم‌های رژیم مدیترانه‌ای:</h1>
       </div>
-      <div className="grid grid-cols-10 gap-8 items-center">
+      <div className="grid grid-cols-10 mb-10 gap-8 items-center">
         <form className="xl:col-span-5 col-span-full" action="" onSubmit={submitHandler}>
           <MainInput
             iconFirst={SearchIcon}
@@ -39,7 +39,7 @@ const MediterraneanFormsPage = () => {
             onChange={handleChange}
           />
         </form>
-        <div className="xl:col-span-5 col-span-full grid grid-cols-3 items-center">
+        <div className="xl:col-span-5 col-span-full grid grid-cols-3 gap-4 items-start lg:items-center">
           <section className="flex col-span-full md:col-span-1 items-center gap-2">
             <FilterIcon className="[&>path]:stroke-black " />
             <p className="w-fit text-base">فیلتر کردن براساس:</p>
@@ -47,39 +47,39 @@ const MediterraneanFormsPage = () => {
           <section className="col-span-full md:col-span-2 grid grid-cols-4 gap-4 w-full">
             <MainButton
               modern
-              className="rounded-lg col-span-2 lg:col-span-1 py-1 px-4 !text-sm"
+              className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
               value={"قدیمی ترین"}
               onClick={oldestFilterHandler}
             />
             <MainButton
               modern
-              className="rounded-lg col-span-2 lg:col-span-1 py-1 px-4 !text-sm"
+              className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
               value={"جدیدترین"}
               onClick={newestFilterHandler}
             />
             
             <MainButton
               modern
-              className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
+              className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
               value={"مرد"}
               onClick={maleFilterHandler}
             />
             <MainButton
               modern
-              className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
+              className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
               value={"زن"}
               onClick={femaleFilterHandler}
             />
-            <Link href={'/admin/panel/unvisited_diets'}>
+            <Link className="col-span-2" href={'/admin/panel/unvisited_diets'}>
               <MainButton
                 modern
-                className="rounded-lg col-span-2 lg:col-span-1 py-1 !text-sm font-extrabold"
+                className="rounded-lg w-full  p-3 !text-sm font-extrabold"
                 value={"فرم‌های ویزیت نشده"}
               />
             </Link>
             <MainButton
               modern
-              className="rounded-lg col-span-2 lg:col-span-1 py-1 !text-sm"
+              className="rounded-lg font-extrabold col-span-2 py-3 !text-sm"
               value={"افراد دارای بیماری‌های خاص"}
               onClick={specialFilterHandler}
             />
