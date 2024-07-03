@@ -66,6 +66,7 @@ const MainInput = forwardRef<
               className={`${props.inputClassName} placeholder:text-[var(--border-color)] w-full border-none outline-none bg-transparent`}
               {...props}
               ref={ref}
+              autoComplete="off"
               type={showPassword ? "text" : props.type}
             />
           </div>
