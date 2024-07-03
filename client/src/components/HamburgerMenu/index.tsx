@@ -108,7 +108,7 @@ const HamburgerNavbar = (props: THamMenu) => {
           key={Links.value}
         >
           <motion.li
-            className="!p-0 flex items-center group-hover:[&>svg>path]:stroke-white gap-2"
+            className="!p-0 flex items-center [&>svg]:w-6 [&>svg]:h-6 [&>svg>path]:stroke-[var(--new-green)] group-hover:[&>svg>path]:stroke-white gap-2"
             variants={listItemVariants}
           >
             {Links.icon && <Links.icon />}
@@ -198,9 +198,6 @@ const HamburgerNavbar = (props: THamMenu) => {
                "
               >
                 <ul className="flex flex-col gap-2">
-                  <li className="font-bold cursor-pointer hover:text-white text-[var(--black-blue)] !px-3 rounded-lg transition-all duration-200 ease-in-out !py-2 hover:bg-[var(--new-green)] text-base">
-                    تنطیمات
-                  </li>
                   <li
                     onClick={handleLogout}
                     className="font-bold group cursor-pointer  hover:text-white text-[var(--black-blue)] !px-3 rounded-lg transition-all duration-200 ease-in-out flex items-center gap-2 !py-2 hover:bg-[var(--new-green)] text-base"
@@ -209,7 +206,7 @@ const HamburgerNavbar = (props: THamMenu) => {
                     <span>خروج</span>
                   </li>
                 </ul>
-                <section className=" flex gap-4 items-center">
+                {patients && <section className=" flex gap-4 items-center">
                   <MaleAvatar className="" />
                   <div className="flex flex-col">
                     <h1>{patients?.name + " " + patients?.lastName}</h1>
@@ -218,7 +215,7 @@ const HamburgerNavbar = (props: THamMenu) => {
                       <p>{patients?.phoneNumber}</p>
                     </section>
                   </div>
-                </section>
+                </section>}
               </main>
             </div>
           </motion.ul>
