@@ -39,7 +39,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
           iconSix={FormIcon}
         />
         
-        <div className="fixed md:flex top-0 right-0 bg-[var(--soft-blue)] hidden h-screen">
+        <div className="fixed md:flex top-0 lg:w-[20%] md:w-[25%] xl:w-[15%] right-0 bg-[var(--soft-blue)] hidden h-screen">
         {/* <Image
             src={"/svg/userPanelSvgs/sideBarBanner.svg"}
             width={80}
@@ -56,36 +56,42 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
 
             <ul className="flex flex-col rounded-lg h-screen pb-4  gap-4">
               <SideBarItems
+              className="lg:text-lg md:text-base"
                 router={router}
                 value={"پنل اصلی"}
                 href={"/admin/panel"}
                 icon={AdminPanelLogo}
               />
               <SideBarItems
+              className="lg:text-lg md:text-base"
                 router={router}
                 value={"سوابق بیمارها"}
                 href={"/admin/panel/patients"}
                 icon={MedicalDocIcon}
               />
               <SideBarItems
+              className="lg:text-lg md:text-base"
                 router={router}
                 value={"فرم های BMI"}
                 href={"/admin/panel/bmi"}
                 icon={FormIcon}
               />
               <SideBarItems
+              className="lg:text-lg md:text-base"
                 router={router}
-                value={"فرم های رژیم مدیترانه ای"}
+                value={"فرم رژیم مدیترانه ای"}
                 href={"/admin/panel/mediterranean"}
                 icon={FormIcon}
               />
               <SideBarItems
+              className="lg:text-lg md:text-base"
                 router={router}
-                value={"فرم های پاسخ داده نشده"}
+                value={"فرم مدیترانه ای ویزیت نشده"}
                 href={"/admin/panel/unvisited_diets"}
                 icon={FormIcon}
               />
               <SideBarItems
+              className="lg:text-lg md:text-base"
               router={router}
               value={"خروج"}
               href={`/`}
@@ -95,7 +101,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
             </ul>
           </section>
         </div>
-        <main className="w-full mt-6 md:w-[75%] lg:w-[80%] flex flex-col py-16 gap-10 px-16 bg-white h-screen">
+        <main className="w-full mt-6 md:w-[75%] xl:w-[85%] lg:w-[80%] flex flex-col py-16 gap-10 px-16 bg-white h-screen">
           <div className="">{children}</div>
         </main>
       </div>
