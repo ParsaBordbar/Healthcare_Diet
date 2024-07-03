@@ -37,17 +37,17 @@ router.get('/checking/isChecked', async (req, res) => {
 router.get('/sort', async(req, res)=>{
     if(req.query.sort == 'special'){
         const response = await MediterraneanForm.find({
-            $or:[
-                {cancer: true},
-                {Migraine: true},
-                {otherSickness: !null}
+            $or: [
+                { cancer: true },
+                { Migraine: true },
+                { otherSickness: { $ne: null } }
             ]
         }
          )
         return res.send(response)        
     }
     if(req.query.sort == 'newest'){
-        const response = await MediterraneanForm.find().sort({ createdAtJalali: -1 });
+        const response = await MediterraneanForm.find({ createdAtJalali: {$exists: true, $ne: null }})
         if (response.length > 0) {
             return res.status(200).send(response);
             } else {
@@ -55,7 +55,7 @@ router.get('/sort', async(req, res)=>{
         }
     }
     if(req.query.sort == 'oldest'){
-        const response = await MediterraneanForm.find().sort({ createdAtJalali: 1 });
+        const response = await MediterraneanForm.find({ createdAtJalali: {$exists: true, $ne: null }});
         if (response.length > 0) {
             return res.status(200).send(response);
             } else {
