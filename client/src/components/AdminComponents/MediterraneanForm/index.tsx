@@ -271,7 +271,7 @@ const MediterraneanForm = ({
                 <div className="flex gap-2 items-center px-10">
                   <AttachmentIcon />
                   <a
-                  href={`${process.env.DOMAIN_FILES}${payment.filename}`}
+                  href={`${process.env.DOMAIN_FILES}uploads/${payment.filename}`}
                   download={payment.originalName}
                   className="text-blue-400 hover:underdivne pt-2 text-sm col-span-1"
                 >
