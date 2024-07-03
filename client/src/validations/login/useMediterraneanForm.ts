@@ -16,12 +16,17 @@ const getPhoneNumberFromUrl = (): string | null => {
 
 const useMediterraneanForm = () => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [selectedPayment, setSelectedPayment] = useState<File | null>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      setSelectedFiles(Array.from(e.target.files));
-    }
-  };
+      const { name } = e.target;
+      if (name === 'documents') {
+        setSelectedFiles(Array.from(e.target.files));
+      } else if (name === 'payment') {
+        setSelectedPayment(e.target.files[0]);
+      }
+    }}
   const { push } = useRouter();
 
   const phoneNumber = getPhoneNumberFromUrl();
@@ -119,9 +124,12 @@ const useMediterraneanForm = () => {
       });
 
       selectedFiles.forEach((file) => {
-        formData.append('files', file);
+        formData.append('document', file);
       });
 
+      if (selectedPayment) {
+        formData.append('payment', selectedPayment);
+      }
       try {
         const response = await api.post('/uploader/upload/type?type=mediterranean', formData, {
           headers: {
