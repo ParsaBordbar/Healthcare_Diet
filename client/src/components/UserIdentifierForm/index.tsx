@@ -57,7 +57,7 @@ const UserIdentifyForm = () => {
           render={({ field }) => (
             <MainInput
               maxLength={1}
-              type="number"
+              type="text"
               onInput={(e: ChangeEvent<HTMLInputElement>) => {
                 handleLenght(e);
               }}
@@ -76,7 +76,7 @@ const UserIdentifyForm = () => {
               onInput={(e: ChangeEvent<HTMLInputElement>) => {
                 handleLenght(e);
               }}
-              type="number"
+              type="text"
               className={`w-full h-12 text-center text-xl outline-none`}
               {...field}
               ref={codeFour}
@@ -92,7 +92,7 @@ const UserIdentifyForm = () => {
               onInput={(e: ChangeEvent<HTMLInputElement>) => {
                 handleLenght(e);
               }}
-              type="number"
+              type="text"
               className={`w-full h-12 text-center text-xl outline-none`}
               {...field}
               ref={codeThree}
@@ -108,7 +108,7 @@ const UserIdentifyForm = () => {
               onInput={(e: ChangeEvent<HTMLInputElement>) => {
                 handleLenght(e);
               }}
-              type="number"
+              type="text"
               className={`w-full h-12 text-center text-xl outline-none`}
               {...field}
               ref={codeTwo}
@@ -124,7 +124,7 @@ const UserIdentifyForm = () => {
               onInput={(e: ChangeEvent<HTMLInputElement>) => {
                 handleLenght(e);
               }}
-              type="number"
+              type="text"
               className={`w-full h-12 text-center text-xl outline-none`}
               {...field}
               ref={codeOne}
