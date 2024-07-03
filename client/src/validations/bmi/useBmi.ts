@@ -2,7 +2,6 @@ import * as yup from "yup";
 import { useCallback } from "react";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { BmiDataType } from "@/types";
 import api from "@/apis";
@@ -31,28 +30,64 @@ export const BmiSchema = yup.object({
     .required("وزن الزامی است"),
 });
 
+const convertPersianArabicToEnglish = (input) => {
+  const persianNumbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g];
+  const arabicNumbers = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g];
+
+  let output = input.toString();
+  for (let i = 0; i < 10; i++) {
+    output = output.replace(persianNumbers[i], i).replace(arabicNumbers[i], i);
+  }
+
+  return output;
+};
+
 const useBmi = () => {
+  const { push } = useRouter();
+
+  const customResolver = (data:BmiDataType) => {
+    const convertedData = {
+      ...data,
+      phoneNumber: convertPersianArabicToEnglish(data.phoneNumber),
+      abdominalCircumference: Number(convertPersianArabicToEnglish(data.abdominalCircumference)),
+      weight: Number(convertPersianArabicToEnglish(data.weight)),
+      age: Number(convertPersianArabicToEnglish(data.age)),
+      height: Number(convertPersianArabicToEnglish(data.height)),
+    };
+
+    try {
+      BmiSchema.validateSync(convertedData, { abortEarly: false });
+      return { values: convertedData, errors: {} };
+    } catch (yupError:any) {
+      return { values: {}, errors: yupError.inner.reduce((allErrors:any, currentError:any) => {
+        return {
+          ...allErrors,
+          [currentError.path]: {
+            type: currentError.type ?? "validation",
+            message: currentError.message,
+          },
+        };
+      }, {}) };
+    }
+  };
+
   const {
     control,
     handleSubmit,
     register,
     formState: { errors },
   } = useForm<BmiDataType>({
-    resolver: yupResolver(BmiSchema),
+    resolver: customResolver,
   });
-  console.log(errors);
 
   const showsErrors = () => {
     if (errors.name?.message) {
-      console.log("error");
       toast.error(errors.name.message);
     }
     if (!errors.name && errors.lastName) {
-      console.log("error");
       toast.error(errors.lastName.message);
     }
     if (!errors.lastName && !errors.name && errors.phoneNumber) {
-      console.log("error");
       toast.error(errors.phoneNumber.message);
     }
     if (
@@ -61,7 +96,6 @@ const useBmi = () => {
       !errors.phoneNumber &&
       errors.abdominalCircumference
     ) {
-      console.log("error");
       toast.error(errors.abdominalCircumference.message);
     }
     if (
@@ -71,7 +105,6 @@ const useBmi = () => {
       !errors.abdominalCircumference &&
       errors.gender
     ) {
-      console.log("error");
       toast.error(errors.gender.message);
     }
     if (
@@ -82,7 +115,6 @@ const useBmi = () => {
       !errors.gender &&
       errors.weight
     ) {
-      console.log("error");
       toast.error(errors.weight.message);
     }
     if (
@@ -94,7 +126,6 @@ const useBmi = () => {
       !errors.weight &&
       errors.age
     ) {
-      console.log("error");
       toast.error(errors.age.message);
     }
     if (
@@ -107,27 +138,19 @@ const useBmi = () => {
       !errors.age &&
       errors.height
     ) {
-      console.log("error");
       toast.error(errors.height.message);
     }
   };
 
   showsErrors();
 
-  console.log(errors.name?.message);
-
-  const { push } = useRouter();
-
   const handelValueInputs = useCallback(
     async (data: BmiDataType) => {
-      console.log("This is data", data);
       try {
         const response = await api.post("bmi", data);
-        console.log("This is response.data: ", response);
         push(`/user/${data.phoneNumber}/panel`);
         toast.success("خوش آمدید");
       } catch {
-        console.error("There was an error!", errors);
         toast.error("An error occurred while submitting the form.");
       }
     },
