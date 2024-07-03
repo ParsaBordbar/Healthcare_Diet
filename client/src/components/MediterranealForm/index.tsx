@@ -11,7 +11,8 @@ const MediterranealForm = () => {
     values,
     handleChange,
     handleSubmit,
-    handleFileChange
+    handleFileChange,
+    paymentError
   } = useMediterraneanForm();
 
 
@@ -1193,6 +1194,7 @@ const MediterranealForm = () => {
               label="فایل رسید پرداختی"
             />
           </div>
+          {paymentError && <div style={{ color: 'red' }}>{paymentError}</div>}
         </section>
 
       <MainButton
