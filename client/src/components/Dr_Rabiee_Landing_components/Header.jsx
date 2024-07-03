@@ -4,7 +4,7 @@ import InputIcon from "@mui/icons-material/Input";
 
 function Header() {
   return (
-    <header className="bg-[#FEFDF9] text-[var(--black-blue)] px-[40px] py-0 shadow-md mt-5">
+    <header className="bg-[#FEFDF9] text-[var(--black-blue)] px-[42px] py-0 shadow-md mt-5">
       <div className="flex justify-between items-center h-[64px]">
 
         {/* Right-side Box containing buttons and the logo */}
@@ -35,8 +35,8 @@ function Header() {
           href="#login"
           className="flex items-center border border-[#FFA301] rounded-[10px] shadow-md px-[36px] py-[8px] text-[var(--black-blue)] font-extrabold hover:bg-[#FFA301] hover:text-white transition-colors duration-300"
         >
-          ورود
           <InputIcon className="ml-2" />
+          ورود
         </Link>
 
         
