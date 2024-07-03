@@ -2,7 +2,7 @@ import AdminLogin from "@/components/AdminLogin";
 
 const Admin = () => {
     return(
-        <section className="flex justify-center items-center h-screen">
+        <section className="flex px-6 justify-center items-center h-screen">
             <AdminLogin />
         </section>
     )
