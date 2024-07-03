@@ -64,6 +64,7 @@ export type MediterranealDataType = {
 };
 
 export interface BmiType {
+  className?:string
   height?: number;
   weight?: number;
   bmi?: number;
