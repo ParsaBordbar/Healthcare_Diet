@@ -1,12 +1,12 @@
 import api from "@/apis";
 import { LoginDataType } from "@/types";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import * as yup from "yup";
 
+// Define the schema
 export const EnterNumberSchema = yup.object({
   phoneNumber: yup
     .string()
@@ -18,14 +18,54 @@ export const EnterNumberSchema = yup.object({
     .required("شماره تماس الزامی است"),
 });
 
+// Function to convert Persian/Arabic numbers to English
+const convertNumberToEnglish = (input:any) => {
+  const persianNumbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g];
+  const arabicNumbers = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g];
+
+  let output = input.toString();
+  for (let i = 0; i < 10; i++) {
+    output = output.replace(persianNumbers[i], i).replace(arabicNumbers[i], i);
+  }
+
+  return output;
+};
+
+const customResolver = async (data:any) => {
+  const convertedData = {
+    ...data,
+    phoneNumber: convertNumberToEnglish(data.phoneNumber),
+  };
+
+  try {
+    await EnterNumberSchema.validate(convertedData, { abortEarly: false });
+    return { values: convertedData, errors: {} };
+  } catch (yupError:any) {
+    return {
+      values: {},
+      errors: yupError.inner.reduce((allErrors:any, currentError:any) => {
+        return {
+          ...allErrors,
+          [currentError.path]: {
+            type: currentError.type ?? "validation",
+            message: currentError.message,
+          },
+        };
+      }, {}),
+    };
+  }
+};
+
 const useEnterNumber = () => {
+  const { push } = useRouter();
+
   const {
     control,
     handleSubmit,
     register,
     formState: { errors },
   } = useForm<LoginDataType>({
-    resolver: yupResolver(EnterNumberSchema),
+    resolver: customResolver,
   });
 
   useEffect(() => {
@@ -34,13 +74,14 @@ const useEnterNumber = () => {
     }
   }, [errors.phoneNumber]);
 
-  const { push } = useRouter();
-  console.log(errors);
-
   const handelValueInputs = useCallback(async (data: LoginDataType) => {
+    const convertedData = {
+      ...data,
+      phoneNumber: convertNumberToEnglish(data.phoneNumber),
+    };
+
     try {
-      console.log(data);
-      const response = await api.get(`/bmi/phone${data.phoneNumber}`);
+      const response = await api.get(`/bmi/phone${convertedData.phoneNumber}`);
 
       localStorage.removeItem('user');
 
@@ -57,7 +98,6 @@ const useEnterNumber = () => {
       toast.clearWaitingQueue();
       toast.info("شماره تماس یافت نشد، لطفا اطلاعات خود را وارد کنید");
       push("/register/login/enterTheCode");
-      // toast.error("خطا در ارتباط با سرور");
     }
   }, [push]);
 
