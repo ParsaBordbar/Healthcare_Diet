@@ -9,7 +9,7 @@ const MainPageAdminPanel = () => {
             <div className="col-span-full">
                 <WelcomeBox doctorName="admin"/>    
             </div>
-            <div className="col-span-full">
+            <div className="col-span-full md:inline-block hidden">
                 <QuickLinSection />
             </div>
             <div className="xl:col-span-4 min-[1250px]:col-span-3 col-span-full">
