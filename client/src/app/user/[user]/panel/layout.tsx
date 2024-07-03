@@ -50,14 +50,14 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
           linkSix={`/`}
         />
         <div className="fixed hidden pb-6 px-2  top-0 right-0 h-screen bg-[var(--soft-blue)]  md:flex w-[25%] lg:w-[20%]">
-          <Image
+          {/* <Image
             src={"/svg/sideBarBanner.svg"}
             width={80}
             height={1}
             layout="fixed"
             className="object-cover hidden lg:inline rounded-2xl py-2 "
             alt={""}
-          />
+          /> */}
           <ul className="flex flex-col w-full rounded-lg h-screen py-4 ps-4 gap-4 ">
             <SideBarItems
               router={router}
