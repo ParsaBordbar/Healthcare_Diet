@@ -37,7 +37,7 @@ const AdminLogin = () => {
   }, [errors]);
 
   return (
-    <div className="bg-[var(--box-bg)] xl:w-1/3 lg:w-3/4 md:w-4/5 w-full rounded-2xl shadow-md">
+    <div className="bg-[var(--milky-white)] xl:w-1/3 lg:w-3/4 md:w-4/5 w-full rounded-2xl shadow-md">
       <form
         onKeyDown={handleEnter}
         onSubmit={handleSubmit(handelValueInputs)}
@@ -64,6 +64,7 @@ const AdminLogin = () => {
             <MainInput
               {...field}
               ref={passwordRef}
+              type="password"
               error={!!errors.password}
               label="رمز ورود"
               parentClassName="col-span-2"
