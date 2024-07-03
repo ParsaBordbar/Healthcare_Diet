@@ -1,4 +1,7 @@
 import React from "react";
+import DocPhoto from "../../../public/images/dr.jpeg"
+import Image from 'next/image';
+
 
 function InformationSection() {
   return (
@@ -9,16 +12,7 @@ function InformationSection() {
         </h6>
       </div>
       <div className="flex justify-between items-center mx-24 my-24">
-        <div className="w-1/2 overflow-hidden h-96 rounded-2xl shadow-md">
-          <img
-            src={require("../../../public/images/dr.jpeg")}
-            alt="Doctor Information"
-            className="w-full h-full object-cover"
-            // onError={(e) => {
-            //   e.target.style.display = "none";
-            // }}
-          />
-        </div>
+        
         <article className="w-1/2 ml-5 rtl">
           <h3 className="text-lg">
             دکتر محمدرضا ربیعی فارغ التحصیل رشته تغذیه از دانشگاه شهید بهشتی با
@@ -35,6 +29,15 @@ function InformationSection() {
             <li>مدرس دانشگاه زند شیراز</li>
           </ul>
         </article>
+        <div className="w-1/2 overflow-hidden h-[545px] rounded-2xl shadow-md">
+          <Image
+            src={DocPhoto}
+            alt="Doctor Information"
+            className="w-full h-full object-cover"
+            width={5000} 
+            height={5000}
+          />
+        </div>
       </div>
     </section>
   );
