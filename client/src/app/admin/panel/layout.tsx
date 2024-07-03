@@ -8,6 +8,7 @@ import HamburgerNavbar from "@/components/HamburgerMenu";
 import SideBarItems from "@/components/SidebarItems";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import HomeIcon from "/public/svg/userPanelSvgs/home-2.svg";
 
 const LayoutAdmin = ({ children }: { children: ReactNode }) => {
   const router = usePathname();
@@ -18,19 +19,24 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
     <>
       <div className=" flex justify-end w-full top-0 z-40">
         <HamburgerNavbar
-          className="!bg-transparent !fixed !right-0 !py-6 !px-6 md:!hidden !w-fit !inline-block"
-          valueOne="خانه"
-          valueTwo="پنل اصلی"
-          linkOne={"/"}
-          linkTwo={`/admin/panel`}
-          valueThree="سوابق بیمارها"
-          linkThree="/admin/panel/patients"
-          valueFour="فرمBMI"
-          linkFour="/admin/panel/bmi"
-          valueFive="فرم های رژیم مدیترانه ای"
-          linkFive="/admin/panel/mediterranean"
-          valueSix="فرم های پاسخ داده نشده"
-          linkSix="/admin/panel/unvisited_diets"
+          valueOne="پنل اصلی"
+          iconOne={AdminPanelLogo}
+          iconTwo={MedicalDocIcon}
+          iconThree={FormIcon}
+          iconFour={FormIcon}
+          iconFive={FormIcon}
+          valueTwo="سوابق بیمار"
+          linkOne={"/admin/panel"}
+          linkTwo={`/admin/panel/patients`}
+          valueThree="فرم BMI"
+          linkThree="/admin/panel/bmi"
+          valueFour="فرم رژیم مدیترانه ای"
+          linkFour="/admin/panel/mediterranean"
+          valueFive="فرم رژیم مدیترانه ای وزیت نشده"
+          linkFive="/admin/panel/unvisited_diets"
+          valueSix="پبام ها"
+          linkSix="/admin/panel/comments"
+          iconSix={FormIcon}
         />
         
         <div className="fixed md:flex top-0 right-0 bg-[var(--soft-blue)] hidden h-screen">
