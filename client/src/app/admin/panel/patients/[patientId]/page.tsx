@@ -239,6 +239,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
             />
             <h2 className="text-3xl mt-8">فرم BMI:</h2>
             <PatientBmiForm
+            className="[&>div]:!flex-row"
               name={bmiData?.name}
               lastName={bmiData?.lastName}
               age={bmiData?.age}
@@ -310,7 +311,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
         {renderAccordion()}
         <h2 className="text-3xl mt-8">پیام‌های ارسال شده:</h2>
         {renderAccordionMassege()}
-        {commentData ? (
+        {/* {commentData ? (
           commentData.map((comment) => (
             <CommentBox
               key={comment.receiver}
@@ -325,7 +326,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
           ))
         ) : (
           <p>هنوز پیامی وجود ندارد</p>
-        )}
+        )} */}
         <ReplyBox receiver={params.patientId} />
       </section>
     </main>
