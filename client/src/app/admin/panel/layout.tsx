@@ -34,12 +34,12 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
           linkFour="/admin/panel/mediterranean"
           valueFive="فرم رژیم مدیترانه ای وزیت نشده"
           linkFive="/admin/panel/unvisited_diets"
-          valueSix="پبام ها"
+          valueSix="پیام ها"
           linkSix="/admin/panel/comments"
           iconSix={FormIcon}
         />
         
-        <div className="fixed md:flex top-0 lg:w-[20%] md:w-[25%] xl:w-[15%] right-0 bg-[var(--soft-blue)] hidden h-screen">
+        <div className="fixed md:flex top-0 lg:w-[25%] md:w-[25%] xl:w-[15%] right-0 bg-[var(--soft-blue)] hidden h-screen">
         {/* <Image
             src={"/svg/userPanelSvgs/sideBarBanner.svg"}
             width={80}
@@ -101,7 +101,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
             </ul>
           </section>
         </div>
-        <main className="w-full mt-6 md:w-[75%] xl:w-[85%] lg:w-[80%] flex flex-col py-16 gap-10 px-16 bg-white h-screen">
+        <main className="w-full mt-6 md:w-[75%] xl:w-[85%] lg:w-[75%] flex flex-col py-16 gap-10 px-6 bg-white h-screen">
           <div className="">{children}</div>
         </main>
       </div>
