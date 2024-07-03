@@ -177,7 +177,7 @@ const BmiFormDiet = () => {
             <MainInput
               {...field}
               error={!!errors.weight}
-              type="number"
+              type="text"
               label="وزن"
               ref={weightRef}
               parentClassName="col-span-2"
@@ -192,7 +192,7 @@ const BmiFormDiet = () => {
           render={({ field }) => (
             <MainInput
               {...field}
-              type="number"
+              type="text"
               error={!!errors.age}
               ref={ageRef}
               label="سن"
@@ -208,7 +208,7 @@ const BmiFormDiet = () => {
           render={({ field }) => (
             <MainInput
               {...field}
-              type="number"
+              type="text"
               error={!!errors.height}
               ref={heightRef}
               label="قد"
