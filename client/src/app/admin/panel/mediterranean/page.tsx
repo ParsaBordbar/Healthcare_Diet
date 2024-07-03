@@ -1,24 +1,15 @@
 "use client";
 import MediterraneanForm from "@/components/AdminComponents/MediterraneanForm";
-import useFetchMediterranean from "@/hooks/useFetchMediterranean";
 import DocumentIcon from "/public/svg/adminPanelSvgs/document.svg";
 import MainButton from "@/components/MainButton";
 import MainInput from "@/components/MainInput";
 import SearchIcon from "/public/svg/search-normal.svg"
 import FilterIcon from "/public/svg/adminPanelSvgs/filter.svg"
-import useSearchBmi from "@/hooks/useSearchBmi/useSearchBmi";
 import useSearchMediterranean from "@/hooks/useSearchMediterranean/useSearchMediterranean";
 import Link from "next/link";
 
 const MediterraneanFormsPage = () => {
 
-  const mediterraneanForms = useFetchMediterranean();
-  // const {
-  //   filter,
-  //   searchValue,
-  //   handleChange,
-  // } = useSearchBmi('/bmi/sort')
-  
   const {
     filter,
     searchValue,
