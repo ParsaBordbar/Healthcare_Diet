@@ -5,17 +5,17 @@ import WelcomeBox from "@/components/AdminComponents/WelcomeBox"
 
 const MainPageAdminPanel = () => {
     return(
-        <section className="grid min-[1320px]:grid-cols-8 grid-cols-7 gap-8">
+        <section className="grid xl:grid-cols-8 grid-cols-7 gap-8">
             <div className="col-span-full">
                 <WelcomeBox doctorName="admin"/>    
             </div>
             <div className="col-span-full">
                 <QuickLinSection />
             </div>
-            <div className="min-[1320px]:col-span-4 lg:col-span-3 col-span-full">
+            <div className="xl:col-span-4 min-[1250px]:col-span-3 col-span-full">
                 <NewCommentsBox />
             </div>
-            <div className="min-[1320px]:col-span-4 lg:col-span-4 col-span-full">
+            <div className="xl:col-span-4 min-[1250px]:col-span-4 col-span-full">
                 <NewPatientsBox />
             </div>
         </section>
