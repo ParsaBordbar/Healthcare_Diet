@@ -30,7 +30,7 @@ export const BmiSchema = yup.object({
     .required("وزن الزامی است"),
 });
 
-const convertPersianArabicToEnglish = (input: any) => {
+const convertNumberToEnglish = (input: any) => {
   const persianNumbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g];
   const arabicNumbers = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g];
 
@@ -48,11 +48,11 @@ const useBmi = () => {
   const customResolver = (data:BmiDataType) => {
     const convertedData = {
       ...data,
-      phoneNumber: convertPersianArabicToEnglish(data.phoneNumber),
-      abdominalCircumference: Number(convertPersianArabicToEnglish(data.abdominalCircumference)),
-      weight: Number(convertPersianArabicToEnglish(data.weight)),
-      age: Number(convertPersianArabicToEnglish(data.age)),
-      height: Number(convertPersianArabicToEnglish(data.height)),
+      phoneNumber: convertNumberToEnglish(data.phoneNumber),
+      abdominalCircumference: Number(convertNumberToEnglish(data.abdominalCircumference)),
+      weight: Number(convertNumberToEnglish(data.weight)),
+      age: Number(convertNumberToEnglish(data.age)),
+      height: Number(convertNumberToEnglish(data.height)),
     };
 
     try {
