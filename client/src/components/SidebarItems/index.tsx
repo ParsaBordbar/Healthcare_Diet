@@ -5,6 +5,7 @@ import { FunctionComponent, ReactNode, useEffect, useMemo } from "react";
 type TSideBarItems = {
   value: string;
   href: string;
+  className?:string
   icon: FunctionComponent;
   router?: string;
   onClick?: () => void;
@@ -70,7 +71,7 @@ const SideBarItems = (props: TSideBarItems) => {
         />
         {<props.icon />}
         <p
-          className={`text-[var(--black-blue)] ${
+          className={`text-[var(--black-blue)] ${props.className} ${
             SelectionStyles && "!text-white"
           } group-hover:text-white`}
         >
