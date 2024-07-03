@@ -102,7 +102,7 @@ const HamburgerNavbar = (props: THamMenu) => {
       if (!Links.value || !Links.link) return;
       return (
         <Link
-          className={`group ${!burgerMenuActive && 'hidden'} hover:bg-[var(--new-green)] transition-all ease-in-out duration-200 p-2 py-3 rounded-lg w-full`}
+          className={`group  hover:bg-[var(--new-green)] transition-all ease-in-out duration-200 p-2 py-3 rounded-lg w-full`}
           href={Links.link}
           onClick={() => setBurgerMenuActive(false)}
           key={Links.value}
@@ -168,7 +168,7 @@ const HamburgerNavbar = (props: THamMenu) => {
           className={`${
             Styles.navigation
           } w-full !fixed !right-0 !py-6 !px-6 md:!hidden !inline-block ${
-            burgerMenuActive ? ` !bg-[var(--milky-white)] ` : "!bg-white hidden"
+            burgerMenuActive ? ` !bg-[var(--milky-white)] ` : "!bg-white"
           } ${props.className}`}
         >
           <div
