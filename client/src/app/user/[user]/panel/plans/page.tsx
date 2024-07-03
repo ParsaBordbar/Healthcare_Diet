@@ -8,6 +8,7 @@ import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
 import ModalMediterraneanForm from "@/components/ModalMediterraneanForm";
 import { useState } from "react";
 import DietStatus from "@/components/DietStatus";
+import useFetchOneMediterranean from "@/hooks/useFetchOneMediterranean";
 
 const PlansPage = ({ params }: { params: { user: string } }) => {
   const userID = params.user;
@@ -36,9 +37,11 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
   //     isShow(true);
   //   }
   // }, [click]);
+
+  const isDiet = useFetchOneMediterranean(params.user)
   return (
     <div>
-      {comments.length > 0 && (
+      {isDiet.length > 0 && (
         <DietStatus direction="!flex-row mb-10" phoneNumber={params.user} />
       )}
       <ModalMediterraneanForm
