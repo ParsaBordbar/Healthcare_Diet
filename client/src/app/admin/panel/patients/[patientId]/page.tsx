@@ -32,8 +32,41 @@ function PatientId({ params }: { params: { patientId: string } }) {
     isOpen: boolean;
   };
   let [accordions, setAccordion] = useState<any[]>([]);
+  let [accordionsMassege, setAccordionMassege] = useState<any[]>([]);
   let ArrayOfData: any[] = [];
+  let ArrayOfData1: any[] = [];
   let ArrayOfData2: any[] = [];
+  let ArrayOfData3: any[] = [];
+
+  commentData.map((comment) => {
+    let CommentFormData = (
+      <CommentBox
+        key={comment.receiver}
+        sender={comment.sender}
+        body={comment.body}
+        receiver={comment.receiver}
+        createdAtJalali={comment.createdAtJalali}
+        isDoctor={true}
+        files={comment.files}
+        _id={comment._id}
+      />
+    );
+    const ObjectAccordionMassege = {
+      key: comment.createdAtJalali,
+      title: "پیام ها",
+      data: CommentFormData.props,
+    };
+    ArrayOfData1.push(ObjectAccordionMassege);
+  });
+
+  accordionsMassege = useMemo(() => {
+    ArrayOfData1.map((Form) => {
+      // setAccordion({ ...Form, data: Form.data })
+      console.log("render", Form);
+      ArrayOfData3.push(Form);
+    });
+    return ArrayOfData3;
+  }, [ArrayOfData]);
 
   medData.map((form) => {
     let MediterranealFormData = (
@@ -79,12 +112,15 @@ function PatientId({ params }: { params: { patientId: string } }) {
         _id={form._id}
       />
     );
+
     console.log(MediterranealFormData.props, "form data");
+
     const ObjectAccordion = {
       key: form.phoneNumber,
       title: "رژیم مدیترانه ای",
       data: MediterranealFormData.props,
     };
+
     ArrayOfData.push(ObjectAccordion);
     console.log(ArrayOfData, "after push");
   });
@@ -101,14 +137,12 @@ function PatientId({ params }: { params: { patientId: string } }) {
     const updatedAccordions = accordions.map((accord: any) => {
       return { ...accord, isOpen: true };
     });
-
-    console.log(updatedAccordions , 'piphp908u97tgo');
-    // accordions = updatedAccordions
-    setAccordion(updatedAccordions)
+    const updatedAccordionsMassege = accordionsMassege.map((accord: any) => {
+      return { ...accord, isOpen: true };
+    });
+    setAccordionMassege(updatedAccordionsMassege)
+    setAccordion(updatedAccordions);
   };
-  useEffect(()=>{
-  console.log(accordions);
-  },[accordions])
 
   const renderAccordion = useCallback(() => {
     return ArrayOfData2.map((accordionData) => {
@@ -165,6 +199,32 @@ function PatientId({ params }: { params: { patientId: string } }) {
       );
     });
   }, [ArrayOfData2]);
+
+  const renderAccordionMassege = useCallback(() => {
+    return ArrayOfData3.map((accordionData) => {
+      console.log(accordionData);
+      return (
+        <Accordion
+          key={accordionData.key}
+          title={accordionData.title}
+          data={
+            <CommentBox
+              key={accordionData.data.receiver}
+              sender={accordionData.data.sender}
+              body={accordionData.data.body}
+              receiver={accordionData.data.receiver}
+              createdAtJalali={accordionData.data.createdAtJalali}
+              isDoctor={true}
+              files={accordionData.data.files}
+              _id={accordionData.data._id}
+            />
+          }
+          isOpen={accordionData.isOpen}
+          toggleAccordion={() => toggleAccordion(accordionData.phoneNumber)}
+        />
+      );
+    });
+  }, [ArrayOfData3]);
 
   return (
     <main>
@@ -249,6 +309,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
         )} */}
         {renderAccordion()}
         <h2 className="text-3xl mt-8">پیام‌های ارسال شده:</h2>
+        {renderAccordionMassege()}
         {commentData ? (
           commentData.map((comment) => (
             <CommentBox
