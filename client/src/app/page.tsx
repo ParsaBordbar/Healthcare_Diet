@@ -9,7 +9,7 @@ import Footer from "../components/Dr_Rabiee_Landing_components/Footer";
 
 export default function Home() {
   return (
-    <main>
+    <main >
       <Header />
       <MainSection />
       <CardsSection />
