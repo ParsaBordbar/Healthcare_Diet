@@ -5,9 +5,9 @@ import Kashi from '/public/images/kashi.png'
 
 function MainSection() {
   return (
-    <div className="flex flex-row md:flex-row w-full h-[670px] bg-[#FEFDF9]">
+    <div className="flex flex-row md:flex-row w-full h-[670px] bg-[#FEFDF9] px-20">
       {/* Left Column */}
-      <div className="flex justify-center items-center w-1/7 h-full mr-16">
+      <div className="flex justify-center items-center w-1/7 h-full">
           <Image
           src={Kashi}
           alt="Decorative pattern"
@@ -32,11 +32,11 @@ function MainSection() {
       </div>
       {/* Right Column */}
       <div className="flex justify-center items-center w-full md:w-1/2">
-        <div className="w-4/5 h-4/5 rounded-[170px_0_170px_0] shadow-md overflow-hidden flex justify-center items-center">
+        <div className="w-4/5 h-4/5 rounded-[170px_0_170px_0]  shadow-md overflow-hidden flex justify-center items-center">
           <Image
           src={HeroImg}
           alt="Hero in Box"          
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center "
           width={5000} 
           height={5000}
           />
