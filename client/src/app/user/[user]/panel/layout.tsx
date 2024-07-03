@@ -49,7 +49,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
           linkTwo={`/user/${user}/panel/diets`}
           linkSix={`/`}
         />
-        <div className="fixed hidden pb-6 px-2  top-0 right-0 h-screen bg-[var(--soft-blue)]  md:flex w-[25%] lg:w-[20%]">
+        <div className="fixed hidden pb-6 px-2  top-0 right-0 h-screen bg-[var(--soft-blue)]  md:flex w-[25%] xl:w-[15%] lg:w-[20%]">
           {/* <Image
             src={"/svg/sideBarBanner.svg"}
             width={80}
@@ -60,30 +60,35 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
           /> */}
           <ul className="flex flex-col w-full rounded-lg h-screen py-4 ps-4 gap-4 ">
             <SideBarItems
+              className="lg:text-lg md:text-base"
               router={router}
               value={"خانه"}
               href={`/`}
               icon={HomeIcon}
             />
             <SideBarItems
+              className="lg:text-lg md:text-base"
               router={router}
               value={"پروفایل شخصی"}
               href={`/user/${user}/panel`}
               icon={PersonalIcon}
             />
             <SideBarItems
+              className="lg:text-lg md:text-base"
               router={router}
               value={"رژیم ها"}
               href={`/user/${user}/panel/diets`}
               icon={DocumentIcon}
             />
             <SideBarItems
+              className="lg:text-lg md:text-base"
               router={router}
               value={"برنامه های شما"}
               href={`/user/${user}/panel/plans`}
               icon={DocumentIcon}
             />
             <SideBarItems
+              className="lg:text-lg md:text-base"
               router={router}
               value={"خروج"}
               href={`/`}
@@ -92,7 +97,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
             />
           </ul>
         </div>
-        <main className="w-full md:w-[75%] lg:w-[80%] sm:px-10 px-6 md:px-16 py-20 md:py-16 bg-white">
+        <main className="w-full md:w-[75%] lg:w-[80%] xl:w-[85%] sm:px-10 px-6 md:px-16 py-20 md:py-16 bg-white">
           <div className="">{children}</div>
         </main>
       </div>
