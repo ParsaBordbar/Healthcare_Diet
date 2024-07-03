@@ -30,7 +30,7 @@ export const BmiSchema = yup.object({
     .required("وزن الزامی است"),
 });
 
-const convertPersianArabicToEnglish = (input) => {
+const convertPersianArabicToEnglish = (input: any) => {
   const persianNumbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g];
   const arabicNumbers = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g];
 
