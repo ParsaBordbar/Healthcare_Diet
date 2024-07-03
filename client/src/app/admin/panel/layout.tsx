@@ -40,14 +40,14 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
         />
         
         <div className="fixed md:flex top-0 right-0 bg-[var(--soft-blue)] hidden h-screen">
-        <Image
+        {/* <Image
             src={"/svg/userPanelSvgs/sideBarBanner.svg"}
             width={80}
             height={1}
             layout="fixed"
             className="object-cover h-full w-[38.33333%]"
             alt={""}
-          />
+          /> */}
           <section className="w-full flex flex-col gap-6 py-4">
             <h1 className="text-[var(--dark-blue)] text-2xl font-semibold bg-custom-IslamicArt">
               {" "}
