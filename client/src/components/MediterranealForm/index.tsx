@@ -11,6 +11,7 @@ const MediterranealForm = () => {
     values,
     handleChange,
     handleSubmit,
+    handleFileChange
   } = useMediterraneanForm();
 
 
@@ -1117,10 +1118,10 @@ const MediterranealForm = () => {
             label="چنانچه دارویی مصرف می کنید نام آن را ذکر کنید"
           />
           <MainInput
-            name="files"
-            parentClassName="md:col-span-2 col-span-full [&>label]:text-base"
-            onChange={handleChange}
             type="file"
+            name="documents"
+            multiple
+            onChange={handleFileChange}
             label="آخرین آزمایشات ارسال شود "
           />
         </section>
@@ -1186,10 +1187,9 @@ const MediterranealForm = () => {
           </h1>
           <div className="grid grid-cols-4 gap-4">
             <MainInput
-              onChange={handleChange}
-              name="payment"
-              parentClassName="col-span-full [&>label]:text-base"
               type="file"
+              name="payment"
+              onChange={handleFileChange}
               label="فایل رسید پرداختی"
             />
           </div>
