@@ -1,7 +1,8 @@
 import React from "react";
 import Image from 'next/image';
+import { CustomCardType } from "@/types";
 
-function CustomCard({ title, description, imageUrl }) {
+function CustomCard({ title, description, imageUrl }:CustomCardType) {
   return (
     <div className="max-w-xs m-2 bg-[#3531F2] rounded-3xl p-4 text-white">
       <Image
