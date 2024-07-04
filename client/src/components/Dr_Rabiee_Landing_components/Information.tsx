@@ -9,7 +9,7 @@ function InformationSection() {
         <h6 className="font-bold w-full text-xl text-center">متخصص تغذیه</h6>
       </div>
       <div className="flex justify-between items-center mx-24 my-24">
-        <article className="w-1/2 flex flex-col gap-4 rtl">
+        <article className="w-1/3 flex flex-col mr-10 gap-4 rtl">
           <h3 className="text-lg text-justify">
             دکتر محمدرضا ربیعی فارغ التحصیل رشته تغذیه از دانشگاه شهید بهشتی با
             شماره نظام پزشکی ت-1118 با پنج سال سابقه کاری موفق و همکاری با
