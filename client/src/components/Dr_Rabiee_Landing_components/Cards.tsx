@@ -24,7 +24,7 @@ const cardsData = [
 
 function CardsSection() {
   return (
-    <div className="flex flex-col items-center h-screen bg-[#FEFDF9] overflow-auto relative" dir="rtl">
+    <div className="flex flex-col items-center my-20 bg-[#FEFDF9] overflow-auto relative" dir="rtl">
       <div className="container mt-10">
         <h1 className="text-4xl font-extrabold text-[#3A3A97] text-center mb-3">
           برنامه های سلامتی
@@ -32,7 +32,7 @@ function CardsSection() {
         <p className="text-lg text-black text-center mb-1">
           شما می توانید برنامه های رژیمی مختلف را مشاهده کرده و خریداری نمایید.
         </p>
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center gap-4 mb-20">
           {cardsData.map((card) => (
             <div key={card.id} className="flex flex-col items-center">
               <CustomCard
