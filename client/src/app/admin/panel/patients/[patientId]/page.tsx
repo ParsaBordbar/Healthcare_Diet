@@ -50,6 +50,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
               weight={bmiData?.weight} 
               height={bmiData?.height} 
               abdominalCircumference={bmiData?.abdominalCircumference}
+              hipcircumference={bmiData?.hipcircumference}
               joinedAtJalali={bmiData?.joinedAtJalali}
             />
           </>

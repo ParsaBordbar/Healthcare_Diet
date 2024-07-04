@@ -27,6 +27,10 @@ const fileSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    hipcircumference: {
+        type: Number,
+        required: true
+    },
     dietName: {
         type: String,
         required: true
@@ -257,7 +261,9 @@ const validateMediterranean = (mediterraneanForm) => {
             abdominalCircumference: Joi.number().required().messages({
                 'any.required': `دور شکم را وارد کنید`
             }),
-            dietName: Joi.string().required(),
+	   hipcircumference: Joi.number().required().messages({
+		'any.required': 'دور باسن را وارد کنید'
+	  }), dietName: Joi.string().required(),
         }),
         payment:Joi.object({originalName: Joi.string().required(),
             filename: Joi.string().required(),

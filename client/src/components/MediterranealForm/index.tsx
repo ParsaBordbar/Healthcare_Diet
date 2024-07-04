@@ -1172,14 +1172,22 @@ const MediterranealForm = () => {
               placeholder="دور شکم خود را اینجا وارد کنید"
               label="دور شکم"
             />
+            <MainInput
+              name="hipcircumference"
+              onChange={handleChange}
+              parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+              placeholder="دور باسن خود را اینجا وارد کنید"
+              label="دور باسن"
+            />
           </div>
         </section>
         {
         errors.age ||
         errors.height ||
         errors.weight ||
-        errors.abdominalCircumference ? (
-          <p className="text-red-600">{errors?.age || errors.height || errors.weight || errors.abdominalCircumference}</p>
+        errors.abdominalCircumference ||
+        errors.hipcircumference ? (
+          <p className="text-red-600">{errors?.age || errors.height || errors.weight || errors.abdominalCircumference || errors.hipcircumference}</p>
         ) : null}
 
         <section className="flex flex-col gap-6 mt-4">

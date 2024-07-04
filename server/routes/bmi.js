@@ -114,6 +114,8 @@ router.post('/', async (req, res) => {
         height: req.body.height,
         weight: req.body.weight,
         abdominalCircumference: req.body.abdominalCircumference,
+        hipcircumference: req.body.hipcircumference,
+       
         bmi: (req.body.weight / ((req.body.height / 100) ** 2)).toFixed(4), // Calculate BMI in metric units
         joinedAtJalali: new Date(),
         joinedAtJalali: momentJalaali().format('jYYYY/jM/jD HH:mm:ss')

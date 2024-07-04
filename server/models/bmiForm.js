@@ -45,6 +45,10 @@ const BmiForm = mongoose.model("Bmi_form", new mongoose.Schema({
         type: Number,
         required: true
     },
+    hipcircumference: {
+        type: Number,
+        required: true
+    },
     joinedAtGregorian: {
         type: Date,
       },
@@ -91,7 +95,10 @@ const validateBmi = (BmiForm) => {
         }),
         abdominalCircumference: Joi.number().required().messages({
             'any.required': `دور شکم را وارد کنید`
-        }),
+        }), 
+	hipcircumference: Joi.number().required().messages({
+	   'any.required': 'دور باسن را وارد کنید'
+	}),
         joinedAtGregorian: Joi.string().isoDate(),
         joinedAtJalali: Joi.string(),
     });

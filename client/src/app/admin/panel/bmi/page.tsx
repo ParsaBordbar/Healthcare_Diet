@@ -82,6 +82,7 @@ function BmiPage() {
             bmi={form.bmi}
             key={form.phoneNumber}
             abdominalCircumference={form.abdominalCircumference}
+            hipcircumference={form.hipcircumference}
             joinedAtJalali={form.joinedAtJalali}
           />
         ))}

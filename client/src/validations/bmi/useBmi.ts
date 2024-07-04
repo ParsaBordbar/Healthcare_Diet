@@ -18,7 +18,8 @@ export const BmiSchema = yup.object({
       "شماره تماس را به درستی وارد کنید"
     )
     .required("شماره تماس الزامی است"),
-  abdominalCircumference: yup.number().required("اندازه ی دور کمر الزامی است"),
+  abdominalCircumference: yup.number().required("اندازه ی دور شکم الزامی است"),
+  hipcircumference: yup.number().required("اندازه ی دور باسن الزامی است"),
   gender: yup.string().required("جنسیت الزامی است"),
   age: yup
     .number()
@@ -102,12 +103,22 @@ const useBmi = () => {
     ) {
       toast.error(errors.abdominalCircumference.message);
     }
-    if (
+   if (
       !errors.lastName &&
       !errors.name &&
       !errors.city &&
       !errors.phoneNumber &&
       !errors.abdominalCircumference &&
+      errors.hipcircumference
+    ) {
+      toast.error(errors.hipcircumference.message);
+    } if (
+      !errors.lastName &&
+      !errors.name &&
+      !errors.city &&
+      !errors.phoneNumber &&
+      !errors.abdominalCircumference &&
+      !errors.hipcircumference &&
       errors.gender
     ) {
       toast.error(errors.gender.message);
@@ -118,6 +129,7 @@ const useBmi = () => {
       !errors.city &&
       !errors.phoneNumber &&
       !errors.abdominalCircumference &&
+      !errors.hipcircumference &&
       !errors.gender &&
       errors.weight
     ) {
@@ -128,7 +140,8 @@ const useBmi = () => {
       !errors.name &&
       !errors.city &&
       !errors.phoneNumber &&
-      !errors.abdominalCircumference &&
+      !errors.abdominalCircumference && 
+      !errors.hipcircumference &&
       !errors.gender &&
       !errors.weight &&
       errors.age
@@ -141,6 +154,7 @@ const useBmi = () => {
       !errors.city &&
       !errors.phoneNumber &&
       !errors.abdominalCircumference &&
+      !errors.hipcircumference &&
       !errors.gender &&
       !errors.weight &&
       !errors.age &&

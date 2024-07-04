@@ -7,6 +7,7 @@ function PatientBmiForm({
   lastName,
   phoneNumber,
   gender,
+  hipcircumference,
   age,
   city,
   height,
@@ -48,6 +49,7 @@ function PatientBmiForm({
         <div className="flex  flex-col text-[var(--text)] text-lg gap-4  ">
           <p> شماره تماس: {phoneNumber}</p>
           <p>دور شکم: {abdominalCircumference}</p>
+         <p>دور باسن: {hipcircumference}</p>
         </div>
       </div>
     </section>

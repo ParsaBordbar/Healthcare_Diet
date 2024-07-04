@@ -17,6 +17,7 @@ const BmiFormDiet = () => {
   const abdominalCircumferenceRef = useRef<HTMLInputElement | null>(null);
   const ageRef = useRef<HTMLInputElement | null>(null);
   const cityRef = useRef<HTMLInputElement | null>(null);
+  const hipcircumferenceRef = useRef<HTMLInputElement | null>(null);
   const heightRef = useRef<HTMLInputElement | null>(null);
   const weightRef = useRef<HTMLInputElement | null>(null);
   const genderRef = useRef<HTMLSelectElement | null>(null);
@@ -29,6 +30,7 @@ const BmiFormDiet = () => {
     phoneNumberRef,
     abdominalCircumferenceRef,
     genderRef,
+    hipcircumferenceRef,
     weightRef,
     ageRef,
     cityRef,
@@ -47,6 +49,8 @@ const BmiFormDiet = () => {
        phoneNumberRef.current?.focus();
     } else if (errors.abdominalCircumference) {
       abdominalCircumferenceRef.current?.focus();
+    } else if (errors.hipcircumference) {
+      hipcircumferenceRef.current?.focus();
     } else if (errors.gender) {
       genderRef.current?.focus();
     } else if (errors.weight) {
@@ -156,6 +160,22 @@ const BmiFormDiet = () => {
             />
           )}
         />
+
+	<Controller
+          control={control}
+          name="hipcircumference"
+          render={({ field }) => (
+            <MainInput
+              {...field}
+              error={!!errors.hipcircumference}
+              ref={hipcircumferenceRef}
+              parentClassName="col-span-2 lg:col-span-2"
+              label="دور باسن"
+              placeholder="اندازه دور باسن  خود را وارد کنید"
+            />
+          )}
+        />
+
 
         <section className="col-span-2 flex flex-col gap-1">
           <label
