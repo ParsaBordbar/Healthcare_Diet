@@ -32,7 +32,7 @@ function Header() {
         </div>
         {/* Left-side Button with specific styling */}
         <Link
-          href="#login"
+          href="/register/login/enterNumber"
           className="flex items-center border border-[#FFA301] rounded-[10px] shadow-md px-[36px] py-[8px] text-[var(--black-blue)] font-extrabold hover:bg-[#FFA301] hover:text-white transition-colors duration-300"
         >
           <InputIcon className="ml-2" />
