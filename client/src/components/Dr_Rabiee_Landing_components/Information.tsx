@@ -5,7 +5,7 @@ import Check from "/public/svg/check.svg";
 function InformationSection() {
   return (
     <section className="relative h-screen p-5 bg-[#FEFDF9]">
-      <div className="absolute top-20 right-0 flex items-center w-1/6 h-16 bg-[#3531F2] text-white p-2 rounded-l-full border-t border-white rtl">
+      <div className="absolute top-20 right-0 flex items-center w-1/6 h-20 bg-[#3531F2] text-white p-2 rounded-l-full border-t border-white rtl">
         <h6 className="font-bold w-full text-xl text-center">متخصص تغذیه</h6>
       </div>
       <div className="flex justify-between items-center mx-24 my-24">
