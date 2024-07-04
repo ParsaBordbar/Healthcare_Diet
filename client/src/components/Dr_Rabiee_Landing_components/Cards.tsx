@@ -48,5 +48,4 @@ function CardsSection() {
     </div>
   );
 }
-
 export default CardsSection;
