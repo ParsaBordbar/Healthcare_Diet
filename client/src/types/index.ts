@@ -25,6 +25,7 @@ export type BmiLandingDataType = {
 export type BmiDataType = BmiLandingDataType & {
   name: string;
   lastName: string;
+  city: string;
   gender: string;
   abdominalCircumference: number;
   age: number;
@@ -71,6 +72,7 @@ export interface BmiType {
   abdominalCircumference?: number;
   name?: string;
   lastName?: string;
+  city?: string;
   phoneNumber?: string;
   gender?: string;
   age?: number;

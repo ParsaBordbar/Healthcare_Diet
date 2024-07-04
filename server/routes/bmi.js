@@ -109,6 +109,7 @@ router.post('/', async (req, res) => {
         lastName: req.body.lastName,
         phoneNumber: req.body.phoneNumber,
         gender: req.body.gender,
+        city: req.body.city,
         age: req.body.age,
         height: req.body.height,
         weight: req.body.weight,

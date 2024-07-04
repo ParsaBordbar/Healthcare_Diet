@@ -21,6 +21,7 @@ function NewPatientsBox() {
               <PatientCard
                 linkTo={`/admin/panel/patients/${form.phoneNumber}`}
                 name={form.name}
+                city={form.city}
                 lastName={form.lastName}
                 phoneNumber={form.phoneNumber}
                 gender={form.gender}

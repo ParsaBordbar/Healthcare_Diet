@@ -8,6 +8,7 @@ function PatientBmiForm({
   phoneNumber,
   gender,
   age,
+  city,
   height,
   weight,
   bmi,
@@ -37,6 +38,7 @@ function PatientBmiForm({
         <div className="flex flex-col gap-4 text-[var(--text)] text-lg">
           <p>جنسیت: {gender}</p>
           <p>سن: {age}</p>
+          <p> شهر {city} </p>
         </div>
         <div className="flex  flex-col text-[var(--text)] text-lg gap-4  ">
           <p>قد: {height}</p>

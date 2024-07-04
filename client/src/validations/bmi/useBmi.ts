@@ -9,6 +9,7 @@ import api from "@/apis";
 export const BmiSchema = yup.object({
   name: yup.string().required("نام الزامی است"),
   lastName: yup.string().required("نام خانوادگی الزامی است"),
+  city: yup.string().required("شهر الزامی است"),
   phoneNumber: yup
     .string()
     .length(11, "شماره تماس باید ۱۱ عدد داشته باشد")
@@ -86,13 +87,16 @@ const useBmi = () => {
     }
     if (!errors.name && errors.lastName) {
       toast.error(errors.lastName.message);
+    } if (!errors.lastName && !errors.name && errors.city) {
+     toast.error(errors.city.message);
     }
-    if (!errors.lastName && !errors.name && errors.phoneNumber) {
+    if (!errors.lastName && !errors.name && !errors.city && errors.phoneNumber) {
       toast.error(errors.phoneNumber.message);
     }
     if (
       !errors.lastName &&
       !errors.name &&
+      !errors.city &&
       !errors.phoneNumber &&
       errors.abdominalCircumference
     ) {
@@ -101,6 +105,7 @@ const useBmi = () => {
     if (
       !errors.lastName &&
       !errors.name &&
+      !errors.city &&
       !errors.phoneNumber &&
       !errors.abdominalCircumference &&
       errors.gender
@@ -110,6 +115,7 @@ const useBmi = () => {
     if (
       !errors.lastName &&
       !errors.name &&
+      !errors.city &&
       !errors.phoneNumber &&
       !errors.abdominalCircumference &&
       !errors.gender &&
@@ -120,6 +126,7 @@ const useBmi = () => {
     if (
       !errors.lastName &&
       !errors.name &&
+      !errors.city &&
       !errors.phoneNumber &&
       !errors.abdominalCircumference &&
       !errors.gender &&
@@ -131,6 +138,7 @@ const useBmi = () => {
     if (
       !errors.lastName &&
       !errors.name &&
+      !errors.city &&
       !errors.phoneNumber &&
       !errors.abdominalCircumference &&
       !errors.gender &&

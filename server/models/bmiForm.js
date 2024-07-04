@@ -14,6 +14,11 @@ const BmiForm = mongoose.model("Bmi_form", new mongoose.Schema({
         required: true,
         maxlength: 20,
     },
+    city: {
+      type: String,
+      required: true,
+      maxlength: 20,
+    },
     phoneNumber: {
         type: String,
         required: true,
@@ -63,6 +68,9 @@ const validateBmi = (BmiForm) => {
             'string.empty': `نام خانوادگی نمی‌تواند خالی باشد`,
             'any.required': `نام خانوادگی خودتون رو وارد کنید`
           }),
+        city: Joi.string().required().messages({
+         'any.required': 'لطفا شهر را وارد کنید'
+       }),
         phoneNumber: Joi.string().pattern(/^[0-9]+$/).required().max(11).min(11).messages({
             'string.max': "شماره تماس یازده رقم است" ,
             'string.min': "شماره تماس یازده رقم است", 

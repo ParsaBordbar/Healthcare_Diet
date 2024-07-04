@@ -26,13 +26,15 @@ function PatientId({ params }: { params: { patientId: string } }) {
             <PatientCard 
               name={bmiData.name} 
               lastName={bmiData.lastName} 
+              city={bmiData.city}
               phoneNumber={bmiData.phoneNumber} 
               gender={bmiData.gender} 
             />
             <h2 className='text-3xl mt-8'>فرم BMI:</h2>
             <PatientBmiForm 
               name={bmiData?.name} 
-              lastName={bmiData?.lastName} 
+              lastName={bmiData?.lastName}
+              city={bmiData?.city} 
               age={bmiData?.age} 
               gender={bmiData?.gender} 
               phoneNumber={params.patientId} 

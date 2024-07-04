@@ -16,6 +16,7 @@ const BmiFormDiet = () => {
   const phoneNumberRef = useRef<HTMLInputElement | null>(null);
   const abdominalCircumferenceRef = useRef<HTMLInputElement | null>(null);
   const ageRef = useRef<HTMLInputElement | null>(null);
+  const cityRef = useRef<HTMLInputElement | null>(null);
   const heightRef = useRef<HTMLInputElement | null>(null);
   const weightRef = useRef<HTMLInputElement | null>(null);
   const genderRef = useRef<HTMLSelectElement | null>(null);
@@ -30,6 +31,7 @@ const BmiFormDiet = () => {
     genderRef,
     weightRef,
     ageRef,
+    cityRef,
     heightRef,
   ];
 
@@ -39,8 +41,10 @@ const BmiFormDiet = () => {
       nameRef.current?.focus();
     } else if (errors.lastName) {
       lastNameRef.current?.focus();
+    } else if (errors.city) {
+      cityRef.current?.focus();
     } else if (errors.phoneNumber) {
-      phoneNumberRef.current?.focus();
+       phoneNumberRef.current?.focus();
     } else if (errors.abdominalCircumference) {
       abdominalCircumferenceRef.current?.focus();
     } else if (errors.gender) {
@@ -51,7 +55,7 @@ const BmiFormDiet = () => {
       ageRef.current?.focus();
     } else if (errors.height) {
       heightRef.current?.focus();
-    }
+    } 
   }, [errors]);
 
   const handleEnter = (event: React.KeyboardEvent<HTMLFormElement>) => {
@@ -105,6 +109,21 @@ const BmiFormDiet = () => {
               parentClassName="col-span-4 md:col-span-2 lg:col-span-4"
               label="نام خانوادگی"
               placeholder="نام خانوادگی خود را وارد کنید"
+            />
+          )}
+        />
+
+	<Controller
+          control={control}
+          name="city"
+          render={({ field }) => (
+            <MainInput
+              {...field}
+              error={!!errors.city}
+              ref={cityRef}
+              parentClassName="col-span-4 md:col-span-2 lg:col-span-4"
+              label="شهر"
+              placeholder="شهر خود را وارد کنید"
             />
           )}
         />

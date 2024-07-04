@@ -72,7 +72,7 @@ const PatientsPage = () => {
       </div>
             {filter.map(d => {
                 return <div className="col-span-full lg:col-span-1" key={d.phoneNumber}>
-                    <PatientCard linkTo={`/admin/panel/patients/${d.phoneNumber}`}  name={d.name} lastName={d.lastName} phoneNumber={d.phoneNumber} gender={d.gender}/>
+                    <PatientCard linkTo={`/admin/panel/patients/${d.phoneNumber}`}  name={d.name} lastName={d.lastName} city={d.city} phoneNumber={d.phoneNumber} gender={d.gender}/>
                 </div>
             })}
         </section>
