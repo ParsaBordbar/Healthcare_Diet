@@ -2,6 +2,7 @@ import React from "react";
 import Image from 'next/image';
 import HeroImg from '/public/images/Hero.jpg';
 import Kashi from '/public/images/kashi.png'
+import Link from "next/link";
 
 function MainSection() {
   return (
@@ -25,7 +26,7 @@ function MainSection() {
             برنامه شخصی سازشده خود را دریافت کنید، ما در هر مرحله با شماییم.
           </p>
           <button className="text-[#3A3A97] border border-[#FFA301] rounded-lg font-extrabold shadow-md px-9 py-2 bg-[#FFA301] hover:bg-transparent hover:border-[#e69500]">
-            دریافت رژیم
+            <Link href="/register/login/enterNumber">دریافت رژیم</Link>
           </button>
         </div>
         
