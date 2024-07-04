@@ -9,7 +9,7 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
   const comments = useFetchPatientComments(userID);
 
   return (
-    <main className="grid col-span-full lg:col-span-4 custom-scroll pl-6 grid-cols-1 ">
+    <main className="grid col-span-full lg:col-span-4   grid-cols-1 ">
       <div className="col-span-full flex flex-col gap-6">
         <section className="flex   min-[950px]:items-center gap-2 justify-between">
           <div className="flex gap-2  items-center">
@@ -20,9 +20,9 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
             <Calendar />
           </div>
         </section>
-        <div className="flex flex-col-reverse">
+        <div className="flex custom-scroll max-h-[590px] pl-6 flex-col">
           {comments ? (
-            comments.slice(-3).map((data): React.ReactNode => {
+            comments.slice(-3).reverse().map((data): React.ReactNode => {
               return (
                 <CommentBox
                   className="w-full"
