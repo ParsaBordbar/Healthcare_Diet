@@ -17,6 +17,6 @@ export default function Home() {
       <InformationSection />
       <ArticleSlider />
       <Footer />
-    </main>
+    </main> 
   );
 }
