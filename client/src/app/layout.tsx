@@ -30,9 +30,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-[#FEFDF9]">
       <ContextProvider>
-        <body className={yekanBakh.className}>
+        <body  className={yekanBakh.className}>
           {children}
           <ToastContainer
             // transition={'zoom'}
