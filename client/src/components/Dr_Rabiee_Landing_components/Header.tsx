@@ -4,7 +4,7 @@ import InputIcon from "@mui/icons-material/Input";
 
 function Header() {
   return (
-    <header className="bg-[#FEFDF9] text-[var(--black-blue)] px-[42px] py-0 shadow-md mt-5">
+    <header className="bg-[#FEFDF9] text-[var(--black-blue)] px-[42px] py-0 mt-5">
       <div className="flex justify-between items-center h-[64px]">
 
         {/* Right-side Box containing buttons and the logo */}
