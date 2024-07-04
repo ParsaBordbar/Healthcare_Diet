@@ -10,6 +10,7 @@ function PatientBmiForm({
   age,
   city,
   height,
+  className,
   weight,
   bmi,
   abdominalCircumference,
@@ -17,7 +18,7 @@ function PatientBmiForm({
   joinedAtJalali,
 }: BmiType) {
   return (
-    <section className="flex pl-6 flex-col bg-[var(--milky-white)] py-4 rounded-lg gap-4 shadow-md">
+    <section className={`flex pl-6 flex-col ${className} bg-[var(--milky-white)] py-4 rounded-lg gap-4 shadow-md`}>
       <div className="flex flex-col 2xl:flex-row justify-between text-[var(--text)] mt-3 items-start gap-4 2xl:gap-0 2xl:items-center ">
         <Link
           href={`/admin/panel/patients/${phoneNumber}`}

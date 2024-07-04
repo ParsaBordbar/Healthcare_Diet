@@ -38,32 +38,32 @@ const PatientsPage = () => {
           />
         </form>
         <div className="xl:col-span-5 col-span-full grid grid-cols-3 items-center">
-          <section className="flex col-span-full md:col-span-1 items-center gap-2">
+          <section className="flex w-fit col-span-full md:col-span-1 items-center ">
             <FilterIcon className="[&>path]:stroke-black" />
             <p className="w-fit text-base">فیلتر کردن براساس:</p>
           </section>
-          <section className="col-span-full md:col-span-2 grid grid-cols-4 gap-4 w-full">
+          <section className="col-span-full md:col-span-2 grid grid-cols-4 gap-2 w-full">
             <MainButton
               modern
-              className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
+              className="rounded-lg col-span-2 xl:col-span-1 py-3 px-4 !text-sm"
               value={"قدیمی ترین"}
               onClick={oldestFilterHandler}
             />
             <MainButton
               modern
-              className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
+              className="rounded-lg col-span-2 xl:col-span-1 py-3 px-4 !text-sm"
               value={"جدیدترین"}
               onClick={newestFilterHandler}
             />
             <MainButton
               modern
-              className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
+              className="rounded-lg col-span-2 xl:col-span-1 py-3 px-4 !text-sm"
               value={"مرد"}
               onClick={maleFilterHandler}
             />
             <MainButton
               modern
-              className="rounded-lg col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
+              className="rounded-lg col-span-2 xl:col-span-1 py-3 px-4 !text-sm"
               value={"زن"}
               onClick={femaleFilterHandler}
             />

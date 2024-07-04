@@ -65,6 +65,7 @@ export type MediterranealDataType = {
 };
 
 export interface BmiType {
+  className?:string
   height?: number;
   weight?: number;
   bmi?: number;
@@ -163,4 +164,10 @@ export interface DietStatusType{
   tick?:string
   phoneNumber: string, 
   direction : string
+}
+
+export interface CustomCardType{ 
+  title: string
+  description : string, 
+  imageUrl: string
 }

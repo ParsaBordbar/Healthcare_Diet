@@ -15,7 +15,9 @@ type TButton = ButtonHTMLAttributes<HTMLButtonElement> & {
   url?: string;
   gradient?: boolean;
   modern?: boolean;
+  progress?:boolean;
 };
+
 
 const MainButton = (props: TButton) => {
   const declearModleOfButton = useMemo(() => {
@@ -27,8 +29,11 @@ const MainButton = (props: TButton) => {
       return "gradient-third-green";
     } else if (props.modern) {
       return `bg-[var(--orange)] hover:bg-[var(--new-green)] !text-white transition-all ease-in-out duration-200`;
+    }else if(props.progress){
+      return '[&>span]:relative [&>span]:text-[var(--black-blue)] cta [&>span]:pb-1'
     }
   }, []);
+  
   const checkIcon = useCallback(() => {
     if (props.iconSrc) return <props.iconSrc />;
   }, []);
@@ -42,7 +47,7 @@ const MainButton = (props: TButton) => {
       } text-center rounded-lg text-base md:text-xl ` }
     >
       {checkIcon()}
-      <span className=" font-medium md:font-semibold">
+      <span className={`${props.progress && 'progress-style '} font-medium md:font-semibold`}>
         {props.value}
       </span>
     </button>

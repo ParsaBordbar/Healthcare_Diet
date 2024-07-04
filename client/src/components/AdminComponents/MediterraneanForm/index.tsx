@@ -60,12 +60,12 @@ const MediterraneanForm = ({
   const { checked, toggleChecked } = useCheckedState(isChecked, _id);
   
   return (
-    <div className="flex flex-row bg-[var(--milky-white)] my-10 rounded-lg text-lg shadow-md">
+    <div className="flex flex-row   rounded-lg text-lg">
       <ul className="flex w-full flex-col">
         <div className="flex sm:flex-row flex-col items-start sm:items-center justify-between">
           <li className="text-4xl bg-[var(--new-green)] text-white w-fit pe-4 ps-2 rounded-e-full py-3 my-5 flex items-center justify-center gap-2">
-            <Link href={`/admin/panel/patients/${phoneNumber}`}><PatientPageIcon width={32}/></Link>
-            <p>{data?.name} {data?.lastName}</p>
+            <Link  href={`/admin/panel/patients/${phoneNumber}`}><PatientPageIcon width={32}/></Link>
+            <p className="md:text-3xl text-2xl">{data?.name} {data?.lastName}</p>
           </li>
           <button
             onClick={toggleChecked}
@@ -91,7 +91,7 @@ const MediterraneanForm = ({
           <DateSvg className="sm:flex [&>path]:stroke-white  hidden" width={24} />
           <p className="pt-1.5  text-base"> تاریخ ثبت فرم: {createdAtJalali}</p>
           </div>
-        <li className="ps-12 pe-7 text-2xl bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
+        <li className="ps-12 pe-7 md:text-2xl text-xl bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
           مواد غذایی مصرفی:
         </li>
         <li className="grid min-[1410px]:grid-cols-3 grid-cols-4 gap-4 m-4">
@@ -189,7 +189,7 @@ const MediterraneanForm = ({
         </li>
 
         <li>
-          <li className="text-2xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
+          <li className="md:text-2xl text-xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
             بیماری‌ها و وضعیت‌های خاص:
           </li>
           <ul className="grid grid-cols-4 mb-5 px-4 gap-2">
@@ -236,7 +236,7 @@ const MediterraneanForm = ({
         </li>
         <div className="pe-6 py-2 flex justify-start flex-col">
           <div className="flex flex-row">
-            <h4 className="text-2xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4">فرم BMI:</h4>
+            <h4 className="md:text-2xl text-xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4">فرم BMI:</h4>
           </div>
           <DietBmi height={dietBmi?.height} weight={dietBmi?.weight} age={dietBmi?.age} abdominalCircumference={dietBmi?.abdominalCircumference} bmi={dietBmi?.bmi}/>
       </div>
@@ -244,7 +244,7 @@ const MediterraneanForm = ({
         {files.length > 0 && (
         <div className="pe-8 py-2 flex justify-start flex-col">
           <div className="flex flex-row">
-            <h4 className="text-2xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">آزمایش‌ها:</h4>
+            <h4 className="md:text-2xl text-xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">آزمایش‌ها:</h4>
           </div>
 
           <ul className="list-disc list-inside grid grid-cols-3 px-8">
@@ -267,11 +267,11 @@ const MediterraneanForm = ({
 
         {payment?<div className="pe-8 py-2 flex justify-start">
               <div className="flex gap-2 my-1 pb-6 flex-col">
-                <h4 className="text-2xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4">رسید پرداخت:</h4>
+                <h4 className="md:text-2xl text-xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4">رسید پرداخت:</h4>
                 <div className="flex gap-2 items-center px-10">
                   <AttachmentIcon />
                   <a
-                  href={`${process.env.DOMAIN_FILES}${payment.filename}`}
+                  href={`${process.env.DOMAIN_FILES}uploads/${payment.filename}`}
                   download={payment.originalName}
                   className="text-blue-400 hover:underdivne pt-2 text-sm col-span-1"
                 >

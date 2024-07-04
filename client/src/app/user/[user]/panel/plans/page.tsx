@@ -121,7 +121,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
               );
             })
           ) : (
-            <h1 className="text-2xl text-center">رژیمی ندارید</h1>
+            <h1 className="text-3xl text-center">هنوز برنامه‌ای ندارید</h1>
           )}
         </section>
       </main>

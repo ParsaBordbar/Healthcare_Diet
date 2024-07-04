@@ -22,7 +22,7 @@ const UserInfo = ({ userID }: { userID: string }) => {
           </div>
         </section>
           <section className="grid xl:w-full xl:place-items-center grid-cols-4 min-[950px]:w-2/4 w-full text-left gap-5">
-              <p className="text-white col-span-2">سن : {patients?.age}</p>
+              <p className="text-white col-span-2 ">سن : {patients?.age}</p>
               <p className="text-white col-span-2">قد : {patients?.height}</p>
               <p className="text-white col-span-2">وزن : {patients?.weight}</p>
               <p className="text-white  col-span-2">دور شکم : {patients?.abdominalCircumference}</p>

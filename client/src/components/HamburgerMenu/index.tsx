@@ -102,7 +102,7 @@ const HamburgerNavbar = (props: THamMenu) => {
       if (!Links.value || !Links.link) return;
       return (
         <Link
-          className="group hover:bg-[var(--new-green)] transition-all ease-in-out duration-200 p-2 py-3 rounded-lg w-full"
+          className={`group  hover:bg-[var(--new-green)] transition-all ease-in-out duration-200 p-2 py-3 rounded-lg w-full`}
           href={Links.link}
           onClick={() => setBurgerMenuActive(false)}
           key={Links.value}
@@ -161,14 +161,14 @@ const HamburgerNavbar = (props: THamMenu) => {
     <div className="lg:hidden  shadow-lg">
       <div
         className={`  h-screen !fixed  ${Styles.navbar} z-50  ${
-          burgerMenuActive ? Styles.active : ""
+          burgerMenuActive ? Styles.active+ ' hidden' : ""
         }`}
       >
         <div
           className={`${
             Styles.navigation
           } w-full !fixed !right-0 !py-6 !px-6 md:!hidden !inline-block ${
-            burgerMenuActive ? ` !bg-[var(--milky-white)]` : "!bg-white"
+            burgerMenuActive ? ` !bg-[var(--milky-white)] ` : "!bg-white"
           } ${props.className}`}
         >
           <div
@@ -180,14 +180,14 @@ const HamburgerNavbar = (props: THamMenu) => {
           </div>
           {OptionGenerate}
         </div>
-        <div className={Styles.content + " w-full !flex h-[80vh]"}>
+        <div className={Styles.content + ` w-full ${!burgerMenuActive && '!hidden'}  !flex h-[80vh]`}>
           <motion.ul
-            className="flex w-full gap-6"
+            className={`  flex w-full gap-6`}
             animate={burgerMenuActive ? "open" : "closed"}
             variants={motionVariants}
           >
             <SideBarBanner className="h-[80vh] rounded-2xl" width={40} />
-            <div className="flex flex-col justify-between w-full gap-6">
+            <div className={`flex flex-col justify-between w-full gap-6    `}>
               <section className="flex gap-6">
                 <div className="flex flex-col w-full gap-3 pl-16">
                   {LinkGenerate()}
