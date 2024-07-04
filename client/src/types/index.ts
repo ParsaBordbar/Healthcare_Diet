@@ -163,3 +163,9 @@ export interface DietStatusType{
   phoneNumber: string, 
   direction : string
 }
+
+export interface CustomCardType{ 
+  title: string
+  description : string, 
+  imageUrl: string
+}
