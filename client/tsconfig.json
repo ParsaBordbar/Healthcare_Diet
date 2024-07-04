@@ -30,6 +30,6 @@
     "src/components/Slider/index.tsx",
     "src/data/index.js",
     "src/hooks/useContext/Context.ts"
-, "src/components/Dr_Rabiee_Landing_components/Header.jsx"  ],
+, "src/components/Dr_Rabiee_Landing_components/Header.tsx"  ],
   "exclude": ["node_modules"]
 }
