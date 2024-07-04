@@ -45,5 +45,4 @@ const Pyramid = () => {
   </section>
   )
 }
-
 export default Pyramid;

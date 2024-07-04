@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 function InformationSection() {
   return (
-    <section className="relative h-screen p-5 bg-[#FEFDF9]">
+    <section className="relative p-5 bg-[#FEFDF9]">
       <div className="absolute top-20 right-0 w-1/6 h-16 bg-[#3531F2] text-white p-2 rounded-l-full border-t border-white rtl">
         <h6 className="font-bold flex items-center">
           متخصص تغذیه
