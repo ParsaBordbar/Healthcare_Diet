@@ -27,17 +27,18 @@ const cardsData = [
 
 function CardsSection() {
   return (
-    <div className="flex flex-col items-center md:bg-Card-bg overflow-auto relative" dir="rtl">
-      <div className="container ">
-        <h1 className="text-4xl font-extrabold text-[#3A3A97] text-center mb-3">
+    <div className="flex flex-col items-center justify-center sm:bg-Card-bg overflow-auto relative bg-none" dir="rtl">
+      <div className="container">
+        <h1 className="md:text-4xl text-xl font-extrabold text-[#3A3A97] text-center mb-3">
           برنامه های سلامتی
         </h1>
-        <p className="text-lg text-black text-center mb-1">
+        <p className="md:text-lg text-base px-16 md:px-0 text-black text-center mb-1">
           شما می توانید برنامه های رژیمی مختلف را مشاهده کرده و خریداری نمایید.
         </p>
-        <div className="flex justify-center gap-4 mb-20">
+        <div className="flex justify-center items-center gap-4 mb-20">
+          <div className="grid md:grid-cols-3 grid-cols-1">
           {cardsData.map((card) => (
-            <div key={card.id} className="flex flex-col items-center">
+            <div key={card.id} className="flex flex-col items-center justify-center">
               <CustomCard
                 title={card.title}
                 oldPrice={card.oldPrice}
@@ -46,6 +47,7 @@ function CardsSection() {
               />
             </div>
           ))}
+          </div>
         </div>
       </div>
       
