@@ -4,7 +4,7 @@ import { CustomCardType } from "@/types";
 
 function CustomCard({ title, oldPrice, newPrice, imageUrl }:CustomCardType) {
   return (
-    <div className="mt-10 flex justify-center flex-col items-center max-w-xs my-6 py-11 mx-2 bg-[var(--soft-blue)] rounded-3xl p-6 text-[var(--black-blue)] border border-transparent hover:ease-in-out delay-100 hover:border-[var(--secondary-blue)] cursor-pointer shadow-md transition-transform ">
+    <div className="mt-10 flex justify-center flex-col items-center max-w-xs mb-6 py-11 mx-2 bg-[var(--soft-blue)] rounded-3xl p-6 text-[var(--black-blue)] border border-transparent hover:ease-in-out delay-150 hover:border-[var(--secondary-blue)] cursor-pointer shadow-md transition-all">
       <Image
         src={imageUrl}
         alt={title}
