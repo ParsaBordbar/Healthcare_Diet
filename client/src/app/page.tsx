@@ -9,7 +9,7 @@ import Footer from "../components/Dr_Rabiee_Landing_components/Footer";
 
 export default function Home() {
   return (
-    <main className="grid grid-cols-1 gap-10">
+    <main className="grid grid-cols-1 gap-8">
       <div className="col-span-full">
         <Header/>
       </div>
