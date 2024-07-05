@@ -8,7 +8,7 @@ import PointerSvg from "/public/svg/Dr_Rabiee_Landing/HeroPointer.svg"
 
 function MainSection() {
   return (
-    <div className="flex justify-center items-center flex-row w-full bg-hero-bg-mobile bg-[#FEFDF9] lg:bg-none md:px-8">
+    <div className="flex justify-center items-center flex-row w-full bg-hero-bg-mobile bg-[#FEFDF9] lg:bg-none md:px-8 mt-10">
       <div className="md:grid 2xl:grid-cols-7 xl:grid-cols-5 md:grid-cols-2 grid-cols-1 ps-2 flex flex-col-reverse">
 
         <div className="xl:flex justify-center items-center w-1/2 h-full xl:col-span-1 hidden">
@@ -27,7 +27,7 @@ function MainSection() {
               <h3 className="mb-5 xl:text-5xl font-extrabold md:text-3xl text-2xl">
                 رژیم مدیترانه‌ای، نه فقط غذا بلکه یک سبک زندگی است.
               </h3>
-              <p className="mb-5 2xl:text-lg lg:text-base text-[#8A9196] justify-start items-start 2xl:pe-72 text-right sm:px-24 px-13">
+              <p className="mb-5 2xl:text-lg lg:text-base text-[#8A9196] justify-start items-start 2xl:pe-72 text-right sm:px-12 px-13">
               برنامه شخصی سازشده خود را دریافت کنید،  
               ما در هر مرحله با شماییم!</p>
             </div>
