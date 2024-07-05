@@ -14,7 +14,8 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "header-register-banner": "url('/svgs/header-register.svg')",
         "bg-banner": "url('/svgs/loginBanner.svg')",
-        "Card-bg" : "url(/svg/Dr_Rabiee_Landing/cardsBg.svg)"
+        "Card-bg" : "url(/svg/Dr_Rabiee_Landing/cardsBg.svg)",
+        "hero-bg-mobile" : "url(/svg/Dr_Rabiee_Landing/Hero.svg)"
       },
     },
   },
