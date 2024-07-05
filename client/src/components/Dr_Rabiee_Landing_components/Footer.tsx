@@ -32,13 +32,13 @@ const Footer = () => {
           <DrGroupLogo />
           <div className="flex gap-3 mt-10">
             <a href="#" className="text-white">
-              <TelegramIcon/>
+              <TelegramIcon className="text-4xl"/>
             </a>
             <a href="#" className="text-white">
-              <InstagramIcon />
+              <InstagramIcon className="text-4xl"/>
             </a>
             <a href="#" className="text-white">
-              <LinkedInIcon />
+              <LinkedInIcon className="text-4xl"/>
             </a>
           </div>
         </div>
