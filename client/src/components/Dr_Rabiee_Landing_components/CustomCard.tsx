@@ -15,9 +15,9 @@ function CustomCard({ title, oldPrice, newPrice, imageUrl }:CustomCardType) {
         />
       </div>
       <div className="text-center flex justify-center items-center flex-col gap-2">
-        <h5 className="md:text-xl font-extrabold mb-2 text-3xl">{title}</h5>
-        <p className="md:text-sm  line-through text-lg mt-2">{oldPrice}</p>
-        <p className="md:text-base font-extrabold text-lg">{newPrice} </p>
+        <h5 className="md:text-xl font-extrabold mb-2 sm:text-3xl text-2xl">{title}</h5>
+        <p className="md:text-sm  line-through sm:text-lg mt-2">{oldPrice}</p>
+        <p className="md:text-base font-extrabold sm:text-lg">{newPrice} </p>
       </div>
     </div>
   );
