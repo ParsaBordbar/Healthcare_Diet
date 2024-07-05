@@ -52,7 +52,6 @@ function Header() {
         </Link>
       </div>
 
-        {/* <DrLogoMobile /> */}
         
       <div className="lg:hidden top-0">
         <HamburgerNavbar
