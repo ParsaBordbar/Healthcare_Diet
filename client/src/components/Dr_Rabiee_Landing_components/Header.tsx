@@ -2,6 +2,11 @@ import Logo from "/public/images/logo-nav.svg";
 import Link from "next/link";
 import InputIcon from "@mui/icons-material/Input";
 import MainButton from "../MainButton";
+import HomeIcon from "/public/svg/Dr_Rabiee_Landing/home.svg"
+import AboutUsICon from "/public/svg/Dr_Rabiee_Landing/aboutUs.svg"
+import Blogs from "/public/svg/Dr_Rabiee_Landing/blogs.svg"
+import LoginIcon from "/public/svg/Dr_Rabiee_Landing/profile.svg"
+
 
 function Header() {
   return (
@@ -10,21 +15,24 @@ function Header() {
         {/* Right-side Box containing buttons and the logo */}
         <div className="flex items-center gap-6">
           <Logo />
-          <Link href={"/"}>
+          <Link href={"/"} className="flex gap-2 items-center justify-center">
+            <HomeIcon/>
             <MainButton
               className="[&>span]:text-sm"
               progress
               value={"صفحه اصلی"}
             />
           </Link>
-          <Link href={"/"}>
+          <Link href={"/"} className="flex gap-2 items-center justify-center">
+            <Blogs/>
             <MainButton
               className="[&>span]:text-sm"
               progress
               value={"بلاگ ها"}
             />
           </Link>
-          <Link href={"/"}>
+          <Link href={"/"} className="flex gap-2 items-center justify-center">
+            <AboutUsICon />
             <MainButton
               className="[&>span]:text-sm"
               progress

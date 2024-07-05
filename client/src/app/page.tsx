@@ -28,9 +28,9 @@ export default function Home() {
       <div className="col-span-full">
         <ArticleSlider />
       </div>
-      <div className="col-span-full">
+      {/* <div className="col-span-full">
         <Footer />
-      </div>
+      </div> */}
     </main> 
   );
 }
