@@ -169,3 +169,7 @@ li{
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+.swiper-slide{
+  width: fit-content !important;
+}
