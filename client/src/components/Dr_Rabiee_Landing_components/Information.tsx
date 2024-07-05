@@ -9,7 +9,7 @@ function InformationSection() {
         <h6 className="font-bold w-full text-xl text-center">متخصص تغذیه</h6>
       </div>
       <div className="flex justify-between items-center mx-24 my-24">
-        <article className="w-1/3 flex flex-col mr-10 gap-4 rtl">
+        <article className="w-1/3 flex flex-col mr-36 gap-4 rtl">
           <h3 className="text-lg text-justify">
             دکتر محمدرضا ربیعی فارغ التحصیل رشته تغذیه از دانشگاه شهید بهشتی با
             شماره نظام پزشکی ت-1118 با پنج سال سابقه کاری موفق و همکاری با
@@ -17,7 +17,7 @@ function InformationSection() {
             مردمی در صفحه اینستاگرام خود و بیش از ۱۰۰۰ تجربه موفق از مراجعین خود
             دارد.
           </h3>
-          <ul className="text-justify flex flex-col gap-1 pl-5">
+          <ul className="text-justify flex flex-col gap-2 pl-5">
             <li className="flex items-center gap-2">
               <Check />
               <p>کارشناس تغذیه از دانشگاه علوم پزشکی شیراز</p>
@@ -41,18 +41,18 @@ function InformationSection() {
           </ul>
         </article>
         <div className="flex flex-col h-[545px] items-center w-1/2 ">
-          <div className="w-2/3 overflow-hidden  rounded-2xl shadow-md">
+          <div className="w-2/3 overflow-hidden group  rounded-2xl hover:shadow-md shadow-md">
             <Image
               src={DocPhoto}
               alt="Doctor Information"
-              className="w-full h-full object-cover"
+              className="w-full  h-full transition-all duration-200 ease-in-out group-hover:scale-110 object-cover"
               width={5000}
               height={5000}
             />
           </div>
           <section className="flex flex-col mt-4 gap-2 items-center">
-            <p>چهارمین کنگره ی بین المللی و شانزدهمین سراسری تغذیه ی ایران</p>
-            <p>اسفند ۱۴۰۲</p>
+            <p className="text-[var(--black-blue)] font-bold">چهارمین کنگره ی بین المللی و شانزدهمین سراسری تغذیه ی ایران</p>
+            <p className="text-[var(--black-blue)] font-bold">اسفند ۱۴۰۲</p>
           </section>
         </div>
         {/* <div className="w-1/2 h-[545px] flex flex-col gap-3 items-center  shadow-md">
