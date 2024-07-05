@@ -7,14 +7,14 @@ import DrGroupLogo from "/public/images/logo-footer.svg"
 
 const Footer = () => {
   return (
-    <div className="flex justify-center items-center bg-[#3233F2] text-white py-10">
-      <div className="container grid grid-cols-4 gap-10">
+    <div className="flex justify-center items-center bg-[#3233F2] text-white py-10 ">
+      <div className="grid grid-cols-4 gap-10">
 
-        <div className="flex flex-col justify-start col-span-2">
-          <h6 className="mb-1 font-extrabold text-2xl pb-10 ps-20">
+        <div className="flex flex-col justify-start col-span-2 ps-20">
+          <h6 className="mb-1 font-extrabold text-2xl pb-10 ps-[34px]">
             زندگی سالم با رژیم مدیترانه‌ای: استراتژی‌های دکتر ربیعی
           </h6>
-          <p className="text-right px-20">
+          <p className="text-right w-4/6 ps-[34px]">
             در این وبسایت، ما با بهره‌گیری از دانش و تخصص دکتر محمدرضا ربیعی، متخصص تغذیه و سلامتی، به شما کمک می‌کنیم تا به یک زندگی سالم‌تر و بهتر دست یابید. هدف ما ارائه راهکارهای غذایی علمی و مبتنی بر آخرین یافته‌های پزشکی است تا هر فرد بتواند بهترین نتایج را در مسیر تناسب اندام و سلامت عمومی خود کسب کند. ما به شما اطمینان می‌دهیم که با پیروی از راهنمایی‌های دکتر محمدرضا ربیعی، شما قدم‌های موثری در جهت بهبود کیفیت زندگی‌تان خواهید داشت.
           </p>
         </div>
