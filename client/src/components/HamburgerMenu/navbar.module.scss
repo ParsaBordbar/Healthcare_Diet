@@ -3,11 +3,12 @@
     align-items: flex-start;
     justify-content: center;
     width: 100%;
-    padding: 0 10vw;
+    padding: 0 1vw;
     background-color: var(--milky-white);
     height: 0;
     position: absolute;
     top: 0;
+    right: 0;
     transition: 0.5s height;
     
 
@@ -50,7 +51,7 @@
 
             .burgerMenu {
                 content: "";
-                background: var(--text);
+                background: var(--secondary-blue);
                 position: absolute;
                 width: 55px;
                 height: 4px;
@@ -62,7 +63,7 @@
 
             .burgerMenu::after {
                 content: "";
-                background-color: var(--text);
+                background-color: var(--secondary-blue);
                 position: absolute;
                 width: 55px;
                 height: 4px;
@@ -74,7 +75,7 @@
 
             .burgerMenu::before {
                 content: "";
-                background-color: var(--text);
+                background-color: var(--secondary-blue);
                 position: absolute;
                 width: 55px;
                 height: 4px;
@@ -104,7 +105,7 @@
 
                 a {
                     font-size: 3rem;
-                    color: var(--text);
+                    color: var(--secondary-blue);
                     transition: 0.25s color;
                 }
 
@@ -124,27 +125,27 @@
 
     .navigation {
         .button {
-            color: var(--text);
+            color: var(--secondary-blue);
             transition: 0.5s color;
         }
         .burgerMenuContainer {
             .burgerMenu {
                 width: 0;
-                background-color: var(--text);
+                background-color: var(--secondary-blue);
                 transition: 0.25s width ease-in-out,
                     0.25s background-color ease-in-out;
             }
 
             .burgerMenu::after {
                 transform: translateY(0px) rotate(135deg);
-                background-color: var(--text);
+                background-color: var(--secondary-blue);
                 transition: 0.25s transform ease-in-out,
                     0.25s background-color ease-in-out;
             }
 
             .burgerMenu::before {
                 transform: translateY(0px) rotate(-135deg);
-                background-color: var(--text);
+                background-color: var(--secondary-blue);
                 transition: 0.25s transform ease-in-out,
                     0.25s background-color ease-in-out;
             }

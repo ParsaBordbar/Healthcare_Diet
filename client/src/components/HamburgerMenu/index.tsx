@@ -9,6 +9,7 @@ import MaleAvatar from "/public/svg/adminPanelSvgs/Group 108.svg";
 import PhoneNumber from "/public/svg/phone.svg";
 import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
 import LogOutIcon from "/public/svg/userPanelSvgs/LogOut.svg";
+import DrLogoMobile from "/public/svg/Dr_Rabiee_Landing/mobileNavLogo.svg"
 
 type THamMenu = {
   logo?: boolean;
@@ -164,6 +165,7 @@ const HamburgerNavbar = (props: THamMenu) => {
           burgerMenuActive ? Styles.active+ ' hidden' : ""
         }`}
       >
+        
         <div
           className={`${
             Styles.navigation
@@ -171,21 +173,26 @@ const HamburgerNavbar = (props: THamMenu) => {
             burgerMenuActive ? ` !bg-[var(--milky-white)] ` : "!bg-white"
           } ${props.className}`}
         >
+          
           <div
             className={Styles.burgerMenuContainer}
             onClick={() => toggleBurgerMenu()}
           >
-            <div className={Styles.burgerMenuTrigger}></div>
-            <div className={Styles.burgerMenu}></div>
-          </div>
+            <div className="flex justify-between items-center w-full">
+              <div className={Styles.burgerMenuTrigger}></div>
+              <div className={Styles.burgerMenu}></div>
+            </div>
           {OptionGenerate}
+          </div>
         </div>
+
         <div className={Styles.content + ` w-full ${!burgerMenuActive && '!hidden'}  !flex h-[80vh]`}>
           <motion.ul
             className={`  flex w-full gap-6`}
             animate={burgerMenuActive ? "open" : "closed"}
             variants={motionVariants}
           >
+            
             <SideBarBanner className="h-[80vh] rounded-2xl" width={40} />
             <div className={`flex flex-col justify-between w-full gap-6    `}>
               <section className="flex gap-6">
@@ -198,6 +205,7 @@ const HamburgerNavbar = (props: THamMenu) => {
                "
               >
                 <ul className="flex flex-col gap-2">
+
                   <li
                     onClick={handleLogout}
                     className="font-bold group cursor-pointer  hover:text-white text-[var(--black-blue)] !px-3 rounded-lg transition-all duration-200 ease-in-out flex items-center gap-2 !py-2 hover:bg-[var(--new-green)] text-base"
