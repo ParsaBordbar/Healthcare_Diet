@@ -130,7 +130,7 @@ input[type="number"] {
 }
 
 .custom-scroll::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--milky-white);
   border-radius: 8px;
 }
 
@@ -172,4 +172,33 @@ li{
 
 .swiper-slide{
   width: fit-content !important;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--milky-white);
+  border-radius: 8px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--new-green);
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+
+.swiper{
+  width: 75% !important
 }
