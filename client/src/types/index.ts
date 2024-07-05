@@ -169,6 +169,7 @@ export interface DietStatusType{
 
 export interface CustomCardType{ 
   title: string
-  description : string, 
+  oldPrice: string, 
+  newPrice: string, 
   imageUrl: string
 }
