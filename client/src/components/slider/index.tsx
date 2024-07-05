@@ -1,5 +1,5 @@
 "use client";
-import { Swiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import {
   Navigation,
@@ -32,13 +32,15 @@ export const Slider: React.FC<MySliderProps> = ({
       slidesPerView={anotherProp}
       loop={true}
       autoplay={{ delay: 2500, reverseDirection: true }}
-      navigation
-      pagination={{ clickable: false }}
-      scrollbar={{ draggable: false }}
-      draggable={false}
-      allowTouchMove={false}
+      navigation={true}
+      pagination={{ clickable: true }}
+      scrollbar={{ draggable: true }}
+      draggable={true}
+      allowTouchMove={true}
     >
-      {children}
+      {children?.map((items) => {
+        return <SwiperSlide>{items}</SwiperSlide>;
+      })}
     </Swiper>
   );
 };
