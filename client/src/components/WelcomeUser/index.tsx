@@ -22,13 +22,16 @@ const UserInfo = ({ userID }: { userID: string }) => {
           </div>
         </section>
           <section className="grid xl:w-full xl:place-items-center grid-cols-4 min-[950px]:w-2/4 w-full text-left gap-5">
+             <p className="text-white col-span-2 ">شماره پرونده : {patients?.autoIncrementId}</p>
               <p className="text-white col-span-2 ">سن : {patients?.age}</p>
               <p className="text-white col-span-2">قد : {patients?.height}</p>
               <p className="text-white col-span-2">وزن : {patients?.weight}</p>
               <p className="text-white  col-span-2">دور شکم : {patients?.abdominalCircumference}</p>
               <p className="text-white  col-span-2"> دور باسن : {patients?.hipcircumference}</p>
               <p className="text-white xl:text-center col-span-2 xl:col-span-full"> BMI اولیه : {patients?.bmi}</p>
+              <p className="text-white xl:text-center col-span-2 xl:col-span-full"> WHR: {patients?.whr}</p>
               <p className="text-white xl:text-center col-span-2 xl:col-span-full">تاریخ شروع : {patients?.joinedAtJalali?.split(' ')[0]}</p>
+
           </section>
       </div>
     </>

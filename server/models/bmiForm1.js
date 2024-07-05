@@ -2,9 +2,8 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 const moment = require('moment');
 const momentJalaali = require('moment-jalaali');
-const AutoIncrement = require('mongoose-sequence')(mongoose);
 
-const bmiFormSchema = new mongoose.Schema({
+const BmiForm = mongoose.model("Bmi_form", new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -16,8 +15,9 @@ const bmiFormSchema = new mongoose.Schema({
         maxlength: 20,
     },
     city: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
+      maxlength: 20,
     },
     phoneNumber: {
         type: String,
@@ -51,53 +51,52 @@ const bmiFormSchema = new mongoose.Schema({
     },
     joinedAtGregorian: {
         type: Date,
-    },
+      },
     joinedAtJalali: {
         type: String,
         // default: () => momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
-    },
+      },
     bmi: {
         type: Number,
         required: true
     },
-    whr: {
+   whr: {
         type: Number,
         required: true
     },
-    // Add auto-increment field
-    autoIncrementId: {
+   autoIncrementId: {
         type: Number,
         unique: true
-    } 
-});
+    }
 
-// Apply the auto-increment plugin to the schema
-bmiFormSchema.plugin(AutoIncrement, { inc_field: 'autoIncrementId', start_seq: 1 });
+}));
 
-const BmiForm = mongoose.model("Bmi_form", bmiFormSchema);
+bmiFormSchema.plugin(AutoIncrement, { inc_field: 'autoIncrementId', start_seq: 1 }>
+
+//const BmiForm = mongoose.model("Bmi_form", bmiFormSchema);
 
 const validateBmi = (BmiForm) => {
     const schema = Joi.object({
         name: Joi.string().required().messages({
             'string.empty': `نام نمی‌تواند خالی باشد`,
             'any.required': `نام خودتون رو وارد کنید`
-        }),
+          }),
         lastName: Joi.string().required().messages({
             'string.empty': `نام خانوادگی نمی‌تواند خالی باشد`,
             'any.required': `نام خانوادگی خودتون رو وارد کنید`
-        }),
+          }),
+        city: Joi.string().required().messages({
+         'any.required': 'لطفا شهر را وارد کنید'
+       }),
         phoneNumber: Joi.string().pattern(/^[0-9]+$/).required().max(11).min(11).messages({
             'string.max': "شماره تماس یازده رقم است" ,
             'string.min': "شماره تماس یازده رقم است", 
             'string.pattern.base': 'شماره تماس تنها شامل اعداد می‌باشد'
         }),
-        city: Joi.string().required().messages({
-            'any.required': `شهر را وارد کنید`
-        }),
         gender: Joi.string().required().messages({
             'string.empty': `لطفا جنسیت را تعیین کنید`,
             'any.required': `لطفا جنسیت را تعیین کنید`,
-        }),
+          }),
         age: Joi.number().required().messages({
             'any.required': `سن را وارد کنید`
         }),
@@ -109,10 +108,10 @@ const validateBmi = (BmiForm) => {
         }),
         abdominalCircumference: Joi.number().required().messages({
             'any.required': `دور شکم را وارد کنید`
-        }),
-        hipcircumference: Joi.number().required().messages({
-            'any.required': `دور باسن را وارد کنید`
-        }),
+        }), 
+	hipcircumference: Joi.number().required().messages({
+	   'any.required': 'دور باسن را وارد کنید'
+	}),
         joinedAtGregorian: Joi.string().isoDate(),
         joinedAtJalali: Joi.string(),
     });

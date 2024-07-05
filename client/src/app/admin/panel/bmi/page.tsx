@@ -80,6 +80,7 @@ function BmiPage() {
             height={form.height}
             weight={form.weight}
             bmi={form.bmi}
+            whr={form.whr}
             key={form.phoneNumber}
             abdominalCircumference={form.abdominalCircumference}
             hipcircumference={form.hipcircumference}

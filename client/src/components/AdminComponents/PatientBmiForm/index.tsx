@@ -14,6 +14,7 @@ function PatientBmiForm({
   className,
   weight,
   bmi,
+  whr,
   abdominalCircumference,
   joinedAtGregorian,
   joinedAtJalali,
@@ -31,7 +32,10 @@ function PatientBmiForm({
           <p className="text-[var(--new-green)] text-lg w-fit ">
             BMI: {bmi}
           </p>
-          <p className="text-[var(--new-green)] text-lg w-fit ">
+         <p className="text-[var(--new-green)] text-lg w-fit ">
+            WHR: {whr}
+          </p>  
+        <p className="text-[var(--new-green)] text-lg w-fit ">
             تاریخ ثبت: {joinedAtJalali}
           </p>
         </section>
