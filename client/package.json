@@ -27,7 +27,7 @@
     "react-toastify": "^10.0.5",
     "react-use-downloader": "^1.2.8",
     "sass": "^1.74.1",
-    "swiper": "^11.0.0",
+    "swiper": "^11.1.4",
     "tw-elements": "^2.0.0",
     "yup": "^1.4.0"
   },
