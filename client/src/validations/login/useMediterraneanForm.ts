@@ -52,6 +52,7 @@ interface FormValues {
   abdominalCircumference: number | '';
   dietName: string;
   bmi: number | '';
+  hipcircumference: number | '';
 }
 
 const mediterraneanSchema = yup.object().shape({
@@ -90,7 +91,7 @@ const mediterraneanSchema = yup.object().shape({
   height: yup.number().required("قد الزامی است"),
   weight: yup.number().required("وزن الزامی است"),
   abdominalCircumference: yup.number().required("اندازه ی دور شکم الزامی است"),
-   hipcircumference: yup.number().required("اندازه ی دور باسن الزامی است"),
+  hipcircumference: yup.number().required("اندازه ی دور باسن الزامی است"),
   dietName: yup.string(),
   bmi: yup.number(),
 });
