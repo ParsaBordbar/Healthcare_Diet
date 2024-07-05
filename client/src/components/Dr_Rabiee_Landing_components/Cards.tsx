@@ -5,19 +5,22 @@ const cardsData = [
   {
     id: 1,
     title: "پکیج اول رژیم",
-    description: "۲۵۰.۰۰۰ تومان",
+    oldPrice: "۲۵۰.۰۰۰ تومان", 
+    newPrice: "۲۵۰.۰۰۰ تومان", 
     imageUrl: "/images/PackageOne.png",
   },
   {
     id: 2,
     title: "پکیج دوم رژیم",
-    description: "۲۵۰.۰۰۰ تومان",
+    oldPrice: "۲۵۰.۰۰۰ تومان", 
+    newPrice: "۲۵۰.۰۰۰ تومان",     
     imageUrl: "/images/PackageTwo.png",
   },
   {
     id: 3,
     title: "پکیج سوم رژیم",
-    description: "۲۵۰.۰۰۰ تومان",
+    oldPrice: "۲۵۰.۰۰۰ تومان", 
+    newPrice: "۲۵۰.۰۰۰ تومان",     
     imageUrl: "/images/PackageThree.png",
   },
 ];
@@ -37,7 +40,8 @@ function CardsSection() {
             <div key={card.id} className="flex flex-col items-center">
               <CustomCard
                 title={card.title}
-                description={card.description}
+                oldPrice={card.oldPrice}
+                newPrice={card.newPrice}
                 imageUrl={card.imageUrl}
               />
             </div>
