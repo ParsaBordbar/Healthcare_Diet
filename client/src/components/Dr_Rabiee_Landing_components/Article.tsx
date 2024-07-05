@@ -7,7 +7,7 @@ import StoryBox from "../landingPage_components/StoryBox";
 
 function ArticleSlider() {
   return (
-    <div className="flex-col w-[75%] sm:w-[65%] mx-auto gap-10 flex items-center">
+    <div className="flex-col  mx-auto gap-10 flex items-center">
       <section className="flex flex-col items-center gap-4 w-3/4">
         <h1 className="text-[var(--black-blue)] text-4xl font-extrabold">
           مقالات
@@ -18,7 +18,7 @@ function ArticleSlider() {
           خوشمزه است!
         </p>
       </section>
-      <Slider className="!py-10 flex flex-col items-center" anotherProp={2}>
+      <Slider className="!py-10 !w-[75%] sm:!w-[65%] flex flex-col items-center" anotherProp={2}>
         {DataStory.map((items: TextBoxType) => {
           return (
             // <SwiperSlide className="!w-fit !m-0" key={items.id} {...items}>
