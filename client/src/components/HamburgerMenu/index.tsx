@@ -39,6 +39,12 @@ type THamMenu = {
   isLanding?: boolean
 };
 
+const user = localStorage.getItem('user')
+  let userPanel = "/register/login/enterNumber"
+  if(user){
+      userPanel =`/user/${user}/panel`
+  }
+
 const HamburgerNavbar = (props: THamMenu) => {
   const [burgerMenuActive, setBurgerMenuActive] = useState(false);
 
@@ -186,7 +192,7 @@ const HamburgerNavbar = (props: THamMenu) => {
             </div>
           </div>
           {props.isLanding?
-          <Link href={'/register/login/enterNumber'}>
+          <Link href={userPanel}>
           <MainButton
                 className="bg-transparent hover:bg-transparent"
                 modern

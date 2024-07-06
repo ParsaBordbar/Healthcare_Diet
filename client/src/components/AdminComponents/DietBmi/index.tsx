@@ -9,6 +9,7 @@ function DietBmi({
     weight,
     bmi,
     abdominalCircumference,
+    autoIncrementId,
   }: BmiType) {
   return (
         <div className="grid grid-cols-4 pr-6 gap-4">

@@ -29,6 +29,7 @@ export type BmiDataType = BmiLandingDataType & {
   gender: string;
   abdominalCircumference: number;
   age: number;
+  autoIncrementId?: number,
 };
 
 export type SignUpDataType = {
@@ -132,6 +133,8 @@ export interface MediterraneanFormType {
     age:number;
     linkTo?: string;
     abdominalCircumference?: number;
+    whr: number,
+    hipcircumference: number,
   };
   payment?: FileType;
   _id: string;
