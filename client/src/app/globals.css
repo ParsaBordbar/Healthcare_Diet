@@ -146,7 +146,7 @@ input[type="number"] {
   -webkit-backdrop-filter: blur(7.8px);
 }
 
-li{
+li {
   list-style: none;
 }
 
@@ -163,18 +163,16 @@ li{
   transition: transform 0.25s ease-out;
 }
 
-
-
 .cta:hover .progress-style:after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
 
-.swiper-slide{
+.swiper-slide {
   width: fit-content !important;
 }
 
-body{
+body {
   overflow-x: hidden;
 }
 
@@ -187,7 +185,7 @@ body{
   background: var(--milky-white);
   border-radius: 8px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--new-green);
@@ -196,9 +194,27 @@ body{
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #b30000; 
+  background: #b30000;
 }
 
-.swiper{
-  width: 75% !important
+.swiper {
+  width: 75% !important;
+}
+
+@media screen and (min-width: 320px) {
+  .swiper {
+    width: 88% !important;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .swiper {
+    width: 75% !important;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .swiper {
+    width: 66% !important;
+  }
 }
