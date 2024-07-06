@@ -238,8 +238,8 @@ const MediterraneanForm = ({
           <div className="flex flex-row">
             <h4 className="md:text-2xl text-xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4">فرم BMI:</h4>
           </div>
-          <DietBmi height={dietBmi?.height} weight={dietBmi?.weight} age={dietBmi?.age} abdominalCircumference={dietBmi?.abdominalCircumference} hipcircumference={dietBmi?.hipcircumference} bmi={dietBmi?.bmi}/>
-      </div>
+          <DietBmi height={dietBmi?.height} weight={dietBmi?.weight} age={dietBmi?.age} abdominalCircumference={dietBmi?.abdominalCircumference} hipcircumference={dietBmi?.hipcircumference} bmi={dietBmi?.bmi} whr={dietBmi?.whr} />
+          </div>
             
         {files.length > 0 && (
         <div className="pe-8 py-2 flex justify-start flex-col">
