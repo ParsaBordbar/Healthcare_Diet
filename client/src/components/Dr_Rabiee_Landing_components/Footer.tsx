@@ -7,14 +7,14 @@ import MainButton from "../MainButton";
 
 const Footer = () => {
   return (
-    <div className="flex justify-center items-center bg-[#3233F2] text-white py-10 ">
+    <div className="flex justify-center items-center bg-[#3233F2] text-white py-10">
       <div className="grid lg:grid-cols-4 grid-cols-5 px-10 sm:gap-10">
         <section className="grid grid-cols-3 lg:col-span-3  col-span-full sm:col-span-4 gap-4 lg:pr-16">
           <div className="min-[910px]:flex hidden flex-col min-[910px]:col-span-full lg:col-span-2 justify-start ">
             <h6 className="mb-1 font-extrabold text-2xl ">
               زندگی سالم با رژیم مدیترانه‌ای: استراتژی‌های دکتر ربیعی
             </h6>
-            <p className=" text-justify w-full">
+            <p className="text-justify w-full">
               در این وبسایت، ما با بهره‌گیری از دانش و تخصص دکتر محمدرضا ربیعی،
               متخصص تغذیه و سلامتی، به شما کمک می‌کنیم تا به یک زندگی سالم‌تر و
               بهتر دست یابید. هدف ما ارائه راهکارهای غذایی علمی و مبتنی بر آخرین
@@ -24,21 +24,7 @@ const Footer = () => {
               بهبود کیفیت زندگی‌تان خواهید داشت.
             </p>
           </div>
-          <form action="" className="flex col-span-full sm:col-span-2 gap-2.5 flex-col min-[910px]:hidden">
-            <h1 className="font-bold text-xl">عضویت در سایت</h1>
-            <div className="rounded-full w-full flex items-center border border-white">
-              <input
-                type="text"
-                className="bg-transparent sm:placeholder:text-base placeholder:text-xs outline-none w-2/3 pr-2 py-2 "
-                placeholder="شماره همراه خود را وارد کنید"
-              />
-              <MainButton
-                modern
-                className="border w-1/3 [&>span]:text-sm sm:[&>span]:text-base py-2 !rounded-full border-white"
-                value={"دریافت رژيم"}
-              />
-            </div>
-          </form>
+          
           <div className="flex min-[910px]:p-0 sm:pr-5 min-[910px]:flex-row lg:flex-col gap-6 lg:justify-center min-[910px]:justify-between items-center text-right col-span-full lg:col-span-1 ">
             <h6 className="text-xl min-[910px]:inline-block hidden font-extrabold">
               دسترسی آسان
