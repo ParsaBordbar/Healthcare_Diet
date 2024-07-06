@@ -33,7 +33,7 @@
 
         .burgerMenuContainer {
             content: "";
-            width: 55px;
+            width: 42px;
             height: 25px;
             position: relative;
             right: 0;
@@ -41,7 +41,7 @@
 
             .burgerMenuTrigger {
                 content: "";
-                width: 55px;
+                width: 42px;
                 height: 25px;
                 position: relative;
                 right: 0;
@@ -65,8 +65,8 @@
                 content: "";
                 background-color: var(--secondary-blue);
                 position: absolute;
-                width: 55px;
-                height: 4px;
+                width: 30px;
+                height: 3px;
                 transform: translateY(10px);
                 z-index: 0;
                 transition: 0.25s transform ease-in-out,
@@ -77,8 +77,8 @@
                 content: "";
                 background-color: var(--secondary-blue);
                 position: absolute;
-                width: 55px;
-                height: 4px;
+                width: 42px;
+                height: 3px;
                 transform: translateY(-10px);
                 z-index: 0;
                 transition: 0.25s transform ease-in-out,
@@ -86,7 +86,8 @@
             }
 
             .burgerMenuTrigger:hover ~ .burgerMenu {
-                width: 35px;
+                width: 42px;
+                height: 3px;
             }
         }
     }
@@ -137,22 +138,21 @@
             }
 
             .burgerMenu::after {
-                transform: translateY(0px) rotate(135deg);
-                background-color: var(--secondary-blue);
-                transition: 0.25s transform ease-in-out,
-                    0.25s background-color ease-in-out;
+                width: 0;
             }
 
             .burgerMenu::before {
-                transform: translateY(0px) rotate(-135deg);
+                transform: translateY(0px) rotate(-90deg);
                 background-color: var(--secondary-blue);
                 transition: 0.25s transform ease-in-out,
-                    0.25s background-color ease-in-out;
+                    0.25s background-color ease-in-out;      
             }
 
             .burgerMenuTrigger:hover ~ .burgerMenu {
-                width: 0px;
-            }
+                transform: translateY(0px) rotate(135deg);
+                background-color: var(--secondary-blue);
+                transition: 0.25s transform ease-in-out,
+                    0.25s background-color ease-in-out;                }
         }
     }
     .content {
