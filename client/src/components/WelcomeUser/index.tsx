@@ -9,13 +9,13 @@ const UserInfo = ({ userID }: { userID: string }) => {
   return (
     <>
       <div className="col-span-full bg-[var(--secondary-blue)] shadow-md flex flex-col min-[950px]:flex-row xl:flex-col justify-between items-center gap-4 px-4 xl:px-2 xl:py-6 py-3 rounded-lg">
-        <section className="flex w-full min-[950px]:w-2/4 xl:w-full flex-row  xl:flex-col items-center gap-4  text-white font-bold">
+        <section className="flex w-full min-[950px]:w-2/4 xl:w-full flex-col sm:flex-row  xl:flex-col items-center gap-4  text-white font-bold">
         <MaleAvatar className=""/>
-          <div className="flex min-[950px]:flex-col justify-between w-full min-[950px]::w-auto min-[950px]::justify-normal flex-row min-[950px]:justify-center  gap-2">
-            <h1 className="text-2xl xl:text-center">
+          <div className="flex min-[950px]:flex-col justify-between w-full min-[950px]:w-auto flex-col sm:flex-row min-[950px]:justify-center  gap-2">
+            <h1 className="text-2xl text-center">
               {patients?.name + " " + patients?.lastName}
             </h1>
-            <section className="flex items-center xl:justify-center">
+            <section className="flex items-center justify-center">
               <PhoneNumber className="[&>path]:stroke-white " />
               <p className="text-white">{patients?.phoneNumber}</p>
             </section>
