@@ -87,17 +87,17 @@ const MediterraneanForm = ({
           </button>
           
         </div>
-        <div className="text-2xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5 flex gap-2 items-center">
+        <div className="text-2xl pr-4 sm:ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5 flex gap-2 items-center">
           <DateSvg className="sm:flex [&>path]:stroke-white  hidden" width={24} />
           <p className="pt-1.5  text-base"> تاریخ ثبت فرم: {createdAtJalali}</p>
           </div>
-        <li className="ps-12 pe-7 md:text-2xl text-xl bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
+        <li className=" pr-4 sm:ps-12 pe-7 md:text-2xl text-xl bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
           مواد غذایی مصرفی:
         </li>
         <li className="grid min-[1410px]:grid-cols-3 grid-cols-4 gap-4 m-4">
           <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
             <p className="">میزان مصرف روزانه میوه :</p>
-            <p className="  ">{dailyFruit}</p>
+            <p className="text-[var(--black-blue)]  ">{dailyFruit}</p>
           </li>
 
           <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
@@ -107,12 +107,12 @@ const MediterraneanForm = ({
 
           <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
             <p className="">غلات سبوس ‌دار مصرف می‌کنند:</p>
-            <p className="text-[var(--black-blue)] font-extrabold">{Cereals}</p>
+            <p className="text-[var(--black-blue)]">{Cereals}</p>
           </li>
 
           <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
             <p className="">میزان مصرف روزانه غلات:</p>
-            <p className="text-[var(--black-blue)] font-extrabold">{dailyCereals}</p>
+            <p className="text-[var(--black-blue)]">{dailyCereals}</p>
           </li>
 
           <li
@@ -189,48 +189,48 @@ const MediterraneanForm = ({
         </li>
 
         <li>
-          <li className="md:text-2xl text-xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
+          <li className="md:text-2xl text-base sm:text-xl pr-4 sm:ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
             بیماری‌ها و وضعیت‌های خاص:
           </li>
           <ul className="grid grid-cols-4 mb-5 px-4 gap-2">
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-base'> وضعیت دیابت: {diabetes}</p>
+              <p className='w-fit text-sm sm:text-base'> وضعیت دیابت: {diabetes}</p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-base'>وضعیت فشارخون: {bloodPressure}</p>
+              <p className='w-fit text-sm sm:text-base'>وضعیت فشارخون: {bloodPressure}</p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-base'>وضعیت مشکلات گوارشی: {digestiveProblems}</p>
+              <p className='w-fit text-sm sm:text-base'>وضعیت مشکلات گوارشی: {digestiveProblems}</p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-base'>وضعیت خودایمنی: {selfSafety}</p>
+              <p className='w-fit text-sm sm:text-base'>وضعیت خودایمنی: {selfSafety}</p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-base'>وضعیت سکته: {stroke}</p>
+              <p className='w-fit text-sm sm:text-base'>وضعیت سکته: {stroke}</p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-base'>وضعیت چربی کبد: {fattyLiver}</p>
+              <p className='w-fit text-sm sm:text-base'>وضعیت چربی کبد: {fattyLiver}</p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-base'>وضعیت مشکلات کلیوی: {kidneyProblems}</p>
+              <p className='w-fit text-sm sm:text-base'>وضعیت مشکلات کلیوی: {kidneyProblems}</p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-base'>وضعیت تیروئید: {thyroid}</p>
+              <p className='w-fit text-sm sm:text-base'>وضعیت تیروئید: {thyroid}</p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <div className='w-fit text-base flex'>سرطان: {cancer?<p className="text-[var(--black-blue)]"> دارد </p>: <p className="text-[var(--black-blue)]">ندارد</p>}</div>
+              <div className='w-fit text-sm sm:text-base flex'>سرطان: {cancer?<p className="text-[var(--black-blue)]"> دارد </p>: <p className="text-[var(--black-blue)]">ندارد</p>}</div>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <div className='w-fit text-base flex'>میگرن: {Migraine?<p className="text-[var(--black-blue)]">دارد</p>: <p className="text-[var(--black-blue)]">ندارد</p>}</div>
+              <div className='w-fit text-sm sm:text-base  flex'>میگرن: {Migraine?<p className="text-[var(--black-blue)]">دارد</p>: <p className="text-[var(--black-blue)]">ندارد</p>}</div>
             </li>
 
             <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className=" w-fit text-base"> سایر بیماری ها یا جراحی قبلی بیمار:</p>
-              <p className="text-[var(--black-blue)] w-fit text-base"> {otherSickness}</p>
+              <p className=" w-fit text-sm sm:text-base"> سایر بیماری ها یا جراحی قبلی بیمار:</p>
+              <p className="text-[var(--black-blue)] w-fittext-sm sm:text-base"> {otherSickness}</p>
             </li>
             <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className=" w-fit text-base">داروهای مصرفی بیمار :</p>
-              <p className="text-[var(--black-blue)]  text-base w-fit"> {medicine}</p>
+              <p className=" w-fit text-sm sm:text-base">داروهای مصرفی بیمار :</p>
+              <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {medicine}</p>
             </li>
           </ul>
         </li>

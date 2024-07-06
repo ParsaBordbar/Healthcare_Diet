@@ -48,7 +48,7 @@ const UserIdentifyForm = () => {
       <form
         action=""
         onSubmit={handleSubmit(handelValueInputs)}
-        className="grid justify-items-center grid-cols-5  w-full pb-8 gap-6  "
+        className="grid justify-items-center grid-cols-5  w-full pb-8 gap-2 sm:gap-6  "
         onKeyUp={handleEnter}
       >
         <Controller
@@ -61,7 +61,8 @@ const UserIdentifyForm = () => {
               onInput={(e: ChangeEvent<HTMLInputElement>) => {
                 handleLenght(e);
               }}
-              className={`w-full h-12 text-center text-xl outline-none`}
+              parentClassName="[&>section]:!px-0"
+              className={`w-full  h-12 text-center text-xl outline-none`}
               {...field}
               ref={codeFive}
             />
@@ -77,6 +78,7 @@ const UserIdentifyForm = () => {
                 handleLenght(e);
               }}
               type="text"
+              parentClassName="[&>section]:!px-0"
               className={`w-full h-12 text-center text-xl outline-none`}
               {...field}
               ref={codeFour}
@@ -93,6 +95,7 @@ const UserIdentifyForm = () => {
                 handleLenght(e);
               }}
               type="text"
+              parentClassName="[&>section]:!px-0"
               className={`w-full h-12 text-center text-xl outline-none`}
               {...field}
               ref={codeThree}
@@ -109,6 +112,7 @@ const UserIdentifyForm = () => {
                 handleLenght(e);
               }}
               type="text"
+              parentClassName="[&>section]:!px-0"
               className={`w-full h-12 text-center text-xl outline-none`}
               {...field}
               ref={codeTwo}
@@ -125,6 +129,7 @@ const UserIdentifyForm = () => {
                 handleLenght(e);
               }}
               type="text"
+              parentClassName="[&>section]:!px-0"
               className={`w-full h-12 text-center text-xl outline-none`}
               {...field}
               ref={codeOne}
