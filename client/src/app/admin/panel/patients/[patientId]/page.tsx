@@ -1,6 +1,5 @@
 "use client";
 
-import Accordion from "@/components/Accordion";
 import CommentBox from "@/components/AdminComponents/CommentBox";
 import PatientBmiFormLazy from "@/components/AdminComponents/lazyLoadingComponents/PatientBmiForm";
 import PatientCardLazy from "@/components/AdminComponents/lazyLoadingComponents/PatientCardLazy";
@@ -11,86 +10,13 @@ import ReplyBox from "@/components/AdminComponents/ReplyBox";
 import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
 import useFetchOneMediterranean from "@/hooks/useFetchOneMediterranean";
 import useFetchPatientComments from "@/hooks/useFetchPatientComments/useFetchPatientComments";
-import React, { useCallback, useMemo, useState } from "react";
+import React from "react";
 
 function PatientId({ params }: { params: { patientId: string } }) {
   const bmiData = useSpecificFetchBmi(params.patientId);
   const medData = useFetchOneMediterranean(params.patientId);
   const commentData = useFetchPatientComments(params.patientId);
-
   console.log(commentData);
-
-  const [accordions, setAccordions] = useState<any[]>([]);
-  const [accordionsMessage, setAccordionsMessage] = useState<any[]>([]);
-
-  const accordionData = useMemo(() => {
-    return medData.map((form) => ({
-      key: form.phoneNumber,
-      title: "رژیم مدیترانه ای",
-      data: form,
-      isOpen: false,
-    }));
-  }, [medData]);
-
-  const accordionMessagesData = useMemo(() => {
-    return commentData.map((comment) => ({
-      key: comment.createdAtJalali,
-      title: "پیام‌ها",
-      data: comment,
-      isOpen: false,
-    }));
-  }, [commentData]);
-
-  const toggleAccordion = (accordionKey: string) => {
-    setAccordions((prev) =>
-      prev.map((accordion) =>
-        accordion.key === accordionKey
-          ? { ...accordion, isOpen: !accordion.isOpen }
-          : accordion
-      )
-    );
-    setAccordionsMessage((prev) =>
-      prev.map((accordion) =>
-        accordion.key === accordionKey
-          ? { ...accordion, isOpen: !accordion.isOpen }
-          : accordion
-      )
-    );
-  };
-
-  const renderAccordions = useCallback(() => {
-    return accordionData.map((accordionData) => (
-      <Accordion
-        key={accordionData.key}
-        title={accordionData.title}
-        data={
-          <MediterraneanForm
-            {...accordionData.data}
-            phoneNumber={params.patientId}
-          />
-        }
-        isOpen={accordionData.isOpen}
-        toggleAccordion={() => toggleAccordion(accordionData.key)}
-      />
-    ));
-  }, [accordionData, toggleAccordion, params.patientId]);
-
-  const renderAccordionMessages = useCallback(() => {
-    return accordionMessagesData.map((accordionData: any) => (
-      <Accordion
-        key={accordionData.key}
-        title={accordionData.title}
-        data={
-          <CommentBox
-            {...accordionData.data}
-            isDoctor={true}
-          />
-        }
-        isOpen={accordionData.isOpen}
-        toggleAccordion={() => toggleAccordion(accordionData.key)}
-      />
-    ));
-  }, [accordionMessagesData, toggleAccordion]);
 
   return (
     <main>
@@ -100,7 +26,6 @@ function PatientId({ params }: { params: { patientId: string } }) {
             <PatientCard
               name={bmiData.name}
               lastName={bmiData.lastName}
-              city={bmiData.city}
               phoneNumber={bmiData.phoneNumber}
               gender={bmiData.gender}
               autoIncrementId={bmiData.autoIncrementId}
@@ -109,18 +34,15 @@ function PatientId({ params }: { params: { patientId: string } }) {
             <PatientBmiForm
               name={bmiData?.name}
               lastName={bmiData?.lastName}
-              autoIncrementId={bmiData?.autoIncrementId}
-              city={bmiData?.city}
               age={bmiData?.age}
               gender={bmiData?.gender}
               phoneNumber={params.patientId}
               bmi={bmiData?.bmi}
-              whr={bmiData?.whr}
               weight={bmiData?.weight}
               height={bmiData?.height}
               abdominalCircumference={bmiData?.abdominalCircumference}
-              hipcircumference={bmiData?.hipcircumference}
               joinedAtJalali={bmiData?.joinedAtJalali}
+              autoIncrementId={bmiData.autoIncrementId}
             />
           </>
         ) : (
@@ -132,11 +54,70 @@ function PatientId({ params }: { params: { patientId: string } }) {
         )}
 
         <h2 className="text-3xl mt-8">رژیم‌ها:</h2>
-        {renderAccordions()}
-
+        {medData ? (
+          medData.map((form) => (
+            <MediterraneanForm
+              key={`${params.patientId} ${form.createdAtJalali}`}
+              phoneNumber={params.patientId}
+              isChecked={form?.isChecked}
+              dailyFruit={form.dailyFruit}
+              dailyVegetable={form.dailyVegetable}
+              Cereals={form.Cereals}
+              dailyCereals={form.dailyCereals}
+              potatoAndStarchWeekly={form.potatoAndStarchWeekly}
+              oliveAndOliveOilDaily={form.oliveAndOliveOilDaily}
+              nutsDaily={form.nutsDaily}
+              dairyDaily={form.dairyDaily}
+              beans={form.beans}
+              eggWeekly={form.eggWeekly}
+              fishWeekly={form.fishWeekly}
+              chickensWeekly={form.chickensWeekly}
+              sugarWeekly={form.sugarWeekly}
+              alcoholWeekly={form.alcoholWeekly}
+              fermentationWeekly={form.fermentationWeekly}
+              supplements={form.sugarWeekly}
+              physicalActivity={form.physicalActivity}
+              diabetes={form.diabetes}
+              anemia={form.anemia}
+              bloodPressure={form.bloodPressure}
+              digestiveProblems={form.digestiveProblems}
+              selfSafety={form.selfSafety}
+              stroke={form.stroke}
+              fattyLiver={form.fattyLiver}
+              kidneyProblems={form.kidneyProblems}
+              thyroid={form.thyroid}
+              cancer={form.cancer}
+              Migraine={form.Migraine}
+              otherSickness={form.otherSickness}
+              medicine={form.medicine}
+              createdAtJalali={form.createdAtJalali}
+              files={form.files}
+              redMeatWeekly={form.redMeatWeekly}
+              dietBmi={form.dietBmi}
+              payment={form.payment}
+              _id={form._id}
+            />
+          ))
+        ) : (
+          <p>رژیم ندارد</p>
+        )}
         <h2 className="text-3xl mt-8">پیام‌های ارسال شده:</h2>
-        {renderAccordionMessages()}
-
+        {commentData ? (
+          commentData.map((comment) => (
+            <CommentBox
+              key={comment.receiver}
+              sender={comment.sender}
+              body={comment.body}
+              receiver={comment.receiver}
+              createdAtJalali={comment.createdAtJalali}
+              isDoctor={true}
+              files={comment.files}
+              _id={comment._id}
+            />
+          ))
+        ) : (
+          <p>هنوز پیامی وجود ندارد</p>
+        )}
         <ReplyBox receiver={params.patientId} />
       </section>
     </main>
