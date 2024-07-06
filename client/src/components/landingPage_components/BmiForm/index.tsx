@@ -41,16 +41,16 @@ const BmiForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center flex-col bg-[var(--primary)] rounded-2xl my-12 px-10">
+    <div className="flex justify-center items-center flex-col bg-[var(--soft-blue)] rounded-2xl my-12 px-10">
       <div className="flex justify-center items-center flex-col w-full my-10">
-        <h3 className="lg:text-3xl text-xl my-7">همین حالا شروع کنید!</h3>
+        <h3 className="lg:text-3xl text-xl my-7 text-[var(--black-blue)] font-extrabold">همین حالا شروع کنید!</h3>
         <form
           onSubmit={handleSubmit(handelValueInputs)}
           onKeyDown={handleEnter}
           action="submit"
           className="flex justify-center items-center flex-col"
         >
-          <ul className="flex flex-row gap-2">
+          <ul className="grid flex-row gap-2 md:grid-cols-2 grid-cols-1">
             <li>
               <Controller
                 control={control}
@@ -64,6 +64,7 @@ const BmiForm = () => {
                     label="وزن"
                     parentClassName="col-span-2"
                     placeholder="(kg) وزن خود را وارد کنید"
+                    className="text-base md:text-lg"
                   />
                 )}
               />{" "}
@@ -79,8 +80,9 @@ const BmiForm = () => {
                     error={!!errors.height}
                     ref={heightRef}
                     label="قد"
-                    parentClassName="col-span-2"
+                    parentClassName="col-span-2 "
                     placeholder="(cm) قد خود را وارد کنید"
+                    className="text-base md:text-lg"
                   />
                 )}
               />{" "}
@@ -94,15 +96,16 @@ const BmiForm = () => {
                 {...field}
                 error={!!errors.phoneNumber}
                 ref={phoneNumberRef}
-                parentClassName="col-span-2 lg:col-span-4"
+                parentClassName="col-span-2 lg:col-span-4 mt-4"
                 label="شماره تماس"
                 placeholder="شماره تماس خود را وارد کنید"
+                className="text-base md:text-base"
               />
             )}
           />
           <MainButton
             type="submit"
-            className="w-full my-10 py-3 !text-white bg-[var(--rating-color)] font-bold text-2xl"
+            className="w-full my-10 py-3 !text-white bg-[var(--secondary-blue)] md:text-2xl text-sm font-extrabold"
             value={"همین حالا رژیم خود را دریافت کنید"}
           />
         </form>
