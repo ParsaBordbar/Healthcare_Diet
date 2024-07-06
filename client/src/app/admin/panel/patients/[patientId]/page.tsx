@@ -19,44 +19,6 @@ function PatientId({ params }: { params: { patientId: string } }) {
   const commentData = useFetchPatientComments(params.patientId);
 
   console.log(commentData);
-   
-  return (
-    <main>
-      <section className='flex flex-col gap-2'>            
-        {bmiData ? (
-          <>
-            <PatientCard 
-              name={bmiData.name} 
-              lastName={bmiData.lastName} 
-              city={bmiData.city}
-              phoneNumber={bmiData.phoneNumber} 
-              gender={bmiData.gender} 
-            />
-            <h2 className='text-3xl mt-8'>فرم BMI:</h2>
-            <PatientBmiForm 
-              name={bmiData?.name} 
-              lastName={bmiData?.lastName}
-              caseNumber={bmiData?.autoIncrementId} 
-              city={bmiData?.city} 
-              age={bmiData?.age} 
-              gender={bmiData?.gender} 
-              phoneNumber={params.patientId} 
-              bmi={bmiData?.bmi} 
-              whr={bmiData?.bmi}
-              weight={bmiData?.weight} 
-              height={bmiData?.height} 
-              abdominalCircumference={bmiData?.abdominalCircumference}
-              hipcircumference={bmiData?.hipcircumference}
-              joinedAtJalali={bmiData?.joinedAtJalali}
-            />
-          </>
-        ) : (
-          <>
-            <PatientCardLazy /> 
-            <div className='bg-gray-200 h-5 me-6 mt-7 mb-2 w-1/12 animate-pulse'></div>
-            <PatientBmiFormLazy />
-          </>
-        )}
 
   const [accordions, setAccordions] = useState<any[]>([]);
   const [accordionsMessage, setAccordionsMessage] = useState<any[]>([]);
@@ -111,10 +73,10 @@ function PatientId({ params }: { params: { patientId: string } }) {
         toggleAccordion={() => toggleAccordion(accordionData.key)}
       />
     ));
-  }, [accordionData]);
+  }, [accordionData, toggleAccordion, params.patientId]);
 
   const renderAccordionMessages = useCallback(() => {
-    return accordionMessagesData.map((accordionData:any) => (
+    return accordionMessagesData.map((accordionData: any) => (
       <Accordion
         key={accordionData.key}
         title={accordionData.title}
@@ -128,7 +90,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
         toggleAccordion={() => toggleAccordion(accordionData.key)}
       />
     ));
-  }, [accordionMessagesData]);
+  }, [accordionMessagesData, toggleAccordion]);
 
   return (
     <main>
@@ -141,11 +103,24 @@ function PatientId({ params }: { params: { patientId: string } }) {
               city={bmiData.city}
               phoneNumber={bmiData.phoneNumber}
               gender={bmiData.gender}
+              autoIncrementId={bmiData.autoIncrementId}
             />
             <h2 className="text-3xl mt-8">فرم BMI:</h2>
             <PatientBmiForm
-              {...bmiData}
+              name={bmiData?.name}
+              lastName={bmiData?.lastName}
+              autoIncrementId={bmiData?.autoIncrementId}
+              city={bmiData?.city}
+              age={bmiData?.age}
+              gender={bmiData?.gender}
               phoneNumber={params.patientId}
+              bmi={bmiData?.bmi}
+              whr={bmiData?.whr}
+              weight={bmiData?.weight}
+              height={bmiData?.height}
+              abdominalCircumference={bmiData?.abdominalCircumference}
+              hipcircumference={bmiData?.hipcircumference}
+              joinedAtJalali={bmiData?.joinedAtJalali}
             />
           </>
         ) : (

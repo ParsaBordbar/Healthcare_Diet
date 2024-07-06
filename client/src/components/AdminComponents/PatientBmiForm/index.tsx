@@ -15,6 +15,7 @@ function PatientBmiForm({
   weight,
   bmi,
   whr,
+  autoIncrementId,
   abdominalCircumference,
   joinedAtGregorian,
   joinedAtJalali,
