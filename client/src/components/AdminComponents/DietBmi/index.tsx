@@ -19,7 +19,7 @@ function DietBmi({
             <p className='min-[1000px]:col-span-3 text-base col-span-2'>قد: {height}</p>
             <p className='min-[1000px]:col-span-3 text-base col-span-2'>وزن: {weight}</p>
             <p className='min-[1000px]:col-span-3 text-base col-span-2'>دور شکم: {abdominalCircumference}</p>
-            <p className='col-span-1'>دور  باسن: {hipcircumference}</p>
+            <p className='col-span-full text-base'>دور  باسن: {hipcircumference}</p>
         </div>
   )
 }
