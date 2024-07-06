@@ -4,7 +4,6 @@ import Styles from "./navbar.module.scss";
 import { motion } from "framer-motion";
 import LogoSvg from "/public/svg/Logo.svg";
 import Link from "next/link";
-import SideBarBanner from "/public/svg/sideBarBanner.svg";
 import MaleAvatar from "/public/svg/adminPanelSvgs/Group 108.svg";
 import PhoneNumber from "/public/svg/phone.svg";
 import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
@@ -193,7 +192,6 @@ const HamburgerNavbar = (props: THamMenu) => {
             variants={motionVariants}
           >
             
-            <SideBarBanner className="h-[80vh] rounded-2xl" width={40} />
             <div className={`flex flex-col justify-between w-full gap-6    `}>
               <section className="flex gap-6">
                 <div className="flex flex-col w-full gap-3 pl-16">
