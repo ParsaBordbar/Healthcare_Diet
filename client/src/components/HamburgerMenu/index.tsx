@@ -36,6 +36,7 @@ type THamMenu = {
   iconSeven?: FunctionComponent;
   linkSeven?: string;
   userID?: string;
+  isLanding?: boolean
 };
 
 const HamburgerNavbar = (props: THamMenu) => {
@@ -184,11 +185,16 @@ const HamburgerNavbar = (props: THamMenu) => {
               {OptionGenerate}
             </div>
           </div>
+          {props.isLanding?
+          <Link href={'/register/login/enterNumber'}>
           <MainButton
                 className="bg-transparent hover:bg-transparent"
                 modern
                 iconSrc={LoginIcon}
             />
+        </Link>:
+        null
+          }
         </div>
 
         <div className={Styles.content + ` w-full ${!burgerMenuActive && '!hidden'}  !flex h-[80vh]`}>
