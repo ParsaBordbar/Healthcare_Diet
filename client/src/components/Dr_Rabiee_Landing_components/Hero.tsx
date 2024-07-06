@@ -44,7 +44,7 @@ function MainSection() {
             <Image
             src={HeroImg}
             alt="Hero in Box"          
-            className="w-full h-full object-cover object-center "
+            className="w-full h-full object-cover object-center"
             width={5000} 
             height={5000}
             />
