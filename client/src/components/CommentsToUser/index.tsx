@@ -11,7 +11,7 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
   return (
     <main className="grid col-span-full lg:col-span-4   grid-cols-1 ">
       <div className="col-span-full flex flex-col gap-6">
-        <section className="flex   min-[950px]:items-center gap-2 justify-between">
+        <section className="flex sm:flex-row flex-col  min-[950px]:items-center gap-2 justify-between">
           <div className="flex gap-2  items-center">
             <CommentIcon className="[&>path]:stroke-black" />
             <h1>جدیدترین پیام های دریافتی شما</h1>

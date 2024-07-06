@@ -42,14 +42,14 @@ const CommentBox = ({
         <section className={`flex w-full items-start 2xl:items-center 2xl:flex-row lg:flex-col lg:gap-1 sm:flex-row gap-1 2xl:justify-between justify-between lg:justify-center ${!receiver && '!flex-row !items-center'} flex-col `}>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center">
-              <p className="text-base">ارسال کننده:</p>
+              <p className="text-sm sm:text-base">ارسال کننده:</p>
               <p className="text-base text-ellipsis overflow-hidden whitespace-nowrap">
                 {sender}
               </p>
             </div>
             {receiver ? (
               <div className="flex gap-2 items-center">
-                <p className="w-fit text-base">دریافت کننده:</p>
+                <p className="w-fit text-sm sm:text-base">دریافت کننده:</p>
                 <p className="text-base text-ellipsis overflow-hidden whitespace-nowrap">
                   {userData?.name} {userData?.lastName}{" "}
                 </p>
@@ -78,7 +78,7 @@ const CommentBox = ({
         </section>
       </div>
       <p
-        className="p-5 w-full pb-12 text-base"
+        className="p-5 w-full break-words pb-12 text-base"
         dangerouslySetInnerHTML={formatBody(body)}
       />
       {files.length > 0 && (
@@ -88,7 +88,7 @@ const CommentBox = ({
           </div>
           <ul className="list-disc list-inside grid grid-cols-2">
             {files.map((file: FileType) => (
-              <li className="flex gap-2 items-center my-1" key={file.filename}>
+              <li className="flex gap-2 col-span-full sm:col-span-1 items-center my-1" key={file.filename}>
                 <AttachmentIcon />
                 {/* This should be The server host and port */}
                 <a
