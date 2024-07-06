@@ -18,7 +18,7 @@ function ArticleSlider() {
           خوشمزه است!
         </p>
       </section>
-      <Slider className="!py-10 !w-[75%] sm:!w-[65%] flex flex-col items-center" anotherProp={2}>
+      <Slider className="!py-10 !w-[75%] sm:!w-[65%] flex flex-col items-center" anotherProp={3}>
         {DataStory.map((items: TextBoxType) => {
           return (
             // <SwiperSlide className="!w-fit !m-0" key={items.id} {...items}>
