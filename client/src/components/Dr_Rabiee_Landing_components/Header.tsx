@@ -14,8 +14,9 @@ function Header() {
     <header className="bg-[#FEFDF9] text-[var(--black-blue)] px-[42px] py-0 mt-5">
       <div className="hidden md:flex justify-between items-center h-[64px]">
         
-        <div className="flex items-center gap-6">
-          <Logo className="w-[64px] h-[64px]"/>
+        <div className="flex items-center justify-center gap-6 mt-10">
+          <DrLogoMobile className="pe-3"/>
+
           <Link href={"/"} className="flex gap-2 items-center justify-center">
             <HomeIcon />
             <MainButton
@@ -43,7 +44,7 @@ function Header() {
         </div>
         <Link href="/register/login/enterNumber">
           <MainButton
-            className="py-2 lg:px-[36px] px-4 lg:[&>span]:text-base md:[&>span]:text-sm"
+            className="py-2 lg:px-[36px] px-4 lg:[&>span]:text-base md:[&>span]:text-sm mt-10"
             modern
             value={"ورود"}
             iconSrc={LoginIcon}
@@ -60,12 +61,12 @@ function Header() {
           valueTwo="درباه ما"
           iconThree={Blogs}
           valueThree="بلاگ ها"
-          iconFour={LoginIcon}
+          // iconFour={LoginIcon}
           linkOne={"/"}
           linkTwo={"/"}
           linkThree="/"
-          valueFour="ورود"
-          linkFour="/register/login/enterNumber"
+          // valueFour="ورود"
+          // linkFour="/register/login/enterNumber"
         />
       </div>
     </header>
