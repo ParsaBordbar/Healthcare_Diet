@@ -7,7 +7,7 @@ const MassegesFromUser = ({ params }: { params: { user: string } }) => {
   const comments = useFetchPatientComments(userID);
 
   return (
-    <main className="col-span-full gap-8 grid ">
+    <>
       {comments.length > 0 ? (
         comments.map((comment) => {
           return (
@@ -26,7 +26,7 @@ const MassegesFromUser = ({ params }: { params: { user: string } }) => {
       ) : (
         <h1 className="text-2xl text-center">پیامی ندارید</h1>
       )}
-    </main>
+    </>
   );
 };
 
