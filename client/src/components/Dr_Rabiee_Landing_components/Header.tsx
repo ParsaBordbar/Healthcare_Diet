@@ -12,10 +12,10 @@ import DrLogoMobile from "/public/svg/Dr_Rabiee_Landing/mobileNavLogo.svg"
 function Header() {
   return (
     <header className="bg-[#FEFDF9] text-[var(--black-blue)] px-[42px] py-0 mt-5">
-      <div className="hidden lg:flex justify-between items-center h-[64px]">
+      <div className="hidden md:flex justify-between items-center h-[64px]">
+        
         <div className="flex items-center gap-6">
-          
-          <Logo />
+          <Logo className="w-[64px] h-[64px]"/>
           <Link href={"/"} className="flex gap-2 items-center justify-center">
             <HomeIcon />
             <MainButton
@@ -43,7 +43,7 @@ function Header() {
         </div>
         <Link href="/register/login/enterNumber">
           <MainButton
-            className="py-2 px-[36px]"
+            className="py-2 lg:px-[36px] px-4  md:[&>span]:text-sm"
             modern
             value={"ورود"}
             iconSrc={LoginIcon}
