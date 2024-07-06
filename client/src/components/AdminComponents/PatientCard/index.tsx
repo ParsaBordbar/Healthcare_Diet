@@ -9,7 +9,6 @@ const PatientCard = ({
   name,
   lastName,
   gender,
-  city,
   phoneNumber,
   linkTo,
 }: BmiType) => {

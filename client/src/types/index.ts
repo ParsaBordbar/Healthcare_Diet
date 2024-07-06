@@ -73,7 +73,7 @@ export interface BmiType {
   abdominalCircumference?: number;
   hipcircumference?: number;
   whr?: number,
-  autoIncrementId: number,
+  autoIncrementId?: number,
   name?: string;
   lastName?: string;
   city?: string;
