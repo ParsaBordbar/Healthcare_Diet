@@ -50,7 +50,7 @@ const MainInput = forwardRef<
       <div className={`flex w-full flex-col gap-1 ${props.parentClassName}`}>
         <label
           htmlFor=""
-          className={`${props.error ? "text-red-600" : "text-black"} text-lg`}
+          className={`${props.error ? "text-red-600" : "text-[var(--black-blue)]"} text-lg`}
         >
           {props.label}
         </label>
