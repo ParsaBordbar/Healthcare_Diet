@@ -48,7 +48,7 @@ const UserIdentifyForm = () => {
       <form
         action=""
         onSubmit={handleSubmit(handelValueInputs)}
-        className="grid justify-items-center grid-cols-5  w-full pb-8 gap-2git sm:gap-6  "
+        className="grid justify-items-center grid-cols-5  w-full pb-8 gap-2 sm:gap-6  "
         onKeyUp={handleEnter}
       >
         <Controller
