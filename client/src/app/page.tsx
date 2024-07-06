@@ -6,6 +6,7 @@ import Pyramid from "../components/Dr_Rabiee_Landing_components/Pyramid";
 import InformationSection from "../components/Dr_Rabiee_Landing_components/Information";
 import ArticleSlider from "../components/Dr_Rabiee_Landing_components/Article";
 import Footer from "../components/Dr_Rabiee_Landing_components/Footer";
+import BmiForm from "@/components/landingPage_components/BmiForm";
 
 export default function Home() {
   return (
@@ -21,6 +22,9 @@ export default function Home() {
       </div>
       <div className="col-span-full">
         <Pyramid />
+      </div>
+      <div className="col-span-full">
+        <BmiForm/>
       </div>
       <div className="col-span-full">
         <InformationSection />
