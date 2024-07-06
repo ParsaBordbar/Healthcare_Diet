@@ -43,7 +43,7 @@ function Header() {
         </div>
         <Link href="/register/login/enterNumber">
           <MainButton
-            className="py-2 lg:px-[36px] px-4  md:[&>span]:text-sm"
+            className="py-2 lg:px-[36px] px-4 lg:[&>span]:text-base md:[&>span]:text-sm"
             modern
             value={"ورود"}
             iconSrc={LoginIcon}
