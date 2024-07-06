@@ -7,8 +7,15 @@ import Blogs from "/public/svg/Dr_Rabiee_Landing/blogs.svg";
 import LoginIcon from "/public/svg/Dr_Rabiee_Landing/profile.svg";
 import HamburgerNavbar from "../HamburgerMenu";
 import DrLogoMobile from "/public/svg/Dr_Rabiee_Landing/mobileNavLogo.svg"
+import userProfile from "/public/svg/Dr_Rabiee_Landing/person.crop.circle.fill.svg";
 
 function Header() {
+  const user = localStorage.getItem('user')
+  let userPanel = "/register/login/enterNumber"
+  if(user){
+     userPanel = `/user/${user}/panel`
+  }
+
   return (
     <header className="bg-[#FEFDF9] text-[var(--black-blue)] px-[42px] py-0 mt-5">
       <div className="hidden md:flex justify-between items-center h-[64px]">
@@ -41,14 +48,25 @@ function Header() {
             />
           </Link>
         </div>
-        <Link href="/register/login/enterNumber">
-          <MainButton
-            className="py-2 lg:px-[36px] px-4 lg:[&>span]:text-base md:[&>span]:text-sm mt-10"
-            modern
-            value={"ورود"}
-            iconSrc={LoginIcon}
-          />
-        </Link>
+        {
+          !user? (
+            <Link href={userPanel}>
+              <MainButton
+                className="py-2 lg:px-[36px] px-4 lg:[&>span]:text-base md:[&>span]:text-sm mt-10"
+                modern
+                value={"ورود"}
+                iconSrc={LoginIcon}
+              />
+            </Link>
+          ):
+          <Link href={userPanel}>
+              <MainButton
+                className="bg-transparent hover:bg-transparent "
+                modern
+                iconSrc={userProfile}
+              />
+          </Link>
+        }
       </div>
 
         
