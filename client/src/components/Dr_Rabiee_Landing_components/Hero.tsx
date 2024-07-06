@@ -22,7 +22,7 @@ function MainSection() {
         </div>
 
         <div className="flex flex-col md:flex-row w-full h-full items-end 2xl:col-span-3 xl:col-span-2 col-span-1 justify-start">
-          <div className="flex flex-col items-center justify-center md:text-right text-center p-5 text-[#3A3A97] rtl">
+          <div className="flex flex-col items-center justify-center lg:text-right text-center p-5 text-[#3A3A97] rtl">
             <div className="flex flex-col justify-end 2xl:px-16 xl:pe-10 md:pe-4 leading-6">
               <h3 className="mb-5 xl:text-5xl font-extrabold md:text-3xl text-2xl">
                 رژیم مدیترانه‌ای، نه فقط غذا بلکه یک سبک زندگی است.
@@ -35,12 +35,12 @@ function MainSection() {
               <MainButton className="border border-[#FFA301] rounded-lg font-extrabold shadow-md px-9 py-2 bg-[#FFA301] hover:border-[var(--secondary-blue)] modern hover:bg-[var(--secondary-blue)] text-white transition-colors duration-300 w-[186px] h-[54px] md:w-full md:h-full"
                 value={"دریافت رژیم"} />
             </Link>
-            <PointerSvg className="relative md:flex right-36 top-3 hidden" />
+            <PointerSvg className="relative md:flex right-36 top-3 hidden"/>
           </div>
 
         </div>
         <div className="flex justify-center items-center w-full 2xl:col-span-3 col-span-1 xl:col-span-2">
-          <div className="lg:w-[661px] xl:h-[561px]  md:rounded-[170px_0_170px_0] rounded-[50px_0_50px_0] shadow-md overflow-hidden flex justify-center items-center lg:h-[461px] md:h-[360px] md:w-[400px] sm:w-[200px] sm:h-[300px] w-[220px] h-[195px]">
+          <div className="lg:w-[661px] xl:h-[561px]  lg:rounded-[170px_0_170px_0] md:rounded-[90px_0_90px_0] rounded-[50px_0_50px_0] shadow-md overflow-hidden flex justify-center items-center lg:h-[461px] md:h-[360px] md:w-[350px] sm:w-[200px] sm:h-[300px] w-[220px] h-[195px]">
             <Image
             src={HeroImg}
             alt="Hero in Box"          
