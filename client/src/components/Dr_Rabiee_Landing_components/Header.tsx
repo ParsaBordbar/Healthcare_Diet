@@ -1,5 +1,4 @@
 'use client'
-import Logo from "/public/images/logo-nav.svg";
 import Link from "next/link";
 import MainButton from "../MainButton";
 import HomeIcon from "/public/svg/Dr_Rabiee_Landing/home.svg";
@@ -15,7 +14,7 @@ function Header() {
       <div className="hidden md:flex justify-between items-center h-[64px]">
         
         <div className="flex items-center justify-center gap-6 mt-10">
-          <DrLogoMobile className="pe-3"/>
+          <DrLogoMobile className="xl:pe-3 scale-75 xl:scale-100"/>
 
           <Link href={"/"} className="flex gap-2 items-center justify-center">
             <HomeIcon />
@@ -61,12 +60,9 @@ function Header() {
           valueTwo="درباه ما"
           iconThree={Blogs}
           valueThree="بلاگ ها"
-          // iconFour={LoginIcon}
           linkOne={"/"}
           linkTwo={"/"}
           linkThree="/"
-          // valueFour="ورود"
-          // linkFour="/register/login/enterNumber"
           isLanding={true}
         />
       </div>
