@@ -31,7 +31,7 @@ function Header() {
               value={"صفحه اصلی"}
             />
           </Link>
-          <Link href={"/"} className="flex gap-2 items-center justify-center">
+          <Link href={"#blogs"} className="flex gap-2 items-center justify-center">
             <Blogs />
             <MainButton
               className="[&>span]:text-sm"
@@ -39,7 +39,7 @@ function Header() {
               value={"بلاگ ها"}
             />
           </Link>
-          <Link href={"/"} className="flex gap-2 items-center justify-center">
+          <Link href={"#info"} className="flex gap-2 items-center justify-center">
             <AboutUsIcon />
             <MainButton
               className="[&>span]:text-sm"
