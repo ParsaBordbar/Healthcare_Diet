@@ -26,10 +26,10 @@ export default function Home() {
       <div className="col-span-full">
         <BmiForm/>
       </div>
-      <div className="col-span-full">
+      <div className="col-span-full" id="info">
         <InformationSection />
       </div>
-      <div className="col-span-full">
+      <div className="col-span-full " id="blogs">
         <ArticleSlider />
       </div>
       <div className="col-span-full">
