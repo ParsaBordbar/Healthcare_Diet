@@ -5,22 +5,20 @@ import MainButton from "../MainButton";
 import useMediterraneanForm from "@/validations/login/useMediterraneanForm";
 
 const MediterranealForm = () => {
-
   const {
     errors,
     values,
     handleChange,
     handleSubmit,
     handleFileChange,
-    paymentError
+    paymentError,
   } = useMediterraneanForm();
-
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-10">
       <div className="flex flex-col gap-4">
         <h1>مصرف میوه به صورت روزانه؟</h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="dailyFruit"
             checked={values.dailyFruit === "۱-۲ واحد"}
@@ -66,7 +64,7 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>مصرف سبزیجات به صورت روزانه؟</h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="dailyVegetable"
             checked={values.dailyVegetable === "۱-۲ واحد"}
@@ -110,7 +108,7 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>آیا غلات سبوس دار مصرف می کنید؟</h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="Cereals"
             checked={values.Cereals === "بله"}
@@ -136,7 +134,7 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>مصرف غلات به صورت روزانه {"(نان و ماکارونی..)؟"}</h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="dailyCereals"
             checked={values.dailyCereals === "۱-۲ بار"}
@@ -178,7 +176,7 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>مصرف سیب زمینی و سایر سبزیجات نشاسته ای در هفته ؟ </h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="potatoAndStarchWeekly"
             checked={values.potatoAndStarchWeekly === "۱-۲ بار"}
@@ -223,7 +221,7 @@ const MediterranealForm = () => {
           مصرف زیتون و روغن زیتون به صورت روزانه ؟{" "}
           {"(۱ واحد زیتون: ۵ تا ۱۰ عدد و ۱واحد روغن زیتون:۳-۲ قاشق مربا خوری)"}
         </h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="oliveAndOliveOilDaily"
             checked={values.oliveAndOliveOilDaily === "۱ واحد"}
@@ -270,7 +268,7 @@ const MediterranealForm = () => {
             "(۱ واحد مغز: ۱۰ -۶ عدد پسته و بادام وفندق و ... یا۲ تا ۳ قاشق غذاخوری انواع تخمه)"
           }
         </h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="nutsDaily"
             checked={values.nutsDaily === "۱-۲ بار"}
@@ -312,7 +310,7 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>مصرف محصولات لبنی به صورت روزانه ؟ </h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="dairyDaily"
             checked={values.dairyDaily === "۱-۲ بار"}
@@ -354,7 +352,7 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>مصرف حبوبات {"(عدس و نخود و لوبیا و...)؟"}</h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="beans"
             checked={values.beans === "روزانه"}
@@ -396,7 +394,7 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>مصرف تخم مرغ به صورت هفتگی ؟ </h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="eggWeekly"
             checked={values.eggWeekly === "۱-۲ بار"}
@@ -438,7 +436,7 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>مصرف ماهی به صورت هفتگی ؟</h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="fishWeekly"
             checked={values.fishWeekly === "۱ بار"}
@@ -480,7 +478,7 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>مصرف ماکیان به صورت هفتگی ؟</h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="chickensWeekly"
             checked={values.chickensWeekly === "۱-۲ بار"}
@@ -522,7 +520,7 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>مصرف گوشت قرمز به صورت هفتگی ؟ </h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="redMeatWeekly"
             checked={values.redMeatWeekly === "۱-۲ بار"}
@@ -564,7 +562,7 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>مصرف شیرینی به صورت هفتگی ؟</h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="sugarWeekly"
             checked={values.sugarWeekly === "۱ بار"}
@@ -606,7 +604,7 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>مصرف نوشیدنی الکلی به صورت هفتگی ؟</h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="alcoholWeekly"
             checked={values.alcoholWeekly === "۱ بار"}
@@ -650,7 +648,7 @@ const MediterranealForm = () => {
         <h1>
           مصرف محصوالت تخمیری به صورت هفتگی {"(ترشیجات و لبنیات پروبیوتیک)؟"}
         </h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="fermentationWeekly"
             checked={values.fermentationWeekly === "۱-۲ بار"}
@@ -692,56 +690,44 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1>چه مکمل هایی مصرف می کنید؟ </h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
-            // checked={values.supplements.includes("ویتامین و مواد معدنی")}
+            checked={values.supplements.includes("ویتامین و مواد معدنی")}
             name="selectedOptionSeventeenOne"
             onChange={handleChange}
             header={false}
             onClick={() => {
-              const isalreadyIn = values.supplements.find((element) => element === "ویتامین و مواد معدنی")
-              if(!isalreadyIn){
-                  values.supplements.push("ویتامین و مواد معدنی");
-              values.supplements = values.supplements.filter(
-                (e) => e !== "هیچکدام"
+              const isalreadyIn = values.supplements.find(
+                (element) => element === "ویتامین و مواد معدنی"
               );
-              console.log(values.supplements);
-            }
-            if(isalreadyIn){
-              values.supplements.find((element, index) => {
-                if(element === "ویتامین و مواد معدنی"){
-                  values.supplements.splice(index, 1)
-                }})
-              console.log(values.supplements);
-            }
-          }
-            } 
+              if (!isalreadyIn) {
+                values.supplements.push("ویتامین و مواد معدنی");
+                values.supplements = values.supplements.filter(
+                  (e) => e !== "هیچکدام"
+                );
+                console.log(values.supplements);
+              }
+            }}
             type="radio"
             value={"ویتامین و مواد معدنی"}
           />
           <GroupRadio
             name="selectedOptionSeventeenTwo"
-            // checked={values.supplements.includes("مکمل پروتئینی")}
+            checked={values.supplements.includes("مکمل پروتئینی")}
             onChange={handleChange}
             onClick={() => {
-              const isalreadyIn = values.supplements.find((element) => element === "مکمل پروتئینی")
-              if(!isalreadyIn){
-                  values.supplements.push("مکمل پروتئینی");
-                  console.log(values.supplements);
-                  values.supplements = values.supplements.filter(
-                    (e) => e !== "هیچکدام"
-                  );
-              console.log(values.supplements);
-            }
-            if(isalreadyIn){
-              values.supplements.find((element, index) => {
-                if(element === "مکمل پروتئینی"){
-                  values.supplements.splice(index, 1)
-                }})
-              console.log(values.supplements);
-            }
-          }
-            } 
+              const isalreadyIn = values.supplements.find(
+                (element) => element === "مکمل پروتئینی"
+              );
+              if (!isalreadyIn) {
+                values.supplements.push("مکمل پروتئینی");
+                console.log(values.supplements);
+                values.supplements = values.supplements.filter(
+                  (e) => e !== "هیچکدام"
+                );
+                console.log(values.supplements);
+              }
+            }}
             header={false}
             type="radio"
             value={"مکمل پروتئینی"}
@@ -753,23 +739,18 @@ const MediterranealForm = () => {
             onChange={handleChange}
             checked={values.supplements.includes("مکمل الغری و چربی سوز")}
             onClick={() => {
-              const isalreadyIn = values.supplements.find((element) => element === "مکمل الغری و چربی سوز")
-              if(!isalreadyIn){
-                  values.supplements.push("مکمل الغری و چربی سوز");
-                  console.log(values.supplements);
-              values.supplements = values.supplements.filter(
-                (e) => e !== "هیچکدام"
+              const isalreadyIn = values.supplements.find(
+                (element) => element === "مکمل الغری و چربی سوز"
               );
-              console.log(values.supplements);
-            }if(isalreadyIn){
-              values.supplements.find((element, index) => {
-                if(element === "مکمل الغری و چربی سوز"){
-                  values.supplements.splice(index, 1)
-                }})
-              console.log(values.supplements);
-            }
-          }
-            }              
+              if (!isalreadyIn) {
+                values.supplements.push("مکمل الغری و چربی سوز");
+                console.log(values.supplements);
+                values.supplements = values.supplements.filter(
+                  (e) => e !== "هیچکدام"
+                );
+                console.log(values.supplements);
+              }
+            }}
             header={false}
             type="radio"
             value={"مکمل الغری و چربی سوز"}
@@ -779,12 +760,9 @@ const MediterranealForm = () => {
             checked={values.supplements.includes("هیچکدام")}
             onChange={handleChange}
             onClick={() => {
+              values.supplements.splice(0, values.supplements.length);
+              values.supplements.push("هیچکدام");
 
-              const isalreadyIn = values.supplements.find((element) => element === "مکمل الغری و چربی سوز")
-              if(!isalreadyIn){
-                values.supplements.splice(0,values.supplements.length);
-                values.supplements.push("هیچکدام");
-              }
               values.supplements = values.supplements.filter(
                 (e) => e !== "ویتامین و مواد معدنی"
               );
@@ -808,7 +786,7 @@ const MediterranealForm = () => {
 
       <div className="flex flex-col gap-4">
         <h1> میزان فعالیت بدنی در هفته ؟ </h1>
-        <section className="grid grid-cols-4 items-center ">
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="physicalActivity"
             checked={values.physicalActivity === "۱ تا ۲ روز"}
@@ -851,257 +829,218 @@ const MediterranealForm = () => {
       <div className="flex flex-col gap-4">
         <h1>کدام یک از مشکلات زیر را دارید یا قبلا داشتید؟</h1>
         <section className="grid grid-cols-4 gap-4 items-center">
-          <div className="flex flex-col">
-            <label 
-            className="mb-1"
+          <div className="flex flex-col col-span-full md:col-span-2 lg:col-span-1">
+            <label className="mb-1">دیابت</label>
+            <select
+              onChange={handleChange}
+              name="diabetes"
+              className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
             >
-              دیابت
-          </label>
-          <select
-            onChange={handleChange}
-            name="diabetes"
-            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
-          >
-            <option value="ندارم" selected={values.diabetes === "ندارم"} >
-              ندارم
-            </option>
-            <option
-              selected={values.diabetes === "دیابت نوع ۱"}
-              value="دیابت نوع ۱"
-            >
-              دیابت نوع ۱
-            </option>
-            <option
-              selected={values.diabetes === "دیابت نوع ۲"}
-              value="دیابت نوع ۲"
-            >
-              دیابت نوع ۲
-            </option>
-            <option
-              selected={values.diabetes === "دیابت بارداری"}
-              value="دیابت بارداری"
-            >
-              دیابت بارداری
-            </option>
-          </select>
-         </div>
-
-         <div className="flex flex-col">
-         <label 
-            className="mb-1"
-          >
-              مشکلات گوارشی
-          </label>
-          <select
-            onChange={handleChange}
-            name="digestiveProblems"
-            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border flex items-center gap-1  bg-white `}
-          >
-            <option
-              selected={values.digestiveProblems === "ندارم"}
-              value="ندارم"
-            >
-              ندارم
-            </option>
-            <option
-              selected={values.digestiveProblems === "ریفلاکس"}
-              value="ریفلاکس"
-            >
-              ریفالکس{"(ترش کردن)"}
-            </option>
-            <option selected={values.digestiveProblems === "نفخ"} value="نفخ">
-              نفخ
-            </option>
-            <option
-              selected={values.digestiveProblems === "یبوست"}
-              value="یبوست"
-            >
-              یبوست
-            </option>
-            
-          </select>
-         </div>
-
-         <div className="flex flex-col">
-         <label 
-            className="mb-1"
-          >
-              خودایمنی
-          </label>
-          <select
-            onChange={handleChange}
-            name="selfSafety"
-            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
-          >
-            <option selected={values.selfSafety === "ندارم"} value="ندارم">
-              ندارم
-            </option>
-            <option
-              selected={values.selfSafety === "آسم و آلرژی"}
-              value="آسم و آلرژی"
-            >
-              آسم و آلرژی
-            </option>
-            <option selected={values.selfSafety === "ام اس"} value="ام اس">
-              ام اس
-            </option>
-            <option selected={values.selfSafety === "لوپوس"} value="لوپوس">
-              لوپوس
-            </option>
-            <option
-              selected={values.selfSafety === "آرتریت روماتوئید"}
-              value="آرتریت روماتوئید"
-            >
-              آرتریت روماتوئید
-            </option>
-            <option
-              selected={values.selfSafety === "سایر بیماری های خودایمنی"}
-              value="سایر بیماری های خودایمنی"
-            >
-              سایر بیماری های خودایمنی
-            </option>
-          </select>
-         </div>
-
-         <div className="flex flex-col">
-         <label 
-            className="mb-1"
-          >
-              سکته
-          </label>
-          <select
-            onChange={handleChange}
-            name="stroke"
-            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
-          >
-            <option selected value="ندارم">
-              ندارم
-            </option>
-            <option value="سکته قلبی">
-              سکته قلبی
-            </option>
-            <option value="سکته مغزی">
-              سکته مغزی
-            </option>
-          </select>
-         </div>
-
-          <div className="flex flex-col">
-          <label 
-            className="mb-1"
-          >
-              کبد چرب
-          </label>
-          <select
-            onChange={handleChange}
-            name="fattyLiver"
-            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
-          >
-            <option selected={values.fattyLiver === "ندارم"} value="ندارم">
-              ندارم
-            </option>
-            <option
-              selected={values.fattyLiver === "گرید۱"}
-              value="گرید۱"
-            >
-              کبد چرب گرید ۱
-            </option>
-            <option
-              selected={values.fattyLiver === "گرید۲"}
-              value="گرید۲"
-            >
-              کبد چرب گرید ۲
-            </option>
-            <option
-              selected={values.fattyLiver === "گرید۳"}
-              value="گرید۳"
-            >
-              کبد چرب گرید ۳
-            </option>
-          </select>
+              <option value="ندارم" selected={values.diabetes === "ندارم"}>
+                ندارم
+              </option>
+              <option
+                selected={values.diabetes === "دیابت نوع ۱"}
+                value="دیابت نوع ۱"
+              >
+                دیابت نوع ۱
+              </option>
+              <option
+                selected={values.diabetes === "دیابت نوع ۲"}
+                value="دیابت نوع ۲"
+              >
+                دیابت نوع ۲
+              </option>
+              <option
+                selected={values.diabetes === "دیابت بارداری"}
+                value="دیابت بارداری"
+              >
+                دیابت بارداری
+              </option>
+            </select>
           </div>
 
-          <div className="flex flex-col">
-          <label 
-            className="mb-1"
-          >
-              مشکلات کلیوی
-          </label>
-          <select
-            onChange={handleChange}
-            name="kidneyProblems"
-            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border flex items-center gap-1 bg-white `}
-          >
-            <option selected={values.kidneyProblems === "ندارم"} value="ندارم">
-              ندارم
-            </option>
-            <option
-              selected={values.kidneyProblems === "سنگ کلیه"}
-              value="سنگ کلیه"
+          <div className="flex flex-col col-span-full md:col-span-2 lg:col-span-1">
+            <label className="mb-1">مشکلات گوارشی</label>
+            <select
+              onChange={handleChange}
+              name="digestiveProblems"
+              className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border flex items-center gap-1  bg-white `}
             >
-              سنگ کلیه
-            </option>
-            <option
-              selected={values.kidneyProblems === "نارسایی کلیه"}
-              value="نارسایی کلیه"
-            >
-              نارسایی کلیه
-            </option>
-            <option
-              selected={values.kidneyProblems === "عفونت مجاری ادرار"}
-              value="عفونت مجاری ادرار"
-            >
-              عفونت مجاری ادرار
-            </option>
-          </select>
+              <option
+                selected={values.digestiveProblems === "ندارم"}
+                value="ندارم"
+              >
+                ندارم
+              </option>
+              <option
+                selected={values.digestiveProblems === "ریفلاکس"}
+                value="ریفلاکس"
+              >
+                ریفالکس{"(ترش کردن)"}
+              </option>
+              <option selected={values.digestiveProblems === "نفخ"} value="نفخ">
+                نفخ
+              </option>
+              <option
+                selected={values.digestiveProblems === "یبوست"}
+                value="یبوست"
+              >
+                یبوست
+              </option>
+            </select>
           </div>
 
-          <div className="flex flex-col">
-          <label 
-            className="mb-1"
-          >
-              تیروئید
-          </label>
-          <select
-            onChange={handleChange}
-            name="thyroid"
-            className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none py-3 px-4 border flex items-center gap bg-white `}
-          >
-            <option selected={values.thyroid === "ندارم"} value="ندارم">
-              ندارم
-            </option>
-            <option selected={values.thyroid === "کم کار"} value="کم کار">
-              کم کار
-            </option>
-            <option selected={values.thyroid === "پرکار"} value="پرکار">
-              پرکار
-            </option>
-            <option
-              selected={values.thyroid === "گره و التهاب تیروئید"}
-              value="گره و التهاب تیروئید"
+          <div className="flex flex-col col-span-full md:col-span-2 lg:col-span-1">
+            <label className="mb-1">خودایمنی</label>
+            <select
+              onChange={handleChange}
+              name="selfSafety"
+              className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
             >
-              گره و التهاب تیروئید
-            </option>
-          </select>
+              <option selected={values.selfSafety === "ندارم"} value="ندارم">
+                ندارم
+              </option>
+              <option
+                selected={values.selfSafety === "آسم و آلرژی"}
+                value="آسم و آلرژی"
+              >
+                آسم و آلرژی
+              </option>
+              <option selected={values.selfSafety === "ام اس"} value="ام اس">
+                ام اس
+              </option>
+              <option selected={values.selfSafety === "لوپوس"} value="لوپوس">
+                لوپوس
+              </option>
+              <option
+                selected={values.selfSafety === "آرتریت روماتوئید"}
+                value="آرتریت روماتوئید"
+              >
+                آرتریت روماتوئید
+              </option>
+              <option
+                selected={values.selfSafety === "سایر بیماری های خودایمنی"}
+                value="سایر بیماری های خودایمنی"
+              >
+                سایر بیماری های خودایمنی
+              </option>
+            </select>
           </div>
 
-          <div className="flex col-span-1 gap-5 mx-10 items-center justify-between pt-6">
-          <GroupRadio
-            name="cancer"
-            checked={values.cancer? values.cancer = true: false }
-            onChange={handleChange}
-            header={false}
-            type="checkbox"
-            value={"سرطان"}
-          />
-          <GroupRadio
-            name="Migraine"
-            checked={values.Migraine? values.Migraine = true: false }
-            onChange={handleChange}
-            header={false}
-            type="checkbox"
-            value={"میگرن"}
-          />
+          <div className="flex flex-col col-span-full md:col-span-2 lg:col-span-1">
+            <label className="mb-1">سکته</label>
+            <select
+              onChange={handleChange}
+              name="stroke"
+              className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
+            >
+              <option selected value="ندارم">
+                ندارم
+              </option>
+              <option value="سکته قلبی">سکته قلبی</option>
+              <option value="سکته مغزی">سکته مغزی</option>
+            </select>
+          </div>
+
+          <div className="flex flex-col col-span-full md:col-span-2 lg:col-span-1">
+            <label className="mb-1">کبد چرب</label>
+            <select
+              onChange={handleChange}
+              name="fattyLiver"
+              className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border   flex items-center gap-1  bg-white `}
+            >
+              <option selected={values.fattyLiver === "ندارم"} value="ندارم">
+                ندارم
+              </option>
+              <option selected={values.fattyLiver === "گرید۱"} value="گرید۱">
+                کبد چرب گرید ۱
+              </option>
+              <option selected={values.fattyLiver === "گرید۲"} value="گرید۲">
+                کبد چرب گرید ۲
+              </option>
+              <option selected={values.fattyLiver === "گرید۳"} value="گرید۳">
+                کبد چرب گرید ۳
+              </option>
+            </select>
+          </div>
+
+          <div className="flex flex-col col-span-full md:col-span-2 lg:col-span-1">
+            <label className="mb-1">مشکلات کلیوی</label>
+            <select
+              onChange={handleChange}
+              name="kidneyProblems"
+              className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none   py-3 px-4 border flex items-center gap-1 bg-white `}
+            >
+              <option
+                selected={values.kidneyProblems === "ندارم"}
+                value="ندارم"
+              >
+                ندارم
+              </option>
+              <option
+                selected={values.kidneyProblems === "سنگ کلیه"}
+                value="سنگ کلیه"
+              >
+                سنگ کلیه
+              </option>
+              <option
+                selected={values.kidneyProblems === "نارسایی کلیه"}
+                value="نارسایی کلیه"
+              >
+                نارسایی کلیه
+              </option>
+              <option
+                selected={values.kidneyProblems === "عفونت مجاری ادرار"}
+                value="عفونت مجاری ادرار"
+              >
+                عفونت مجاری ادرار
+              </option>
+            </select>
+          </div>
+
+          <div className="flex flex-col col-span-full md:col-span-2 lg:col-span-1">
+            <label className="mb-1">تیروئید</label>
+            <select
+              onChange={handleChange}
+              name="thyroid"
+              className={`col-span-full sm:col-span-3 lg:col-span-2 rounded-lg w-full outline-none py-3 px-4 border flex items-center gap bg-white `}
+            >
+              <option selected={values.thyroid === "ندارم"} value="ندارم">
+                ندارم
+              </option>
+              <option selected={values.thyroid === "کم کار"} value="کم کار">
+                کم کار
+              </option>
+              <option selected={values.thyroid === "پرکار"} value="پرکار">
+                پرکار
+              </option>
+              <option
+                selected={values.thyroid === "گره و التهاب تیروئید"}
+                value="گره و التهاب تیروئید"
+              >
+                گره و التهاب تیروئید
+              </option>
+            </select>
+          </div>
+
+          <div className="flex col-span-full md:col-span-1 gap-5 mx-10 items-center justify-between pt-6">
+            <GroupRadio
+              name="cancer"
+              checked={values.cancer ? (values.cancer = true) : false}
+              onChange={handleChange}
+              header={false}
+              type="checkbox"
+              value={"سرطان"}
+            />
+            <GroupRadio
+              name="Migraine"
+              checked={values.Migraine ? (values.Migraine = true) : false}
+              onChange={handleChange}
+              header={false}
+              type="checkbox"
+              value={"میگرن"}
+            />
           </div>
 
           <MainInput
@@ -1122,6 +1061,7 @@ const MediterranealForm = () => {
             type="file"
             name="documents"
             multiple
+            parentClassName="col-span-full [&>label]:text-base"
             onChange={handleFileChange}
             label="آخرین آزمایشات ارسال شود "
           />
@@ -1140,70 +1080,76 @@ const MediterranealForm = () => {
         ) : null}
       </div>
       <section className="flex flex-col gap-6 mt-4">
-          <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg">
-            فرم BMI
-          </h1>
-          <div className="grid grid-cols-4 gap-4">
-            <MainInput
-              name="age"
-              onChange={handleChange}
-              parentClassName="[&>label]:text-base lg:col-span-1  col-span-2"
-              placeholder="سن خود را اینجا وارد کنید"
-              label="سن"
-            />
-            <MainInput
-              name="height"
-              onChange={handleChange}
-              parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-              placeholder="قد خود را اینجا وارد کنید"
-              label="قد"
-            />
-            <MainInput
-              name="weight"
-              onChange={handleChange}
-              parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-              placeholder="وزن خود را اینجا وارد کنید"
-              label="وزن"
-            />
-            <MainInput
-              name="abdominalCircumference"
-              onChange={handleChange}
-              parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-              placeholder="دور شکم خود را اینجا وارد کنید"
-              label="دور شکم"
-            />
-            <MainInput
-              name="hipcircumference"
-              onChange={handleChange}
-              parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-              placeholder="دور باسن خود را اینجا وارد کنید"
-              label="دور باسن"
-            />
-          </div>
-        </section>
-        {
-        errors.age ||
-        errors.height ||
-        errors.weight ||
-        errors.abdominalCircumference ||
-        errors.hipcircumference ? (
-          <p className="text-red-600">{errors?.age || errors.height || errors.weight || errors.abdominalCircumference || errors.hipcircumference}</p>
-        ) : null}
+        <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg">
+          فرم BMI
+        </h1>
+        <div className="grid grid-cols-4 gap-4">
+          <MainInput
+            name="age"
+            onChange={handleChange}
+            parentClassName="[&>label]:text-base lg:col-span-1  col-span-2"
+            placeholder="سن خود را اینجا وارد کنید"
+            label="سن"
+          />
+          <MainInput
+            name="height"
+            onChange={handleChange}
+            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+            placeholder="قد خود را اینجا وارد کنید"
+            label="قد"
+          />
+          <MainInput
+            name="weight"
+            onChange={handleChange}
+            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+            placeholder="وزن خود را اینجا وارد کنید"
+            label="وزن"
+          />
+          <MainInput
+            name="abdominalCircumference"
+            onChange={handleChange}
+            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+            placeholder="دور شکم خود را اینجا وارد کنید"
+            label="دور شکم"
+          />
+          <MainInput
+            name="hipcircumference"
+            onChange={handleChange}
+            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+            placeholder="دور باسن خود را اینجا وارد کنید"
+            label="دور باسن"
+          />
+        </div>
+      </section>
+      {errors.age ||
+      errors.height ||
+      errors.weight ||
+      errors.abdominalCircumference ||
+      errors.hipcircumference ? (
+        <p className="text-red-600">
+          {errors?.age ||
+            errors.height ||
+            errors.weight ||
+            errors.abdominalCircumference ||
+            errors.hipcircumference}
+        </p>
+      ) : null}
 
-        <section className="flex flex-col gap-6 mt-4">
-          <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg">
-            ارسال فایل رسید پرداختی
-          </h1>
-          <div className="grid grid-cols-4 gap-4">
-            <MainInput
-              type="file"
-              name="payment"
-              onChange={handleFileChange}
-              label="فایل رسید پرداختی"
-            />
-          </div>
-          {paymentError && <div style={{ color: 'red' }}>{paymentError}</div>}
-        </section>
+      <section className="flex flex-col gap-6 mt-4">
+        <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg">
+          ارسال فایل رسید پرداختی
+        </h1>
+        <div className="grid grid-cols-4 gap-4">
+          <MainInput
+            type="file"
+            parentClassName="col-span-full"
+            name="payment"
+            onChange={handleFileChange}
+            label="فایل رسید پرداختی"
+          />
+        </div>
+        {paymentError && <div style={{ color: "red" }}>{paymentError}</div>}
+      </section>
 
       <MainButton
         modern
