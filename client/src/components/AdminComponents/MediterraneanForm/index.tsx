@@ -60,7 +60,7 @@ const MediterraneanForm = ({
   const { checked, toggleChecked } = useCheckedState(isChecked, _id);
   
   return (
-    <div className="flex flex-row   rounded-lg text-lg">
+    <div className="flex flex-row bg-[var(--milky-white)]  rounded-lg text-lg">
       <ul className="flex w-full flex-col">
         <div className="flex sm:flex-row flex-col items-start sm:items-center justify-between">
           <li className="text-4xl bg-[var(--new-green)] text-white w-fit pe-4 ps-2 rounded-e-full py-3 my-5 flex items-center justify-center gap-2">
