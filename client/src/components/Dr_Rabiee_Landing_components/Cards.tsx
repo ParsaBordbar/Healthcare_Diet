@@ -27,7 +27,7 @@ const cardsData = [
 
 function CardsSection() {
   return (
-    <div className="flex flex-col items-center justify-center sm:bg-Card-bg overflow-auto relative bg-none" dir="rtl">
+    <div className="flex flex-col items-center justify-center lg:bg-Card-bg overflow-auto relative bg-none" dir="rtl">
       <div className="container">
         <h1 className="md:text-4xl text-xl font-extrabold text-[#3A3A97] text-center mb-3">
           برنامه های سلامتی
