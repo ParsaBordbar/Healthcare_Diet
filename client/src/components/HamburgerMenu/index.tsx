@@ -8,7 +8,8 @@ import MaleAvatar from "/public/svg/adminPanelSvgs/Group 108.svg";
 import PhoneNumber from "/public/svg/phone.svg";
 import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
 import LogOutIcon from "/public/svg/userPanelSvgs/LogOut.svg";
-import DrLogoMobile from "/public/svg/Dr_Rabiee_Landing/mobileNavLogo.svg"
+import MainButton from "../MainButton";
+import LoginIcon from "/public/svg/Dr_Rabiee_Landing/person.crop.circle.fill.svg";
 
 type THamMenu = {
   logo?: boolean;
@@ -168,21 +169,26 @@ const HamburgerNavbar = (props: THamMenu) => {
         <div
           className={`${
             Styles.navigation
-          } w-full !fixed !right-0 !py-6 !px-6 md:!hidden !inline-block ${
+          } w-full !fixed !right-0 !py-6 !px-6 md:!hidden  !flex justify-between items-center flex-row ${
             burgerMenuActive ? ` !bg-[var(--milky-white)] ` : "!bg-white"
           } ${props.className}`}
         >
           
           <div
-            className={Styles.burgerMenuContainer}
+            className={`${Styles.burgerMenuContainer}`}
             onClick={() => toggleBurgerMenu()}
           >
-            <div className="flex justify-between items-center w-full">
+            <div>
               <div className={Styles.burgerMenuTrigger}></div>
               <div className={Styles.burgerMenu}></div>
+              {OptionGenerate}
             </div>
-          {OptionGenerate}
           </div>
+          <MainButton
+                className="bg-transparent hover:bg-transparent"
+                modern
+                iconSrc={LoginIcon}
+            />
         </div>
 
         <div className={Styles.content + ` w-full ${!burgerMenuActive && '!hidden'}  !flex h-[80vh]`}>
@@ -191,7 +197,6 @@ const HamburgerNavbar = (props: THamMenu) => {
             animate={burgerMenuActive ? "open" : "closed"}
             variants={motionVariants}
           >
-            
             <div className={`flex flex-col justify-between w-full gap-6    `}>
               <section className="flex gap-6">
                 <div className="flex flex-col w-full gap-3 pl-16">
