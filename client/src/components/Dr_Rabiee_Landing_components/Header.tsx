@@ -67,6 +67,7 @@ function Header() {
           linkThree="/"
           // valueFour="ورود"
           // linkFour="/register/login/enterNumber"
+          isLanding={true}
         />
       </div>
     </header>
