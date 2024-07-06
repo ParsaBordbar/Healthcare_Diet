@@ -1,7 +1,6 @@
 'use client'
 import Logo from "/public/images/logo-nav.svg";
 import Link from "next/link";
-import InputIcon from "@mui/icons-material/Input";
 import MainButton from "../MainButton";
 import HomeIcon from "/public/svg/Dr_Rabiee_Landing/home.svg";
 import AboutUsIcon from "/public/svg/Dr_Rabiee_Landing/aboutUs.svg";
@@ -47,7 +46,7 @@ function Header() {
             className="py-2 px-[36px]"
             modern
             value={"ورود"}
-            iconSrc={InputIcon}
+            iconSrc={LoginIcon}
           />
         </Link>
       </div>
