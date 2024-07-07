@@ -32,7 +32,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
           linkThree="/admin/panel/bmi"
           valueFour="فرم رژیم مدیترانه ای"
           linkFour="/admin/panel/mediterranean"
-          valueFive="فرم رژیم مدیترانه ای وزیت نشده"
+          valueFive="فرم رژیم مدیترانه ای ویزیت نشده"
           linkFive="/admin/panel/unvisited_diets"
           valueSix="پیام ها"
           linkSix="/admin/panel/comments"
@@ -40,14 +40,6 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
         />
         
         <div className="fixed md:flex top-0 lg:w-[25%] md:w-[25%] xl:w-[15%] right-0 bg-[var(--soft-blue)] hidden h-screen">
-        {/* <Image
-            src={"/svg/userPanelSvgs/sideBarBanner.svg"}
-            width={80}
-            height={1}
-            layout="fixed"
-            className="object-cover h-full w-[38.33333%]"
-            alt={""}
-          /> */}
           <section className="w-full flex flex-col gap-6 py-4">
             <h1 className="text-[var(--dark-blue)] text-2xl font-semibold bg-custom-IslamicArt">
               {" "}
