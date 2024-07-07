@@ -50,7 +50,7 @@ const MainInput = forwardRef<
       <div className={`flex w-full flex-col gap-1 ${props.parentClassName}`}>
         <label
           htmlFor=""
-          className={`${props.error ? "text-red-600" : "text-[var(--black-blue)]"} text-lg`}
+          className={`${props.error ? "text-red-600" : "text-[var(--black-blue)]"}  text-base sm:text-lg`}
         >
           {props.label}
         </label>
@@ -63,7 +63,7 @@ const MainInput = forwardRef<
             {FirstIcon()}
             <input
               {...props.register}
-              className={`${props.inputClassName} placeholder:text-[var(--border-color)] w-full border-none outline-none bg-transparent`}
+              className={`${props.inputClassName} placeholder:text-xs w-full sm:placeholder:text-[var(--border-color)] border-none outline-none bg-transparent`}
               {...props}
               ref={ref}
               autoComplete="off"
