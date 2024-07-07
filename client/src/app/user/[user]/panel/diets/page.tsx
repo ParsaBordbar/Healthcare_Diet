@@ -33,7 +33,7 @@ const DietsUserPanel = () => {
     <div className="flex flex-col gap-7">
       <section className="flex sm:flex-row flex-col items-center gap-2">
         <h1 className="">
-          قبل از پر کردن رژیم موزد نظر حتما این فایل را دانلود و مطالعه کنید
+          قبل از پر کردن رژیم مورد نظر حتما این فایل را دانلود و مطالعه کنید
         </h1>
         <p
           className="text-[var(--new-green)] cursor-pointer"
