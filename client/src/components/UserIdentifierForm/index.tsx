@@ -23,13 +23,13 @@ const UserIdentifyForm = () => {
   const handleEnter = (event: React.KeyboardEvent<HTMLFormElement>) => {
     if (parseInt(event.key)) {
       for (let i = 0; i < inputRefs.length; i++) {
-        if (document.activeElement === inputRefs[i].current) {
+        console.log(document.activeElement , i ,inputRefs[i].current)
+        if (inputRefs[i].current?.value.length == 1) {
           console.log(inputRefs[i].current?.value.length);
           if (inputRefs[i + 1]?.current) {
             inputRefs[i + 1].current?.focus();
             event.preventDefault();
           }
-          break;
         }
       }
     }
