@@ -54,6 +54,7 @@ const useBmi = () => {
       abdominalCircumference: Number(convertNumberToEnglish(data.abdominalCircumference)),
       weight: Number(convertNumberToEnglish(data.weight)),
       age: Number(convertNumberToEnglish(data.age)),
+      hipcircumference:Number(convertNumberToEnglish(data.hipcircumference)),
       height: Number(convertNumberToEnglish(data.height)),
     };
 
