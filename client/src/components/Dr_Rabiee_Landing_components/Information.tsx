@@ -1,7 +1,8 @@
 import React from "react";
-import DocPhoto from "../../../public/images/dr.jpeg";
+import DocPhoto from "../../../public/images/dr.jpg";
 import Image from "next/image";
 import Check from "/public/svg/check.svg";
+
 function InformationSection() {
   return (
     <section className="relative p-5 bg-[#FEFDF9]">
@@ -41,11 +42,11 @@ function InformationSection() {
           </ul>
         </article>
         <div className="flex flex-col md:h-[545px] min-[321px]:h-[345px] h-[245px] sm:h-[345px] items-center min-[1109px]:w-1/3 sm:w-3/5 w-4/5 ">
-          <div className="w-full overflow-hidden group  rounded-2xl hover:shadow-md shadow-md">
+          <div className="w-5/6 overflow-hidden group rounded-2xl hover:shadow-md shadow-md">
             <Image
               src={DocPhoto}
               alt="Doctor Information"
-              className="w-full  h-full transition-all scale-125 group-hover:scale-[1.5] sm:scale-100 duration-200 ease-in-out sm:group-hover:scale-110 object-cover"
+              className="w-full transition-all scale-125 group-hover:scale-[1.5] sm:scale-100 duration-200 ease-in-out sm:group-hover:scale-110 object-cover"
               width={5000}
               height={5000}
             />
