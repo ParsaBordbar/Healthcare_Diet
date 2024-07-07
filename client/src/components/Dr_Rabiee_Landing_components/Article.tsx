@@ -12,11 +12,11 @@ function ArticleSlider() {
         <h1 className="text-[var(--black-blue)] text-4xl font-extrabold">
           مقالات
         </h1>
-        <p className="text-[#424242] sm:text-base text-sm text-center">
+        {/* <p className="text-[#424242] sm:text-base text-sm text-center">
           با دستور العمل های ایجاد شده (و آزمایش شده) توسط تیم داخلی ما از
           سرآشپزها و متخصصان تغذیه، می توانیم به شما قول بدهیم که تغذیه سالم
           خوشمزه است!
-        </p>
+        </p> */}
       </section>
       <Slider className="!py-10 !w-[75%] sm:!w-[65%] flex flex-col items-center" anotherProp={3}>
         {DataStory.map((items: TextBoxType) => {
