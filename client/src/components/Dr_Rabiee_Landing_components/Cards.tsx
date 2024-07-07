@@ -7,7 +7,7 @@ const cardsData = [
     title: " پکیج اول رژیم غذایی ",
     desc:'رژیم غذایی تنها و بدون مشاوره',
     oldPrice: "۲۱۵.۰۰۰ تومان", 
-    newPrice: "۲۰.۰۰۰ تومان", 
+    newPrice: "۲۰۰.۰۰۰ تومان", 
     imageUrl: "/images/PackageOne.png",
   },
   {
