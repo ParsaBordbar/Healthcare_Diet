@@ -38,7 +38,7 @@ function InformationSection() {
             </li>
           </ul>
         </article>
-        <div className="flex flex-col md:h-[545px] min-[321px]:h-[345px] h-[245px] sm:h-[345px] items-center min-[1109px]:w-1/3 sm:w-3/5 w-4/5 ">
+        <div className="flex flex-col lg:h-[500px] md:h-[445px] min-[321px]:h-[320px] h-[245px] sm:h-[245px] items-center min-[1109px]:w-1/3 sm:w-3/5 w-4/5">
           <div className="overflow-hidden group rounded-2xl hover:shadow-md shadow-md">
             <Image
               src={DocPhoto}
