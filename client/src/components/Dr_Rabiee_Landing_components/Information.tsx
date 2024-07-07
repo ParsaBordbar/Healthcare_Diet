@@ -42,7 +42,7 @@ function InformationSection() {
           </ul>
         </article>
         <div className="flex flex-col md:h-[545px] min-[321px]:h-[345px] h-[245px] sm:h-[345px] items-center min-[1109px]:w-1/3 sm:w-3/5 w-4/5 ">
-          <div className="w-5/6 overflow-hidden group rounded-2xl hover:shadow-md shadow-md">
+          <div className="overflow-hidden group rounded-2xl hover:shadow-md shadow-md">
             <Image
               src={DocPhoto}
               alt="Doctor Information"
