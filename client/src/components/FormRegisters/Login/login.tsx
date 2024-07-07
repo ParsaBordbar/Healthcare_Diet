@@ -29,7 +29,7 @@ const FormLogin = ({ type }: LoginFormType) => {
                 iconFirst={Phone}
                 parentClassName="col-span-2 lg:col-span-4"
                 label="شماره تماس"
-                placeholder="شماره تماس خود را وارد کنید"
+                  placeholder="شماره تماس خود را وارد کنید"
               />
             )}
           />
@@ -75,7 +75,7 @@ const FormLogin = ({ type }: LoginFormType) => {
       onSubmit={handleSubmit(handelValueInputs)}
       className="flex w-full gap-10 flex-col justify-center"
     >
-      <h1 className="text-center font-bold text-2xl"> دریافت رژیم/ ورود</h1>
+      <h1 className="text-center font-extrabold text-[var(--black-blue)] text-2xl"> دریافت رژیم/ ورود</h1>
       <section className="flex w-full flex-col items-center gap-[3.125rem]">
         {CheckTypeRender()}
       </section>
