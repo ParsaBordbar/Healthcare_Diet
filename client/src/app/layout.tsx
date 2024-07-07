@@ -38,7 +38,7 @@ export default function RootLayout({
             // transition={'zoom'}
             autoClose={2500}
             rtl={true}
-            position="bottom-right"
+            position="top-center"
           />
         </body>
       </ContextProvider>
