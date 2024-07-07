@@ -176,5 +176,6 @@ export interface CustomCardType{
   title: string
   oldPrice: string, 
   newPrice: string, 
-  imageUrl: string
+  imageUrl: string,
+  desc: string
 }
