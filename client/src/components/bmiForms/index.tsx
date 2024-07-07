@@ -46,7 +46,7 @@ const BmiFormDiet = () => {
     } else if (errors.city) {
       cityRef.current?.focus();
     } else if (errors.phoneNumber) {
-       phoneNumberRef.current?.focus();
+      phoneNumberRef.current?.focus();
     } else if (errors.abdominalCircumference) {
       abdominalCircumferenceRef.current?.focus();
     } else if (errors.hipcircumference) {
@@ -59,7 +59,7 @@ const BmiFormDiet = () => {
       ageRef.current?.focus();
     } else if (errors.height) {
       heightRef.current?.focus();
-    } 
+    }
   }, [errors]);
 
   const handleEnter = (event: React.KeyboardEvent<HTMLFormElement>) => {
@@ -81,12 +81,12 @@ const BmiFormDiet = () => {
       action=""
       onKeyDown={handleEnter}
       onSubmit={handleSubmit(handelValueInputs)}
-      className="flex w-full gap-10 flex-col justify-center"
+      className="flex w-full gap-6 sm:gap-10 flex-col justify-center"
     >
-      <h1 className="text-center font-bold text-2xl">
+      <h1 className="text-center text-[var(--black-blue)] font-bold text-2xl">
         اطلاعات خود را وارد کنید
       </h1>
-      <section className="grid w-full grid-cols-4 gap-8">
+      <section className="grid w-full grid-cols-4 gap-4">
         <Controller
           control={control}
           name="name"
@@ -117,7 +117,7 @@ const BmiFormDiet = () => {
           )}
         />
 
-	<Controller
+        <Controller
           control={control}
           name="city"
           render={({ field }) => (
@@ -161,7 +161,7 @@ const BmiFormDiet = () => {
           )}
         />
 
-	<Controller
+        <Controller
           control={control}
           name="hipcircumference"
           render={({ field }) => (
@@ -176,12 +176,11 @@ const BmiFormDiet = () => {
           )}
         />
 
-
         <section className="col-span-2 flex flex-col gap-1">
           <label
             htmlFor="gender"
-            className={`block  text-lg font-medium ${
-              errors.gender?.message ? "text-red-600" : "text-black"
+            className={`block text-base sm:text-lg ${
+              errors.gender?.message ? "text-red-600" : "text-[var(--black-blue)]"
             }`}
           >
             جنسیت
@@ -197,9 +196,9 @@ const BmiFormDiet = () => {
                   errors.gender?.message
                     ? "border-red-600"
                     : "border-[var(--border-color)]"
-                }  flex items-center gap-1  bg-white `}
+                }  flex items-center gap-1 text-base bg-white `}
               >
-                <option value="null" selected>
+                <option value="null"  selected>
                   جنسیت
                 </option>
                 <option value="مرد">مرد</option>
@@ -251,7 +250,7 @@ const BmiFormDiet = () => {
               error={!!errors.height}
               ref={heightRef}
               label="قد"
-              parentClassName="col-span-2"
+              parentClassName="col-span-full sm:col-span-2"
               placeholder="(cm) قد خود را وارد کنید"
             />
           )}
@@ -260,7 +259,7 @@ const BmiFormDiet = () => {
         <MainButton
           modern
           type="submit"
-          className="w-full h-fit self-end py-3 col-span-2 lg:col-span-4 !text-white"
+          className="w-full h-fit self-end py-3 col-span-full sm:col-span-2 md:col-span-full lg:col-span-2  !text-white"
           value={"ورود"}
         />
       </section>
