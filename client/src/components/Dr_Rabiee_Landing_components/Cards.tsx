@@ -4,23 +4,26 @@ import CustomCard from "./CustomCard";
 const cardsData = [
   {
     id: 1,
-    title: "پکیج اول رژیم",
-    oldPrice: "۲۵۰.۰۰۰ تومان", 
-    newPrice: "۲۵۰.۰۰۰ تومان", 
+    title: " پکیج اول رژیم غذایی ",
+    desc:'رژیم غذایی تنها و بدون مشاوره',
+    oldPrice: "۲۱۵.۰۰۰ تومان", 
+    newPrice: "۲۰.۰۰۰ تومان", 
     imageUrl: "/images/PackageOne.png",
   },
   {
     id: 2,
-    title: "پکیج دوم رژیم",
-    oldPrice: "۲۵۰.۰۰۰ تومان", 
-    newPrice: "۲۵۰.۰۰۰ تومان",     
+    title: " پکیج دوم رژیم غذایی ",
+    desc:'به همراه یک جلسه مشاوره تلفنی',
+    oldPrice: "۳۲۰.۰۰۰ تومان", 
+    newPrice: "۳۰۰.۰۰۰ تومان",     
     imageUrl: "/images/PackageTwo.png",
   },
   {
     id: 3,
-    title: "پکیج سوم رژیم",
-    oldPrice: "۲۵۰.۰۰۰ تومان", 
-    newPrice: "۲۵۰.۰۰۰ تومان",     
+    title: " پکیج سوم رژیم غذایی  ",
+    desc:'شامل سه جلسه مشاوره تلفنی در طول یک ماه',
+    oldPrice: "۵۳۰.۰۰۰ تومان", 
+    newPrice: "۵۰۰.۰۰۰ تومان",     
     imageUrl: "/images/PackageThree.png",
   },
 ];
@@ -44,6 +47,7 @@ function CardsSection() {
                 oldPrice={card.oldPrice}
                 newPrice={card.newPrice}
                 imageUrl={card.imageUrl}
+                desc={card.desc}
               />
             </div>
           ))}
