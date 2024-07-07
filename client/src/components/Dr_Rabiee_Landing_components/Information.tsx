@@ -11,11 +11,7 @@ function InformationSection() {
       <div className="flex justify-evenly min-[1109px]:gap-0 gap-4 min-[1109px]:flex-row flex-col-reverse items-center  mt-24">
         <article className="min-[1109px]:w-1/3 w-3/3 min-[1109px]:m-0 mx-auto flex flex-col gap-4 rtl">
           <h3 className="text-lg text-justify">
-            دکتر محمدرضا ربیعی فارغ التحصیل رشته تغذیه از دانشگاه شهید بهشتی با
-            شماره نظام پزشکی ت-1118 با پنج سال سابقه کاری موفق و همکاری با
-            هنرمندان و ورزشکاران است. محمدرضا ربیعی دارای بالاترین درصد رضایت
-            مردمی در صفحه اینستاگرام خود و بیش از ۱۰۰۰ تجربه موفق از مراجعین خود
-            دارد.
+          دکتر محمدرضا ربیعی، کارشناس تغذیه از دانشگاه علوم پزشکی شیراز، کارشناس ارشد تغذیه ورزشی و دکتری بیوشیمی و متابولیسم ورزشی از دانشگاه شیراز فارغ التحصیل شده است. وی دارای شماره نظام پزشکی ت-1118 و با پنج سال سابقه کاری موفق و همکاری با هنرمندان و ورزشکاران است. محمدرضا ربیعی دارای بالاترین درصد رضایت مردمی در صفحه اینستاگرام خود و بیش از ۱۰۰۰ تجربه موفق از مراجعین خود دارد.
           </h3>
           <ul className="text-justify [&>li]:sm:text-base min-[321px]:[&>li]:text-sm [&>li]:text-[0.755rem] flex min-[1109px]:w-full  mx-auto min-[1109px]:m-0 flex-col gap-2 md:pl-5">
             <li className="flex items-center gap-2">
@@ -38,6 +34,10 @@ function InformationSection() {
               <Check />
               <p>مدرس دانشگاه زند شیراز</p>
             </li>
+            <li className="flex items-center gap-2">
+              <Check />
+              <p>عضو بنیاد ملی نخبگان</p>
+            </li>
           </ul>
         </article>
         <div className="flex flex-col md:h-[545px] min-[321px]:h-[345px] h-[245px] sm:h-[345px] items-center min-[1109px]:w-1/3 sm:w-3/5 w-4/5 ">
@@ -50,22 +50,7 @@ function InformationSection() {
               height={5000}
             />
           </div>
-          <section className="flex flex-col mt-4 gap-2 items-center">
-            <p className="text-[var(--black-blue)] sm:text-base text-xs text-center font-bold">چهارمین کنگره بین المللی و شانزدهمین سراسری تغذیه ی ایران</p>
-            <p className="text-[var(--black-blue)] sm:text-base text-xs text-center font-bold">اسفند ۱۴۰۲</p>
-          </section>
         </div>
-        {/* <div className="w-1/2 h-[545px] flex flex-col gap-3 items-center  shadow-md">
-          <Image
-            src={DocPhoto}
-            alt="Doctor Information"
-            className="w-full h-full rounded-2xl object-cover"
-            width={5000}
-            height={5000}
-          />
-          <p>چهارمین کنگره ی بین المللی و شانزدهمین سراسری تغذیه ی ایران</p>
-          <p>اسفند ۱۴۰۲</p>
-        </div> */}
       </div>
     </section>
   );
