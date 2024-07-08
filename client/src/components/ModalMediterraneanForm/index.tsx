@@ -7,6 +7,7 @@ import DateSvg from "/public/svg/adminPanelSvgs/calendar.svg";
 import { useEffect } from "react";
 import Link from "next/link";
 import { MediterraneanFormType } from "@/types";
+import { toast } from "react-toastify";
 
 type ModalMediterraneanFormType = {
   userPhoneNumber: string;
@@ -19,10 +20,6 @@ type ModalMediterraneanFormType = {
 const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
   const mediterraneanForms = useFetchMediterranean();
   const data = useSpecificFetchBmi(params.userPhoneNumber);
-  useEffect(() => {}, []);
-  console.log(mediterraneanForms);
-  console.log(params.commentMoment, params.show, "this show");
-  let arr = [];
   const reverseArray = (input: MediterraneanFormType[]) => {
     var ret = new Array();
     for (var i = input.length - 1; i >= 0; i--) {
@@ -30,22 +27,30 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
     }
     return ret;
   };
-  let resultOfCompare:boolean = false;
+  let resultOfCompare: boolean = false;
+  let resultOfCompareNumber: number = 0;
+  console.log(reverseArray(mediterraneanForms));
+  const arr: MediterraneanFormType[] = [];
+  reverseArray(mediterraneanForms).map((form) => {
+    if (moment(params.commentMoment).isSameOrAfter(form.createdAtJalali) && form.phoneNumber == params.userPhoneNumber) {
+      resultOfCompare = true;
+      resultOfCompareNumber += 1;
+      arr.push(form);
+    } else {
+      resultOfCompare = false;
+      resultOfCompareNumber = 0;
+    }
+  });
+  console.log(arr.slice(0,1) , arr);
+  console.log(params.userPhoneNumber )
+  if(!arr.slice(0 , 1).length){
+    toast.info('شما در این زمان رژیمی نداشتید')
+  }
   return (
     <>
-      {reverseArray(mediterraneanForms).map((form, index) => {
-        if(resultOfCompare) return  
-        if (moment(params.commentMoment).isSameOrAfter(form.createdAtJalali)) {
-          resultOfCompare = true;
-          // return 0;
-        }
-        console.log(
-          resultOfCompare,
-          params.commentMoment,
-          form.createdAtJalali
-        );
-        return resultOfCompare &&
-          params.userPhoneNumber == form?.phoneNumber ? (
+      {arr.slice(0,1).map((form, index) => {
+        console.log(form.phoneNumber)
+        return (
           <div
             className={`
                   -z-50 opacity-0 transition-all ease-in-out duration-700 ${
@@ -331,31 +336,6 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
                   </ul>
                 </div>
               </main>
-            </div>
-          </div>
-        ) : (
-          <div
-            className={`
-          -z-50 opacity-0 transition-all ease-in-out duration-700 ${
-            params.show && "!opacity-100 !z-50 bg-glass"
-          }  fixed p-10 w-full h-screen rounded-lg top-0 right-0  `}
-          >
-            <div className="p-4 flex flex-col items-end w-full h-full">
-              <Close
-                className="cursor-pointer m-4 bg-[var(--milky-white)] fixed w-8 h-8 p-1 transition-all ease-in-out duration-200 hover:!stroke-white hover:bg-red-600 rounded-full"
-                onClick={() => {
-                  params.isShow(false);
-                }}
-              />
-              <section className="flex w-full bg-[var(--milky-white)] h-full justify-center flex-col items-center">
-                <p className="text-xl">رژیم مدیتزانه ای نداشته اید</p>
-                <Link
-                  href={`/user/${params.userPhoneNumber}/panel/diets`}
-                  className="text-[var(--black-blue)]"
-                >
-                  رژیم مدیترانه ای جدید
-                </Link>
-              </section>
             </div>
           </div>
         );
