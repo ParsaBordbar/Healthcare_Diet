@@ -64,7 +64,7 @@ const BmiForm = () => {
                     label="وزن"
                     parentClassName="col-span-2"
                     placeholder="(kg) وزن خود را وارد کنید"
-                    className="text-base md:text-lg"
+                    className="text-base outline-none md:text-lg"
                   />
                 )}
               />{" "}
@@ -82,7 +82,7 @@ const BmiForm = () => {
                     label="قد"
                     parentClassName="col-span-2 "
                     placeholder="(cm) قد خود را وارد کنید"
-                    className="text-base md:text-lg"
+                    className="text-base outline-none md:text-lg"
                   />
                 )}
               />{" "}
@@ -99,7 +99,7 @@ const BmiForm = () => {
                 parentClassName="col-span-2 lg:col-span-4 mt-4"
                 label="شماره تماس"
                 placeholder="شماره تماس خود را وارد کنید"
-                className="text-base md:text-base"
+                className="text-base outline-none md:text-base"
               />
             )}
           />
