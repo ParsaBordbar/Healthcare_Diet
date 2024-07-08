@@ -55,7 +55,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
 
         <h2 className="text-3xl mt-8">رژیم‌ها:</h2>
         {medData ? (
-          medData.map((form) => (
+          medData.reverse().map((form) => (
             <MediterraneanForm
               key={`${params.patientId} ${form.createdAtJalali}`}
               phoneNumber={params.patientId}
