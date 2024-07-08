@@ -58,7 +58,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
             className="object-cover hidden lg:inline rounded-2xl py-2 "
             alt={""}
           /> */}
-          <ul className="flex flex-col w-full rounded-lg h-screen py-4 ps-4 gap-4 ">
+          <ul className="flex flex-col w-full rounded-lg h-screen py-4 px-4 gap-4 ">
             <SideBarItems
               className="lg:text-lg md:text-base"
               router={router}
