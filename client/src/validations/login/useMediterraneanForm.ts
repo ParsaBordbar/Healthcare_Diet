@@ -1,14 +1,15 @@
-import { useFormik, FormikHelpers } from 'formik';
-import * as yup from 'yup';
-import { toast } from 'react-toastify';
-import api from '@/apis';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useFormik, FormikHelpers } from "formik";
+import * as yup from "yup";
+import { toast } from "react-toastify";
+import api from "@/apis";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import convertToEnglishNumbers from "../utils/convertNumberToEnglish";
 
 const getPhoneNumberFromUrl = (): string | null => {
-  if (typeof window !== 'undefined') {
-    const pathSegments = window.location.pathname.split('/');
-    const phoneNumberIndex = pathSegments.indexOf('user') + 1;
+  if (typeof window !== "undefined") {
+    const pathSegments = window.location.pathname.split("/");
+    const phoneNumberIndex = pathSegments.indexOf("user") + 1;
     return pathSegments[phoneNumberIndex] || null;
   }
   return null;
@@ -46,13 +47,13 @@ interface FormValues {
   otherSickness?: string;
   medicine?: string;
   phoneNumber: string;
-  age: number | '';
-  height: number | '';
-  weight: number | '';
-  abdominalCircumference: number | '';
+  age: string;
+  height: string | "";
+  weight: string | "";
+  abdominalCircumference: string | "";
   dietName: string;
-  bmi: number | '';
-  hipcircumference: number | '';
+  bmi: number | "";
+  hipcircumference: string | "";
 }
 
 const mediterraneanSchema = yup.object().shape({
@@ -82,16 +83,20 @@ const mediterraneanSchema = yup.object().shape({
   kidneyProblems: yup.string().required("جواب به این سوال الزامی است"),
   thyroid: yup.string(),
   cancer: yup.boolean(),
-  supplements: yup.array().of(yup.string()).required("جواب به این سوال الزامی است").min(1, "لطفا به این سوال پاسخ دهید"),
+  supplements: yup
+    .array()
+    .of(yup.string())
+    .required("جواب به این سوال الزامی است")
+    .min(1, "لطفا به این سوال پاسخ دهید"),
   Migraine: yup.boolean(),
   otherSickness: yup.string(),
   medicine: yup.string(),
   phoneNumber: yup.string(),
-  age: yup.number().required("سن الزامی است"),
-  height: yup.number().required("قد الزامی است"),
-  weight: yup.number().required("وزن الزامی است"),
-  abdominalCircumference: yup.number().required("اندازه ی دور شکم الزامی است"),
-  hipcircumference: yup.number().required("اندازه ی دور باسن الزامی است"),
+  age: yup.string().required("سن الزامی است"),
+  height: yup.string().required("قد الزامی است"),
+  weight: yup.string().required("وزن الزامی است"),
+  abdominalCircumference: yup.string().required("اندازه ی دور شکم الزامی است"),
+  hipcircumference: yup.string().required("اندازه ی دور باسن الزامی است"),
   dietName: yup.string(),
   bmi: yup.number(),
 });
@@ -104,11 +109,11 @@ const useMediterraneanForm = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const { name } = e.target;
-      if (name === 'documents') {
+      if (name === "documents") {
         setSelectedDocuments(Array.from(e.target.files));
-      } else if (name === 'payment') {
+      } else if (name === "payment") {
         setSelectedPayment(e.target.files[0]);
-        setPaymentError(null);  
+        setPaymentError(null);
       }
     }
   };
@@ -148,8 +153,8 @@ const useMediterraneanForm = () => {
       Migraine: false,
       otherSickness: "",
       medicine: "",
-      phoneNumber: phoneNumber || '', 
-      age: '',
+      phoneNumber: phoneNumber || "",
+      age: "",
       height: "",
       weight: "",
       abdominalCircumference: "",
@@ -165,9 +170,21 @@ const useMediterraneanForm = () => {
         return;
       }
 
+      const finalValues = {
+        ...values,
+        age: +convertToEnglishNumbers(values.age),
+        height: +convertToEnglishNumbers(values.height),
+        weight: +convertToEnglishNumbers(values.weight),
+        abdominalCircumference: +convertToEnglishNumbers(
+          values.abdominalCircumference
+        ),
+        hipcircumference: +convertToEnglishNumbers(values.hipcircumference),
+      };
+      console.log(finalValues);
+
       const formData = new FormData();
 
-      Object.entries(values).forEach(([key, value]) => {
+      Object.entries(finalValues).forEach(([key, value]) => {
         if (Array.isArray(value)) {
           value.forEach((val) => formData.append(`${key}[]`, val));
         } else if (value !== null && value !== undefined) {
@@ -176,32 +193,36 @@ const useMediterraneanForm = () => {
       });
 
       selectedDocuments.forEach((file) => {
-        formData.append('document', file);
+        formData.append("document", file);
       });
 
       if (selectedPayment) {
-        formData.append('payment', selectedPayment);
+        formData.append("payment", selectedPayment);
       }
 
       try {
-        const response = await api.post('/uploader/upload/type?type=mediterranean', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
+        const response = await api.post(
+          "/uploader/upload/type?type=mediterranean",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
 
         if (response.status === 200) {
-          toast.success('رژیم با موفقیت ثبت شد');
+          toast.success("رژیم با موفقیت ثبت شد");
           push(`./plans`);
         } else {
-          throw new Error('مشکلی به وجود آمد دوباره تلاش کنید');
+          throw new Error("مشکلی به وجود آمد دوباره تلاش کنید");
         }
-      } catch (error:any) {
-        console.error('مشکلی در ارسال فرم وجود داشت', error);
-        if (error.response) { 
-          console.error('Server Response:', error.response);
+      } catch (error: any) {
+        console.error("مشکلی در ارسال فرم وجود داشت", error);
+        if (error.response) {
+          console.error("Server Response:", error.response);
         }
-        toast.error('مشکلی در ارسال فرم وجود داشت');
+        toast.error("مشکلی در ارسال فرم وجود داشت");
       } finally {
         setSubmitting(false);
       }
@@ -210,7 +231,7 @@ const useMediterraneanForm = () => {
 
   return {
     ...formik,
-    handleFileChange, 
+    handleFileChange,
     paymentError,
   };
 };
