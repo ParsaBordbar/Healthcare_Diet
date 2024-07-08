@@ -32,7 +32,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
           linkThree="/admin/panel/bmi"
           valueFour="فرم رژیم مدیترانه ای"
           linkFour="/admin/panel/mediterranean"
-          valueFive="فرم رژیم مدیترانه ای ویزیت نشده"
+          valueFive="فرم رژیم مدیترانه ای پاسخ داده نشده"
           linkFive="/admin/panel/unvisited_diets"
           valueSix="پیام ها"
           linkSix="/admin/panel/comments"
@@ -78,7 +78,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
               <SideBarItems
               className="lg:text-lg md:text-base"
                 router={router}
-                value={"فرم مدیترانه ای ویزیت نشده"}
+                value={"فرم مدیترانه ای پاسخ داده نشده"}
                 href={"/admin/panel/unvisited_diets"}
                 icon={FormIcon}
               />
