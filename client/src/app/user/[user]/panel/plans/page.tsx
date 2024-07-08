@@ -19,25 +19,6 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
   const { size, elapsed, percentage, download, cancel, error, isInProgress } =
     useDownloader();
 
-  // async function DownloadFile(file: any) {
-  //   console.log(file);
-  //   const anchor = document.createElement("a");
-  //   anchor.href = file;
-  //   anchor.download = file;
-  //   anchor.click();
-  // }
-  // const data = useSpecificFetchBmi(userID);
-  // useEffect(() => {
-  //   console.log(click);
-  //   console.log(data?.phoneNumber, params.user);
-  //   if (params.user != data?.phoneNumber) {
-  //     isShow(false);
-  //     console.log("flase");
-  //   } else {
-  //     isShow(true);
-  //   }
-  // }, [click]);
-
   const isDiet = useFetchOneMediterranean(params.user)
   return (
     <div>
@@ -79,7 +60,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                           console.log(comment.files, "this our files");
                           download(
                             `${process.env.DOMAIN_FILES}${comment.files[0].path}`,
-                            "رژیم مدیترانه ای.png"
+                            "رژیم.png"
                           );
                         }
                       }}
