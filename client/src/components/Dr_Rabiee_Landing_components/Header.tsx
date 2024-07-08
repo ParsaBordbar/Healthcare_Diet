@@ -8,6 +8,8 @@ import LoginIcon from "/public/svg/Dr_Rabiee_Landing/profile.svg";
 import HamburgerNavbar from "../HamburgerMenu";
 import DrLogoMobile from "/public/svg/Dr_Rabiee_Landing/mobileNavLogo.svg"
 import userProfile from "/public/svg/Dr_Rabiee_Landing/person.crop.circle.fill.svg";
+import DocumentIcon from "/public/svg/adminPanelSvgs/document.svg";
+import PersonalIcon from "/public/svg/userPanelSvgs/personal.svg";
 
 function Header() {
   const user = localStorage.getItem('user')
@@ -71,7 +73,7 @@ function Header() {
 
         
       <div className="lg:hidden top-0">
-        <HamburgerNavbar
+        {!user && <HamburgerNavbar
           iconOne={HomeIcon}
           valueOne="صفحه اصلی"
           iconTwo={AboutUsIcon}
@@ -82,7 +84,29 @@ function Header() {
           linkTwo={"/"}
           linkThree="/"
           isLanding={true}
-        />
+        />}
+         {user && <HamburgerNavbar
+          userID={user??''}
+          valueOne="خانه"
+          isLanding
+          iconOne={HomeIcon}
+          iconThree={PersonalIcon}
+          iconTwo={DocumentIcon}
+          iconFive={DocumentIcon}
+          iconFour={DocumentIcon}
+          iconSix={DocumentIcon}
+          valueTwo="رژیم ها"
+          valueThree="پروفایل شخصی"
+          valueFour="پیام ها"
+          valueFive="برنامه ها"
+          valueSix="مشاوره"
+          linkOne={"/"}
+          linkThree={`/user/${user}/panel`}
+          linkFour={`/user/${user}/panel/massege`}
+          linkFive={`/user/${user}/panel/plans`}
+          linkTwo={`/user/${user}/panel/diets`}
+          linkSix={`/`}
+        />}
       </div>
     </header>
   );
