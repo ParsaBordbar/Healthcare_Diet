@@ -249,7 +249,7 @@ const MediterraneanForm = ({
 
           <ul className="list-disc list-inside grid grid-cols-3 px-8">
             {files?.map((file: FileType) => (
-              <li className="flex gap-2 items-center my-1 pb-6" key={file.filename}>
+              <li className="flex gap-2 lg:col-span-1 col-span-full md:col-span-2 items-center my-1 pb-6" key={file.filename}>
                 <AttachmentIcon />
                 {/* This should be The server host and port */}
                 <a
