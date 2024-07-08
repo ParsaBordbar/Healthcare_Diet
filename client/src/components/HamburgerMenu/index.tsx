@@ -1,5 +1,11 @@
 "use client";
-import { FunctionComponent, useCallback, useMemo, useState } from "react";
+import {
+  FunctionComponent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import Styles from "./navbar.module.scss";
 import { motion } from "framer-motion";
 import LogoSvg from "/public/svg/Logo.svg";
@@ -10,6 +16,7 @@ import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
 import LogOutIcon from "/public/svg/userPanelSvgs/LogOut.svg";
 import MainButton from "../MainButton";
 import LoginIcon from "/public/svg/Dr_Rabiee_Landing/person.crop.circle.fill.svg";
+import { useRouter } from "next/navigation";
 
 type THamMenu = {
   logo?: boolean;
@@ -36,17 +43,22 @@ type THamMenu = {
   iconSeven?: FunctionComponent;
   linkSeven?: string;
   userID?: string;
-  isLanding?: boolean
+  isLanding?: boolean;
 };
 
-const user = localStorage.getItem('user')
-  let userPanel = "/register/login/enterNumber"
-  if(user){
-      userPanel =`/user/${user}/panel`
-  }
-
 const HamburgerNavbar = (props: THamMenu) => {
+  const user = localStorage.getItem("user");
+  const [userPanel , setUserPanel] = useState('/register/login/enterNumber')
   const [burgerMenuActive, setBurgerMenuActive] = useState(false);
+  
+  console.log(user)
+  useEffect(() => {
+    console.log('user' , userPanel)
+    if (user) {
+      setUserPanel(`/user/${user}/panel`);
+    }
+  }, [user , props.userID]);
+
 
   let patients = undefined;
   if (props.userID) {
@@ -139,7 +151,9 @@ const HamburgerNavbar = (props: THamMenu) => {
     );
   }, []);
 
+  const path = useRouter();
   const handleLogout = () => {
+    path.push("/");
     localStorage.removeItem("user");
   };
 
@@ -169,10 +183,9 @@ const HamburgerNavbar = (props: THamMenu) => {
     <div className="lg:hidden  shadow-lg">
       <div
         className={`  h-screen !fixed  ${Styles.navbar} z-50  ${
-          burgerMenuActive ? Styles.active+ ' hidden' : ""
+          burgerMenuActive ? Styles.active + " hidden" : ""
         }`}
       >
-        
         <div
           className={`${
             Styles.navigation
@@ -180,7 +193,6 @@ const HamburgerNavbar = (props: THamMenu) => {
             burgerMenuActive ? ` !bg-[var(--milky-white)] ` : "!bg-white"
           } ${props.className}`}
         >
-          
           <div
             className={`${Styles.burgerMenuContainer}`}
             onClick={() => toggleBurgerMenu()}
@@ -191,19 +203,23 @@ const HamburgerNavbar = (props: THamMenu) => {
               {OptionGenerate}
             </div>
           </div>
-          {props.isLanding?
-          <Link href={userPanel}>
-          <MainButton
+          {props.isLanding ? (
+            <Link href={userPanel}>
+              <MainButton
                 className="bg-transparent hover:bg-transparent"
                 modern
                 iconSrc={LoginIcon}
-            />
-        </Link>:
-        null
-          }
+              />
+            </Link>
+          ) : null}
         </div>
 
-        <div className={Styles.content + ` w-full ${!burgerMenuActive && '!hidden'}  !flex h-[80vh]`}>
+        <div
+          className={
+            Styles.content +
+            ` w-full ${!burgerMenuActive && "!hidden"}  !flex h-[80vh]`
+          }
+        >
           <motion.ul
             className={`  flex w-full gap-6`}
             animate={burgerMenuActive ? "open" : "closed"}
@@ -219,26 +235,27 @@ const HamburgerNavbar = (props: THamMenu) => {
                 className="p-2 pl-[4.75rem] flex flex-col gap-2
                "
               >
-                <ul className="flex flex-col gap-2">
-
+                {patients && <ul className="flex flex-col gap-2">
                   <li
                     onClick={handleLogout}
                     className="font-bold group cursor-pointer  hover:text-white text-[var(--black-blue)] !px-3 rounded-lg transition-all duration-200 ease-in-out flex items-center gap-2 !py-2 hover:bg-[var(--new-green)] text-base"
                   >
-                    <LogOutIcon className='group-hover:[&>path]:stroke-white'/>
+                    <LogOutIcon className="group-hover:[&>path]:stroke-white" />
                     <span>خروج</span>
                   </li>
-                </ul>
-                {patients && <section className=" flex gap-4 items-center">
-                  <MaleAvatar className="" />
-                  <div className="flex flex-col">
-                    <h1>{patients?.name + " " + patients?.lastName}</h1>
-                    <section className="flex items-center gap-2">
-                      <PhoneNumber className="[&>path]:stroke-[var(--new-green)]" />
-                      <p>{patients?.phoneNumber}</p>
-                    </section>
-                  </div>
-                </section>}
+                </ul>}
+                {patients && (
+                  <section className=" flex gap-4 items-center">
+                    <MaleAvatar className="" />
+                    <div className="flex flex-col">
+                      <h1>{patients?.name + " " + patients?.lastName}</h1>
+                      <section className="flex items-center gap-2">
+                        <PhoneNumber className="[&>path]:stroke-[var(--new-green)]" />
+                        <p>{patients?.phoneNumber}</p>
+                      </section>
+                    </div>
+                  </section>
+                )}
               </main>
             </div>
           </motion.ul>
