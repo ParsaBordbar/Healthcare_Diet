@@ -49,7 +49,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
           linkTwo={`/user/${user}/panel/diets`}
           linkSix={`/`}
         />
-        <div className="fixed hidden pb-6 px-2  top-0 right-0 h-screen bg-[var(--soft-blue)]  md:flex w-[25%] xl:w-[15%] lg:w-[20%]">
+        <div className="fixed hidden pb-6  top-0 right-0 h-screen bg-[var(--soft-blue)]  md:flex w-[25%] xl:w-[20%] lg:w-[20%]">
           {/* <Image
             src={"/svg/sideBarBanner.svg"}
             width={80}
@@ -58,7 +58,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
             className="object-cover hidden lg:inline rounded-2xl py-2 "
             alt={""}
           /> */}
-          <ul className="flex flex-col w-full rounded-lg h-screen py-4 px-4 gap-4 ">
+          <ul className="flex flex-col w-full rounded-lg h-screen py-4 px-3 gap-4 ">
             <SideBarItems
               className="lg:text-lg md:text-base"
               router={router}
@@ -97,7 +97,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
             />
           </ul>
         </div>
-        <main className="w-full md:w-[75%] lg:w-[80%] xl:w-[85%] sm:px-10 px-4 lg:px-6 py-16 bg-white">
+        <main className="w-full md:w-[75%] lg:w-[80%] xl:w-[80%] sm:px-10 px-4 lg:px-6 py-20 lg:py-16 bg-white">
           {children}
         </main>
       </div>
