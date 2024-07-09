@@ -44,8 +44,8 @@ const DietsUserPanel = () => {
             );
           }}
         >
-          فایل تغذیه
-        </p>
+        واحدهای میوه  و سبزیجات         
+      </p>
       </section>
       {accordions.map((accordion) => (
         <Accordion
