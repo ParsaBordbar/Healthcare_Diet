@@ -6,6 +6,7 @@ import SearchIcon from "/public/svg/search-normal.svg";
 import useSearchCommentsPage from "@/hooks/useSearch/useSearch";
 import MainButton from "@/components/MainButton";
 import FilterIcon from "/public/svg/adminPanelSvgs/filter.svg";
+import DocumentIcon from "/public/svg/adminPanelSvgs/document.svg";
 
 const CommentsPage = () => {
   const {
@@ -19,6 +20,10 @@ const CommentsPage = () => {
 
   return (
     <section className="flex gap-3 flex-col">
+      <div className="flex items-center gap-2 mb-6">
+        <DocumentIcon className="[&>path]:stroke-black " />
+        <h1 className="text-xl md:text-2xl lg:text-3xl">پیام ها</h1>
+      </div>
       <header className=" grid grid-cols-4 gap-8 mb-10 justify-start">
         <form
           className="lg:col-span-2 col-span-full"
@@ -34,7 +39,7 @@ const CommentsPage = () => {
             placeholder="نام بیمار مورد نظر خود را وارد کنید"
           />
         </form>
-        <div className="lg:col-span-2 col-span-full grid grid-cols-3 gap-8 items-center">
+        <div className="lg:col-span-2 col-span-full grid grid-cols-3 gap-2 items-center">
           <section className="flex col-span-full md:col-span-1 items-center gap-2">
             <FilterIcon className="[&>path]:stroke-black" />
             <p className=" w-fit text-base ">فیلتر کردن براساس:</p>
