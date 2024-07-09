@@ -23,7 +23,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
   return (
     <div>
       {isDiet.length > 0 && (
-        <DietStatus direction="!flex-row mb-10" phoneNumber={params.user} />
+        <DietStatus direction="md:!flex-row !flex-col mb-10" phoneNumber={params.user} />
       )}
       <ModalMediterraneanForm
         commentMoment={dateComment}
@@ -34,7 +34,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
       />
       <section className="flex items-center gap-2">
         <DocumentIcon className="[&>path]:stroke-black" />
-        <h1 className="text-3xl">برنامه های شما</h1>
+        <h1 className="text-xl md:text-2xl lg:text-3xl">برنامه های شما</h1>
       </section>
       <main>
         <section className="flex flex-col-reverse">
@@ -53,7 +53,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                     createdAtJalali={comment.createdAtJalali}
                     createdAtGregorian={comment.createdAtGregorian}
                   />
-                  <section className="grid grid-cols-3 gap-3">
+                  <section className="grid grid-cols-6 gap-3">
                     <MainButton
                       onClick={() => {
                         if (comment.files) {
@@ -64,7 +64,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                           );
                         }
                       }}
-                      className="bg-[var(--new-green)] !px-1 !text-base md:text-lg col-span-1 !text-white"
+                      className="!py-1.5  md:!py-3 md:p-2.5 bg-[var(--new-green)] !px-1 !text-base md:text-lg col-span-full md:col-span-2 !text-white"
                       value={"دانلود رژیم"}
                     />
                     <MainButton
@@ -78,7 +78,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                         isDateComment(comment.createdAtJalali);
                         isShow(true);
                       }}
-                      className="bg-[var(--orange)] !px-1 !text-base md:text-lg col-span-1 !text-white"
+                      className="!py-1.5  md:!py-3 md:p-2.5 bg-[var(--orange)] !px-1 !text-base md:text-lg col-span-3 md:col-span-2 !text-white"
                       value={"رژیم مدیترانه ای"}
                     />
                     <MainButton
@@ -94,7 +94,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                         }
                       }}
                       trasparent
-                      className="!py-3 md:p-2.5 col-span-1 !text-base md:text-lg !text-[var(--new-green)]"
+                      className="!py-1.5  md:!py-3 md:px-2.5 col-span-3  md:col-span-2 !text-base md:text-lg !text-[var(--new-green)]"
                       value={"دانلود تغذیه"}
                     />
                   </section>
@@ -102,7 +102,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
               );
             })
           ) : (
-            <h1 className="text-3xl text-center">هنوز برنامه‌ای ندارید</h1>
+            <h1 className="text-xl md:text-2xl lg:text-3xl text-center">هنوز برنامه‌ای ندارید</h1>
           )}
         </section>
       </main>
