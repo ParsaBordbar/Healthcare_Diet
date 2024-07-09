@@ -31,7 +31,7 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
   let resultOfCompareNumber: number = 0;
   console.log(reverseArray(mediterraneanForms));
   const arr: MediterraneanFormType[] = [];
-   reverseArray(mediterraneanForms).map((form) => {
+  reverseArray(mediterraneanForms).map((form) => {
     if (
       moment(params.commentMoment).isSameOrAfter(form.createdAtJalali) &&
       form.phoneNumber == params.userPhoneNumber
@@ -58,9 +58,9 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
             className={`
                   -z-50 opacity-0 transition-all ease-in-out duration-700 ${
                     params.show && "!opacity-100 !z-50 bg-glass"
-                  }  fixed p-10 w-full h-screen top-0 right-0  `}
+                  }  fixed md:p-10 w-full h-screen top-0 right-0  `}
           >
-            <div className="w-11/12 mx-auto overflow-y-scroll custom-scroll h-full shadow-lg bg-[var(--milky-white)] flex flex-col gap-10 p-8 rounded-lg">
+            <div className="md:w-11/12 w-full mx-auto overflow-y-scroll custom-scroll h-full shadow-lg bg-[var(--milky-white)] flex flex-col gap-10 p-8 rounded-lg">
               <section className="flex flex-col gap-8 items-end">
                 <Close
                   className="cursor-pointer bg-[var(--milky-white)] fixed w-8 h-8 p-1 transition-all ease-in-out duration-200 hover:!stroke-white hover:bg-red-600 rounded-full"
@@ -69,11 +69,13 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
                   }}
                 />
                 <section className="flex mt-10 md:flex-row flex-col items-center justify-between w-full">
-                  <div className="flex gap-2 items-center ">
-                    <DocumentIcon className="[&>path]:stroke-[var(--new-green)]" />
-                    <h1 className="sm:text-2xl text-xl text-[var(--new-green)]">
-                      رژیم مدیترانه ای
-                    </h1>
+                  <div className="flex md:flex-row flex-col gap-2 items-center ">
+                    <section className="flex items-center gap-2">
+                      <DocumentIcon className="[&>path]:stroke-[var(--new-green)]" />
+                      <h1 className="text-2xl text-[var(--new-green)]">
+                        رژیم مدیترانه ای
+                      </h1>
+                    </section>
                     <h1 className="text-[var(--new-green)] sm:text-2xl text-xl ">
                       {data?.name + " " + data?.lastName}
                     </h1>
@@ -242,47 +244,47 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
                       </li>
                       <ul className="grid grid-cols-4 pr-3 gap-2">
                         <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                          <p className="w-fit text-base">
+                          <p className="w-fit text-sm md:text-base">
                             وضعیت دیابت: {form.diabetes}
                           </p>
                         </li>
                         <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                          <p className="w-fit text-base">
+                          <p className="w-fit text-sm md:text-base">
                             وضعیت فشارخون: {form.bloodPressure}
                           </p>
                         </li>
                         <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                          <p className="w-fit text-base">
+                          <p className="w-fit text-sm md:text-base">
                             وضعیت مشکلات گوارشی: {form.digestiveProblems}
                           </p>
                         </li>
                         <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                          <p className="w-fit text-base">
+                          <p className="w-fit text-sm md:text-base">
                             وضعیت خودایمنی: {form.selfSafety}
                           </p>
                         </li>
                         <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                          <p className="w-fit text-base">
+                          <p className="w-fit text-sm md:text-base">
                             وضعیت سکته: {form.stroke}
                           </p>
                         </li>
                         <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                          <p className="w-fit text-base">
+                          <p className="w-fit text-sm md:text-base">
                             وضعیت چربی کبد: {form.fattyLiver}
                           </p>
                         </li>
                         <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                          <p className="w-fit text-base">
+                          <p className="w-fit text-sm md:text-base">
                             وضعیت مشکلات کلیوی: {form.kidneyProblems}
                           </p>
                         </li>
                         <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                          <p className="w-fit text-base">
+                          <p className="w-fit text-sm md:text-base">
                             وضعیت تیروئید: {form.thyroid}
                           </p>
                         </li>
                         <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                          <div className="w-fit text-base flex">
+                          <div className="w-fit text-sm md:text-base flex">
                             سرطان:
                             {form.cancer ? (
                               <p className="text-[var(--new-green)]"> دارد </p>
@@ -292,7 +294,7 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
                           </div>
                         </li>
                         <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                          <div className="w-fit text-base flex">
+                          <div className="w-fit text-sm md:text-base flex">
                             میگرن:
                             {form.Migraine ? (
                               <p className="text-[var(--new-green)]">دارد</p>
@@ -303,15 +305,15 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
                         </li>
 
                         <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                          <p className=" w-fit text-base">
+                          <p className=" w-fit text-sm md:text-base">
                             سایر بیماری ها یا جراحی قبلی بیمار:
                           </p>
-                          <p className="text-[var(--new-green)] w-fit text-base">
+                          <p className="text-[var(--new-green)] w-fit text-sm md:text-base">
                             {form.otherSickness}
                           </p>
                         </li>
                         <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                          <p className=" w-fit text-base">
+                          <p className=" w-fit text-sm md:text-base">
                             داروهای مصرفی بیمار :
                           </p>
                           <p className="text-[var(--new-green)]  text-base w-fit">
@@ -323,17 +325,21 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
                   </div>
                 </div>
                 <div className="flex flex-col gap-4">
-                  <h1 className="text-[var(--new-green)] text-xl">فرم BMI</h1>
+                  <h1 className="text-[var(--new-green)] text-2xl ">فرم BMI</h1>
                   <ul className="grid md:grid-cols-5 gap-y-1 md:gap-0 grid-cols-2 pr-3">
-                    <li className="col-span-1">سن :‌ {form.dietBmi?.age}</li>
-                    <li className="col-span-1">قد :‌ {form.dietBmi?.height}</li>
-                    <li className="col-span-1">
+                    <li className="col-span-1 text-sm md:text-base">
+                      سن :‌ {form.dietBmi?.age}
+                    </li>
+                    <li className="col-span-1 text-sm md:text-base">
+                      قد :‌ {form.dietBmi?.height}
+                    </li>
+                    <li className="col-span-1 text-sm md:text-base">
                       وزن :‌ {form.dietBmi?.weight}
                     </li>
-                    <li className="col-span-1">
+                    <li className="col-span-1 text-sm md:text-base">
                       دور شکم :‌ {form.dietBmi?.abdominalCircumference}
                     </li>
-                    <li className="text-[var(--new-green)] col-span-1">
+                    <li className="text-[var(--new-green)] col-span-1 text-sm md:text-base">
                       BMI :‌ {form.dietBmi?.bmi}
                     </li>
                   </ul>
