@@ -14,9 +14,21 @@ const PatientCard = ({
 }: BmiType) => {
   const ChoseAvatar = useMemo(() => {
     if (gender === "male" || gender === "مرد") {
-      return <MaleAvatar />;
+      return (
+        <>
+          <Link href={linkTo}>
+            <MaleAvatar />
+          </Link>
+        </>
+      );
     } else {
-      return <FemaleAvatar />;
+      return (
+        <>
+          <Link href={linkTo}>
+            <FemaleAvatar />
+          </Link>
+        </>
+      );
     }
   }, []);
 
@@ -25,26 +37,17 @@ const PatientCard = ({
       {ChoseAvatar}
       <div className="flex flex-col gap-4  w-full">
         <div className="flex justify-between items-center pt-2.5 ">
-          <h2 className="text-2xl overflow-ellipsis overflow-hidden whitespace-nowrap text-[var(--secondary-blue)]">
-            {name} {lastName}
-          </h2>
-          {linkTo ? (
-            <Link className="mt-2 sm:inline-block hidden w-fit text-blue-600 text-xs" href={`${linkTo}`}>
-              اطلاعات بیشتر
-            </Link>
-          ) : null}
+          <Link href={linkTo}>
+            <h2 className="md:text-2xl text-xl overflow-ellipsis overflow-hidden whitespace-nowrap text-[var(--secondary-blue)]">
+              {name} {lastName}
+            </h2>
+          </Link>
         </div>
         <section className="flex justify-between items-center">
-
-        <div className="flex gap-2">
-          <PhoneIcon className=''/>
-          <p className="text-base mt-1">{phoneNumber}</p>
-        </div>
-        {linkTo ? (
-            <Link className="mt-1 inline-block sm:hidden w-fit text-blue-600 text-xs" href={`${linkTo}`}>
-              اطلاعات بیشتر
-            </Link>
-          ) : null}
+          <div className="flex gap-2">
+            <PhoneIcon className="" />
+            <p className="text-base mt-1">{phoneNumber}</p>
+          </div>
         </section>
       </div>
     </div>
