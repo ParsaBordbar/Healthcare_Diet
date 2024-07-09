@@ -26,7 +26,7 @@ const MediterraneanFormsPage = () => {
     <section>
       <div className="flex items-center gap-2 mb-6">
         <DocumentIcon className="[&>path]:stroke-black " />
-        <h1 className="text-3xl">فرم‌های رژیم مدیترانه‌ای:</h1>
+        <h1 className="text-xl md:text-2xl lg:text-3xl">فرم‌های رژیم مدیترانه‌ای</h1>
       </div>
       <div className="grid grid-cols-10 mb-10 gap-8 items-center">
         <form className="xl:col-span-5 col-span-full" action="" onSubmit={submitHandler}>
