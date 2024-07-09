@@ -71,7 +71,7 @@ export interface BmiType {
   height?: number;
   weight?: number;
   bmi?: number;
-  linkTo?: string;
+  linkTo: string;
   abdominalCircumference?: number;
   hipcircumference?: number;
   whr?: number,
