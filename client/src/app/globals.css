@@ -188,14 +188,10 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--new-green);
-  border-radius: 8px;
+  background: var(--black-blue);
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #b30000;
-}
 
 .swiper {
   width: 75% !important;
