@@ -30,6 +30,7 @@ export type BmiDataType = BmiLandingDataType & {
   abdominalCircumference: number;
   age: number;
   autoIncrementId?: number,
+  hipcircumference: number,
 };
 
 export type SignUpDataType = {
