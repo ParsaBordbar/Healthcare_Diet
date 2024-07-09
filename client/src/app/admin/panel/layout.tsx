@@ -46,7 +46,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
               مشاور تغذیه
             </h1>
 
-            <ul className="flex flex-col rounded-lg h-screen px-4  gap-4">
+            <ul className="flex flex-col rounded-lg h-screen py-4 px-3  gap-4">
               <SideBarItems
               className="lg:text-lg md:text-base"
                 router={router}
