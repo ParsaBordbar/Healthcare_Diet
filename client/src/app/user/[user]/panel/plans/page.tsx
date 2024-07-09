@@ -95,7 +95,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
                       }}
                       trasparent
                       className="!py-1.5  md:!py-3 md:px-2.5 col-span-3  md:col-span-2 !text-base md:text-lg !text-[var(--new-green)]"
-                      value={"دانلود تغذیه"}
+                      value={" واحدهای میوه  و سبزیجات "}
                     />
                   </section>
                 </div>
