@@ -21,10 +21,10 @@ const PatientsPage = () => {
       } = useSearchBmi('/bmi/sort')
     
     return(
-        <section className="grid gap-6 grid-cols-2"> 
+        <section className="grid gap-6 grid-cols-3"> 
         <section className="mb-3 col-span-full flex items-center gap-2">
             <PatientIcon className='[&>path]:stroke-black '/>
-            <h1 className=" text-3xl">بیمارها:</h1>
+            <h1 className=" text-xl md:text-2xl lg:text-3xl">بیمارها</h1>
         </section>
         <div className="grid grid-cols-10 gap-8 items-center col-span-full">
         <form className="xl:col-span-5 col-span-full" action="" onSubmit={submitHandler}>
@@ -37,7 +37,7 @@ const PatientsPage = () => {
             onChange={handleChange}
           />
         </form>
-        <div className="xl:col-span-5 col-span-full grid grid-cols-3 items-center">
+        <div className="xl:col-span-5 md:gap-0 gap-2 col-span-full grid grid-cols-3 items-center">
           <section className="flex w-fit col-span-full md:col-span-1 items-center ">
             <FilterIcon className="[&>path]:stroke-black" />
             <p className="w-fit text-base">فیلتر کردن براساس:</p>
