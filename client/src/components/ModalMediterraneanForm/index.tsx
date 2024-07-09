@@ -31,8 +31,11 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
   let resultOfCompareNumber: number = 0;
   console.log(reverseArray(mediterraneanForms));
   const arr: MediterraneanFormType[] = [];
-  reverseArray(mediterraneanForms).map((form) => {
-    if (moment(params.commentMoment).isSameOrAfter(form.createdAtJalali) && form.phoneNumber == params.userPhoneNumber) {
+   reverseArray(mediterraneanForms).map((form) => {
+    if (
+      moment(params.commentMoment).isSameOrAfter(form.createdAtJalali) &&
+      form.phoneNumber == params.userPhoneNumber
+    ) {
       resultOfCompare = true;
       resultOfCompareNumber += 1;
       arr.push(form);
@@ -41,15 +44,15 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
       resultOfCompareNumber = 0;
     }
   });
-  console.log(arr.slice(0,1) , arr);
-  console.log(params.userPhoneNumber )
-  if(!arr.slice(0 , 1).length){
-    toast.info('شما در این زمان رژیمی نداشتید')
-  }
+  useEffect(() => {
+    if (!arr.slice(0, 1).length && params.show) {
+      toast.info("شما در این زمان رژیمی نداشتید");
+    }
+  }, [arr]);
   return (
     <>
-      {arr.slice(0,1).map((form, index) => {
-        console.log(form.phoneNumber)
+      {arr.slice(0, 1).map((form, index) => {
+        console.log(form.phoneNumber);
         return (
           <div
             className={`
