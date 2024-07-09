@@ -23,7 +23,7 @@ function BmiPage() {
     <section className="grid lg:grid-cols-1 grid-cols-1 gap-10">
       <section className="flex mb-6 col-span-full items-center gap-2">
         <DocumentIcon className="[&>path]:stroke-black " />
-        <h1 className="text-3xl">فرم‌های BMI:</h1>
+        <h1 className="text-xl md:text-2xl lg:text-3xl">فرم‌های BMI:</h1>
       </section>
       <div className="grid grid-cols-10 gap-8 items-center">
         <form className="xl:col-span-5 col-span-full" action="" onSubmit={submitHandler}>
@@ -36,7 +36,7 @@ function BmiPage() {
             onChange={handleChange}
           />
         </form>
-        <div className="xl:col-span-5 col-span-full grid grid-cols-3 items-center">
+        <div className="xl:col-span-5 md:gap-0 gap-2 col-span-full grid grid-cols-3 items-center">
           <section className="flex col-span-full md:col-span-1 items-center ">
             <FilterIcon className="[&>path]:stroke-black " />
             <p className="w-fit text-base">فیلتر کردن براساس:</p>
@@ -86,8 +86,7 @@ function BmiPage() {
             abdominalCircumference={form.abdominalCircumference}
             hipcircumference={form.hipcircumference}
             joinedAtJalali={form.joinedAtJalali}
-            autoIncrementId={form.autoIncrementId}
-          />
+            autoIncrementId={form.autoIncrementId} linkTo={""}          />
         ))}
       </div>
     </section>
