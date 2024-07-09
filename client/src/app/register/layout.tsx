@@ -6,7 +6,7 @@ const LayoutRegister = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <div className="relative top-0 z-40">
-        <main className="flex !bg-cover md:!bg-contain bg-no-repeat !bg-none lg:!bg-[url('/svg/loginBanner.svg')] h-screen items-center w-full justify-center lg:justify-end">
+        <main className="flex !bg-cover md:!bg-contain bg-no-repeat !bg-none  bg-[var(--soft-blue)] lg:!bg-[url('/svg/loginBanner.svg')] h-screen items-center w-full justify-center lg:justify-end">
           {children}
         </main>
       </div>
