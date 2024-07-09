@@ -93,7 +93,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
             </ul>
           </section>
         </div>
-        <main className="w-full mt-6 md:w-[75%] xl:w-[85%] lg:w-[75%] flex flex-col py-16 gap-10 px-6 bg-white h-screen">
+        <main className="w-full mt-6 md:w-[75%] xl:w-[85%] lg:w-[75%] flex flex-col py-16 gap-10 px-4 lg:px-6 bg-white h-screen">
           <div className="">{children}</div>
         </main>
       </div>
