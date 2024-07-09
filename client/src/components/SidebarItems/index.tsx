@@ -62,7 +62,7 @@ const SideBarItems = (props: TSideBarItems) => {
         onClick={handleClick} 
         className={`group [&>svg>path]:stroke-[var(--new-green)] hover:bg-[var(--new-green)] font-extrabold [&>svg>path]:hover:stroke-white text-xl ${
           SelectionStyles && " [&>svg>path]:!stroke-white bg-[var(--new-green)]"
-        } cursor-pointer ease-in-out transition-all duration-200 p-4 flex items-center gap-2  rounded-md`}
+        } cursor-pointer ease-in-out transition-all duration-200 p-3 flex items-center gap-2  rounded-md`}
       >
         <input
           className="hidden peer items-center gap-3 checked:hidden text-white text-[var(--new-green)]"
