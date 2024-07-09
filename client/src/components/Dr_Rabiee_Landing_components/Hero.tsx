@@ -8,7 +8,7 @@ import PointerSvg from "/public/svg/Dr_Rabiee_Landing/HeroPointer.svg"
 
 function MainSection() {
   return (
-    <div className="flex justify-center items-center flex-row w-full bg-hero-bg-mobile bg-[#FEFDF9] lg:bg-none md:px-8 mt-10">
+    <div className="flex justify-center items-center flex-row w-full bg-hero-bg-mobile md:bg-clip-border bg-cover bg-[#FEFDF9] lg:bg-none md:px-8 mt-10">
       <div className="md:grid 2xl:grid-cols-7 xl:grid-cols-5 md:grid-cols-2 grid-cols-1 ps-2 flex flex-col-reverse">
 
         <div className="xl:flex justify-center items-center w-1/2 h-full xl:col-span-1 hidden">
