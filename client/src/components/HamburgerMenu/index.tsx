@@ -42,6 +42,15 @@ type THamMenu = {
   valueSeven?: string;
   iconSeven?: FunctionComponent;
   linkSeven?: string;
+  valueEight?: string;
+  iconEight?: FunctionComponent;
+  linkEight?: string;
+  valueNine?: string;
+  iconNine?: FunctionComponent;
+  linkNine?: string;
+  valueTen?: string;
+  iconTen?: FunctionComponent;
+  linkTen?: string;
   userID?: string;
   isLanding?: boolean;
 };
@@ -115,6 +124,22 @@ const HamburgerNavbar = (props: THamMenu) => {
       link: props.linkSeven ?? "",
       icon: props.iconSeven,
     },
+    {
+      value: props.valueEight ?? "",
+      link: props.linkEight ?? "",
+      icon: props.iconEight,
+    },
+    {
+      value: props.valueNine ?? "",
+      link: props.linkNine ?? "",
+      icon: props.iconNine,
+    },
+    {
+      value: props.valueTen ?? "",
+      link: props.linkTen ?? "",
+      icon: props.iconTen,
+    },
+
   ];
 
   const LinkGenerate = useCallback(() => {
@@ -230,7 +255,6 @@ const HamburgerNavbar = (props: THamMenu) => {
                 <div className="flex flex-col w-full gap-3 pl-16">
                   {LinkGenerate()}
                 </div>
-              </section>
               <main
                 className="p-2 pl-[4.75rem] flex flex-col gap-2
                "
@@ -257,6 +281,7 @@ const HamburgerNavbar = (props: THamMenu) => {
                   </section>
                 )}
               </main>
+              </section>
             </div>
           </motion.ul>
         </div>
