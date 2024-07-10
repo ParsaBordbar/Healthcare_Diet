@@ -4,6 +4,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import DrGroupLogo from "/public/images/logo-footer.svg";
 import MainButton from "../MainButton";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -24,15 +25,18 @@ const Footer = () => {
               بهبود کیفیت زندگی‌تان خواهید داشت.
             </p>
           </div>
-          
+
           <div className="flex min-[910px]:p-0 sm:pr-5 min-[910px]:flex-row lg:flex-col gap-6 lg:justify-center min-[910px]:justify-between items-center text-right col-span-full lg:col-span-1 ">
             <h6 className="text-xl min-[910px]:inline-block hidden font-extrabold">
               دسترسی آسان
             </h6>
             <ul className="flex lg:flex-col sm:flex-col sm:justify-normal sm:w-auto justify-between w-full min-[910px]:flex-row lg:gap-3 gap-2.5 min-[910px]:gap-16  ">
-              <li className="sm:text-xl text-base list-none font-extrabold sm:list-disc">درباره ما</li>
-              <li className="sm:text-xl text-base list-none font-extrabold sm:list-disc">مقالات</li>
-              <li className="sm:text-xl text-base list-none font-extrabold sm:list-disc">تماس با ما</li>
+              <Link href={"#info"}>
+                <li className="sm:text-xl text-base list-none font-extrabold sm:list-disc">درباره ما</li>
+              </Link>
+              <Link href={"#blogs"}>
+                <li className="sm:text-xl text-base list-none font-extrabold sm:list-disc">مقلات</li>
+              </Link>
             </ul>
           </div>
         </section>
@@ -42,7 +46,10 @@ const Footer = () => {
             <a href="#" className="text-white">
               <TelegramIcon className="text-4xl" />
             </a>
-            <a href="#" className="text-white">
+            <a
+              href="https://www.instagram.com/dr_rabieefitnessteam?igsh=YmhrajRzN3g0YWl4"
+              className="text-white"
+            >
               <InstagramIcon className="text-4xl" />
             </a>
             <a href="#" className="text-white">
