@@ -47,7 +47,7 @@ const Footer = () => {
               <TelegramIcon className="text-4xl" />
             </a>
             <a
-              href="https://www.instagram.com/dr_rabieefitnessteam?igsh=YmhrajRzN3g0YWl4"
+              href="https://www.instagram.com/dr_rabieefitnessteam?igsh=MXBzODA0dzA5M2Y1Mw=="
               className="text-white"
             >
               <InstagramIcon className="text-4xl" />
