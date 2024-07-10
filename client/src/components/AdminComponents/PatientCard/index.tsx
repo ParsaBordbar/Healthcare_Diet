@@ -16,7 +16,7 @@ const PatientCard = ({
     if (gender === "male" || gender === "مرد") {
       return (
         <>
-          <Link href={linkTo}>
+          <Link href={`${linkTo}`}>
             <MaleAvatar />
           </Link>
         </>
@@ -24,7 +24,7 @@ const PatientCard = ({
     } else {
       return (
         <>
-          <Link href={linkTo}>
+          <Link href={`${linkTo}`}>
             <FemaleAvatar />
           </Link>
         </>
@@ -37,7 +37,7 @@ const PatientCard = ({
       {ChoseAvatar}
       <div className="flex flex-col gap-4  w-full">
         <div className="flex justify-between items-center pt-2.5 ">
-          <Link href={linkTo}>
+          <Link href={`${linkTo}`}>
             <h2 className="md:text-2xl text-xl overflow-ellipsis overflow-hidden whitespace-nowrap text-[var(--secondary-blue)]">
               {name} {lastName}
             </h2>
