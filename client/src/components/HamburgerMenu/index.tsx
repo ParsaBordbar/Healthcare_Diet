@@ -255,6 +255,7 @@ const HamburgerNavbar = (props: THamMenu) => {
                 <div className="flex flex-col w-full gap-3 pl-16">
                   {LinkGenerate()}
                 </div>
+              </section>
               <main
                 className="p-2 pl-[4.75rem] flex flex-col gap-2
                "
@@ -281,7 +282,6 @@ const HamburgerNavbar = (props: THamMenu) => {
                   </section>
                 )}
               </main>
-              </section>
             </div>
           </motion.ul>
         </div>
