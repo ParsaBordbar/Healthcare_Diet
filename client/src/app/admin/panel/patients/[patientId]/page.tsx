@@ -28,8 +28,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
               lastName={bmiData.lastName}
               phoneNumber={bmiData.phoneNumber}
               gender={bmiData.gender}
-              autoIncrementId={bmiData.autoIncrementId}
-            />
+              autoIncrementId={bmiData.autoIncrementId} linkTo={""}            />
             <h2 className="text-3xl mt-8">فرم BMI:</h2>
             <PatientBmiForm
               name={bmiData?.name}
@@ -42,8 +41,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
               height={bmiData?.height}
               abdominalCircumference={bmiData?.abdominalCircumference}
               joinedAtJalali={bmiData?.joinedAtJalali}
-              autoIncrementId={bmiData.autoIncrementId}
-            />
+              autoIncrementId={bmiData.autoIncrementId} linkTo={""}            />
           </>
         ) : (
           <>
