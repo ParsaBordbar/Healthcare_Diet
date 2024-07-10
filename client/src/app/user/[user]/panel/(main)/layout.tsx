@@ -41,7 +41,7 @@ const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
             <QuickLinkBox
               tittle={"برنامه‌ها"}
               desc={"تمام فعالیت‌ها و برنامه‌های شما "}
-              url={`/user/${userID}/panel/massege`}
+              url={`/user/${userID}/panel/plane`}
               counter={comments.length}
             />
           </li>
