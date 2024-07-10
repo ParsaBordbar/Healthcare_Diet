@@ -8,7 +8,7 @@ const mediterranean = require('./routes/mediterranean');
 const adminLogin = require('./routes/admin');
 const doctorsComment = require('./routes/docComments');
 const uploader = require('./routes/uploader'); 
-
+const smsService = require('./routes/sms')
 
 const uploadsDir = path.join(__dirname, "uploads")
 if(!fs.existsSync(uploadsDir)){
@@ -26,4 +26,5 @@ app.use('/api/admin', adminLogin);
 app.use('/api/doctorsComment', doctorsComment);
 app.use("/uploads", express.static(uploadsDir));
 app.use('/api/uploader', uploader);
+app.use('/api/sms', smsService);
 module.exports = app;
