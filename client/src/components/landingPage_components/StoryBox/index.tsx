@@ -16,7 +16,9 @@ const StoryBox = ({ title, bodyText, img  , id}: TextBoxType) => {
       <Link href={"./"} className="self-start px-6 py-2">
         <div className="flex sm:text-base text-sm items-center gap-3">
           <Arrow />
-          <p>ادامه مطلب</p>
+          <Link href={'../../../article/'}>
+            <p>ادامه مطلب</p>
+          </Link>
         </div>
       </Link>
     </div>
