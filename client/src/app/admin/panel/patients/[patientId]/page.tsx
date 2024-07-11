@@ -16,7 +16,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
   const bmiData = useSpecificFetchBmi(params.patientId);
   const medData = useFetchOneMediterranean(params.patientId);
   const commentData = useFetchPatientComments(params.patientId);
-  console.log(commentData);
+  console.log(medData);
 
   return (
     <main>
@@ -29,7 +29,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
               phoneNumber={bmiData.phoneNumber}
               gender={bmiData.gender}
               autoIncrementId={bmiData.autoIncrementId} linkTo={""}            />
-            <h2 className="text-3xl mt-8">فرم BMI:</h2>
+            <h2 className="text-xl md:text-2xl lg:text-3xl mt-8">فرم BMI:</h2>
             <PatientBmiForm
               name={bmiData?.name}
               lastName={bmiData?.lastName}
@@ -51,8 +51,8 @@ function PatientId({ params }: { params: { patientId: string } }) {
           </>
         )}
 
-        <h2 className="text-3xl mt-8">رژیم‌ها:</h2>
-        {medData ? (
+        <h2 className="text-xl md:text-2xl lg:text-3xl mt-8">رژیم‌ها:</h2>
+        {medData.length > 0 ? (
           medData.reverse().map((form) => (
             <MediterraneanForm
               key={`${params.patientId} ${form.createdAtJalali}`}
@@ -97,9 +97,9 @@ function PatientId({ params }: { params: { patientId: string } }) {
             />
           ))
         ) : (
-          <p>رژیم ندارد</p>
+          <p className="text-xl text-center">رژیم ندارد</p>
         )}
-        <h2 className="text-3xl mt-8">پیام‌های ارسال شده:</h2>
+        <h2 className="text-xl md:text-2xl lg:text-3xl mt-8">پیام‌های ارسال شده:</h2>
         {commentData ? (
           commentData.map((comment) => (
             <CommentBox
