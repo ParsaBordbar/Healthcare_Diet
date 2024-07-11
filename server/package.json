@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
     "express": "^4.19.2",
     "joi": "^17.13.0",
     "kavenegar": "^1.1.4",
@@ -22,6 +23,7 @@
     "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.2.2",
     "nodemon": "^3.1.0"
   }
 }
