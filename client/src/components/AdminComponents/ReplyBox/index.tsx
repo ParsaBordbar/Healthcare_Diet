@@ -44,21 +44,21 @@ const ReplyBox: React.FC<ReplyBoxProps> = ({ receiver }) => {
   };
 
   return (
-    <div className="flex flex-col bg-[var(--primary)] my-10 rounded-lg text-lg shadow-md justify-center">
-      <h2 className="text-3xl px-20 pt-8 text-[var(--new-green)]">ثبت پیام جدید</h2>
+    <div className="flex flex-col bg-[var(--soft-blue)] my-10 rounded-lg text-lg shadow-md justify-center">
+      <h2 className="text-3xl px-20 pt-8 text-[var(--black-blue)] font-extrabold">ثبت پیام جدید</h2>
       <form className="flex w-full flex-col m-3 gap-4 p-10" onSubmit={handleSubmit(onSubmit)}>
         {errors.body && <p className="text-red-500">{errors.body.message}</p>}
 
         <textarea
           placeholder="پیام خود را وارد کنید..."
-          className={`bg-[var(--milky-white)] border ${errors.body ? 'border-red-500' : 'border-[var(--rating-color)]'} px-6 py-5 rounded-xl w-full`}
+          className={`bg-[#FEFDF9] border ${errors.body ? 'border-red-500' : 'border-[var(--rating-color)]'} px-6 py-5 rounded-xl w-full`}
           rows={10}
           {...register('body')}
         />
         
         <div className='flex gap-4'>
           <label className='flex justify-center items-center bg-[var(--orange)] rounded-full px-4 hover:bg-[var(--new-green)] ease-in-out'>
-            <AttachmentIcon />
+            <AttachmentIcon/>
             <input 
               type="file" 
               multiple 

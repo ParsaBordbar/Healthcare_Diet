@@ -29,7 +29,8 @@
     ".next/types/**/*.ts",
     "src/components/Slider/index.tsx",
     "src/data/index.js",
-    "src/hooks/useContext/Context.ts"
-, "src/components/Dr_Rabiee_Landing_components/Header.tsx"  ],
+    "src/hooks/useContext/Context.ts",
+    "src/components/Dr_Rabiee_Landing_components/Header.tsx"
+  ],
   "exclude": ["node_modules"]
 }
