@@ -4,7 +4,9 @@ import { IdentifyCodeType } from "@/types";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import CryptoJS from "crypto-js";
 
+// Schema validation for the code input
 export const loginSchema = yup.object({
   codeOne: yup
     .string()
@@ -86,19 +88,19 @@ const useCode = () => {
   const { push } = useRouter();
 
   const handelValueInputs = useCallback((data: IdentifyCodeType) => {
-    if (
-      data.codeFive === '5' &&
-      data.codeOne === '1' &&
-      data.codeTwo === '2' &&
-      data.codeThree === '3' &&
-      data.codeFour === '4' &&
-      localStorage.getItem('user')
-    ) {
-      const userNumber = localStorage.getItem('user');
+    const token = localStorage.getItem('token'); 
+    const user = localStorage.getItem('user')
+    const enteredToken = data.codeOne + data.codeTwo + data.codeThree + data.codeFour + data.codeFive;
+    const hashedEnteredToken = CryptoJS.SHA256(enteredToken).toString(); 
+
+    if (token && hashedEnteredToken === token && user) {
       toast.success("کد به درستی وارد شد");
-      push(`/user/${userNumber}/panel`);
-    } else {
+      push(`/user/${user}/panel`);
+    }else if (token && hashedEnteredToken === token && !user) {
       push('/register/diets-bmi');
+    }
+    else {
+      toast.error("کد وارد شده صحیح نیست");
     }
   }, [push]);
 
