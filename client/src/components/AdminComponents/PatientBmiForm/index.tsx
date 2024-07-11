@@ -42,19 +42,19 @@ function PatientBmiForm({
           <p className="text-[var(--black-blue)] text-lg w-fit"> شماره تماس: {phoneNumber}</p>
 
       </div>
-      <div className="flex 2xl:flex-row pr-6 items-start justify-between 2xl:items-center flex-col">
-        <div className="flex flex-col gap-4 text-[var(--text)] text-lg">
+      <div className="grid grid-cols-4 pr-6 gap-4 2xl:items-center flex-col">
+        <div className="col-span-2 md:col-span-1 gap-4 text-[var(--text)] text-lg">
           <p>جنسیت: {gender}</p>
           <p>سن: {age}</p>
           <p> شهر:{city} </p>
         </div>
-        <div className="flex  flex-col text-[var(--text)] text-lg gap-4  ">
+        <div className="col-span-2 md:col-span-1 text-[var(--text)] text-lg gap-4  ">
           <p>قد: {height}</p>
           <p>وزن: {weight}</p>
           WHR: {whr}
 
         </div>
-        <div className="flex  flex-col text-[var(--text)] text-lg gap-4  ">
+        <div className="col-span-full place-items-center md:place-items-baseline md:col-span-2 text-[var(--text)] text-lg gap-4  ">
           <p>دور شکم: {abdominalCircumference}</p>
          <p>دور باسن: {hipcircumference}</p>
 
