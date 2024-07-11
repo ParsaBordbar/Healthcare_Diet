@@ -90,31 +90,50 @@ const useEnterNumber = () => {
     const hashedToken = CryptoJS.SHA256(token).toString();
     localStorage.setItem('token', hashedToken); 
 
-    try {
-      const response = await api.get(`/bmi/phone${convertedData.phoneNumber}`);
-      localStorage.removeItem('user');
-      if (response && response.data) {
-        localStorage.setItem('user', response.data.phoneNumber);
-        const smsData = {
-          receptor: convertedData.phoneNumber,
-          token,
-        };
-        toast.success("خوش آمدید");
-        push("/register/login/enterTheCode");
-        const sendCode = await api.post('/sms/send', smsData);
+    const smsData = {
+      receptor: convertedData.phoneNumber,
+      token,
+    };
+
+    const sendSms = async () => {
+      try {
+        const response = await api.get(`/bmi/phone${convertedData.phoneNumber}`, { timeout: 10000 });
+        localStorage.removeItem('user');
+        if (response && response.data) {
+          localStorage.setItem('user', response.data.phoneNumber);
+          toast.success("خوش آمدید");
+          push("/register/login/enterTheCode");
+          await api.post('/sms/send', smsData, { timeout: 10000 });
+          toast.clearWaitingQueue();
+        }
+      } catch (error:any) {
+        console.error("Error fetching phone number:", error.message);
+        localStorage.removeItem('user');
         toast.clearWaitingQueue();
+        toast.info("شماره تماس یافت نشد، لطفا اطلاعات خود را وارد کنید");
+        push("/register/login/enterTheCode");
+        try {
+          await api.post('/sms/send', smsData, { timeout: 10000 });
+        } catch (smsError:any) {
+          console.error("Error sending SMS on catch block:", smsError.message);
+        }
       }
-    } catch (error) {
-      console.error("Error fetching phone number:", error);
-      localStorage.removeItem('user');
-      toast.clearWaitingQueue();
-      toast.info("شماره تماس یافت نشد، لطفا اطلاعات خود را وارد کنید");
-      push("/register/login/enterTheCode");
-      const smsData = {
-        receptor: convertedData.phoneNumber,
-        token,
-      };
-      const sendCode = await api.post('/sms/send', smsData);
+    };
+
+    const maxRetries = 3;
+    const retryDelay = 1000;
+
+    for (let attempt = 0; attempt < maxRetries; attempt++) {
+      try {
+        await sendSms();
+        break; 
+      } catch (error) {
+        if (attempt === maxRetries - 1) {
+          throw error; 
+        }
+        console.log(`Retrying in ${retryDelay * Math.pow(2, attempt)} ms...`);
+        await new Promise(resolve => setTimeout(resolve, retryDelay * Math.pow(2, attempt)));
+      }
     }
   }, [push]);
 
