@@ -160,6 +160,12 @@ export interface CommentType {
   _id: string;
 }
 
+export interface CommentTypeHook{
+  sender: string;
+  body: string;
+  receiver: string;
+  files?: FileType[];
+}
 export interface QuickLinkBoxType {
   tittle: string;
   desc: string;
