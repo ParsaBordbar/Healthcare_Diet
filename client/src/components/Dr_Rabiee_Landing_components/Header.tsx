@@ -12,12 +12,12 @@ import DocumentIcon from "/public/svg/adminPanelSvgs/document.svg";
 import PersonalIcon from "/public/svg/userPanelSvgs/personal.svg";
 
 function Header() {
-  const user = localStorage.getItem("user");
+  const user = typeof window !== 'undefined' ? localStorage.getItem("user") : null;
   let userPanel = "/register/login/enterNumber";
+  
   if (user) {
     userPanel = `/user/${user}/panel`;
   }
-
   return (
     <header className="bg-[#FEFDF9] text-[var(--black-blue)] px-[42px] py-0 mt-5">
       <div className="hidden md:flex justify-between items-center h-[64px]">
