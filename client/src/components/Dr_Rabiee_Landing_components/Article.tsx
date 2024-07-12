@@ -22,7 +22,7 @@ function ArticleSlider() {
         {DataStory.map((items: TextBoxType) => {
           return (
             // <SwiperSlide className="!w-fit !m-0" key={items.id} {...items}>
-            <StoryBox
+            <StoryBox key={items.id}
               id={items.id}
               title={items.title}
               bodyText={items.bodyText}
