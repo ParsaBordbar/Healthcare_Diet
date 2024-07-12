@@ -12,12 +12,12 @@ import { usePathname } from "next/navigation";
 const LayoutAdmin = ({ children }: { children: ReactNode }) => {
   const router = usePathname();
 
-  const handleLogout = () => {
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem('admin');
-      localStorage.removeItem('token');
-    }
-  }
+  // const handleLogout = () => {
+  //   if (typeof window !== 'undefined') {
+  //     localStorage.removeItem('admin');
+  //     localStorage.removeItem('token');
+  //   }
+  // }
   return (
     <>
       <div className=" flex justify-end w-full top-0 z-40">
@@ -91,7 +91,6 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
               value={"خروج"}
               href={`/`}
               icon={LogOutIcon}
-              onClick={handleLogout}
             />
             </ul>
           </section>
