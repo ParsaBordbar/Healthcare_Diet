@@ -7,13 +7,16 @@ import MedicalDocIcon from "/public/svg/adminPanelSvgs/Medical-Documentation.svg
 import HamburgerNavbar from "@/components/HamburgerMenu";
 import SideBarItems from "@/components/SidebarItems";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
-import HomeIcon from "/public/svg/userPanelSvgs/home-2.svg";
+
 
 const LayoutAdmin = ({ children }: { children: ReactNode }) => {
   const router = usePathname();
+
   const handleLogout = () => {
-    localStorage.removeItem('admin');
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('admin');
+      localStorage.removeItem('token');
+    }
   }
   return (
     <>
@@ -26,7 +29,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
           iconFour={FormIcon}
           iconFive={FormIcon}
           valueTwo="سوابق بیمار"
-          linkOne={"/admin/panel"}
+          linkOne={"/admin/panel"}  
           linkTwo={`/admin/panel/patients`}
           valueThree="فرم BMI"
           linkThree="/admin/panel/bmi"
