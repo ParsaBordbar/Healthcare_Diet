@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { toast } from 'react-toastify';
 import * as yup from 'yup';
 import api from '@/apis'; 
-import { CommentType } from '@/types';
+import { CommentType, CommentTypeHook } from '@/types';
 
 const CommentSchema = yup.object().shape({
   sender: yup.string().required('Sender is required'),
@@ -19,7 +19,7 @@ const useComment = () => {
     register,
     formState: { errors },
     setValue,
-  } = useForm<CommentType>({
+  } = useForm<CommentTypeHook>({
     resolver: yupResolver(CommentSchema),
   });
 
