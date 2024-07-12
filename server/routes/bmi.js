@@ -92,42 +92,48 @@ router.get('/sort', async(req, res)=>{
 
 router.post('/', async (req, res) => {
     try {
-      const { error } = validateBmi(req.body);
-      if (error) {
-        return res.status(400).send(error.details[0].message);
-      }
-  
-      // Check if the phone number is already in the database
-      let phoneNumberCheck = await BmiForm.findOne({ phoneNumber: req.body.phoneNumber });
-      if (phoneNumberCheck) {
-        return res.status(400).send("Such phone number is already registered.");
-      }
-  
-      // Create a new BmiForm 
-      let form = new BmiForm({
-        name: req.body.name,
-        lastName: req.body.lastName,
-        phoneNumber: req.body.phoneNumber,
-        gender: req.body.gender,
-        city: req.body.city,
-        age: req.body.age,
-        height: req.body.height,
-        weight: req.body.weight,
-        abdominalCircumference: req.body.abdominalCircumference,
-        hipcircumference: req.body.hipcircumference,
-        whr: (req.body.abdominalCircumference / req.body.hipcircumference ).toFixed(4),
-        bmi: (req.body.weight / ((req.body.height / 100) ** 2)).toFixed(4), // Calculate BMI in metric units
-        joinedAtJalali: new Date(),
-        joinedAtJalali: momentJalaali().format('jYYYY/jM/jD HH:mm:ss')
-      });
-      form = await form.save();
-      return res.send(form);
-  
+        const { error } = validateBmi(req.body);
+        if (error) {
+            return res.status(400).send(error.details[0].message);
+        }
+
+        // Check if the phone number is already in the database
+        let phoneNumberCheck = await BmiForm.findOne({ phoneNumber: req.body.phoneNumber });
+        if (phoneNumberCheck) {
+            return res.status(400).send("Such phone number is already registered.");
+        }
+
+        // Calculate WHR and BMI
+        const whr = (req.body.abdominalCircumference / req.body.hipcircumference).toFixed(4);
+        const bmi = (req.body.weight / ((req.body.height / 100) ** 2)).toFixed(4);
+
+        // Create a new BmiForm 
+        let form = new BmiForm({
+            name: req.body.name,
+            lastName: req.body.lastName,
+            phoneNumber: req.body.phoneNumber,
+            gender: req.body.gender,
+            city: req.body.city,
+            age: req.body.age,
+            height: req.body.height,
+            weight: req.body.weight,
+            abdominalCircumference: req.body.abdominalCircumference,
+            hipcircumference: req.body.hipcircumference,
+            whr: whr,
+            bmi: bmi,
+            joinedAtGregorian: new Date(),
+            joinedAtJalali: momentJalaali().format('jYYYY/jM/jD HH:mm:ss')
+        });
+
+        form = await form.save();
+        return res.send(form);
+
     } catch (err) {
-      console.error("An error occurred:", err);
-      return res.status(500).send("Internal Server Error");
+        console.error("An error occurred:", err);
+        return res.status(500).send("Internal Server Error");
     }
-  });
+});
+
 
 router.put('/:phoneNumber', async (req, res) => {
     const bmiForm = await BmiForm.findByIdAndUpdate(req.params.phoneNumber, {
