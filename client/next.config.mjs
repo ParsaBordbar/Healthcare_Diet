@@ -6,7 +6,6 @@ const nextConfig = {
   env: {
     DOMAIN_FILES: 'http://localhost:8080/',
   },
-
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
@@ -34,6 +33,22 @@ const nextConfig = {
 
     return config;
   },
+
+  // Remove static export paths for dynamic routes, handled by getStaticPaths
+  async exportPathMap(defaultPathMap) {
+    return {
+      '/': { page: '/' },
+      '/admin/panel': { page: '/admin/panel' },
+      '/admin/panel/bmi': { page: '/admin/panel/bmi' },
+      '/admin/panel/comments': { page: '/admin/panel/comments' },
+      '/admin/panel/mediterranean': { page: '/admin/panel/mediterranean' },
+      '/admin/panel/unvisited_diets': { page: '/admin/panel/unvisited_diets' },
+      '/article': { page: '/article' },
+    };
+  },
+
+  // Add trailing slash for compatibility
+  exportTrailingSlash: true,
 };
 
 export default nextConfig;
