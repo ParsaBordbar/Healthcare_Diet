@@ -170,11 +170,13 @@ const useBmi = () => {
   const handelValueInputs = useCallback(
     async (data: BmiDataType) => {
       try {
-        const response = await api.post("bmi", data);
+        console.log(data);
+        const response = await api.post("/bmi", data);
         push(`/user/${data.phoneNumber}/panel`);
         toast.success("خوش آمدید");
-      } catch {
-        toast.error("An error occurred while submitting the form.");
+      } catch (err:any) {
+        toast.error("مشکلی پیش آمد");
+        console.log(err.message);
       }
     },
     [push]
