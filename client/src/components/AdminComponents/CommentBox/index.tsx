@@ -17,11 +17,7 @@ const CommentBox = ({
   files = [],
 }: CommentType) => {
   const [userData, setUserData] = useState<BmiType>();
-
-  let fetchedData = undefined
-  if(receiver){
-    fetchedData = useSpecificFetchBmi(receiver);
-  }
+  const fetchedData = useSpecificFetchBmi(receiver);
 
   
   useEffect(() => {
