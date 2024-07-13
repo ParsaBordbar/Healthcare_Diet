@@ -68,11 +68,7 @@ const HamburgerNavbar = (props: THamMenu) => {
     }
   }, [user , props.userID]);
 
-
-  let patients = undefined;
-  if (props.userID) {
-    patients = useSpecificFetchBmi(props.userID);
-  }
+   const  patients = useSpecificFetchBmi(props.userID);
 
   const listItemVariants = {
     open: {
