@@ -56,10 +56,19 @@ type THamMenu = {
 };
 
 const HamburgerNavbar = (props: THamMenu) => {
-  const user = localStorage.getItem("user");
   const [userPanel , setUserPanel] = useState('/register/login/enterNumber')
   const [burgerMenuActive, setBurgerMenuActive] = useState(false);
   
+  const [user, setUser] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedUser = localStorage.getItem("user");
+      setUser(storedUser);
+    }
+  }, []);
+
+
   console.log(user)
   useEffect(() => {
     console.log('user' , userPanel)
@@ -68,7 +77,7 @@ const HamburgerNavbar = (props: THamMenu) => {
     }
   }, [user , props.userID]);
 
-   const  patients = useSpecificFetchBmi(props.userID);
+ const  patients = useSpecificFetchBmi(props.userID);
 
   const listItemVariants = {
     open: {
