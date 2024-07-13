@@ -54,7 +54,7 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
       {arr.slice(0, 1).map((form, index) => {
         console.log(form.phoneNumber);
         return (
-          <div
+          <div key={form._id}
             className={`
                   -z-50 opacity-0 transition-all ease-in-out duration-700 ${
                     params.show && "!opacity-100 !z-50 bg-glass"
