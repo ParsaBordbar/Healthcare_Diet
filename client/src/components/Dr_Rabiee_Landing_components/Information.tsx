@@ -7,7 +7,7 @@ function InformationSection() {
   return (
     <section className="relative p-5 bg-[#FEFDF9] my-10">
       <div className="absolute xl:top-20 top-0  right-0 flex items-center xl:w-1/6 md:w-2/6 w-3/6 h-20 bg-[#3531F2] text-white p-2 rounded-l-full border-t border-white rtl">
-      <h6 className="flex items-center font-bold w-full text-2xl text-start ps-10">دکتر محمدرضا ربیعی </h6>
+      <h6 className="flex items-center font-bold w-full sm:text-2xl text-lg text-start lg:ps-10 ">دکتر محمدرضا ربیعی </h6>
       </div>
       <div className="flex justify-evenly min-[1109px]:gap-0 gap-4 min-[1109px]:flex-row flex-col-reverse items-center mt-24">
         <article className="min-[1109px]:w-1/3 w-3/3 min-[1109px]:m-0 mx-auto flex flex-col gap-4 rtl md:text-lg xl:text-xl">
