@@ -22,6 +22,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("token");
   };
 
   console.log("rendering layout of user panel");
@@ -50,15 +51,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
           linkSix={`/`}
         />
         <div className="fixed hidden pb-6  top-0 right-0 h-screen bg-[var(--soft-blue)]  md:flex w-[25%] xl:w-[20%] lg:w-[20%]">
-          {/* <Image
-            src={"/svg/sideBarBanner.svg"}
-            width={80}
-            height={1}
-            layout="fixed"
-            className="object-cover hidden lg:inline rounded-2xl py-2 "
-            alt={""}
-          /> */}
-          <ul className="flex flex-col w-full rounded-lg h-screen py-4 px-3 gap-4 ">
+          <ul className="flex flex-col w-full rounded-lg h-screen py-4 px-3 gap-4">
             <SideBarItems
               className="lg:text-lg md:text-base"
               router={router}

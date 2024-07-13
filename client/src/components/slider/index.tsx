@@ -39,7 +39,7 @@ export const Slider: React.FC<MySliderProps> = ({
       allowTouchMove={true}
     >
       {children?.map((items) => {
-        return <SwiperSlide>{items}</SwiperSlide>;
+        return <SwiperSlide key={anotherProp}>{items}</SwiperSlide>;
       })}
     </Swiper>
   );

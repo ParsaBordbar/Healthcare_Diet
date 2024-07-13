@@ -36,7 +36,7 @@ const nextConfig = {
   },
 
   // Add trailing slash for compatibility
-  exportTrailingSlash: true,
+  trailingSlash: true,
 };
 
 export default nextConfig;
