@@ -10,9 +10,20 @@ import DrLogoMobile from "/public/svg/Dr_Rabiee_Landing/mobileNavLogo.svg";
 import userProfile from "/public/svg/Dr_Rabiee_Landing/person.crop.circle.fill.svg";
 import DocumentIcon from "/public/svg/adminPanelSvgs/document.svg";
 import PersonalIcon from "/public/svg/userPanelSvgs/personal.svg";
+import { useEffect } from "react";
+import { useState } from "react";
 
 function Header() {
-  const user = typeof window !== 'undefined' ? localStorage.getItem("user") : null;
+  
+  const [user, setUser] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedUser = localStorage.getItem("user");
+      setUser(storedUser);
+    }
+  }, []);
+  
   let userPanel = "/register/login/enterNumber";
   
   if (user) {
@@ -55,7 +66,7 @@ function Header() {
             />
           </Link>
         </div>
-        {!user ? (
+        {!user && (
           <Link href={userPanel}>
             <MainButton
               className="py-2 lg:px-[36px] px-4 lg:[&>span]:text-base md:[&>span]:text-sm mt-10"
@@ -64,7 +75,8 @@ function Header() {
               iconSrc={LoginIcon}
             />
           </Link>
-        ) : (
+        )} 
+        {user && (
           <Link href={userPanel}>
             <MainButton
               className="bg-transparent hover:bg-transparent "
