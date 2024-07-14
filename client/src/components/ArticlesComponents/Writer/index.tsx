@@ -3,6 +3,7 @@ import DocPhoto from "/public/images/dr.jpg";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
+import Link from 'next/link';
 
 const Writer = () => {
     return(
@@ -23,18 +24,18 @@ const Writer = () => {
                 </div>
             </div>
             <div className="flex gap-3 lg:mt-8 md:mt-7">
-                <a href="#" className="text-black">
+                <Link href="#" className="text-black">
                 <TelegramIcon className="text-4xl" />
-                </a>
-                <a
+                </Link>
+                <Link
                 href="https://www.instagram.com/dr_rabieefitnessteam?igsh=YmhrajRzN3g0YWl4"
                 className="text-black"
                 >
                 <InstagramIcon className="text-4xl" />
-                </a>
-                <a href="#" className="text-black">
+                </Link>
+                <Link href="#" className="text-black">
                 <LinkedInIcon className="text-4xl" />
-                </a>
+                </Link>
             </div>
         </div>
     )
