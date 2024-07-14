@@ -41,7 +41,11 @@ function PatientId({ params }: { params: { patientId: string } }) {
               height={bmiData?.height}
               abdominalCircumference={bmiData?.abdominalCircumference}
               joinedAtJalali={bmiData?.joinedAtJalali}
-              autoIncrementId={bmiData.autoIncrementId} linkTo={""}            />
+              autoIncrementId={bmiData.autoIncrementId} linkTo={""}       
+              city={bmiData.city}
+              whr={bmiData.whr}  
+              hipcircumference={bmiData.hipcircumference}
+              />
           </>
         ) : (
           <>
