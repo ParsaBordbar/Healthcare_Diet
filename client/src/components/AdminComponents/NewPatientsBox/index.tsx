@@ -30,7 +30,7 @@ function NewPatientsBox() {
           );
         })}
       </main>
-      <Link className="pt-3 text-lg text-blue-600 " href={"./panel/patients"}>
+      <Link className="pt-3 text-lg text-blue-600 " href={"/admin/panel/patients"}>
         دیدن همه بیمارها
       </Link>
     </section>
