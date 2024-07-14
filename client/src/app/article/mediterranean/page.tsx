@@ -36,8 +36,8 @@ const Article = () => {
                     src={MapPic}
                     alt="What's Mediterranean Diet?"
                     className="flex col-start-3 col-span-3  object-cover"
-                    width={5000}    
-                    height={5000}
+                    width={900}    
+                    height={900}
                  />
                 <p className="text-black md:text-lg text-justify text-sm py-6">
                 در بین کشورهای مختلف حوزه مدیترانه، به دلیل تنوع قومی، فرهنگی، اقتصادی و مذهبی، تفاوت­هایی در رژیم غذایی این کشور­ها وجود دارد و همچنین تعریف یکنواختی از رژیم غذایی مدیترانه‌ای در مطالعات منتشر شده وجود ندارد. 
@@ -50,8 +50,8 @@ const Article = () => {
                     src={PyramidPic}
                     alt="What's Mediterranean Diet?"
                     className="flex col-start-3 col-span-3  object-cover"
-                    width={5000}    
-                    height={5000}
+                    width={900}    
+                    height={900}
                 />
                 <p className="text-black md:text-lg text-justify text-sm py-6">
                     یکی از اصلی ترین مؤلفه­های تقویت کننده سلامتی این رژیم زیتون و روغن زیتون است.
@@ -61,8 +61,8 @@ const Article = () => {
                     src={OilPIc}
                     alt="What's Mediterranean Diet?"
                     className="flex col-start-3 col-span-3  object-cover"
-                    width={5000}    
-                    height={5000}
+                    width={900}    
+                    height={900}
                 />
                 <p className="text-black md:text-lg text-justify text-sm">
                 نگاهی به الگوی غذایی مدیترانه نشان میدهد الگوی غذایی مدیترانه ای با فرهنگ مردم ایران بیگانه نمی باشد به دلیل شرایط جغرافیایی و آب و هوایی، مواد غذایی نظیر زیتون، روغن زیتون، ماهی و فرآورده های دریایی، میوه ها و سبزیجات در دسترس مردم این منطقه از جهان می باشد.
@@ -87,8 +87,8 @@ const Article = () => {
                     src={PersianDishPic}
                     alt="What's Mediterranean Diet?"
                     className="flex col-start-3 col-span-3  object-cover"
-                    width={5000}    
-                    height={5000}
+                    width={900}    
+                    height={900}
                 />
                 <p className="text-black text-justify md:text-lg text-sm py-6">
                     در یک کار آزمایی بالینی مایر و همکاران به بررسی اثر 6 ماهه دو رژیم مدیترانه ای و کم چرب بر شاخص های التهاب و بیماری های قلبی-عروقی پرداختند. نتایج این کارآزمایی نشان داد که
