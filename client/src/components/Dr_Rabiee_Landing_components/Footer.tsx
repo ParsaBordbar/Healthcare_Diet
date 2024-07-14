@@ -35,7 +35,7 @@ const Footer = () => {
                 <li className="sm:text-xl text-base list-none font-extrabold sm:list-disc">درباره ما</li>
               </Link>
               <Link href={"#blogs"}>
-                <li className="sm:text-xl text-base list-none font-extrabold sm:list-disc">مقلات</li>
+                <li className="sm:text-xl text-base list-none font-extrabold sm:list-disc">مقالات</li>
               </Link>
             </ul>
           </div>
