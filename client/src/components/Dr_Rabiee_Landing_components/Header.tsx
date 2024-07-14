@@ -19,7 +19,7 @@ function Header() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const storedUser = localStorage.getItem("token");
+      const storedUser = localStorage.getItem("user");
       setUser(storedUser);
     }
   }, []);
