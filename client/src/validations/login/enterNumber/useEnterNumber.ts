@@ -92,7 +92,7 @@ const useEnterNumber = () => {
 
     try {
       const response = await api.get(`/bmi/phone${convertedData.phoneNumber}`);
-      localStorage.removeItem('user');
+      
       if (response && response.data) {
         localStorage.setItem('user', response.data.phoneNumber);
         const smsData = {
@@ -101,20 +101,24 @@ const useEnterNumber = () => {
         };
         toast.success("خوش آمدید");
         push("/register/login/enterTheCode");
-        const sendCode = await api.post('/sms/send', smsData);
+        await api.post('/sms/send', smsData);
         toast.clearWaitingQueue();
       }
-    } catch (error) {
-      console.error("Error fetching phone number:", error);
-      localStorage.removeItem('user');
-      toast.clearWaitingQueue();
-      toast.info("شماره تماس یافت نشد، لطفا اطلاعات خود را وارد کنید");
-      push("/register/login/enterTheCode");
-      const smsData = {
-        receptor: convertedData.phoneNumber,
-        token,
-      };
-      const sendCode = await api.post('/sms/send', smsData);
+    } catch (error:any) {
+      if (error.response && error.response.status === 404) {
+        toast.error("شماره تماس پیدا نشد");
+        toast.success("خوش آمدید");
+        push("/register/login/enterTheCode");
+        const smsData = {
+          receptor: convertedData.phoneNumber,
+          token,
+        };
+        await api.post('/sms/send', smsData);
+        toast.clearWaitingQueue();
+      } else {
+        console.error("Error fetching phone number:", error);
+        toast.error("خطایی رخ داده است، دوباره تلاش کنید");
+      }
     }
   }, [push]);
 
