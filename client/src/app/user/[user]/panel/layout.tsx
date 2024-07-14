@@ -8,6 +8,7 @@ import LogOutIcon from "/public/svg/userPanelSvgs/LogOut.svg";
 import SideBarItems from "@/components/SidebarItems";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import useAuth from "@/hooks/useAuth";
 
 interface LayoutUserProps {
   children: ReactNode;
@@ -19,6 +20,8 @@ interface LayoutUserProps {
 const LayoutUser = ({ children, params }: LayoutUserProps) => {
   const { user } = params;
   const router = usePathname();
+  useAuth();
+  console.log('obergepi')
 
   const handleLogout = () => {
     localStorage.removeItem("user");
