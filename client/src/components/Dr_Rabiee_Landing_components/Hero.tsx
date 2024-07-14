@@ -1,12 +1,28 @@
-import React from "react";
+'use client'
+import React, { useEffect } from "react";
 import Image from 'next/image';
 import HeroImg from '/public/images/Hero.jpg';
 import Kashi from '/public/images/kashi.png'
 import Link from "next/link";
 import MainButton from "../MainButton";
 import PointerSvg from "/public/svg/Dr_Rabiee_Landing/HeroPointer.svg"
+import { useState } from "react";
 
 function MainSection() {
+  const [user, setUser] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedUser = localStorage.getItem("user");
+      setUser(storedUser);
+    }
+  }, []);
+  
+  let userPanel = "/register/login/enterNumber";
+  if (user) {
+    userPanel = `/user/${user}/panel/diets/`;
+  }
+
   return (
     <div className="flex justify-center items-center flex-row w-full bg-hero-bg-mobile md:bg-clip-border bg-cover bg-[#FEFDF9] lg:bg-none md:px-8 mt-10">
       <div className="md:grid 2xl:grid-cols-7 xl:grid-cols-5 md:grid-cols-2 grid-cols-1 ps-2 flex flex-col-reverse">
@@ -31,10 +47,18 @@ function MainSection() {
               برنامه شخصی سازشده خود را دریافت کنید،  
               ما در هر مرحله با شماییم!</p>
             </div>
-            <Link href="/register/login/enterNumber">
+            {
+              user?(
+                <Link href={userPanel}>
+                  <MainButton className="border border-[#FFA301] rounded-lg font-extrabold shadow-md px-9 py-2 bg-[#FFA301] hover:border-[var(--secondary-blue)] modern hover:bg-[var(--secondary-blue)] text-white transition-colors duration-300 w-[186px] h-[54px] md:w-full md:h-full"
+                    value={"دریافت رژیم"} />
+                </Link>
+              ):
+              <Link href={userPanel}>
               <MainButton className="border border-[#FFA301] rounded-lg font-extrabold shadow-md px-9 py-2 bg-[#FFA301] hover:border-[var(--secondary-blue)] modern hover:bg-[var(--secondary-blue)] text-white transition-colors duration-300 w-[186px] h-[54px] md:w-full md:h-full"
                 value={"دریافت رژیم"} />
-            </Link>
+              </Link>
+            }
             <PointerSvg className="relative md:flex right-36 top-3 hidden"/>
           </div>
 
