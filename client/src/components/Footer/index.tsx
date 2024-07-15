@@ -18,7 +18,7 @@ const Footer = () => {
               {" "}
               گاز سلامتی{" "}
             </mark>
-            قیمت برابری <br></br>با یک ساعت مشاوره با متخصص تغذیه دارد
+            قیمت برابری <br></br>با یک ساعت مشاوره با مشاور تغذیه دارد
           </h1>
         </div>
         <section className="flex w-full gap-14 flex-col bg-[var(--bg-footer-color)] py-12 ">

@@ -18,7 +18,7 @@ const Hero = () => {
                 ساده شد!{" "} 
                 </h2>
                 <p className="flex justify-center items-center sm:ps-14 ps-6 pe-2 md:ps-0">
-                برنامه شخصی سازشده خود را دریافت کنید،متخصصین ما در هر مرحله با شما!
+                برنامه شخصی سازشده خود را دریافت کنید،مشاورین ما در هر مرحله با شما!
                 </p>
                 <Link href={'register/login/enterNumber'}>
                   <MainButton
