@@ -6,13 +6,13 @@ import Image from 'next/image';
 
 const StoryBox = ({ title, bodyText, img  , id, url}: TextBoxType) => {
   return (
-    <div className="flex bg-[#e9eff0] flex-col rounded-2xl gap-4 py-4 px-2.5 justify-center items-center w-[280px] sm:w-[394px]">
+    <div className="flex bg-[#e9eff0] flex-col rounded-2xl gap-4 py-4 px-2.5 justify-center items-center w-[280px] sm:w-[394px] max-w-2xl">
       {/* <div className="w-fit">{img}</div> */}
       {/* <img src={img} alt="" className="rounded-3xl -mt-10" /> */}
       <Image
           src={img}
           alt="Story Box Picture"
-          className="flex object-cover h-64"
+          className="flex object-cover h-64 "
           width={5000}    
           height={5000}
       />
