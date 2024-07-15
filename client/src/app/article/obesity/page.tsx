@@ -24,7 +24,7 @@ const Obesity = () => {
                 و
                 اصلاح شیوه­ی زندگی جز با تغذیه مناسب، فعالیت بدنی و دوری از استرس حاصل نمی­شود      
                 </p>
-                <ul className='md:text-lg text-sm text-justify px-10'>
+                <ul className='md:text-lg text-sm text-justify md:px-10 px-4'>
                     <li className='list-disc text-justify'>شیوع بیما‌ری‌های قلبی-عروقی در افراد چاق در مقایسه با اشخاص دارای وزن طبیعی 5 برابر بیشتر است.</li>
                     <li className='list-disc text-justify'>گزارش شده است 25 تا 35 درصد از سرطان‌های سینه، روده بزرگ و مری به دلیل عدم تحرک و چاقی است.</li>
                     <li className='list-disc text-justify'>علاوه بر این چاقی می‌تواند مشکلات دیگری از جمله بیماری کیسه صفرا و سندروم‌ متابولیک را به‌ وجود آورد.</li>
@@ -33,7 +33,7 @@ const Obesity = () => {
                 <p className="text-black md:text-lg text-justify text-sm pt-3">
                 شروع سندروم متابولیک دارای علائمی مانند:
                 </p>
-                <ul className='md:text-lg text-sm text-justify px-10'>
+                <ul className='md:text-lg text-sm text-justify md:px-10 px-4'>
                     <li className='list-disc text-justify'> چاقی به ویژه چاقی شکمی (چاقی سیبی شکل)</li>
                     <li className='list-disc text-justify'>افزایش فشار خون </li>
                     <li className='list-disc text-justify'>کبد چرب</li>

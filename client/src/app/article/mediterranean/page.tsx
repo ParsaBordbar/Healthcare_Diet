@@ -68,7 +68,7 @@ const Article = () => {
                 نگاهی به الگوی غذایی مدیترانه نشان میدهد الگوی غذایی مدیترانه ای با فرهنگ مردم ایران بیگانه نمی باشد به دلیل شرایط جغرافیایی و آب و هوایی، مواد غذایی نظیر زیتون، روغن زیتون، ماهی و فرآورده های دریایی، میوه ها و سبزیجات در دسترس مردم این منطقه از جهان می باشد.
                 </p>
                 <p className="text-black text-justify md:text-lg text-sm font-extrabold pt-8">مثال غذای ایرانی:</p>
-                <ul className='md:text-lg text-sm text-justify px-10'>
+                <ul className='md:text-lg text-sm text-justify md:px-10 px-4'>
                     <li className='list-disc text-justify'>خورشت قیمه بادمجان (با مرغ) + برنج سبوسدار + سالاد شیرازی با روغن زیتون</li>
                     <li className='list-disc text-justify'>نان سنگگ + تخم مرغ + گوجه فرنگی + زیتون یا روغن زیتون</li>
                     <li className='list-disc text-justify'>خوراک عدسی + روغن زیتون + نان سنگک + فلفل دلمه</li>
@@ -78,7 +78,7 @@ const Article = () => {
                 <p className="text-black text-justify md:text-lg text-sm font-extrabold pt-8">
                 سالاد مدیترانه ای :
                 </p>
-                <ul className='md:text-lg text-sm text-justify px-10 pb-8'>
+                <ul className='md:text-lg text-sm text-justify md:px-10 px-4 pb-8'>
                     <li className='list-disc text-justify'>سالاد سزار + روغن زیتون</li>
                     <li className='list-disc text-justify'>سالاد یونانی + روغن زیتون</li>
                     <li className='list-disc text-justify'>سالاد یونانی + روغن زیتون</li>
