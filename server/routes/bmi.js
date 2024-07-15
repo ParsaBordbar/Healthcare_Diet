@@ -73,7 +73,7 @@ router.get('/sort', async(req, res)=>{
         return res.send(response)
     }
     if(req.query.sort == 'newest'){
-        const response = await BmiForm.find().sort({ joinedAtJalali: -1 });
+        const response = await BmiForm.find().sort(-1);
         if (response.length > 0) {
             return res.status(200).send(response);
             } else {
@@ -81,7 +81,7 @@ router.get('/sort', async(req, res)=>{
         }
     }
     if(req.query.sort == 'oldest'){
-        const response = await BmiForm.find().sort({ joinedAtJalali: 1 });
+        const response = await BmiForm.find().sort(1);
         if (response.length > 0) {
             return res.status(200).send(response);
             } else {
