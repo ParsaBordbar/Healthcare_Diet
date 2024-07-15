@@ -50,11 +50,11 @@ export const DataStory = [
   },
   {
     id: 3,
-    img: "/images/articleHeaderPic.jpg",
-    title: "رژيم مديترانه اى چيست؟",
+    img: "/images/articles/9.png",
+    title: "مقالات تخصصی",
     bodyText:
-    "رژيم مديترانه اى يک الگوى غذايى است كه مواد غذايى گياهى از جمله ...",
-    url: "../../../article/mediterranean/"
+    "در مطالعه ربیعی و همکاران بر روی 47 زن، دارای اضافه وزن و...",
+    url: "../../../article/professional/"
   },
   {
     id: 4,
@@ -70,6 +70,14 @@ export const DataStory = [
     bodyText:
     "رژيم مديترانه اى يک الگوى غذايى است كه مواد غذايى گياهى از جمله ...",
     url: "../../../article/mediterranean/"
+  },
+  {
+    id: 6,
+    img: "/images/articles/9.png",
+    title: "مقالات تخصصی",
+    bodyText:
+    "در مطالعه ربیعی و همکاران بر روی 47 زن، دارای اضافه وزن و...",
+    url: "../../../article/professional/"
   },
 ];
 
