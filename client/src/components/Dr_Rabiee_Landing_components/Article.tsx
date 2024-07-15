@@ -27,6 +27,7 @@ function ArticleSlider() {
               title={items.title}
               bodyText={items.bodyText}
               img={items.img}
+              url={items.url}
             />
             // </SwiperSlide>
           );
