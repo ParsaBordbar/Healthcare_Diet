@@ -41,18 +41,18 @@ const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
             <QuickLinkBox
               tittle={"برنامه‌ها"}
               desc={"تمام فعالیت‌ها و برنامه‌های شما "}
-              url={`/user/${userID}/panel/plane`}
+              url={`/user/${userID}/panel/plans/`}
               counter={comments.length}
             />
           </li>
-          <li className="col-span-full md:col-span-2 lg:col-span-1">
+          {/* <li className="col-span-full md:col-span-2 lg:col-span-1">
             <QuickLinkBox
               tittle={"مشاوره"}
               desc={"نیاز به راهنمایی دارید؟  با ما ارتباط برقرار کنید"}
               url={`/user/${userID}/panel/massege`}
               counter={comments.length}
             />
-          </li>
+          </li> */}
         </ul>
         <div className="col-span-full grid grid-cols-8 gap-8 mt-4">
           <div className="xl:col-span-2 col-span-full flex flex-col gap-4">

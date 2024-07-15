@@ -49,7 +49,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
           linkOne={"/"}
           linkThree={`/user/${user}/panel`}
           linkFour={`/user/${user}/panel/massege`}
-          linkFive={`/user/${user}/panel/plans`}
+          linkFive={`/user/${user}/panel/plans/`}
           linkTwo={`/user/${user}/panel/diets`}
           linkSix={`/`}
         />
