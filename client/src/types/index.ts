@@ -14,6 +14,7 @@ export type TextBoxType = {
   title: string;
   bodyText: string;
   img: any | ReactElement;
+  url: string;
 };
 
 export type BmiLandingDataType = {
