@@ -41,10 +41,10 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
           iconFive={DocumentIcon}
           iconFour={DocumentIcon}
           iconSix={DocumentIcon}
-          valueTwo="رژیم ها"
+          valueTwo="پرسشنامه"
           valueThree="پروفایل شخصی"
           valueFour="پیام ها"
-          valueFive="برنامه ها"
+          valueFive="برنامه غذایی"
           valueSix="مشاوره"
           linkOne={"/"}
           linkThree={`/user/${user}/panel`}
@@ -72,14 +72,14 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
             <SideBarItems
               className="lg:text-lg md:text-base"
               router={router}
-              value={"رژیم ها"}
+              value={"پرسشنامه"}
               href={`/user/${user}/panel/diets`}
               icon={DocumentIcon}
             />
             <SideBarItems
               className="lg:text-lg md:text-base"
               router={router}
-              value={"برنامه های شما"}
+              value={"برنامه غذایی"}
               href={`/user/${user}/panel/plans`}
               icon={DocumentIcon}
             />

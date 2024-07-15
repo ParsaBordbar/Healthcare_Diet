@@ -115,11 +115,10 @@ function Header() {
             iconSix={DocumentIcon}
             iconSeven={AboutUsIcon}
             iconEight={Blogs}
-            valueTwo="رژیم ها"
+            valueTwo="پرسشنامه"
             valueThree="پروفایل شخصی"
             valueFour="پیام ها"
-            valueFive="برنامه ها"
-            valueSix="مشاوره"
+            valueFive="برنامه غذایی"
             valueSeven="درباره ما"
             linkSeven="/#info"
             valueEight="بلاگ ها"
@@ -129,7 +128,6 @@ function Header() {
             linkFour={`/user/${user}/panel/massege`}
             linkFive={`/user/${user}/panel/plans`}
             linkTwo={`/user/${user}/panel/diets`}
-            linkSix={`/`}
           />
         )}
       </div>
