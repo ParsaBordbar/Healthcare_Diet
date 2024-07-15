@@ -5,9 +5,6 @@ import MapPic from '/public/images/articles/2.png'
 import HeaderPic from '/public/images/articles/header.png'
 import PersianDishPic from '/public/images/articles/6.png'
 import Writer from '@/components/ArticlesComponents/Writer';
-import MediIsBetter from '/public/images/articles/7.png'
-import MediIsBetter2 from '/public/images/articles/8.png'
-import InternalPic from '/public/images/articles/9.png'
 
 
 const Article = () => {
@@ -27,8 +24,7 @@ const Article = () => {
             <div className="flex flex-col gap-3">
                 <p className="text-black md:text-lg text-justify text-sm py-6">
                 امروزه در مطالعات به الگوهای غذایی توجه می شود 
-                یکی از این الگوهای غذایی، الگوی غذایی مدیترانه ای می باشد
-                رژیم غذایی مدیترانه ای
+                .یکی از این الگوهای غذایی، الگوی غذایی مدیترانه ای می باشد
                 رژیم غذایی مدیترانه‌ای از نوع تغذیه سنتی مردم یونان، اسپانیا، ایتالیا، ترکیه، سوریه و مراكش الهام گرفته شده است.
                 اساس این رژیم بر مصرف نسبتاً بالای روغن زیتون، حبوبات، غلات كامل، میوه‌ها و سبزیجات، مصرف متوسط ماهی و محصولات لبنی بخصوص ماست و پنیر، و نیز مصرف بسیار كم گوشت و محصولات گوشتی استوار است.
                 </p>
@@ -54,7 +50,7 @@ const Article = () => {
                     height={900}
                 />
                 <p className="text-black md:text-lg text-justify text-sm py-6">
-                    یکی از اصلی ترین مؤلفه­های تقویت کننده سلامتی این رژیم زیتون و روغن زیتون است.
+                    یکی از اصلی ترین مؤلفه­‌های تقویت کننده سلامتی این رژیم زیتون و روغن زیتون است.
                     مصرف منظم روغن زیتون ممکن است باعث کاهش مرگ و میر و خطر ابتلا به سرطان، CVD، بازسازی اعصاب، عصب زایی و کاهش چندین بیماری مزمن دیگر شود. 
                 </p>
                 <Image
@@ -75,55 +71,25 @@ const Article = () => {
                     <li className='list-disc text-justify'>ماهی شوریده + برنج رنگی + ترشی سیر + زیتون</li>
                     <li className='list-disc text-justify'>میرزا قاسمی + روغن زیتون + نان سنگک</li>
                 </ul>
-                <p className="text-black text-justify md:text-lg text-sm font-extrabold pt-8">
+                <Image
+                    src={PersianDishPic}
+                    alt="What's Mediterranean Diet?"
+                    className="flex col-start-3 col-span-3 py-4 object-cover"
+                    width={900}    
+                    height={900}
+                />
+                <p className="text-black text-justify md:text-lg text-sm font-extrabold pt-3">
                 سالاد مدیترانه ای :
                 </p>
-                <ul className='md:text-lg text-sm text-justify md:px-10 px-4 pb-8'>
+                <ul className='md:text-lg text-sm text-justify md:px-10 px-2 pb-3'>
                     <li className='list-disc text-justify'>سالاد سزار + روغن زیتون</li>
                     <li className='list-disc text-justify'>سالاد یونانی + روغن زیتون</li>
                     <li className='list-disc text-justify'>سالاد یونانی + روغن زیتون</li>
                 </ul>
-                <Image
-                    src={PersianDishPic}
-                    alt="What's Mediterranean Diet?"
-                    className="flex col-start-3 col-span-3  object-cover"
-                    width={900}    
-                    height={900}
-                />
                 <p className="text-black text-justify md:text-lg text-sm py-6">
                     در یک کار آزمایی بالینی مایر و همکاران به بررسی اثر 6 ماهه دو رژیم مدیترانه ای و کم چرب بر شاخص های التهاب و بیماری های قلبی-عروقی پرداختند. نتایج این کارآزمایی نشان داد که
                     رژیم غذایی مدیترانه ای به نسبت رژیم کم چرب سطوح فاکتورهای التهابی کاهش بیشتری داشت 
                 </p>
-                <Image
-                    src={MediIsBetter}
-                    alt="What's Mediterranean Diet?"
-                    className="flex col-start-3 col-span-3  object-cover"
-                    width={5000}    
-                    height={5000}
-                />
-                <p className="text-black text-justify md:text-lg text-sm py-6">
-                همچنین در یک کارآزمایی بالینی ویتاله و همکاران، متشکل از 2568 فرد دیابتی نوع 2، نشان داده شد افرادی که بیشتر از الگوی غذایی مدیترانه ای تبعیت می کنند، میزان پایین تری از پروفایل لیپیدی، هموگلوبین HbA1C و شاخص توده بدنی برخوردار هستند
-                </p>
-                <Image
-                    src={MediIsBetter2}
-                    alt="What's Mediterranean Diet?"
-                    className="flex col-start-3 col-span-3  object-cover"
-                    width={5000}    
-                    height={5000}
-                />
-
-                <p className="text-black text-justify md:text-lg text-sm py-6">
-                در مطالعه ربیعی و همکاران بر روی 47 زن، دارای اضافه وزن و چاق
-                8 هفته مداخله رژیم غذایی مدیترانه ای  و فعالیت ورزشی HIIT 
-                باعث کاهش توده چربی بدن در گروه ترکیب رژیم غذایی مدیترانه ای و فعالیت ورزشی شد  
-                </p>
-                <Image
-                    src={InternalPic}
-                    alt="What's Mediterranean Diet?"
-                    className="flex col-start-3 col-span-3  object-cover"
-                    width={5000}    
-                    height={5000}
-                />
             </div>
         </>
     )
