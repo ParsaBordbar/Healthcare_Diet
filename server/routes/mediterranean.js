@@ -47,7 +47,7 @@ router.get('/sort', async(req, res)=>{
         return res.send(response)        
     }
     if(req.query.sort == 'newest'){
-        const response = await MediterraneanForm.find({ createdAtJalali: {$exists: true, $ne: null }})
+        const response = await MediterraneanForm.find().sort({ _id: -1 })
         if (response.length > 0) {
             return res.status(200).send(response);
             } else {
@@ -55,7 +55,7 @@ router.get('/sort', async(req, res)=>{
         }
     }
     if(req.query.sort == 'oldest'){
-        const response = await MediterraneanForm.find({ createdAtJalali: {$exists: true, $ne: null }});
+        const response = await MediterraneanForm.find().sort({ _id: 1 })
         if (response.length > 0) {
             return res.status(200).send(response);
             } else {
