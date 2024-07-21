@@ -31,6 +31,7 @@ interface FormValues {
   redMeatWeekly: string;
   sugarWeekly: string;
   alcoholWeekly: string;
+  fastFoodWeekly: string;
   fermentationWeekly: string;
   physicalActivity: string;
   diabetes: string;
@@ -72,6 +73,7 @@ const mediterraneanSchema = yup.object().shape({
   redMeatWeekly: yup.string().required("جواب به این سوال الزامی است"),
   sugarWeekly: yup.string().required("جواب به این سوال الزامی است"),
   alcoholWeekly: yup.string().required("جواب به این سوال الزامی است"),
+  fastFoodWeekly: yup.string().required("جواب به این سوال الزامی است"),
   fermentationWeekly: yup.string().required("جواب به این سوال الزامی است"),
   physicalActivity: yup.string().required("جواب به این سوال الزامی است"),
   diabetes: yup.string().required("جواب به این سوال الزامی است"),
@@ -138,6 +140,7 @@ const useMediterraneanForm = () => {
       redMeatWeekly: "",
       sugarWeekly: "",
       alcoholWeekly: "",
+      fastFoodWeekly: "",
       fermentationWeekly: "",
       physicalActivity: "",
       diabetes: "ندارم",
