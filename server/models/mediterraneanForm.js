@@ -189,6 +189,15 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     medicine: {
         type: String
     },
+    foodAllergies:{
+        type: String
+    },
+    pregnancyWeeks:{
+        type: String
+    },
+    breastfeeding:{
+        type: String
+    },
     phoneNumber: {
         type: String,
         required: true,
