@@ -74,8 +74,7 @@ const useSearchMediterranean = (filterUrl: string) => {
 
   const newestFilterHandler = async () => {
     const data: MediterraneanFormType[] = await fetchFilteredData(`${filterUrl}?sort=newest`);
-    const reverse = data.reverse()
-    setFilter(reverse);
+    setFilter(data);
   };
 
   const oldestFilterHandler = async () => {
