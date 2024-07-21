@@ -644,6 +644,50 @@ const MediterranealForm = () => {
         ) : null}
       </div>
 
+
+      <div className="flex flex-col gap-4">
+        <h1>مصرف فست فود به صورت هفتگی ؟</h1>
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
+          <GroupRadio
+            name="fastFoodWeekly"
+            checked={values.fastFoodWeekly === " ۱-۲ بار"}
+            onChange={handleChange}
+            header={false}
+            type="radio"
+            value={" ۱-۲ بار"}
+          />
+          <GroupRadio
+            name="fastFoodWeekly"
+            checked={values.fastFoodWeekly === "۳-۴ بار"}
+            onChange={handleChange}
+            header={false}
+            type="radio"
+            value={"۳-۴ بار"}
+          />
+
+          <GroupRadio
+            name="fastFoodWeekly"
+            checked={values.fastFoodWeekly === "هر روز"}
+            onChange={handleChange}
+            header={false}
+            type="radio"
+            value={"هر روز"}
+          />
+          <GroupRadio
+            name="fastFoodWeekly"
+            checked={values.fastFoodWeekly === "یک روز در ماه یا هیچ"}
+            onChange={handleChange}
+            value={"یک روز در ماه یا هیچ"}
+            type="radio"
+            header
+          />
+        </section>
+        {errors.fastFoodWeekly ? (
+          <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
+        ) : null}
+      </div>
+
+
       <div className="flex flex-col gap-4">
         <h1>
           مصرف محصوالت تخمیری به صورت هفتگی {"(ترشیجات و لبنیات پروبیوتیک)؟"}
