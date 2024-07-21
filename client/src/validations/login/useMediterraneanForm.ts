@@ -224,8 +224,8 @@ const useMediterraneanForm = () => {
         );
 
         if (response.status === 200) {
-          toast.success("رژیم با موفقیت ثبت شد");
           push(`/user/${phoneNumber}/panel/plans/`);
+          toast.success("رژیم با موفقیت ثبت شد");
         } else {
           throw new Error("مشکلی به وجود آمد دوباره تلاش کنید");
         }
