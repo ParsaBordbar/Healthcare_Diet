@@ -1102,10 +1102,32 @@ const MediterranealForm = () => {
             label="چنانچه دارویی مصرف می کنید نام آن را ذکر کنید"
           />
           <MainInput
+            name="foodAllergies"
+            parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
+            onChange={handleChange}
+            type="text"
+            label="چنانچه حساسیت غذایی دارید، نام آن را ذکر نمایید؟ "
+          />
+          <MainInput
+            name="pregnancyWeeks"
+            parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
+            onChange={handleChange}
+            type="text"
+            label="در صورت بارداری، چندمین ماه بارداری را می گذرانید؟"
+          />
+          <MainInput
+            name="breastfeeding"
+            parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
+            onChange={handleChange}
+            type="text"
+            label="در صورت شیردهی، چندمین ماه شیردهی را می گذرانید؟"
+          />
+          
+          <MainInput
             type="file"
             name="documents"
             multiple
-            parentClassName="col-span-full [&>label]:text-base"
+            parentClassName="col-span-2 [&>label]:text-base"
             onChange={handleFileChange}
             label="آخرین آزمایشات ارسال شود "
           />
