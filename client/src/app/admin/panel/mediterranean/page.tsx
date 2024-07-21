@@ -129,6 +129,9 @@ const MediterraneanFormsPage = () => {
             dietBmi={form.dietBmi}
             payment={form.payment}
             _id={form._id}
+            foodAllergies={form.foodAllergies}
+            pregnancyWeeks={form.pregnancyWeeks}
+            breastfeeding={form.breastfeeding}
             />
         );
       })}
