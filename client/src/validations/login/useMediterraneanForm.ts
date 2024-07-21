@@ -47,6 +47,9 @@ interface FormValues {
   Migraine?: boolean;
   otherSickness?: string;
   medicine?: string;
+  foodAllergies?: string;
+  pregnancyWeeks?: string;
+  breastfeeding?: string;
   phoneNumber: string;
   age: string;
   height: string | "";
@@ -93,6 +96,9 @@ const mediterraneanSchema = yup.object().shape({
   Migraine: yup.boolean(),
   otherSickness: yup.string(),
   medicine: yup.string(),
+  foodAllergies: yup.string(),
+  pregnancyWeeks: yup.string(),
+  breastfeeding: yup.string(),
   phoneNumber: yup.string(),
   age: yup.string().required("سن الزامی است"),
   height: yup.string().required("قد الزامی است"),
@@ -156,6 +162,9 @@ const useMediterraneanForm = () => {
       Migraine: false,
       otherSickness: "",
       medicine: "",
+      foodAllergies: "",
+      pregnancyWeeks: "",
+      breastfeeding:"",
       phoneNumber: phoneNumber || "",
       age: "",
       height: "",
