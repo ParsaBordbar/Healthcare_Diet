@@ -77,6 +77,7 @@ router.post("/upload/type", uploader.fields([{ name: 'document', maxCount: 5 }, 
                 redMeatWeekly: req.body.redMeatWeekly,
                 sugarWeekly: req.body.sugarWeekly,
                 alcoholWeekly: req.body.alcoholWeekly,
+                fastFoodWeekly: req.body.fastFoodWeekly,
                 fermentationWeekly: req.body.fermentationWeekly,
                 supplements: req.body.supplements,
                 physicalActivity: req.body.physicalActivity,
@@ -89,8 +90,8 @@ router.post("/upload/type", uploader.fields([{ name: 'document', maxCount: 5 }, 
                 fattyLiver: req.body.fattyLiver,
                 kidneyProblems: req.body.kidneyProblems,
                 thyroid: req.body.thyroid,
-                cancer: req.body.cancer === "true", 
-                Migraine: req.body.Migraine === "true", 
+                cancer: req.body.cancer === "false", 
+                Migraine: req.body.Migraine === "false", 
                 otherSickness: req.body.otherSickness,
                 medicine: req.body.medicine,
                 phoneNumber: req.body.phoneNumber,
@@ -120,4 +121,4 @@ router.post("/upload/type", uploader.fields([{ name: 'document', maxCount: 5 }, 
     }
 });
 
-module.exports = router;
+module.exports = router
