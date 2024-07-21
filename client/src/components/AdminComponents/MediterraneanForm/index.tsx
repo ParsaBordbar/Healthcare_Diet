@@ -46,6 +46,9 @@ const MediterraneanForm = ({
   Migraine,
   otherSickness,
   medicine,
+  foodAllergies,
+  pregnancyWeeks,
+  breastfeeding,
   phoneNumber,
   isChecked,
   createdAtGregorian,
@@ -232,6 +235,24 @@ const MediterraneanForm = ({
               <p className=" w-fit text-sm sm:text-base">داروهای مصرفی بیمار :</p>
               <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {medicine}</p>
             </li>
+            {
+              foodAllergies&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
+              <p className=" w-fit text-sm sm:text-base">آلرژی‌های بیمار:</p>
+              <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {foodAllergies}</p>
+              </li>
+            }
+            {
+              pregnancyWeeks&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
+              <p className=" w-fit text-sm sm:text-base">تعداد هفته‌های بارداری بیمار:</p>
+              <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {pregnancyWeeks}</p>
+              </li>
+            }
+            {
+              breastfeeding&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
+              <p className=" w-fit text-sm sm:text-base">تعداد هفته‌های بارداری بیمار:</p>
+              <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {breastfeeding}</p>
+              </li>
+            }
           </ul>
         </li>
         <div className="pe-6 py-2 flex justify-start flex-col">
