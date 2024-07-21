@@ -123,6 +123,9 @@ export interface MediterraneanFormType {
   Migraine?: boolean;
   otherSickness?: String;
   medicine?: String;
+  foodAllergies:String,
+  pregnancyWeeks:String,
+  breastfeeding:String,
   phoneNumber: string;
   isChecked: boolean;
   createdAtGregorian?: string;
