@@ -53,6 +53,9 @@ function UnvisitedDiets() {
             createdAtJalali={form.createdAtJalali}
             payment={form.payment}
             dietBmi={form.dietBmi}
+            foodAllergies={form.foodAllergies} 
+            pregnancyWeeks={form.pregnancyWeeks}
+            breastfeeding={form.breastfeeding}
             _id={form._id}
           />
         );
