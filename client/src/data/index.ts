@@ -53,7 +53,7 @@ export const DataStory = [
     img: "/images/articles/9.png",
     title: "مقالات تخصصی",
     bodyText:
-    "در مطالعه ربیعی و همکاران بر روی 47 زن، دارای اضافه وزن و...",
+    "در مطالعه ربیعی و همکاران بر روی 47 زن، دارای اضافه وزن و چاق 8 هفته ...",
     url: "../../../article/professional/"
   },
   {
@@ -76,7 +76,7 @@ export const DataStory = [
     img: "/images/articles/9.png",
     title: "مقالات تخصصی",
     bodyText:
-    "در مطالعه ربیعی و همکاران بر روی 47 زن، دارای اضافه وزن و...",
+    "در مطالعه ربیعی و همکاران بر روی 47 زن، دارای اضافه وزن و چاق 8 هفته ...",
     url: "../../../article/professional/"
   },
 ];
