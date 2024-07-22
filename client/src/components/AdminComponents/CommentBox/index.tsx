@@ -95,7 +95,7 @@ const CommentBox = ({
                   onClick={() => {
                     download(
                       `${process.env.DOMAIN_FILES}${file.path}`,
-                      "رژیم مدیترانه ای.png"
+                      `${file.filename}`
                     );
                   }}
                   download={file.originalName}
