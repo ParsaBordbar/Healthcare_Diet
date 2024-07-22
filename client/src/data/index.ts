@@ -80,7 +80,6 @@ export const DataStory = [
     url: "../../../article/professional/"
   },
 ];
-
 export const DataCheck = [
   {
     id: '1',

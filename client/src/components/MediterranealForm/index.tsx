@@ -12,6 +12,7 @@ const MediterranealForm = () => {
     handleSubmit,
     handleFileChange,
     paymentError,
+    ...formik
   } = useMediterraneanForm();
 
   return (
@@ -1216,13 +1217,26 @@ const MediterranealForm = () => {
         </div>
         {paymentError && <div style={{ color: "red" }}>{paymentError}</div>}
       </section>
-
-      <MainButton
+      {formik.isSubmitting ? 
+        <MainButton
         modern
         className="py-2.5 !text-xl !text-white col-span-5 w-full"
-        value={"ثبت فرم"}
+        value={"در حال ارسال..." }
         type="submit"
-      />
+        disabled={formik.isSubmitting}
+      />:
+      <MainButton
+              modern
+              className="py-2.5 !text-xl !text-white col-span-5 w-full"
+              value={"ثبت فرم"}
+              type="submit"
+              disabled={formik.isSubmitting}
+            />
+      
+      // <button type="submit" disabled={formik.isSubmitting}>
+      //   {formik.isSubmitting ? "در حال ارسال..." : "ارسال"}
+      // </button>
+}
     </form>
   );
 };

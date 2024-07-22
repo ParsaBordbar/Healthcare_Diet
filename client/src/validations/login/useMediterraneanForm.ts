@@ -211,7 +211,7 @@ const useMediterraneanForm = () => {
       if (selectedPayment) {
         formData.append("payment", selectedPayment);
       }
-
+      
       try {
         const response = await api.post(
           "/uploader/upload/type?type=mediterranean",
