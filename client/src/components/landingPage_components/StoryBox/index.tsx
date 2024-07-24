@@ -22,14 +22,12 @@ const StoryBox = ({ title, bodyText, img  , id, url}: TextBoxType) => {
         </h3>
         <p className="sm:text-xl text-base">{bodyText}</p>
       </div>
-      <Link href={"./"} className="self-start px-6 py-2">
-        <div className="flex sm:text-base text-sm items-center gap-3">
+        <div className="flex sm:text-base self-start px-6 py-2 text-sm items-center gap-3">
           <Arrow />
           <Link href={`${url}`}>
             <p>ادامه مطلب</p>
           </Link>
         </div>
-      </Link>
     </div>
   );
 };
