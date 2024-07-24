@@ -52,6 +52,7 @@ const useAdmin = () => {
     console.log(data);
     if (data.username == "admin" && data.password == "admin") {
       push("/admin/panel");
+      localStorage.setItem("admin", "admin");
       toast.success("خوش آمدید");
     }
   }, []);
