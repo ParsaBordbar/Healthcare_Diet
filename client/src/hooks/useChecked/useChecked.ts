@@ -6,16 +6,16 @@ const useCheckedState = (initialChecked: boolean, id: string) => {
 
   useEffect(() => {
     const updateCheckedStatus = async () => {
+      console.log(id);
       try {
-        const response = await api.put(`mediterranean/edit/${id}`, {
-          isChecked: checked,
+        const response = await api.put(`/mediterranean/edit/${id}`,{
+          "isChecked": checked,
         });
-        console.log(response);
+        console.log('Update successful:', response.data);
       } catch (error) {
         console.error("Failed to update checked status:", error);
       }
     };
-
     if (id) {
       updateCheckedStatus();
     }
@@ -24,7 +24,6 @@ const useCheckedState = (initialChecked: boolean, id: string) => {
   const toggleChecked = () => {
     setChecked((prevChecked) => !prevChecked);
   };
-
   return { checked, toggleChecked };
 };
 

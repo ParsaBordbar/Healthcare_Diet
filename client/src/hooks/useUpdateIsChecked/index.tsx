@@ -12,7 +12,7 @@ const useUpdateIsChecked = (id: string, checked: boolean) => {
             return response;
         }
         update();
-    }, [checked]); // Add 'checked' to the dependency array
+    }, [checked]); 
     
 }
 

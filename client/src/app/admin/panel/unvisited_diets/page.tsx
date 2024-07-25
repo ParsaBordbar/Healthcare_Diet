@@ -5,7 +5,8 @@ import React from "react";
 import DocumentIcon from "/public/svg/adminPanelSvgs/document.svg";
 
 function UnvisitedDiets() {
-  const mediterraneanForms = useFetchMediterranean("/checking/isChecked");
+  const mediterraneanForms = useFetchMediterranean("/sort?sort=unVisited");
+
   return (
     <main>
       <section className="flex items-center gap-2 mb-6">

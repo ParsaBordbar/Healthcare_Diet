@@ -9,7 +9,6 @@ import AttachmentIcon from "/public/svg/adminPanelSvgs/attachment-svgrepo-com.sv
 import DateSvg from "/public/svg/adminPanelSvgs/calendar.svg";
 import PatientPageIcon from '/public/svg/User.svg'
 import Link from "next/link";
-import PatientCard from "../PatientCard";
 import DietBmi from "../DietBmi";
 import useCheckedState from "@/hooks/useChecked/useChecked";
 
@@ -58,7 +57,6 @@ const MediterraneanForm = ({
     payment,
     _id,
 }: MediterraneanFormType)  => {
- 
   const data = useSpecificFetchBmi(phoneNumber);
   const { checked, toggleChecked } = useCheckedState(isChecked, _id);
   
@@ -121,6 +119,7 @@ const MediterraneanForm = ({
           <li
             className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row"
             gap-2
+
           >
             <p className="">سایر سبزیجات نشاسته ای در هفته:</p>
             <p className="text-[var(--black-blue)]">{potatoAndStarchWeekly}</p>
