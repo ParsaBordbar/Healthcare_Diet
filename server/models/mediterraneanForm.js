@@ -120,7 +120,7 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     },
     fastFoodWeekly: {
         type: String,
-        required: true,
+        // required: true,
         enum: [' ۱-۲ بار','۳-۴ بار', 'هر روز', 'یک روز در ماه یا هیچ'] 
     },
     fermentationWeekly:{
@@ -236,7 +236,7 @@ const validateMediterranean = (mediterraneanForm) => {
         redMeatWeekly: Joi.string().required(),
         sugarWeekly: Joi.string().required(),
         alcoholWeekly: Joi.string().required(),
-        fastFoodWeekly: Joi.string().required(),
+        fastFoodWeekly: Joi.string(),
         fermentationWeekly: Joi.string().required(),
         supplements: Joi.array().items(Joi.string().required()),
         physicalActivity: Joi.string().required(),
