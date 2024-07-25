@@ -4,14 +4,21 @@ import MainButton from "../MainButton";
 import MainInput from "../MainInput";
 import { useEffect, useRef } from "react";
 import { Controller } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 const AdminLogin = () => {
   const usernameRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
+  const nav = useRouter()
   const { control, errors, handelValueInputs, handleSubmit, register } =
     useAdmin();
-
   const inputRefs = [usernameRef, passwordRef];
+
+  useEffect(()=>{
+    if(localStorage.getItem('admin')){
+      nav.push('/admin/panel')
+    }
+  },[])
 
   const handleEnter = (event: React.KeyboardEvent<HTMLFormElement>) => {
     if (event.key === "Enter") {
