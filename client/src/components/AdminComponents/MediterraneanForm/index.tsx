@@ -46,6 +46,7 @@ const MediterraneanForm = ({
     foodAllergies,
     pregnancyWeeks,
     breastfeeding,
+    weightBeforePregnancy,
     phoneNumber,
     isChecked,
     createdAtGregorian,
@@ -239,15 +240,25 @@ const MediterraneanForm = ({
               </li>
             }
             {
+              pregnancyWeeks || breastfeeding || weightBeforePregnancy?
+                (<h4 className="lg:text-2xl sm:text-xl text-base ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4 col-span-full ps-0">موارد مربوط به بارداری:</h4>):null
+            }
+            {
               pregnancyWeeks&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                <p className=" w-fit text-sm sm:text-base">تعداد هفته‌های بارداری بیمار:</p>
+                <p className=" w-fit text-sm sm:text-base">تعداد ماه‌های بارداری بیمار:</p>
                 <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {pregnancyWeeks}</p>
               </li>
             }
             {
               breastfeeding&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className=" w-fit text-sm sm:text-base">تعداد هفته‌های بارداری بیمار:</p>
+              <p className=" w-fit text-sm sm:text-base">تعداد ماه‌های شیردهی بیمار:</p>
               <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {breastfeeding}</p>
+              </li>
+            }
+            {
+              weightBeforePregnancy&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
+              <p className=" w-fit text-sm sm:text-base">وزن قبل از بارداری:</p>
+              <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {weightBeforePregnancy}</p>
               </li>
             }
           </ul>

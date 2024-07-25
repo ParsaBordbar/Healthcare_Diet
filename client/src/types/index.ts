@@ -126,6 +126,7 @@ export interface MediterraneanFormType {
   foodAllergies:String,
   pregnancyWeeks:String,
   breastfeeding:String,
+  weightBeforePregnancy: String;
   phoneNumber: string;
   isChecked: boolean;
   createdAtGregorian?: string;

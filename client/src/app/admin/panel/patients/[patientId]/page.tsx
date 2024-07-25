@@ -95,6 +95,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
               foodAllergies={form.foodAllergies}
               pregnancyWeeks={form.pregnancyWeeks}
               breastfeeding={form.breastfeeding}
+              weightBeforePregnancy={form.weightBeforePregnancy}
               createdAtJalali={form.createdAtJalali}
               files={form.files}
               redMeatWeekly={form.redMeatWeekly}

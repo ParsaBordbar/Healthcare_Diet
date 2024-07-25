@@ -50,7 +50,7 @@ interface FormValues {
   foodAllergies: string;
   pregnancyWeeks: string;
   breastfeeding: string;
-  weightBeforePregnancy: string
+  weightBeforePregnancy: string;
   phoneNumber: string;
   age: string;
   height: string | "";
@@ -194,7 +194,7 @@ const useMediterraneanForm = () => {
         hipcircumference: +convertToEnglishNumbers(values.hipcircumference),
         pregnancyWeeks: +convertToEnglishNumbers(values.pregnancyWeeks),
         weightBeforePregnancy: +convertToEnglishNumbers(values.weightBeforePregnancy),
-        breastfeeding: +convertToEnglishNumbers(values.bloodPressure),
+        breastfeeding: +convertToEnglishNumbers(values.breastfeeding),
       };
       console.log(finalValues);
 

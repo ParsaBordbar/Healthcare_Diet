@@ -58,6 +58,7 @@ function UnvisitedDiets() {
             pregnancyWeeks={form.pregnancyWeeks}
             breastfeeding={form.breastfeeding}
             _id={form._id}
+            weightBeforePregnancy={form.weightBeforePregnancy}
           />
         );
       })}

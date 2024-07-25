@@ -1118,25 +1118,25 @@ const MediterranealForm = () => {
             onChange={handleFileChange}
             label="آخرین آزمایشات ارسال شود "
           />
-        <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg col-span-full">
+        <h1 className=" bg-[var(--new-green)] flex flex-start text-white rounded-lg col-span-full">
           در صورت بارداری به سوالات زیر پاسخ دهید
         </h1>
 
-             <MainInput
-              name="pregnancyWeeks"
-              parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
-              onChange={handleChange}
-              type="text"
-              label="در صورت بارداری، چندمین ماه بارداری را می گذرانید؟"
-            />
+          <MainInput
+            name="pregnancyWeeks"
+            parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
+            onChange={handleChange}
+            type="text"
+            label="در صورت بارداری، چندمین ماه بارداری را می گذرانید؟"
+          />
 
-            <MainInput
-              name="weightBeforPregnancy"
-              parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
-              onChange={handleChange}
-              type="text"
-              label=" وزن قبل از بارداری را لطفا وارد کنید:"
-            />
+          <MainInput
+            name="weightBeforePregnancy"
+            parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
+            onChange={handleChange}
+            type="text"
+            label=" وزن قبل از بارداری را لطفا وارد کنید:"
+          />
           <MainInput
             name="breastfeeding"
             parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"

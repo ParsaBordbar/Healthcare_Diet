@@ -132,6 +132,7 @@ const MediterraneanFormsPage = () => {
             foodAllergies={form.foodAllergies}
             pregnancyWeeks={form.pregnancyWeeks}
             breastfeeding={form.breastfeeding}
+            weightBeforePregnancy={form.weightBeforePregnancy}
             />
         );
       })}
