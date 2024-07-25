@@ -21,19 +21,6 @@ router.get('/certain/:phoneNumber', async (req, res) => {
 });
 
 
-router.get('/checking/isChecked', async (req, res) => {
-    try {
-        const mediterraneanForms = await MediterraneanForm.find({ isChecked: false });
-        if (mediterraneanForms.length === 0) {
-            return res.status(404).send("No Diets found with isChecked set to false.");
-        }
-        return res.send(mediterraneanForms);
-    } catch (error) {
-        return res.status(500).send("An error occurred while retrieving the data.");
-    }
-});
-
-
 router.get('/sort', async(req, res)=>{
     if(req.query.sort == 'special'){
         const response = await MediterraneanForm.find({
@@ -62,7 +49,19 @@ router.get('/sort', async(req, res)=>{
             return res.status(404).send({ "message": "No comments found." });
         }
     }
+    if(req.query.sort === "unVisited"){
+        try {
+            const mediterraneanForms = await MediterraneanForm.find({ isChecked: false }).sort({_id: -1});
+            if (mediterraneanForms.length === 0) {
+                return res.status(404).send("No Diets found with isChecked set to false.");
+            }
+            return res.send(mediterraneanForms);
+        } catch (error) {
+            return res.status(500).send("An error occurred while retrieving the data.");
+        }
+    }
 })
+
 
 
 router.put('/edit/:id', uploader.fields([{ name: 'document', maxCount: 5 }, { name: 'payment', maxCount: 1 }]), async (req, res) => {
