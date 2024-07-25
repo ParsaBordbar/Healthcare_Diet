@@ -5,7 +5,7 @@ const uploader = require('../middlewares/multer');
 
 router.get('/', async (req, res) => {
     if (MediterraneanForm) {
-        const mediterraneanForms = await MediterraneanForm.find().sort(req.params.id);
+        const mediterraneanForms = await MediterraneanForm.find().sort(req.params.id).sort({_id: -1});
         return res.send(mediterraneanForms); 
     } else {
         return res.send({ "DataBase": "NO mediterraneanForms yet!" }); 
