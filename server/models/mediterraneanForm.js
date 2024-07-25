@@ -23,6 +23,9 @@ const fileSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    weightBeforePregnancy: {
+        type: Number,
+    },
     abdominalCircumference: {
         type: Number,
         required: true
@@ -271,6 +274,9 @@ const validateMediterranean = (mediterraneanForm) => {
                 'any.required': `قد را وارد کنید`
             }),
             weight: Joi.number().required().messages({
+                'any.required': `وزن را وارد کنید`
+            }),
+            weightBeforePregnancy: Joi.number().messages({
                 'any.required': `وزن را وارد کنید`
             }),
             abdominalCircumference: Joi.number().required().messages({
