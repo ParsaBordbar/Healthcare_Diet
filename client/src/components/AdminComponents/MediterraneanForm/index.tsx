@@ -9,6 +9,7 @@ import PatientPageIcon from '/public/svg/User.svg'
 import Link from "next/link";
 import DietBmi from "../DietBmi";
 import useCheckedState from "@/hooks/useChecked/useChecked";
+import CardsSection from "@/components/Dr_Rabiee_Landing_components/Cards";
 
 
 const MediterraneanForm = ({
@@ -227,7 +228,7 @@ const MediterraneanForm = ({
 
             <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
               <p className=" w-fit text-sm sm:text-base"> سایر بیماری ها یا جراحی قبلی بیمار:</p>
-              <p className="text-[var(--black-blue)] w-fittext-sm sm:text-base"> {otherSickness}</p>
+              <p className="text-[var(--black-blue)] w-fit text-sm sm:text-base"> {otherSickness}</p>
             </li>
             <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
               <p className=" w-fit text-sm sm:text-base">داروهای مصرفی بیمار :</p>

@@ -1,10 +1,12 @@
 "use client";
 import Accordion from "@/components/Accordion";
+import CardsSection from "@/components/Dr_Rabiee_Landing_components/Cards";
 import MediterranealForm from "@/components/MediterranealForm";
 import { useState } from "react";
 import useDownloader from "react-use-downloader";
 
 const DietsUserPanel = () => {
+
   const [accordions, setAccordion] = useState([
     {
       key: 1,
@@ -31,6 +33,8 @@ const DietsUserPanel = () => {
 
   return (
     <div className="flex flex-col gap-7">
+        <CardsSection />
+
       <section className="flex sm:flex-row flex-col items-center gap-2">
         <h1 className="">
           قبل از پر کردن رژیم مورد نظر حتما این فایل را دانلود و مطالعه کنید

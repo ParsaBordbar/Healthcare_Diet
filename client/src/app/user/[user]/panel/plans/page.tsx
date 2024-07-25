@@ -20,11 +20,12 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
     useDownloader();
 
   const isDiet = useFetchOneMediterranean(params.user)
+
   return (
     <div>
-      {isDiet.length > 0 && (
+      {isDiet.length > 0 ?(
         <DietStatus direction="md:!flex-row !flex-col mb-10" phoneNumber={params.user} />
-      )}
+      ): null}
       <ModalMediterraneanForm
         commentMoment={dateComment}
         userPhoneNumber={userID}
