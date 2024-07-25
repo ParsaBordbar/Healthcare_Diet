@@ -1,8 +1,6 @@
 "use Client";
 import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
-import useUpdateIsChecked from "@/hooks/useUpdateIsChecked";
 import { FileType, MediterraneanFormType } from "@/types";
-import { useState } from "react";
 import Tick from "/public/svg/adminPanelSvgs/check_ring_round.svg";
 import Cross from "/public/svg/adminPanelSvgs/close_ring_fill.svg";
 import AttachmentIcon from "/public/svg/adminPanelSvgs/attachment-svgrepo-com.svg";
@@ -236,14 +234,14 @@ const MediterraneanForm = ({
             </li>
             {
               foodAllergies&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className=" w-fit text-sm sm:text-base">آلرژی‌های بیمار:</p>
-              <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {foodAllergies}</p>
+                <p className=" w-fit text-sm sm:text-base">آلرژی‌های بیمار:</p>
+                <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {foodAllergies}</p>
               </li>
             }
             {
               pregnancyWeeks&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className=" w-fit text-sm sm:text-base">تعداد هفته‌های بارداری بیمار:</p>
-              <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {pregnancyWeeks}</p>
+                <p className=" w-fit text-sm sm:text-base">تعداد هفته‌های بارداری بیمار:</p>
+                <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {pregnancyWeeks}</p>
               </li>
             }
             {
