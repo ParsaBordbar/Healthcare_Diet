@@ -3,6 +3,7 @@ import MainInput from "../MainInput";
 import GroupRadio from "../GroupRadio";
 import MainButton from "../MainButton";
 import useMediterraneanForm from "@/validations/login/useMediterraneanForm";
+import { useRef } from "react";
 
 const MediterranealForm = () => {
   const {
@@ -1110,21 +1111,6 @@ const MediterranealForm = () => {
             label="چنانچه حساسیت غذایی دارید، نام آن را ذکر نمایید؟ "
           />
           <MainInput
-            name="pregnancyWeeks"
-            parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
-            onChange={handleChange}
-            type="text"
-            label="در صورت بارداری، چندمین ماه بارداری را می گذرانید؟"
-          />
-          <MainInput
-            name="breastfeeding"
-            parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
-            onChange={handleChange}
-            type="text"
-            label="در صورت شیردهی، چندمین ماه شیردهی را می گذرانید؟"
-          />
-          
-          <MainInput
             type="file"
             name="documents"
             multiple
@@ -1132,6 +1118,32 @@ const MediterranealForm = () => {
             onChange={handleFileChange}
             label="آخرین آزمایشات ارسال شود "
           />
+        <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg col-span-full">
+          در صورت بارداری به سوالات زیر پاسخ دهید
+        </h1>
+
+             <MainInput
+              name="pregnancyWeeks"
+              parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
+              onChange={handleChange}
+              type="text"
+              label="در صورت بارداری، چندمین ماه بارداری را می گذرانید؟"
+            />
+
+            <MainInput
+              name="weightBeforPregnancy"
+              parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
+              onChange={handleChange}
+              type="text"
+              label=" وزن قبل از بارداری را لطفا وارد کنید:"
+            />
+          <MainInput
+            name="breastfeeding"
+            parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
+            onChange={handleChange}
+            type="text"
+            label="در صورت شیردهی، چندمین ماه شیردهی را می گذرانید؟"
+          />          
         </section>
         {errors.digestiveProblems ||
         errors.diabetes ||
