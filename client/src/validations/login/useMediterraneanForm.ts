@@ -47,9 +47,10 @@ interface FormValues {
   Migraine?: boolean;
   otherSickness?: string;
   medicine?: string;
-  foodAllergies?: string;
-  pregnancyWeeks?: string;
-  breastfeeding?: string;
+  foodAllergies: string;
+  pregnancyWeeks: string;
+  breastfeeding: string;
+  weightBeforePregnancy: string
   phoneNumber: string;
   age: string;
   height: string | "";
@@ -98,6 +99,7 @@ const mediterraneanSchema = yup.object().shape({
   medicine: yup.string(),
   foodAllergies: yup.string(),
   pregnancyWeeks: yup.string(),
+  weightBeforePregnancy: yup.string(),
   breastfeeding: yup.string(),
   phoneNumber: yup.string(),
   age: yup.string().required("سن الزامی است"),
@@ -165,6 +167,7 @@ const useMediterraneanForm = () => {
       foodAllergies: "",
       pregnancyWeeks: "",
       breastfeeding:"",
+      weightBeforePregnancy: "",
       phoneNumber: phoneNumber || "",
       age: "",
       height: "",
@@ -187,10 +190,11 @@ const useMediterraneanForm = () => {
         age: +convertToEnglishNumbers(values.age),
         height: +convertToEnglishNumbers(values.height),
         weight: +convertToEnglishNumbers(values.weight),
-        abdominalCircumference: +convertToEnglishNumbers(
-          values.abdominalCircumference
-        ),
+        abdominalCircumference: +convertToEnglishNumbers(values.abdominalCircumference),
         hipcircumference: +convertToEnglishNumbers(values.hipcircumference),
+        pregnancyWeeks: +convertToEnglishNumbers(values.pregnancyWeeks),
+        weightBeforePregnancy: +convertToEnglishNumbers(values.weightBeforePregnancy),
+        breastfeeding: +convertToEnglishNumbers(values.bloodPressure),
       };
       console.log(finalValues);
 
