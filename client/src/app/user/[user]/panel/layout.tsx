@@ -40,18 +40,15 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
           iconTwo={DocumentIcon}
           iconFive={DocumentIcon}
           iconFour={DocumentIcon}
-          iconSix={DocumentIcon}
           valueTwo="پرسشنامه"
           valueThree="پروفایل شخصی"
           valueFour="پیام ها"
           valueFive="برنامه غذایی"
-          valueSix="مشاوره"
           linkOne={"/"}
           linkThree={`/user/${user}/panel`}
           linkFour={`/user/${user}/panel/massege`}
           linkFive={`/user/${user}/panel/plans/`}
           linkTwo={`/user/${user}/panel/diets`}
-          linkSix={`/`}
         />
         <div className="fixed hidden pb-6  top-0 right-0 h-screen bg-[var(--soft-blue)]  md:flex w-[25%] xl:w-[20%] lg:w-[20%]">
           <ul className="flex flex-col w-full rounded-lg h-screen py-4 px-3 gap-4">
