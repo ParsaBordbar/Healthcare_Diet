@@ -99,14 +99,13 @@ const useEnterNumber = () => {
           receptor: convertedData.phoneNumber,
           token,
         };
-        toast.success("خوش آمدید");
+        toast.success("خوش برگشتی");
         push("/register/login/enterTheCode");
         await api.post('/sms/send', smsData);
         toast.clearWaitingQueue();
       }
     } catch (error:any) {
       if (error.response && error.response.status === 404) {
-        toast.error("شماره تماس پیدا نشد");
         toast.success("خوش آمدید");
         push("/register/login/enterTheCode");
         const smsData = {
