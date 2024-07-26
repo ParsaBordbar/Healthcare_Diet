@@ -89,6 +89,7 @@ const useEnterNumber = () => {
     const token = generateToken(convertedData.phoneNumber);
     const hashedToken = CryptoJS.SHA256(token).toString();
     localStorage.setItem('token', hashedToken); 
+    localStorage.setItem('new_user', data.phoneNumber);
 
     try {
       const response = await api.get(`/bmi/phone${convertedData.phoneNumber}`);
@@ -99,7 +100,7 @@ const useEnterNumber = () => {
           receptor: convertedData.phoneNumber,
           token,
         };
-        toast.success("خوش برگشتی");
+        toast.success("خوش آمدید");
         push("/register/login/enterTheCode");
         await api.post('/sms/send', smsData);
         toast.clearWaitingQueue();
