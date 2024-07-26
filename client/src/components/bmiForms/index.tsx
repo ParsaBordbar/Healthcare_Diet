@@ -6,7 +6,6 @@ import { Controller } from "react-hook-form";
 import { useEffect, useRef } from "react";
 
 const BmiFormDiet = () => {
-
   const { control, handelValueInputs, register, errors, handleSubmit } =
     useBmi();
   const nameRef = useRef<HTMLInputElement | null>(null);
@@ -19,19 +18,18 @@ const BmiFormDiet = () => {
   const heightRef = useRef<HTMLInputElement | null>(null);
   const weightRef = useRef<HTMLInputElement | null>(null);
   const genderRef = useRef<HTMLSelectElement | null>(null);
-
-
+  const number = localStorage.getItem("user");
   const inputRefs = [
     nameRef,
     lastNameRef,
     phoneNumberRef,
     abdominalCircumferenceRef,
-    genderRef,
     hipcircumferenceRef,
     weightRef,
     ageRef,
     cityRef,
     heightRef,
+    genderRef,
   ];
 
   useEffect(() => {
@@ -40,22 +38,22 @@ const BmiFormDiet = () => {
       nameRef.current?.focus();
     } else if (errors.lastName) {
       lastNameRef.current?.focus();
-    } else if (errors.city) {
-      cityRef.current?.focus();
     } else if (errors.phoneNumber) {
       phoneNumberRef.current?.focus();
     } else if (errors.abdominalCircumference) {
       abdominalCircumferenceRef.current?.focus();
     } else if (errors.hipcircumference) {
       hipcircumferenceRef.current?.focus();
-    } else if (errors.gender) {
-      genderRef.current?.focus();
     } else if (errors.weight) {
       weightRef.current?.focus();
     } else if (errors.age) {
       ageRef.current?.focus();
+    } else if (errors.city) {
+      cityRef.current?.focus();
     } else if (errors.height) {
       heightRef.current?.focus();
+    } else if (errors.gender) {
+      genderRef.current?.focus();
     }
   }, [errors]);
 
@@ -114,7 +112,6 @@ const BmiFormDiet = () => {
           )}
         />
 
-
         <Controller
           control={control}
           name="phoneNumber"
@@ -160,8 +157,6 @@ const BmiFormDiet = () => {
           )}
         />
 
-       
-
         <Controller
           control={control}
           name="weight"
@@ -194,8 +189,7 @@ const BmiFormDiet = () => {
           )}
         />
 
-
-        <Controller
+        {/* <Controller
           control={control}
           name="city"
           render={({ field }) => (
@@ -208,10 +202,67 @@ const BmiFormDiet = () => {
               placeholder="شهر خود را وارد کنید"
             />
           )}
-        />
+        /> */}
+        <section className="col-span-2 flex flex-col gap-1">
+          <label
+            htmlFor="city"
+            className={`block text-base sm:text-lg ${
+              errors.city?.message ? "text-red-600" : "text-[var(--black-blue)]"
+            }`}
+          >
+            شهر
+          </label>
+          <Controller
+            control={control}
+            name="city"
+            render={({ field }) => (
+              <select
+                {...field}
+                ref={cityRef}
+                className={`rounded-lg w-full outline-none   py-3 px-4 border ${
+                  errors.city?.message
+                    ? "border-red-600"
+                    : "border-[var(--border-color)]"
+                }  flex items-center gap-1 text-base bg-white `}
+              >
+                <option value="null">شهر</option>
+                <option value="تهران">تهران</option>
+                <option value="گیلان">گیلان</option>
+                <option value="آذربایجان شرقی">آذربایجان شرقی</option>
+                <option value="خوزستان">خوزستان</option>
+                <option value="فارس">فارس</option>
+                <option value="اصفهان">اصفهان</option>
+                <option value="خراسان رضوی">خراسان رضوی</option>
+                <option value="قزوین">قزوین</option>
+                <option value="سمنان">سمنان</option>
+                <option value="قم">قم</option>
+                <option value="مرکزی">مرکزی</option>
+                <option value="زنجان">زنجان</option>
+                <option value="مازندران">مازندران</option>
+                <option value="گلستان">گلستان</option>
+                <option value="اردبیل">اردبیل</option>
+                <option value="آذربایجان غربی">آذربایجان غربی</option>
+                <option value="همدان">همدان</option>
+                <option value="کردستان">کردستان</option>
+                <option value="کرمانشاه">کرمانشاه</option>
+                <option value="لرستان">لرستان</option>
+                <option value="بوشهر">بوشهر</option>
+                <option value="کرمان">کرمان</option>
+                <option value="هرمزگان">هرمزگان</option>
+                <option value="چهارمحال و بختیاری">چهارمحال و بختیاری</option>
+                <option value="یزد">یزد</option>
+                <option value="سیستان و بلوچستان">سیستان و بلوچستان</option>
+                <option value="ایلام">ایلام</option>
+                <option value="کهگلویه و بویراحمد">کهگلویه و بویراحمد</option>
+                <option value="خراسان شمالی">خراسان شمالی</option>
+                <option value="خراسان جنوبی">خراسان جنوبی</option>
+                <option value="البرز">البرز</option>
+              </select>
+            )}
+          />
+        </section>
 
-
-      <Controller
+        <Controller
           control={control}
           name="height"
           render={({ field }) => (
@@ -226,11 +277,13 @@ const BmiFormDiet = () => {
             />
           )}
         />
- <section className="col-span-2 flex flex-col gap-1">
+        <section className="col-span-2 flex flex-col gap-1">
           <label
             htmlFor="gender"
             className={`block text-base sm:text-lg ${
-              errors.gender?.message ? "text-red-600" : "text-[var(--black-blue)]"
+              errors.gender?.message
+                ? "text-red-600"
+                : "text-[var(--black-blue)]"
             }`}
           >
             جنسیت
@@ -248,11 +301,9 @@ const BmiFormDiet = () => {
                     : "border-[var(--border-color)]"
                 }  flex items-center gap-1 text-base bg-white `}
               >
-                <option value="null"  selected>
-                  جنسیت
-                </option>
-                <option value="مرد">مرد</option>
+                <option value="null">جنسیت</option>
                 <option value="زن">زن</option>
+                <option value="مرد">مرد</option>
               </select>
             )}
           />
