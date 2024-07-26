@@ -36,6 +36,7 @@ export default function RootLayout({
           {children}
           <ToastContainer
             // transition={'zoom'}
+            bodyClassName={yekanBakh.className}
             autoClose={2500}
             rtl={true}
             position="top-center"
