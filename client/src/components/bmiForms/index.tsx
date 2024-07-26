@@ -18,7 +18,8 @@ const BmiFormDiet = () => {
   const heightRef = useRef<HTMLInputElement | null>(null);
   const weightRef = useRef<HTMLInputElement | null>(null);
   const genderRef = useRef<HTMLSelectElement | null>(null);
-  const number = localStorage.getItem("user");
+
+
   const inputRefs = [
     nameRef,
     lastNameRef,
@@ -112,7 +113,7 @@ const BmiFormDiet = () => {
           )}
         />
 
-        <Controller
+        {/* <Controller
           control={control}
           name="phoneNumber"
           render={({ field }) => (
@@ -122,10 +123,10 @@ const BmiFormDiet = () => {
               ref={phoneNumberRef}
               parentClassName="col-span-4 md:col-span-2 lg:col-span-4"
               label="شماره تماس"
-              placeholder=" شماره تماس خود را وارد کنید"
+              placeholder={number||"d"}
             />
           )}
-        />
+        /> */}
 
         <Controller
           control={control}
@@ -189,7 +190,7 @@ const BmiFormDiet = () => {
           )}
         />
 
-        {/* <Controller
+        <Controller
           control={control}
           name="city"
           render={({ field }) => (
@@ -202,8 +203,8 @@ const BmiFormDiet = () => {
               placeholder="شهر خود را وارد کنید"
             />
           )}
-        /> */}
-        <section className="col-span-2 flex flex-col gap-1">
+        />
+        {/* <section className="col-span-2 flex flex-col gap-1">
           <label
             htmlFor="city"
             className={`block text-base sm:text-lg ${
@@ -260,7 +261,7 @@ const BmiFormDiet = () => {
               </select>
             )}
           />
-        </section>
+        </section> */}
 
         <Controller
           control={control}
