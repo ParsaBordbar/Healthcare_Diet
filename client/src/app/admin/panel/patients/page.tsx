@@ -1,33 +1,36 @@
-'use client'
-import PatientCard from "@/components/AdminComponents/PatientCard"
-import PatientIcon from '/public/svg/adminPanelSvgs/patients.svg'
-import MainInput from "@/components/MainInput"
-import SearchIcon from "/public/svg/search-normal.svg"
-import FilterIcon from "/public/svg/adminPanelSvgs/filter.svg"
-import useSearchBmi from "@/hooks/useSearchBmi/useSearchBmi"
-import MainButton from "@/components/MainButton"
+"use client";
+import PatientCard from "@/components/AdminComponents/PatientCard";
+import PatientIcon from "/public/svg/adminPanelSvgs/patients.svg";
+import MainInput from "@/components/MainInput";
+import SearchIcon from "/public/svg/search-normal.svg";
+import FilterIcon from "/public/svg/adminPanelSvgs/filter.svg";
+import useSearchBmi from "@/hooks/useSearchBmi/useSearchBmi";
+import MainButton from "@/components/MainButton";
 
 const PatientsPage = () => {
+  const {
+    filter,
+    searchValue,
+    handleChange,
+    newestFilterHandler,
+    oldestFilterHandler,
+    maleFilterHandler,
+    femaleFilterHandler,
+    submitHandler,
+  } = useSearchBmi("/bmi/sort");
 
-    const {
-        filter,
-        searchValue,
-        handleChange,
-        newestFilterHandler,
-        oldestFilterHandler,
-        maleFilterHandler,
-        femaleFilterHandler,
-        submitHandler,
-      } = useSearchBmi('/bmi/sort')
-    
-    return(
-        <section className="grid gap-6 grid-cols-3"> 
-        <section className="mb-3 col-span-full flex items-center gap-2">
-            <PatientIcon className='[&>path]:stroke-black '/>
-            <h1 className=" text-xl md:text-2xl lg:text-3xl">بیمارها</h1>
-        </section>
-        <div className="grid grid-cols-10 gap-8 items-center col-span-full">
-        <form className="xl:col-span-5 col-span-full" action="" onSubmit={submitHandler}>
+  return (
+    <section className="grid gap-6 grid-cols-6">
+      <section className="mb-3 col-span-full flex items-center gap-2">
+        <PatientIcon className="[&>path]:stroke-black " />
+        <h1 className=" text-xl md:text-2xl lg:text-3xl">بیمارها</h1>
+      </section>
+      <div className="grid grid-cols-10 gap-8 items-center col-span-full">
+        <form
+          className="xl:col-span-5 col-span-full"
+          action=""
+          onSubmit={submitHandler}
+        >
           <MainInput
             iconFirst={SearchIcon}
             parentClassName="!w-full "
@@ -70,13 +73,25 @@ const PatientsPage = () => {
           </section>
         </div>
       </div>
-            {filter.map(d => {
-                return <div className="col-span-full lg:col-span-1" key={d.phoneNumber}>
-                    <PatientCard linkTo={`/admin/panel/patients/${d.phoneNumber}`}  name={d.name} lastName={d.lastName} city={d.city} phoneNumber={d.phoneNumber} gender={d.gender}/>
-                </div>
-            })}
-        </section>
-    )
-}
+      {filter.map((d) => {
+        return (
+          <div
+            className="col-span-full md:col-span-3 xl:col-span-2"
+            key={d.phoneNumber}
+          >
+            <PatientCard
+              linkTo={`/admin/panel/patients/${d.phoneNumber}`}
+              name={d.name}
+              lastName={d.lastName}
+              city={d.city}
+              phoneNumber={d.phoneNumber}
+              gender={d.gender}
+            />
+          </div>
+        );
+      })}
+    </section>
+  );
+};
 
 export default PatientsPage;
