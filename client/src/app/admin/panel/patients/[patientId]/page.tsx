@@ -14,9 +14,8 @@ import React from "react";
 
 function PatientId({ params }: { params: { patientId: string } }) {
   const bmiData = useSpecificFetchBmi(params.patientId);
-  const medData = useFetchOneMediterranean(params.patientId);
+  const medData = useFetchOneMediterranean(params.patientId).toReversed();
   const commentData = useFetchPatientComments(params.patientId);
-  console.log(medData);
 
   return (
     <main>
@@ -28,7 +27,9 @@ function PatientId({ params }: { params: { patientId: string } }) {
               lastName={bmiData.lastName}
               phoneNumber={bmiData.phoneNumber}
               gender={bmiData.gender}
-              autoIncrementId={bmiData.autoIncrementId} linkTo={""}            />
+              autoIncrementId={bmiData.autoIncrementId}
+              linkTo={""}
+            />
             <h2 className="text-xl md:text-2xl lg:text-3xl mt-8">فرم BMI:</h2>
             <PatientBmiForm
               name={bmiData?.name}
@@ -41,11 +42,12 @@ function PatientId({ params }: { params: { patientId: string } }) {
               height={bmiData?.height}
               abdominalCircumference={bmiData?.abdominalCircumference}
               joinedAtJalali={bmiData?.joinedAtJalali}
-              autoIncrementId={bmiData.autoIncrementId} linkTo={""}       
+              autoIncrementId={bmiData.autoIncrementId}
+              linkTo={""}
               city={bmiData.city}
-              whr={bmiData.whr}  
+              whr={bmiData.whr}
               hipcircumference={bmiData.hipcircumference}
-              />
+            />
           </>
         ) : (
           <>
@@ -57,7 +59,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
 
         <h2 className="text-xl md:text-2xl lg:text-3xl mt-8">رژیم‌ها:</h2>
         {medData.length > 0 ? (
-          medData.reverse().map((form) => (
+          medData.map((form) => (
             <MediterraneanForm
               key={`${params.patientId} ${form.createdAtJalali}`}
               phoneNumber={params.patientId}
@@ -107,7 +109,9 @@ function PatientId({ params }: { params: { patientId: string } }) {
         ) : (
           <p className="text-xl text-center">رژیم ندارد</p>
         )}
-        <h2 className="text-xl md:text-2xl lg:text-3xl mt-8">پیام‌های ارسال شده:</h2>
+        <h2 className="text-xl md:text-2xl lg:text-3xl mt-8">
+          پیام‌های ارسال شده:
+        </h2>
         {commentData ? (
           commentData.map((comment) => (
             <CommentBox
