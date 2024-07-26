@@ -43,19 +43,20 @@ const convertNumberToEnglish = (input: any) => {
 
   return output;
 };
-
+const userPhone = localStorage.getItem("new_user")
 const useBmi = () => {
   const { push } = useRouter();
 
   const customResolver = (data:BmiDataType) => {
     const convertedData = {
       ...data,
-      phoneNumber: convertNumberToEnglish(data.phoneNumber),
+      phoneNumber: userPhone,
       abdominalCircumference: Number(convertNumberToEnglish(data.abdominalCircumference)),
       weight: Number(convertNumberToEnglish(data.weight)),
       age: Number(convertNumberToEnglish(data.age)),
       hipcircumference:Number(convertNumberToEnglish(data.hipcircumference)),
       height: Number(convertNumberToEnglish(data.height)),
+      
     };
 
     try {
