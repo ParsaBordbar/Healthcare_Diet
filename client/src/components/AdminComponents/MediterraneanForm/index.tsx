@@ -9,7 +9,6 @@ import PatientPageIcon from '/public/svg/User.svg'
 import Link from "next/link";
 import DietBmi from "../DietBmi";
 import useCheckedState from "@/hooks/useChecked/useChecked";
-import CardsSection from "@/components/Dr_Rabiee_Landing_components/Cards";
 
 
 const MediterraneanForm = ({
@@ -240,14 +239,16 @@ const MediterraneanForm = ({
                 <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {foodAllergies}</p>
               </li>
             }
-            {
-              (pregnancyWeeks || breastfeeding || weightBeforePregnancy)|| (pregnancyWeeks !=0 || breastfeeding !==0 || weightBeforePregnancy !==0)? (
-                <h4 className="lg:text-2xl sm:text-xl text-base ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4">
-                  موارد مربوط به بارداری:
-                </h4>
-              ) : null
+          </ul>
+          {
+            (pregnancyWeeks || breastfeeding || weightBeforePregnancy)|| (pregnancyWeeks !="0" || breastfeeding !=="0" || weightBeforePregnancy !=="0")? (
+              <h4 className="lg:text-2xl sm:text-xl text-base  pr-4 sm:ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
+                موارد مربوط به بارداری:
+              </h4>
+            ) : null
             }
-            {
+          <ul className="grid grid-cols-4 mb-5 px-4 gap-2">
+           {
               pregnancyWeeks&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
                 <p className=" w-fit text-sm sm:text-base">تعداد ماه‌های بارداری بیمار:</p>
                 <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {pregnancyWeeks}</p>
@@ -265,7 +266,8 @@ const MediterraneanForm = ({
               <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {weightBeforePregnancy}</p>
               </li>
             }
-          </ul>
+           
+           </ul>
         </li>
         <div className="pe-6 py-2 flex justify-start flex-col">
           <div className="flex flex-row">
