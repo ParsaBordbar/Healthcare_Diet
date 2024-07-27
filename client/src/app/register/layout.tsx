@@ -9,10 +9,10 @@ const LayoutRegister = ({ children }: { children: ReactNode }) => {
       <div className="relative top-0 z-40">
         <main className="flex   bg-[var(--soft-blue)] h-screen items-center w-full justify-center lg:justify-end">
           <Image
-            src={'/svg/loginBanner.svg'}
+            src={'/svg/blueBanner.svg'}
             alt="login banner"
-            className="hidden lg:inline-block md:object-contain"
-            width={900}
+            className="hidden  !w-1/2 lg:inline-block "
+            width={800}
             height={0}
           />
           {children}
