@@ -241,27 +241,30 @@ const MediterraneanForm = ({
             }
           </ul>
           {
-            (pregnancyWeeks || breastfeeding || weightBeforePregnancy)|| (pregnancyWeeks !="0" || breastfeeding !=="0" || weightBeforePregnancy !=="0")? (
+            (pregnancyWeeks !== "0" && pregnancyWeeks !== null && pregnancyWeeks !== undefined) ||
+            (breastfeeding !== "0" && breastfeeding !== null && breastfeeding !== undefined) ||
+            (weightBeforePregnancy !== "0" && weightBeforePregnancy !== null && weightBeforePregnancy !== undefined) ? (
               <h4 className="lg:text-2xl sm:text-xl text-base  pr-4 sm:ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
                 موارد مربوط به بارداری:
               </h4>
             ) : null
+            
             }
           <ul className="grid grid-cols-4 mb-5 px-4 gap-2">
            {
-              pregnancyWeeks&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
+              (pregnancyWeeks && pregnancyWeeks!=="0")&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
                 <p className=" w-fit text-sm sm:text-base">تعداد ماه‌های بارداری بیمار:</p>
                 <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {pregnancyWeeks}</p>
               </li>
             }
             {
-              breastfeeding&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
+              (breastfeeding && breastfeeding !=="0")&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
               <p className=" w-fit text-sm sm:text-base">تعداد ماه‌های شیردهی بیمار:</p>
               <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {breastfeeding}</p>
               </li>
             }
             {
-              weightBeforePregnancy&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
+              (weightBeforePregnancy && weightBeforePregnancy !=="0" )&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
               <p className=" w-fit text-sm sm:text-base">وزن قبل از بارداری:</p>
               <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {weightBeforePregnancy}</p>
               </li>
