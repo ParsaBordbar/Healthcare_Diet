@@ -191,7 +191,6 @@ const BmiFormDiet = () => {
         />
 
         <Controller
-        <Controller
           control={control}
           name="city"
           render={({ field }) => (
