@@ -220,10 +220,10 @@ const MediterraneanForm = ({
               <p className='w-fit text-sm sm:text-base'>وضعیت تیروئید: {thyroid}</p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <div className='w-fit text-sm sm:text-base flex'>سرطان: {cancer?<p className="text-[var(--black-blue)]"> دارد </p>: <p className="text-[var(--black-blue)]">ندارد</p>}</div>
+              <div className='w-fit text-sm sm:text-base flex'>سرطان: {cancer?<p className="text-[var(--black-blue)]"> ندارد</p>: <p className="text-[var(--black-blue)]">دارد</p>}</div>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <div className='w-fit text-sm sm:text-base  flex'>میگرن: {Migraine?<p className="text-[var(--black-blue)]">دارد</p>: <p className="text-[var(--black-blue)]">ندارد</p>}</div>
+              <div className='w-fit text-sm sm:text-base  flex'>میگرن: {Migraine?<p className="text-[var(--black-blue)]">ندارد</p>: <p className="text-[var(--black-blue)]">دارد</p>}</div>
             </li>
 
             <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
@@ -241,8 +241,11 @@ const MediterraneanForm = ({
               </li>
             }
             {
-              pregnancyWeeks || breastfeeding || weightBeforePregnancy?
-                (<h4 className="lg:text-2xl sm:text-xl text-base ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4 col-span-full ps-0">موارد مربوط به بارداری:</h4>):null
+              (pregnancyWeeks || breastfeeding || weightBeforePregnancy)|| (pregnancyWeeks !=0 || breastfeeding !==0 || weightBeforePregnancy !==0)? (
+                <h4 className="lg:text-2xl sm:text-xl text-base ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4">
+                  موارد مربوط به بارداری:
+                </h4>
+              ) : null
             }
             {
               pregnancyWeeks&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
