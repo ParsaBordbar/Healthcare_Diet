@@ -37,8 +37,7 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
         <DocumentIcon className="[&>path]:stroke-black" />
         <h1 className="text-xl md:text-2xl lg:text-3xl">برنامه های شما</h1>
       </section>
-      <main>
-        <section className="flex flex-col-reverse">
+        <section className={`flex flex-col-reverse ${comments.length == 0 && 'h-[85vh] justify-center items-center'} gap-2`}>
           {comments.length > 0 ? (
             comments.map((comment) => {
               console.log(comment.files);
@@ -103,10 +102,9 @@ const PlansPage = ({ params }: { params: { user: string } }) => {
               );
             })
           ) : (
-            <h1 className="text-xl md:text-2xl lg:text-3xl text-center">هنوز برنامه‌ای ندارید</h1>
+            <h1 className="text-xl md:text-2xl lg:text-3xl">هنوز برنامه‌ای ندارید</h1>
           )}
         </section>
-      </main>
     </div>
   );
 };
