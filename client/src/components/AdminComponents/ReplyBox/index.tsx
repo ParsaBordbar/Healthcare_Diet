@@ -30,7 +30,7 @@ const ReplyBox: React.FC<ReplyBoxProps> = ({ receiver }) => {
   );
 
   const mapping = () => {
-    if (!theLastMedData.isChecked) {
+    if (theLastMedData && !theLastMedData.isChecked) {
       toggleChecked();
       toast.info("آخرین رژیم بیمار به صورت خودکار ویزیت شد");
     }

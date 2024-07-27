@@ -646,7 +646,6 @@ const MediterranealForm = () => {
         ) : null}
       </div>
 
-
       <div className="flex flex-col gap-4">
         <h1>مصرف فست فود به صورت هفتگی ؟</h1>
         <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
@@ -688,7 +687,6 @@ const MediterranealForm = () => {
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
-
 
       <div className="flex flex-col gap-4">
         <h1>
@@ -1114,36 +1112,10 @@ const MediterranealForm = () => {
             type="file"
             name="documents"
             multiple
-            parentClassName="col-span-2 [&>label]:text-base"
+            parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
             onChange={handleFileChange}
             label="آخرین آزمایشات ارسال شود "
           />
-        <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg col-span-full">
-          در صورت بارداری به سوالات زیر پاسخ دهید
-        </h1>
-
-          <MainInput
-            name="pregnancyWeeks"
-            parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
-            onChange={handleChange}
-            type="text"
-            label="در صورت بارداری، چندمین ماه بارداری را می گذرانید؟"
-          />
-
-          <MainInput
-            name="weightBeforePregnancy"
-            parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
-            onChange={handleChange}
-            type="text"
-            label=" وزن قبل از بارداری را لطفا وارد کنید:"
-          />
-          <MainInput
-            name="breastfeeding"
-            parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
-            onChange={handleChange}
-            type="text"
-            label="در صورت شیردهی، چندمین ماه شیردهی را می گذرانید؟"
-          />          
         </section>
         {errors.digestiveProblems ||
         errors.diabetes ||
@@ -1158,6 +1130,36 @@ const MediterranealForm = () => {
           <p className="text-red-600">جواب دادن به سوالات بالا الزامی است</p>
         ) : null}
       </div>
+
+      <section className="flex flex-col gap-6 mt-4">
+        <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg col-span-full">
+          در صورت بارداری به سوالات زیر پاسخ دهید
+        </h1>
+
+        <MainInput
+          name="pregnancyWeeks"
+          parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
+          onChange={handleChange}
+          type="text"
+          label="در صورت بارداری، چندمین ماه بارداری را می گذرانید؟"
+        />
+
+        <MainInput
+          name="weightBeforePregnancy"
+          parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
+          onChange={handleChange}
+          type="text"
+          label=" وزن قبل از بارداری را لطفا وارد کنید:"
+        />
+        <MainInput
+          name="breastfeeding"
+          parentClassName="col-span-full [&>label]:text-base"
+          onChange={handleChange}
+          type="text"
+          label="در صورت شیردهی، چندمین ماه شیردهی را می گذرانید؟"
+        />
+      </section>
+      
       <section className="flex flex-col gap-6 mt-4">
         <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg">
           فرم BMI
@@ -1194,7 +1196,7 @@ const MediterranealForm = () => {
           <MainInput
             name="hipcircumference"
             onChange={handleChange}
-            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+            parentClassName="[&>label]:text-base lg:col-span-1 col-span-full"
             placeholder="دور باسن خود را اینجا وارد کنید"
             label="دور باسن"
           />
@@ -1229,26 +1231,29 @@ const MediterranealForm = () => {
         </div>
         {paymentError && <div style={{ color: "red" }}>{paymentError}</div>}
       </section>
-      {formik.isSubmitting ? 
-        <MainButton
-        modern
-        className="py-2.5 !text-xl !text-white col-span-5 w-full"
-        value={"در حال ارسال..." }
-        type="submit"
-        disabled={formik.isSubmitting}
-      />:
-      <MainButton
-              modern
-              className="py-2.5 !text-xl !text-white col-span-5 w-full"
-              value={"ثبت فرم"}
-              type="submit"
-              disabled={formik.isSubmitting}
-            />
-      
-      // <button type="submit" disabled={formik.isSubmitting}>
-      //   {formik.isSubmitting ? "در حال ارسال..." : "ارسال"}
-      // </button>
-}
+      {
+        formik.isSubmitting ? (
+          <MainButton
+            modern
+            className="py-2.5 !text-xl !text-white col-span-5 w-full"
+            value={"در حال ارسال..."}
+            type="submit"
+            disabled={formik.isSubmitting}
+          />
+        ) : (
+          <MainButton
+            modern
+            className="py-2.5 !text-xl !text-white col-span-5 w-full"
+            value={"ثبت فرم"}
+            type="submit"
+            disabled={formik.isSubmitting}
+          />
+        )
+
+        // <button type="submit" disabled={formik.isSubmitting}>
+        //   {formik.isSubmitting ? "در حال ارسال..." : "ارسال"}
+        // </button>
+      }
     </form>
   );
 };

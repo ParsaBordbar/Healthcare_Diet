@@ -20,8 +20,8 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
             <Calendar />
           </div>
         </section>
-        <div className="flex custom-scroll max-h-[590px] pl-6 flex-col">
-          {comments ? (
+        <div className={`flex ${comments.length > 0 && 'custom-scroll max-h-[590px]'} pl-6 flex-col`}>
+          {comments.length > 0 ? (
             comments.slice(-3).reverse().map((data): React.ReactNode => {
               return (
                 <CommentBox
@@ -38,16 +38,16 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
               );
             })
           ) : (
-            <h2>پیامی ندارید</h2>
+            <h2 className="text-center text-xl md:text-2xl lg:text-3xl">پیامی ندارید</h2>
           )}
         </div>
       </div>
-      <Link
+      {comments.length > 0 && <Link
         className="mt-2 text-[var(--secondary-blue)] text-lg"
         href={`/user/${userID}/panel/massege`}
       >
         دیدن همه ی پیام ها
-      </Link>
+      </Link>}
     </main>
   );
 };

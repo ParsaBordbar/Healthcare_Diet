@@ -24,7 +24,7 @@ const MassegesFromUser = ({ params }: { params: { user: string } }) => {
           );
         })
       ) : (
-        <h1 className="text-2xl text-center">پیامی ندارید</h1>
+        <h1 className="text-xl md:text-2xl lg:text-3xl text-center">پیامی ندارید</h1>
       )}
     </>
   );
