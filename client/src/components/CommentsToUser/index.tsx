@@ -38,7 +38,7 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
               );
             })
           ) : (
-            <h2 className="text-center text-base md:text-3xl">پیامی ندارید</h2>
+            <h2 className="text-center text-xl md:text-2xl lg:text-3xl">پیامی ندارید</h2>
           )}
         </div>
       </div>
