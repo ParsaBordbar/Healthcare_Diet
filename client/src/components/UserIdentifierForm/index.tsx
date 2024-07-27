@@ -21,11 +21,11 @@ const UserIdentifyForm = () => {
   const inputRefs = [codeOne, codeTwo, codeThree, codeFour, codeFive];
 
   const handleEnter = (event: React.KeyboardEvent<HTMLFormElement>) => {
-    if (parseInt(event.key)) {
+    console.log('keydown event' , event)
+    if (parseInt(event.key) >= 0) {
       for (let i = 0; i < inputRefs.length; i++) {
         console.log(document.activeElement , i ,inputRefs[i].current)
         if (inputRefs[i].current?.value.length == 1) {
-          console.log(inputRefs[i].current?.value.length);
           if (inputRefs[i + 1]?.current) {
             inputRefs[i + 1].current?.focus();
             event.preventDefault();
@@ -36,7 +36,7 @@ const UserIdentifyForm = () => {
   };
 
   const handleLenght = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.maxLength, e.target.value.length);
+    console.log(e.target.maxLength, e.target.value.length , e.target.value);
     if (e.target.value.length > e.target.maxLength) {
       e.target.value =
         e.target.value.split("")[e.target.value.split("").length - 1];
