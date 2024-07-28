@@ -254,7 +254,7 @@ const BmiFormDiet = () => {
         <MainButton
           modern
           type="submit"
-          className="w-full h-fit self-end py-3 col-span-full sm:col-span-2 md:col-span-full lg:col-span-2  !text-white"
+          className="w-full h-fit self-end py-3 col-span-full sm:col-span-2  lg:col-span-2  !text-white"
           value={"ورود"}
         />
       </section>
