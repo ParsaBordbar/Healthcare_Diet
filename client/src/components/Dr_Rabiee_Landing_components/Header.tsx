@@ -44,7 +44,7 @@ function Header() {
             />
           </Link>
           <Link
-            href={"#blogs"}
+            href={"/#blogs"}
             className="flex gap-2 items-center justify-center"
           >
             <Blogs />
@@ -55,7 +55,7 @@ function Header() {
             />
           </Link>
           <Link
-            href={"#info"}
+            href={"/#info"}
             className="flex gap-2 items-center justify-center"
           >
             <AboutUsIcon />
