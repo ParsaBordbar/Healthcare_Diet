@@ -18,23 +18,39 @@ export const BmiSchema = yup.object({
       "شماره تماس را به درستی وارد کنید"
     )
     .required("شماره تماس الزامی است"),
-  abdominalCircumference: yup.number().required("اندازه ی دور شکم الزامی است"),
-  hipcircumference: yup.number().required("اندازه ی دور باسن الزامی است"),
+  abdominalCircumference: yup.number().min(1,'دور شکم باید حداقل ۱ باشد').required("اندازه ی دور شکم الزامی است"),
+  hipcircumference: yup.number().min(1,'دور باسن باید حداقل ۱ باشد').required("اندازه ی دور باسن الزامی است"),
   gender: yup.string().required("جنسیت الزامی است"),
-  age: yup
-    .number()
-    .required("سن الزامی است"),
-  height: yup
-    .number()
-    .required("قد الزامی است"),
-  weight: yup
-    .number()
-    .required("وزن الزامی است"),
+  age: yup.number().min(1,'سن باید حداقل ۱ باشد').required("سن الزامی است"),
+  height: yup.number().min(1,'قد باید حداقل ۱ باشد').required("قد الزامی است"),
+  weight: yup.number().min(1,'وزن باید حداقل ۱ باشد').required("وزن الزامی است"),
 });
 
 const convertNumberToEnglish = (input: any) => {
-  const persianNumbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g];
-  const arabicNumbers = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g];
+  const persianNumbers = [
+    /۰/g,
+    /۱/g,
+    /۲/g,
+    /۳/g,
+    /۴/g,
+    /۵/g,
+    /۶/g,
+    /۷/g,
+    /۸/g,
+    /۹/g,
+  ];
+  const arabicNumbers = [
+    /٠/g,
+    /١/g,
+    /٢/g,
+    /٣/g,
+    /٤/g,
+    /٥/g,
+    /٦/g,
+    /٧/g,
+    /٨/g,
+    /٩/g,
+  ];
 
   let output = input.toString();
   for (let i = 0; i < 10; i++) {
@@ -43,35 +59,39 @@ const convertNumberToEnglish = (input: any) => {
 
   return output;
 };
-const userPhone = localStorage.getItem("new_user")
+const userPhone = localStorage.getItem("new_user");
 const useBmi = () => {
   const { push } = useRouter();
 
-  const customResolver = (data:BmiDataType) => {
+  const customResolver = (data: BmiDataType) => {
     const convertedData = {
       ...data,
       phoneNumber: userPhone,
-      abdominalCircumference: Number(convertNumberToEnglish(data.abdominalCircumference)),
-      weight: Number(convertNumberToEnglish(data.weight)),
-      age: Number(convertNumberToEnglish(data.age)),
-      hipcircumference:Number(convertNumberToEnglish(data.hipcircumference)),
-      height: Number(convertNumberToEnglish(data.height)),
-      
+      abdominalCircumference: Number(
+        convertNumberToEnglish(data.abdominalCircumference??"0")
+      ),
+      weight: Number(convertNumberToEnglish(data.weight??"0")),
+      age: Number(convertNumberToEnglish(data.age??"0")),
+      hipcircumference: Number(convertNumberToEnglish(data.hipcircumference??"0")),
+      height: Number(convertNumberToEnglish(data.height??"0")),
     };
 
     try {
       BmiSchema.validateSync(convertedData, { abortEarly: false });
       return { values: convertedData, errors: {} };
-    } catch (yupError:any) {
-      return { values: {}, errors: yupError.inner.reduce((allErrors:any, currentError:any) => {
-        return {
-          ...allErrors,
-          [currentError.path]: {
-            type: currentError.type ?? "validation",
-            message: currentError.message,
-          },
-        };
-      }, {}) };
+    } catch (yupError: any) {
+      return {
+        values: {},
+        errors: yupError.inner.reduce((allErrors: any, currentError: any) => {
+          return {
+            ...allErrors,
+            [currentError.path]: {
+              type: currentError.type ?? "validation",
+              message: currentError.message,
+            },
+          };
+        }, {}),
+      };
     }
   };
 
@@ -90,49 +110,33 @@ const useBmi = () => {
     }
     if (!errors.name && errors.lastName) {
       toast.error(errors.lastName.message);
-    } if (!errors.lastName && !errors.name && errors.city) {
-     toast.error(errors.city.message);
     }
-    if (!errors.lastName && !errors.name && !errors.city && errors.phoneNumber) {
+    if (!errors.lastName && !errors.name && errors.abdominalCircumference) {
+      toast.error(errors.abdominalCircumference.message);
+    }
+    if (
+      !errors.lastName &&
+      !errors.name &&
+      !errors.abdominalCircumference &&
+      errors.phoneNumber
+    ) {
       toast.error(errors.phoneNumber.message);
     }
     if (
       !errors.lastName &&
       !errors.name &&
-      !errors.city &&
-      !errors.phoneNumber &&
-      errors.abdominalCircumference
-    ) {
-      toast.error(errors.abdominalCircumference.message);
-    }
-   if (
-      !errors.lastName &&
-      !errors.name &&
-      !errors.city &&
-      !errors.phoneNumber &&
       !errors.abdominalCircumference &&
+      !errors.phoneNumber &&
       errors.hipcircumference
     ) {
       toast.error(errors.hipcircumference.message);
-    } if (
-      !errors.lastName &&
-      !errors.name &&
-      !errors.city &&
-      !errors.phoneNumber &&
-      !errors.abdominalCircumference &&
-      !errors.hipcircumference &&
-      errors.gender
-    ) {
-      toast.error(errors.gender.message);
     }
     if (
       !errors.lastName &&
       !errors.name &&
-      !errors.city &&
+      !errors.hipcircumference &&
       !errors.phoneNumber &&
       !errors.abdominalCircumference &&
-      !errors.hipcircumference &&
-      !errors.gender &&
       errors.weight
     ) {
       toast.error(errors.weight.message);
@@ -140,15 +144,25 @@ const useBmi = () => {
     if (
       !errors.lastName &&
       !errors.name &&
-      !errors.city &&
-      !errors.phoneNumber &&
-      !errors.abdominalCircumference && 
-      !errors.hipcircumference &&
-      !errors.gender &&
       !errors.weight &&
+      !errors.phoneNumber &&
+      !errors.abdominalCircumference &&
+      !errors.hipcircumference &&
       errors.age
     ) {
       toast.error(errors.age.message);
+    }
+    if (
+      !errors.lastName &&
+      !errors.name &&
+      !errors.weight &&
+      !errors.phoneNumber &&
+      !errors.abdominalCircumference &&
+      !errors.hipcircumference &&
+      !errors.age &&
+      errors.city
+    ) {
+      toast.error(errors.city.message);
     }
     if (
       !errors.lastName &&
@@ -157,12 +171,25 @@ const useBmi = () => {
       !errors.phoneNumber &&
       !errors.abdominalCircumference &&
       !errors.hipcircumference &&
-      !errors.gender &&
-      !errors.weight &&
       !errors.age &&
+      !errors.weight &&
       errors.height
     ) {
       toast.error(errors.height.message);
+    }
+    if (
+      !errors.lastName &&
+      !errors.name &&
+      !errors.city &&
+      !errors.phoneNumber &&
+      !errors.abdominalCircumference &&
+      !errors.hipcircumference &&
+      !errors.height &&
+      !errors.weight &&
+      !errors.age &&
+      errors.gender
+    ) {
+      toast.error(errors.gender.message);
     }
   };
 
@@ -175,7 +202,7 @@ const useBmi = () => {
         const response = await api.post("/bmi", data);
         push(`/user/${data.phoneNumber}/panel`);
         toast.success("خوش آمدید");
-      } catch (err:any) {
+      } catch (err: any) {
         toast.error("مشکلی پیش آمد");
         console.log(err.message);
       }
