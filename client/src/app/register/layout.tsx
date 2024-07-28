@@ -11,8 +11,8 @@ const LayoutRegister = ({ children }: { children: ReactNode }) => {
           <Image
             src={'/svg/blueBanner.svg'}
             alt="login banner"
-            className="hidden  !w-1/2 lg:inline-block "
-            width={800}
+            className="hidden object-cover lg:h-full !w-1/2 lg:inline-block "
+            width={9000}
             height={0}
           />
           {children}
