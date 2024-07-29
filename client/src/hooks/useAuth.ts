@@ -1,7 +1,6 @@
-'use client'
+"use client";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-
 
 const getPhoneNumberFromUrl = (): string | null => {
   if (typeof window !== "undefined") {
@@ -14,23 +13,27 @@ const getPhoneNumberFromUrl = (): string | null => {
 
 const useAuth = () => {
   const nav = useRouter();
-  useEffect(()=>{
-
-    if (typeof window !== "undefined"){
+  useEffect(() => {
+    if (typeof window !== "undefined") {
       const token = localStorage.getItem("token");
-      const user = localStorage.getItem('user');
+      const user = localStorage.getItem("user");
+      const newUser = localStorage.getItem("new_user");
+
       if (!token) {
         console.log("check the token in local");
         nav.push("/register/login/enterNumber");
-      }else if (token && user){
-        if(user != getPhoneNumberFromUrl()){
+      } else if (token && (user || newUser)) {
+        if (user != getPhoneNumberFromUrl()) {
           nav.push("/register/login/enterNumber");
         }
-      }else {
+        if (newUser != getPhoneNumberFromUrl()) {
+          nav.push("/register/login/enterNumber");
+        }
+      } else {
         console.log("Check the Token In LocalStorage.");
       }
-  }
-  },[])
+    }
+  }, []);
 };
 
 export default useAuth;
