@@ -17,7 +17,7 @@ const Article = () => {
             <Image
                 src={HeaderPic}
                 alt="What's Mediterranean Diet?"
-                className="flex col-start-3 col-span-3  object-cover"
+                className="flex col-start-3 rounded-lg col-span-3  object-cover"
                 width={5000}    
                 height={5000}
             />
@@ -31,7 +31,7 @@ const Article = () => {
                 <Image
                     src={MapPic}
                     alt="What's Mediterranean Diet?"
-                    className="flex col-start-3 col-span-3  object-cover"
+                    className="flex col-start-3 rounded-lg col-span-3  object-cover"
                     width={900}    
                     height={900}
                  />
@@ -45,7 +45,7 @@ const Article = () => {
                 <Image
                     src={PyramidPic}
                     alt="What's Mediterranean Diet?"
-                    className="flex col-start-3 col-span-3  object-cover"
+                    className="flex col-start-3 rounded-lg col-span-3  object-cover"
                     width={900}    
                     height={900}
                 />
@@ -56,7 +56,7 @@ const Article = () => {
                 <Image
                     src={OilPIc}
                     alt="What's Mediterranean Diet?"
-                    className="flex col-start-3 col-span-3  object-cover"
+                    className="flex col-start-3 rounded-lg col-span-3  object-cover"
                     width={900}    
                     height={900}
                 />
@@ -74,7 +74,7 @@ const Article = () => {
                 <Image
                     src={PersianDishPic}
                     alt="What's Mediterranean Diet?"
-                    className="flex col-start-3 col-span-3 py-4 object-cover"
+                    className="flex col-start-3 rounded-lg col-span-3 py-4 object-cover"
                     width={900}    
                     height={900}
                 />
