@@ -1114,7 +1114,7 @@ const MediterranealForm = () => {
             type="file"
             name="documents"
             multiple
-            parentClassName="col-span-2 [&>label]:text-base"
+            parentClassName="lg:col-span-2 col-span-full [&>label]:text-base"
             onChange={handleFileChange}
             label="آخرین آزمایشات ارسال شود "
           />
