@@ -18,7 +18,7 @@ const ProfessionalArticles = () => {
             <Image
                 src={MediIsBetter}
                 alt="What's Mediterranean Diet?"
-                className="flex col-start-3 col-span-3  object-cover"
+                className="flex col-start-3 rounded-lg col-span-3  object-cover"
                 width={5000}    
                 height={5000}
             />
@@ -28,7 +28,7 @@ const ProfessionalArticles = () => {
             <Image
                 src={MediIsBetter2}
                 alt="What's Mediterranean Diet?"
-                className="flex col-start-3 col-span-3  object-cover"
+                className="flex col-start-3 rounded-lg col-span-3  object-cover"
                 width={5000}    
                 height={5000}
             />
@@ -41,7 +41,7 @@ const ProfessionalArticles = () => {
             <Image
                 src={InternalPic}
                 alt="What's Mediterranean Diet?"
-                className="flex col-start-3 col-span-3  object-cover"
+                className="flex col-start-3 rounded-lg col-span-3  object-cover"
                 width={5000}    
                 height={5000}
             />
