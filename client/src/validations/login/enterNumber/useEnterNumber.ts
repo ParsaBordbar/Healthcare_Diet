@@ -30,7 +30,7 @@ const convertNumberToEnglish = (input: any) => {
   return output;
 };
 
-const generateToken = (phoneNumber: string) => {
+export const generateToken = (phoneNumber: string) => {
   const randomValue = Math.random().toString();
   const hash = CryptoJS.SHA256(phoneNumber + randomValue).toString();
   const token = parseInt(hash.substring(0, 5), 16) % 100000; 
@@ -87,8 +87,9 @@ const useEnterNumber = () => {
     };
 
     const token = generateToken(convertedData.phoneNumber);
+    console.log('token in number' , token)
     const hashedToken = CryptoJS.SHA256(token).toString();
-    localStorage.setItem('token', hashedToken); 
+    localStorage.setItem('temp_token', hashedToken); 
     localStorage.setItem('new_user', data.phoneNumber);
 
     try {
