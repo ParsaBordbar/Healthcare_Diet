@@ -16,7 +16,7 @@ import useSpecificFetchBmi from "@/hooks/useFetchName/useFetchName";
 import LogOutIcon from "/public/svg/userPanelSvgs/LogOut.svg";
 import MainButton from "../MainButton";
 import LoginIcon from "/public/svg/Dr_Rabiee_Landing/person.crop.circle.fill.svg";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 type THamMenu = {
   logo?: boolean;
@@ -56,28 +56,32 @@ type THamMenu = {
 };
 
 const HamburgerNavbar = (props: THamMenu) => {
-  const [userPanel , setUserPanel] = useState('/register/login/enterNumber')
+  const [userPanel, setUserPanel] = useState("/register/login/enterNumber");
   const [burgerMenuActive, setBurgerMenuActive] = useState(false);
-  
+
   const [user, setUser] = useState<string | null>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const storedUser = localStorage.getItem("user");
+      let storedUser = null;
+      if (localStorage.getItem("user")) {
+        storedUser = localStorage.getItem("user");
+      } else if (localStorage.getItem("new_token")) {
+        storedUser = localStorage.getItem("new_token");
+      }
       setUser(storedUser);
     }
   }, []);
 
-
-  console.log(user)
+  console.log(user);
   useEffect(() => {
-    console.log('user' , userPanel)
+    console.log("user", userPanel);
     if (user) {
       setUserPanel(`/user/${user}/panel`);
     }
-  }, [user , props.userID]);
+  }, [user, props.userID]);
 
- const  patients = useSpecificFetchBmi(props.userID);
+  const patients = useSpecificFetchBmi(props.userID);
 
   const listItemVariants = {
     open: {
@@ -144,7 +148,6 @@ const HamburgerNavbar = (props: THamMenu) => {
       link: props.linkTen ?? "",
       icon: props.iconTen,
     },
-
   ];
 
   const LinkGenerate = useCallback(() => {
@@ -182,9 +185,16 @@ const HamburgerNavbar = (props: THamMenu) => {
   }, []);
 
   const path = useRouter();
+  const pathName = usePathname();
   const handleLogout = () => {
     path.push("/");
-    localStorage.removeItem("user");
+    if (pathName.split("/")[1] == "user") {
+      localStorage.removeItem("user");
+      localStorage.removeItem("new_user");
+      localStorage.removeItem("token");
+    } else {
+      localStorage.removeItem("admin");
+    }
   };
 
   const toggleBurgerMenu = () => {
@@ -265,7 +275,7 @@ const HamburgerNavbar = (props: THamMenu) => {
                 className="p-2 pl-[4.75rem] flex flex-col gap-2
                "
               >
-                {patients && <ul className="flex flex-col gap-2">
+                <ul className="flex flex-col gap-2">
                   <li
                     onClick={handleLogout}
                     className="font-bold group cursor-pointer  hover:text-white text-[var(--black-blue)] !px-3 rounded-lg transition-all duration-200 ease-in-out flex items-center gap-2 !py-2 hover:bg-[var(--new-green)] text-base"
@@ -273,7 +283,8 @@ const HamburgerNavbar = (props: THamMenu) => {
                     <LogOutIcon className="group-hover:[&>path]:stroke-white" />
                     <span>خروج</span>
                   </li>
-                </ul>}
+                </ul>
+
                 {patients && (
                   <section className=" flex gap-4 items-center">
                     <MaleAvatar className="" />
