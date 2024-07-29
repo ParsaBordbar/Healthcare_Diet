@@ -25,6 +25,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("new_user");
     localStorage.removeItem("token");
   };
 
