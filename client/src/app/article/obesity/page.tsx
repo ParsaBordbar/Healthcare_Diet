@@ -14,7 +14,7 @@ const Obesity = () => {
             <Image
                 src={InternalPic}
                 alt="What's Mediterranean Diet?"
-                className="flex col-start-3 col-span-3  object-cover"
+                className="flex col-start-3 rounded-lg col-span-3  object-cover"
                 width={5000}    
                 height={5000}
             />
@@ -49,7 +49,7 @@ const Obesity = () => {
                 <Image
                 src={ObicPic}
                 alt="What's Mediterranean Diet?"
-                className="flex col-start-3 col-span-3  object-cover"
+                className="flex col-start-3 rounded-lg col-span-3  object-cover"
                 width={5000}    
                 height={5000}
             />
