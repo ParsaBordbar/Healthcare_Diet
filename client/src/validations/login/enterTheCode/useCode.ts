@@ -5,6 +5,7 @@ import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import CryptoJS from "crypto-js";
+import { generateToken } from "../enterNumber/useEnterNumber";
 
 // Schema validation for the code input
 export const loginSchema = yup.object({
@@ -39,11 +40,35 @@ export const loginSchema = yup.object({
 const convertNumberToEnglish = (input: any): string => {
   let inputStr = String(input);
 
-  const persianNumbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g];
-  const arabicNumbers = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g];
+  const persianNumbers = [
+    /۰/g,
+    /۱/g,
+    /۲/g,
+    /۳/g,
+    /۴/g,
+    /۵/g,
+    /۶/g,
+    /۷/g,
+    /۸/g,
+    /۹/g,
+  ];
+  const arabicNumbers = [
+    /٠/g,
+    /١/g,
+    /٢/g,
+    /٣/g,
+    /٤/g,
+    /٥/g,
+    /٦/g,
+    /٧/g,
+    /٨/g,
+    /٩/g,
+  ];
 
   for (let i = 0; i < 10; i++) {
-    inputStr = inputStr.replace(persianNumbers[i], i.toString()).replace(arabicNumbers[i], i.toString());
+    inputStr = inputStr
+      .replace(persianNumbers[i], i.toString())
+      .replace(arabicNumbers[i], i.toString());
   }
   return inputStr;
 };
@@ -68,10 +93,10 @@ const useCode = () => {
       try {
         await loginSchema.validate(convertedData, { abortEarly: false });
         return { values: convertedData, errors: {} };
-      } catch (yupError:any) {
+      } catch (yupError: any) {
         return {
           values: {},
-          errors: yupError.inner.reduce((allErrors:any, currentError:any) => {
+          errors: yupError.inner.reduce((allErrors: any, currentError: any) => {
             return {
               ...allErrors,
               [currentError.path]: {
@@ -87,22 +112,34 @@ const useCode = () => {
 
   const { push } = useRouter();
 
-  const handelValueInputs = useCallback((data: IdentifyCodeType) => {
-    const token = localStorage.getItem('token'); 
-    const user = localStorage.getItem('user')
-    const enteredToken = data.codeOne + data.codeTwo + data.codeThree + data.codeFour + data.codeFive;
-    const hashedEnteredToken = CryptoJS.SHA256(enteredToken).toString(); 
-
-    if (token && hashedEnteredToken === token && user) {
-      toast.success("کد به درستی وارد شد");
-      push(`/user/${user}/panel`);
-    }else if (token && hashedEnteredToken === token && !user) {
-      push('/register/diets-bmi');
-    }
-    else {
-      toast.error("کد وارد شده صحیح نیست");
-    }
-  }, [push]);
+  const handelValueInputs = useCallback(
+    (data: IdentifyCodeType) => {
+      const user = localStorage.getItem("user");
+      const token = localStorage.getItem("temp_token");
+      const enteredToken =
+        data.codeOne +
+        data.codeTwo +
+        data.codeThree +
+        data.codeFour +
+        data.codeFive;
+      const hashedEnteredToken = CryptoJS.SHA256(enteredToken).toString();
+      console.log("token in code", token);
+      console.log(enteredToken);
+      if (token && hashedEnteredToken === token && user) {
+        toast.success("کد به درستی وارد شد");
+        localStorage.removeItem("temp_token");
+        localStorage.setItem("token", hashedEnteredToken);
+        push(`/user/${user}/panel`);
+      } else if (token && hashedEnteredToken === token && !user) {
+        localStorage.removeItem("temp_token");
+        localStorage.setItem("token", hashedEnteredToken);
+        push("/register/diets-bmi");
+      } else {
+        toast.error("کد وارد شده صحیح نیست");
+      }
+    },
+    [push]
+  );
 
   return {
     control,
