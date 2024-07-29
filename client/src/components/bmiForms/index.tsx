@@ -10,7 +10,6 @@ const BmiFormDiet = () => {
     useBmi();
   const nameRef = useRef<HTMLInputElement | null>(null);
   const lastNameRef = useRef<HTMLInputElement | null>(null);
-  const phoneNumberRef = useRef<HTMLInputElement | null>(null);
   const abdominalCircumferenceRef = useRef<HTMLInputElement | null>(null);
   const ageRef = useRef<HTMLInputElement | null>(null);
   const cityRef = useRef<HTMLInputElement | null>(null);
@@ -23,7 +22,6 @@ const BmiFormDiet = () => {
   const inputRefs = [
     nameRef,
     lastNameRef,
-    phoneNumberRef,
     abdominalCircumferenceRef,
     hipcircumferenceRef,
     weightRef,
@@ -39,8 +37,6 @@ const BmiFormDiet = () => {
       nameRef.current?.focus();
     } else if (errors.lastName) {
       lastNameRef.current?.focus();
-    } else if (errors.phoneNumber) {
-      phoneNumberRef.current?.focus();
     } else if (errors.abdominalCircumference) {
       abdominalCircumferenceRef.current?.focus();
     } else if (errors.hipcircumference) {
