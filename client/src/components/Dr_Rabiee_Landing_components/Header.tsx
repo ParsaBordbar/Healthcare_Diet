@@ -14,18 +14,22 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 function Header() {
-  
   const [user, setUser] = useState<string | null>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const storedUser = localStorage.getItem("user");
+      let storedUser = null;
+      if (localStorage.getItem("user")) {
+        storedUser = localStorage.getItem("user");
+      } else if (localStorage.getItem("new_user")) {
+        storedUser = localStorage.getItem("new_user");
+      }
       setUser(storedUser);
     }
   }, []);
-  
+
   let userPanel = "/register/login/enterNumber";
-  
+
   if (user) {
     userPanel = `/user/${user}/panel`;
   }
@@ -75,7 +79,7 @@ function Header() {
               iconSrc={LoginIcon}
             />
           </Link>
-        )} 
+        )}
         {user && (
           <Link href={userPanel}>
             <MainButton
