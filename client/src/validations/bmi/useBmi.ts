@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { useCallback } from "react";
+import { use, useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
@@ -59,10 +59,18 @@ const convertNumberToEnglish = (input: any) => {
 
   return output;
 };
-const userPhone = localStorage.getItem("new_user");
-const useBmi = () => {
-  const { push } = useRouter();
 
+
+const useBmi = () => {
+  const [userPhone, setUserPhoneNumber] = useState<string|null>();
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+    const userPhoneLocal = localStorage.getItem("new_user");
+    setUserPhoneNumber(userPhoneLocal)
+    }
+  },[])
+  const { push } = useRouter();
+  
   const customResolver = (data: BmiDataType) => {
     const convertedData = {
       ...data,
