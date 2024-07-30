@@ -112,22 +112,26 @@ function PatientId({ params }: { params: { patientId: string } }) {
         <h2 className="text-xl md:text-2xl lg:text-3xl mt-8">
           پیام‌های ارسال شده:
         </h2>
-        {commentData ? (
-          commentData.map((comment) => (
-            <CommentBox
-              key={comment.receiver}
-              sender={comment.sender}
-              body={comment.body}
-              receiver={comment.receiver}
-              createdAtJalali={comment.createdAtJalali}
-              isDoctor={true}
-              files={comment.files}
-              _id={comment._id}
-            />
-          ))
-        ) : (
-          <p>هنوز پیامی وجود ندارد</p>
-        )}
+        <div className="grid grid-cols-2 gap-4">
+          {commentData ? (
+            commentData.map((comment) => (
+              <div className="lg:col-span-1 col-span-full">
+                <CommentBox
+                  key={comment.receiver}
+                  sender={comment.sender}
+                  body={comment.body}
+                  receiver={comment.receiver}
+                  createdAtJalali={comment.createdAtJalali}
+                  isDoctor={true}
+                  files={comment.files}
+                  _id={comment._id}
+                />
+              </div>
+            ))
+          ) : (
+            <p>هنوز پیامی وجود ندارد</p>
+          )}
+        </div>
         <ReplyBox receiver={params.patientId} />
       </section>
     </main>
