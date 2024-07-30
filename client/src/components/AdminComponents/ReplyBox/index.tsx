@@ -46,10 +46,10 @@ const ReplyBox: React.FC<ReplyBoxProps> = ({ receiver }) => {
       setSelectedFiles(Array.from(e.target.files));
     }
   };
-  const updateChecking = (isChecked: boolean, _id: string) => {
-    const { checked, toggleChecked } = useCheckedState(isChecked, _id);
-    return checked;
-  };
+  // const updateChecking = (isChecked: boolean, _id: string) => {
+  //   const { checked, toggleChecked } = useCheckedState(isChecked, _id);
+  //   return checked;
+  // };
 
   const onSubmit = async (data: any) => {
     mapping();
