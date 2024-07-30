@@ -9,7 +9,7 @@ function QuickLinSection() {
    const allComments = useFetchComments()
    const commentCount = allComments.length
 
-   const mediterraneanForms = useFetchMediterranean('/checking/isChecked');
+   const mediterraneanForms = useFetchMediterranean('/sort?sort=unVisited');
    const unvisitedMediterraneanFormsCount = mediterraneanForms.length
    const bmiForms = useFetchBmi();
    const bmiCount = bmiForms.length
