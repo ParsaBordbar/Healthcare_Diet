@@ -23,6 +23,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
         {bmiData ? (
           <>
             <PatientCard
+              key={bmiData.autoIncrementId}
               name={bmiData.name}
               lastName={bmiData.lastName}
               phoneNumber={bmiData.phoneNumber}
@@ -32,6 +33,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
             />
             <h2 className="text-xl md:text-2xl lg:text-3xl mt-8">فرم BMI:</h2>
             <PatientBmiForm
+              key={bmiData.autoIncrementId}
               name={bmiData?.name}
               lastName={bmiData?.lastName}
               age={bmiData?.age}
@@ -51,7 +53,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
           </>
         ) : (
           <>
-            <PatientCardLazy />
+            <PatientCardLazy/>
             <div className="bg-gray-200 h-5 me-6 mt-7 mb-2 w-1/12 animate-pulse"></div>
             <PatientBmiFormLazy />
           </>
@@ -115,7 +117,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
         <div className="grid grid-cols-2 gap-4">
           {commentData ? (
             commentData.map((comment) => (
-              <div className="lg:col-span-1 col-span-full">
+              <div className="lg:col-span-1 col-span-full" key={comment._id}>
                 <CommentBox
                   key={comment.receiver}
                   sender={comment.sender}
