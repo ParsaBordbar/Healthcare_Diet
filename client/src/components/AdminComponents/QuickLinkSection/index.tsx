@@ -26,7 +26,7 @@ function QuickLinSection() {
             <QuickLinkBox tittle={'بیمارها'} desc={'سوابق و مشخصات تمام بیمارها'} url={"/admin/panel/patients"} counter={bmiCount} /> 
         </li>
         <li className='lg:col-span-1 md:col-span-2 col-span-full' >
-            <QuickLinkBox tittle={'فایل‌ها'} desc={'فایل‌های آپلود شده شما'} url={"/admin/panel/comments"} counter={0} />
+            <QuickLinkBox tittle={'فایل‌ها'} desc={'فایل‌های آپلود شده شما'} url={"/admin/panel/comments"} counter={commentCount} />
         </li>
     </ul>
   )
