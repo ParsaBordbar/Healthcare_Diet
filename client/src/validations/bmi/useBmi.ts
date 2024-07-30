@@ -208,6 +208,11 @@ const useBmi = () => {
       try {
         console.log(data);
         const response = await api.post("/bmi", data);
+        const newUser = localStorage.getItem('new_user')
+        if (newUser){
+          localStorage.setItem('user', newUser)
+          localStorage.removeItem('new_user')
+        }
         push(`/user/${data.phoneNumber}/panel`);
         toast.success("خوش آمدید");
       } catch (err: any) {
