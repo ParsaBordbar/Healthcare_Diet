@@ -155,7 +155,7 @@ export interface FileType {
 }
 export interface CommentType {
   className?: string;
-  sender: string;
+  sender?: string;
   body: string;
   receiver?: string;
   createdAtGregorian?: string;
