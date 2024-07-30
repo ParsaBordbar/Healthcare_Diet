@@ -213,7 +213,7 @@ const useBmi = () => {
           localStorage.setItem('user', newUser)
           localStorage.removeItem('new_user')
         }
-        push(`/user/${data.phoneNumber}/panel`);
+        push(`/user/${data.phoneNumber}/panel/diets/`);
         toast.success("خوش آمدید");
       } catch (err: any) {
         toast.error("مشکلی پیش آمد");
