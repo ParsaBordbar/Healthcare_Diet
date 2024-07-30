@@ -19,7 +19,6 @@ const CommentBox = ({
   const [userData, setUserData] = useState<BmiType>();
   const fetchedData = useSpecificFetchBmi(receiver);
 
-  
   useEffect(() => {
     if (fetchedData) {
       setUserData(fetchedData);
@@ -39,40 +38,47 @@ const CommentBox = ({
       className={`flex ${className} flex-col col-span-full bg-[var(--milky-white)] gap-2 rounded-lg shadow-md my-3`}
     >
       <div className="ps-4 py-3 flex items-start min-[1320px]:gap-5 gap-2 pb-2 bg-[var(--secondary-blue)] text-white rounded-lg rounded-br-none pe-4">
-        <section className={`flex w-full items-start 2xl:items-center 2xl:flex-row lg:flex-col lg:gap-1 sm:flex-row gap-1 2xl:justify-between justify-between lg:justify-center ${!receiver && '!flex-col md:!flex-row md:!items-center'} flex-col `}>
-          <div className="flex flex-col gap-2">
-            <div className="flex gap-2 items-center">
-              <p className="text-sm sm:text-base">ارسال کننده:</p>
-              <p className="text-base text-ellipsis overflow-hidden whitespace-nowrap">
-                {sender}
-              </p>
-            </div>
-            {receiver ? (
+        <section
+          className={`flex w-full items-start 2xl:items-center 2xl:flex-row lg:flex-col lg:gap-1 sm:flex-row gap-1 2xl:justify-between justify-between lg:justify-center ${
+            !receiver && "!flex-col md:!flex-row md:!items-center"
+          } flex-row items-center `}
+        >
+          <div className="flex flex-row items-center gap-2">
+            {sender && (
               <div className="flex gap-2 items-center">
-                <p className="w-fit text-sm sm:text-base">دریافت کننده:</p>
                 <p className="text-base text-ellipsis overflow-hidden whitespace-nowrap">
-                  {userData?.name} {userData?.lastName}{" "}
+                  {sender}
                 </p>
+                <p className="text-base">به</p>
               </div>
-            ) : null}
+            )}
+            {receiver && (
+              <div className="flex gap-2 items-center">
+                {!sender && (
+                  <p className="text-base text-ellipsis overflow-hidden whitespace-nowrap">
+                    به
+                  </p>
+                )}
+                {isDoctor ? (
+                  <Link
+                    href={`/admin/panel/patients/${receiver}`}
+                    className="text-base text-ellipsis overflow-hidden whitespace-nowrap"
+                  >
+                    {userData?.name} {userData?.lastName}{" "}
+                  </Link>
+                ) : (
+                  <p className="text-base text-ellipsis overflow-hidden whitespace-nowrap">
+                    {userData?.name} {userData?.lastName}{" "}
+                  </p>
+                )}
+              </div>
+            )}
           </div>
           <div className="flex gap-2 min-[1320px]:justify-center items-center flex-row">
             <div className="flex sm:flex-row gap-4">
               <div className="flex flex-row justify-center items-center gap-2">
-                <DateSvg
-                  className="flex [&>path]:stroke-white"
-                  width={24}
-                />
-                <p className="pt-1.5 text-base">{createdAtJalali}</p>
+                <p className="text-base">{createdAtJalali?.split(' ')[0]}</p>
               </div>
-              {isDoctor ? (
-                <Link
-                  className="px-3 flex items-center"
-                  href={`/admin/panel/patients/${receiver}`}
-                >
-                  <PatientPageIcon />
-                </Link>
-              ) : null}
             </div>
           </div>
         </section>
@@ -88,7 +94,10 @@ const CommentBox = ({
           </div>
           <ul className="list-disc list-inside grid grid-cols-2">
             {files.map((file: FileType) => (
-              <li className="flex gap-2 col-span-full sm:col-span-1 items-center my-1" key={file.filename}>
+              <li
+                className="flex gap-2 col-span-full sm:col-span-1 items-center my-1"
+                key={file.filename}
+              >
                 <AttachmentIcon />
                 {/* This should be The server host and port */}
                 <a
