@@ -91,7 +91,7 @@ const LayoutUser = ({ children, params }: LayoutUserProps) => {
             />
           </ul>
         </div>
-        <main className="w-full md:w-[75%] lg:w-[80%] xl:w-[80%] sm:px-10 px-4 lg:px-6 py-20 lg:py-16 bg-white">
+        <main className="w-full md:w-[75%] lg:w-[80%] xl:w-[80%] sm:px-10 px-4 lg:px-6 py-24 lg:py-20 bg-white">
           {children}
         </main>
       </div>
