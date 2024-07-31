@@ -90,7 +90,6 @@ const useEnterNumber = () => {
     console.log('token in number' , token)
     const hashedToken = CryptoJS.SHA256(token).toString();
     localStorage.setItem('temp_token', hashedToken); 
-    localStorage.setItem('new_user', data.phoneNumber);
 
     try {
       const response = await api.get(`/bmi/phone${convertedData.phoneNumber}`);
@@ -108,6 +107,7 @@ const useEnterNumber = () => {
       }
     } catch (error:any) {
       if (error.response && error.response.status === 404) {
+        localStorage.setItem('new_user', data.phoneNumber);
         toast.success("خوش آمدید");
         push("/register/login/enterTheCode");
         const smsData = {

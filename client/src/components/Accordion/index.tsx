@@ -2,7 +2,8 @@
 import { useState} from "react";
 const Accordion = (props: any) => {
   console.log(props, "props data");
-  const [isOpen , setIsOpen] = useState<boolean>(false)
+  // const [isOpen , setIsOpen] = useState<boolean>(false)
+  const isOpen = true
   return (
     <div className="border rounded-lg mb-1">
       <button
@@ -10,9 +11,9 @@ const Accordion = (props: any) => {
           !props.isOpen ? "rounded-lg" : "rounded-t-lg"
         }  flex items-center justify-between p-4 text-left hover:bg-blue-300
 						bg-[var(--new-green)] text-white transition duration-300`}
-        onClick={() => {
-          setIsOpen(!isOpen)
-        }}
+        // onClick={() => {
+        //   setIsOpen(!isOpen)
+        // }}
       >
         {props.title}
         <span

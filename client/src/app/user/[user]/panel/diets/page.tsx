@@ -22,7 +22,7 @@ const DietsUserPanel = () => {
   const toggleAccordion = (accordionkey: any) => {
     const updatedAccordions = accordions.map((accord: any) => {
       if (accord.key === accordionkey) {
-        return { ...accord, isOpen: !accord.isOpen };
+        return { ...accord, isOpen: accord.isOpen };
       } else {
         return { ...accord, isOpen: false };
       }
@@ -57,7 +57,7 @@ const DietsUserPanel = () => {
           title={accordion.title}
           data={accordion.data}
           isOpen={accordion.isOpen}
-          toggleAccordion={() => toggleAccordion(accordion.key)}
+          // toggleAccordion={() => toggleAccordion(accordion.key)}
         />
       ))}
     </div>
