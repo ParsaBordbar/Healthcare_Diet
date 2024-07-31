@@ -3,7 +3,12 @@ const router = express.Router();
 const uploader = require("../middlewares/multer");
 const { doctorsComment } = require('../models/doctorComment');
 const { MediterraneanForm } = require('../models/mediterraneanForm');
+const moment = require('moment-timezone');
 const momentJalaali = require('moment-jalaali');
+
+//To Convert Timezones to Tehran TimeZone:
+momentJalaali.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});
+moment.tz.setDefault('Asia/Tehran'); //tz is Env for TimeZone
 
 router.post("/upload/type", uploader.fields([{ name: 'document', maxCount: 5 }, { name: 'payment', maxCount: 1 }]), async (req, res) => {
     const type = req.query.type;
@@ -101,7 +106,7 @@ router.post("/upload/type", uploader.fields([{ name: 'document', maxCount: 5 }, 
                 phoneNumber: req.body.phoneNumber,
                 files: filesWithMetadata,
                 payment: paymentFile, 
-                createdAtJalali: momentJalaali().format('jYYYY/jM/jD HH:mm:ss'),
+                createdAtJalali: momentJalaali().tz('Asia/Tehran').format('jYYYY/jM/jD HH:mm:ss'), //use Tehran Time zone 
                 dietBmi: {
                     age: req.body.age,
                     height: req.body.height,
