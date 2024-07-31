@@ -1,7 +1,9 @@
-'use client'
+"use client";
 import QuickLinkBox from "@/components/AdminComponents/QuickLinkBox";
 import DietStatus from "@/components/DietStatus";
+import MainButton from "@/components/MainButton";
 import UserInfo from "@/components/WelcomeUser";
+import useFetchOneMediterranean from "@/hooks/useFetchOneMediterranean";
 import useFetchPatientComments from "@/hooks/useFetchPatientComments/useFetchPatientComments";
 import Link from "next/link";
 import { ReactNode, memo } from "react";
@@ -16,9 +18,22 @@ interface LayoutMainPageUserProps {
 const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
   const userID = params.user;
   const comments = useFetchPatientComments(userID);
+  const medData = useFetchOneMediterranean(userID);
 
   return (
     <>
+      {medData.length == 0 && (
+        <div className="py-1.5 px-4 fixed z-50 top-0 left-0  flex w-full md:w-[75%] lg:w-[80%] xl:w-[80%] mx-auto justify-between items-center bg-[var(--new-green)]">
+          <span className="text-white">برای ثبت رژيم روی دکمه کلیک کنید</span>
+          <Link href={`/user/${userID}/panel/diets`}>
+            <MainButton
+              className="py-0.5 px-2 [&>span]:md:text-base"
+              modern
+              value={"دریافت رژیم"}
+            />
+          </Link>
+        </div>
+      )}
       <div className="grid grid-cols-8 gap-8">
         <ul className="col-span-full hidden md:grid grid-cols-6 gap-8">
           <li className="col-span-full md:col-span-3 lg:col-span-2">
@@ -57,7 +72,10 @@ const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
         <div className="col-span-full grid grid-cols-8 gap-8 mt-4">
           <div className="xl:col-span-2 col-span-full flex flex-col gap-4">
             <UserInfo userID={userID} />
-            <DietStatus direction="sm:!flex-row !flex-col xl:!flex-col" phoneNumber={params.user} />
+            <DietStatus
+              direction="sm:!flex-row !flex-col xl:!flex-col"
+              phoneNumber={params.user}
+            />
             <Link
               className=" text-[var(--secondary-blue)] text-lg"
               href={`/user/${userID}/panel/plans/`}
@@ -66,7 +84,6 @@ const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
             </Link>
           </div>
           <div className="xl:col-span-6 col-span-full">{children}</div>
-          
         </div>
       </div>
     </>
