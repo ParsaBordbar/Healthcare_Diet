@@ -22,9 +22,9 @@ type TButton = ButtonHTMLAttributes<HTMLButtonElement> & {
 const MainButton = (props: TButton) => {
   const declearModleOfButton = useMemo(() => {
     if (props.standard) {
-      return "bg-gradient-to-t to-[var(--hero-btn)] from-[var(--logo-bg)] shadow-lg bg-[var(--hero-btn)]";
+      return "bg-gradient-to-t to-[var(--new-green)] from-[var(--logo-bg)] shadow-lg bg-[var(--new-green)]";
     } else if (props.trasparent) {
-      return " border  border-[var(--new-green)]";
+      return " border-2  border-[var(--new-green)]";
     } else if (props.gradient) {
       return "gradient-third-green";
     } else if (props.modern) {
