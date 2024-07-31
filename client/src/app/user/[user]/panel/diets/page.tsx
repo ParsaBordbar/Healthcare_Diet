@@ -33,7 +33,9 @@ const DietsUserPanel = () => {
 
   return (
     <div className="flex flex-col gap-7">
+      <div className="lg:inline-block hidden">
         <CardsSection />
+      </div>
 
       <section className="flex sm:flex-row flex-col items-center gap-2">
         <h1 className="">
