@@ -4,6 +4,7 @@ import GroupRadio from "../GroupRadio";
 import MainButton from "../MainButton";
 import useMediterraneanForm from "@/validations/login/useMediterraneanForm";
 import { useRef } from "react";
+import PriceCard from "../PriceCard";
 
 const MediterranealForm = () => {
   const {
@@ -646,7 +647,6 @@ const MediterranealForm = () => {
         ) : null}
       </div>
 
-
       <div className="flex flex-col gap-4">
         <h1>مصرف فست فود به صورت هفتگی ؟</h1>
         <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
@@ -688,7 +688,6 @@ const MediterranealForm = () => {
           <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
         ) : null}
       </div>
-
 
       <div className="flex flex-col gap-4">
         <h1>
@@ -1118,9 +1117,9 @@ const MediterranealForm = () => {
             onChange={handleFileChange}
             label="آخرین آزمایشات ارسال شود "
           />
-        <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg col-span-full">
-          در صورت بارداری به سوالات زیر پاسخ دهید
-        </h1>
+          <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg col-span-full">
+            در صورت بارداری به سوالات زیر پاسخ دهید
+          </h1>
 
           <MainInput
             name="pregnancyWeeks"
@@ -1143,7 +1142,7 @@ const MediterranealForm = () => {
             onChange={handleChange}
             type="text"
             label="در صورت شیردهی، چندمین ماه شیردهی را می گذرانید؟"
-          />          
+          />
         </section>
         {errors.digestiveProblems ||
         errors.diabetes ||
@@ -1218,7 +1217,28 @@ const MediterranealForm = () => {
         <h1 className=" bg-[var(--new-green)] p-4 text-white rounded-lg">
           ارسال فایل رسید پرداختی
         </h1>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-6 gap-6">
+          <PriceCard
+            className="col-span-full [&>div]:sm:!flex-row [&>div]:sm:!items-center"
+            title={"پکیج اول رژیم غذایی"}
+            desc={"رژیم غذایی تنها و بدون مشاوره"}
+            price={"۲۱۵.۰۰۰ تومان"}
+            disPrice={"۲۰۰.۰۰۰ تومان"}
+          />
+          <PriceCard
+            className="col-span-full [&>div]:sm:!flex-row [&>div]:sm:!items-center"
+            title={"پکیج دوم رژیم غذایی"}
+            desc={"به همراه یک جلسه مشاوره تلفنی"}
+            price={"۳۲۰.۰۰۰ تومان"}
+            disPrice={"۳۰۰.۰۰۰ تومان"}
+          />
+          <PriceCard
+            className="col-span-full [&>div]:sm:!flex-row [&>div]:sm:!items-center"
+            title={"پکیج سوم رژیم غذایی"}
+            desc={"سه جلسه مشاوره تلفنی در طول یک ماه"}
+            price={"۵۳۰.۰۰۰ تومان"}
+            disPrice={"۵۰۰.۰۰۰ تومان"}
+          />
           <MainInput
             type="file"
             parentClassName="col-span-full"
@@ -1229,26 +1249,29 @@ const MediterranealForm = () => {
         </div>
         {paymentError && <div style={{ color: "red" }}>{paymentError}</div>}
       </section>
-      {formik.isSubmitting ? 
-        <MainButton
-        modern
-        className="py-2.5 !text-xl !text-white col-span-5 w-full"
-        value={"در حال ارسال..." }
-        type="submit"
-        disabled={formik.isSubmitting}
-      />:
-      <MainButton
-              modern
-              className="py-2.5 !text-xl !text-white col-span-5 w-full"
-              value={"ثبت فرم"}
-              type="submit"
-              disabled={formik.isSubmitting}
-            />
-      
-      // <button type="submit" disabled={formik.isSubmitting}>
-      //   {formik.isSubmitting ? "در حال ارسال..." : "ارسال"}
-      // </button>
-}
+      {
+        formik.isSubmitting ? (
+          <MainButton
+            modern
+            className="py-2.5 !text-xl !text-white col-span-5 w-full"
+            value={"در حال ارسال..."}
+            type="submit"
+            disabled={formik.isSubmitting}
+          />
+        ) : (
+          <MainButton
+            modern
+            className="py-2.5 !text-xl !text-white col-span-5 w-full"
+            value={"ثبت فرم"}
+            type="submit"
+            disabled={formik.isSubmitting}
+          />
+        )
+
+        // <button type="submit" disabled={formik.isSubmitting}>
+        //   {formik.isSubmitting ? "در حال ارسال..." : "ارسال"}
+        // </button>
+      }
     </form>
   );
 };
