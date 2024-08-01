@@ -22,7 +22,7 @@ const LayoutMainPageUser = ({ children, params }: LayoutMainPageUserProps) => {
 
   return (
     <>
-      {medData.length > 0 && (
+      {medData.length == 0 && (
         <div className="py-1.5 px-4 fixed z-50 top-0 left-0  flex w-full md:w-[75%] lg:w-[80%] xl:w-[80%] mx-auto justify-between items-center bg-[var(--new-green)]">
           <section className="flex items-center gap-2">
             <InfoCircle className="[&>path]:stroke-white" />
