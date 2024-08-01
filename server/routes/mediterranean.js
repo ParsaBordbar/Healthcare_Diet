@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const morgan = require("morgan")
 const { MediterraneanForm, validateMediterranean } = require('../models/mediterraneanForm');
 const uploader = require('../middlewares/multer');
+router.use(morgan('combined'))
+
 
 router.get('/', async (req, res) => {
     if (MediterraneanForm) {
