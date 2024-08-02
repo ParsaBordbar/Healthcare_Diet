@@ -54,13 +54,14 @@ const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
       {arr.slice(0, 1).map((form, index) => {
         console.log(form.phoneNumber);
         return (
-          <div key={form._id}
+          <div
+            key={form._id}
             className={`
                   -z-50 opacity-0 transition-all ease-in-out duration-700 ${
                     params.show && "!opacity-100 !z-50 bg-glass"
                   }  fixed md:p-10 w-full h-screen top-0 right-0  `}
           >
-            <div className="md:w-11/12 w-full mx-auto overflow-y-scroll custom-scroll h-full shadow-lg bg-[var(--milky-white)] flex flex-col gap-10 p-8 rounded-lg">
+            <div className="md:w-11/12 w-full mx-auto overflow-y-scroll custom-scroll-y h-full shadow-lg bg-[var(--milky-white)] flex flex-col gap-10 p-8 rounded-lg">
               <section className="flex flex-col gap-8 items-end">
                 <Close
                   className="cursor-pointer bg-[var(--milky-white)] fixed w-8 h-8 p-1 transition-all ease-in-out duration-200 hover:!stroke-white hover:bg-red-600 rounded-full"
