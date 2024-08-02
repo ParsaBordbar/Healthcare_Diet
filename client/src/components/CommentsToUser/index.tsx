@@ -20,34 +20,45 @@ const CommentsToUser = ({ userID }: { userID: string }) => {
             <Calendar />
           </div>
         </section>
-        <div className={`flex ${comments.length > 0 && 'custom-scroll max-h-[590px]'} pl-6 flex-col`}>
+        <div
+          className={`flex ${
+            comments.length > 0 && "custom-scroll-y max-h-[590px]"
+          } pl-6 flex-col`}
+        >
           {comments.length > 0 ? (
-            comments.slice(-3).reverse().map((data): React.ReactNode => {
-              return (
-                <CommentBox
-                  className="w-full"
-                  _id=""
-                  key={data.receiver}
-                  sender={data.sender}
-                  body={data.body}
-                  receiver={data.receiver}
-                  createdAtJalali={data.createdAtJalali}
-                  files={data.files}
-                  isDoctor={false}
-                />
-              );
-            })
+            comments
+              .slice(-3)
+              .reverse()
+              .map((data): React.ReactNode => {
+                return (
+                  <CommentBox
+                    className="w-full"
+                    _id=""
+                    key={data.receiver}
+                    sender={data.sender}
+                    body={data.body}
+                    receiver={data.receiver}
+                    createdAtJalali={data.createdAtJalali}
+                    files={data.files}
+                    isDoctor={false}
+                  />
+                );
+              })
           ) : (
-            <h2 className="text-center text-xl md:text-2xl lg:text-3xl">پیامی ندارید</h2>
+            <h2 className="text-center text-xl md:text-2xl lg:text-3xl">
+              پیامی ندارید
+            </h2>
           )}
         </div>
       </div>
-      {comments.length > 0 && <Link
-        className="mt-2 text-[var(--secondary-blue)] text-lg"
-        href={`/user/${userID}/panel/massege`}
-      >
-        دیدن همه ی پیام ها
-      </Link>}
+      {comments.length > 0 && (
+        <Link
+          className="mt-2 text-[var(--secondary-blue)] text-lg"
+          href={`/user/${userID}/panel/massege`}
+        >
+          دیدن همه ی پیام ها
+        </Link>
+      )}
     </main>
   );
 };
