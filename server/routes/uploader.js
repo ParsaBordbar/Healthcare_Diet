@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const uploader = require("../middlewares/multer");
+const morgan = require("morgan")
 const { doctorsComment } = require('../models/doctorComment');
 const { MediterraneanForm } = require('../models/mediterraneanForm');
 const moment = require('moment-timezone');
 const momentJalaali = require('moment-jalaali');
+router.use(morgan('combined'))
+
 
 //To Convert Timezones to Tehran TimeZone:
 momentJalaali.loadPersian({usePersianDigits: true, dialect: 'persian-modern'});

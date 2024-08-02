@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 require('dotenv').config();
+const morgan = require("morgan")
+
+router.use(morgan('combined'));
 const Kavenegar = require('kavenegar');
 
 const api = Kavenegar.KavenegarApi({

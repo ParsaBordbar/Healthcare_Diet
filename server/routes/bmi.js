@@ -4,6 +4,7 @@ const { validateBmi, BmiForm } = require('../models/bmiForm');
 const moment = require('moment');
 const momentJalaali = require('moment-jalaali');
 
+
 router.get('/', async (req, res) => {
     if (BmiForm) {
         const bmiForms = await BmiForm.find().sort(req.params.id);
