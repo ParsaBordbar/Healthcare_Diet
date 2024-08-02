@@ -1,28 +1,48 @@
-'use client'
-import useFetchComments from '@/hooks/useFetchComments/useFetchComments'
-import Link from 'next/link'
-import React from 'react'
-import CommentBox from '../CommentBox'
-import CommentIcon from '/public/svg/adminPanelSvgs/messages.svg'
-function NewCommentsBox () {
-
-  const allComments = useFetchComments()
+"use client";
+import useFetchComments from "@/hooks/useFetchComments/useFetchComments";
+import Link from "next/link";
+import React from "react";
+import CommentBox from "../CommentBox";
+import CommentIcon from "/public/svg/adminPanelSvgs/messages.svg";
+function NewCommentsBox() {
+  const allComments = useFetchComments();
 
   return (
-    <div className='my-3 flex justify-center  flex-col '>
+    <div className="my-3 flex justify-center  flex-col ">
       <section className="mb-6 flex items-center gap-2">
-        <CommentIcon className='[&>path]:stroke-black'/>
+        <CommentIcon className="[&>path]:stroke-black" />
         <h2 className="text-lg ">جدیدترین پیام‌ها</h2>
       </section>
-      <div className='flex max-h-[590px] gap-3 custom-scroll flex-col'>
-        {allComments? allComments.slice(-3).reverse().map((data): React.ReactNode => {
-            return <CommentBox className=' min-[1320px]:w-[96%] w-11/12' _id="" key={data.receiver} body={data.body} receiver={data.receiver} createdAtJalali={data.createdAtJalali} isDoctor={true} files={data.files}/>
-        }): null
-        }
+      <div className="flex max-h-[590px] gap-3 custom-scroll-y flex-col">
+        {allComments
+          ? allComments
+              .slice(-3)
+              .reverse()
+              .map((data): React.ReactNode => {
+                return (
+                  <CommentBox
+                    className=" min-[1320px]:w-[96%] w-11/12"
+                    _id=""
+                    key={data.receiver}
+                    body={data.body}
+                    receiver={data.receiver}
+                    createdAtJalali={data.createdAtJalali}
+                    isDoctor={true}
+                    files={data.files}
+                  />
+                );
+              })
+          : null}
       </div>
-      <Link className="pt-3 mx-2 text-lg  text-blue-600 " href={"/admin/panel/comments"}> دیدن‌ همه‌ی پیام‌ها</Link>
+      <Link
+        className="pt-3 mx-2 text-lg  text-blue-600 "
+        href={"/admin/panel/comments"}
+      >
+        {" "}
+        دیدن‌ همه‌ی پیام‌ها
+      </Link>
     </div>
-  )
+  );
 }
 
-export default NewCommentsBox 
+export default NewCommentsBox;
