@@ -121,23 +121,42 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.custom-scroll {
+.custom-scroll-y {
   overflow-y: scroll;
 }
 
-.custom-scroll::-webkit-scrollbar {
+.custom-scroll-y::-webkit-scrollbar {
   width: 4px;
 }
 
-.custom-scroll::-webkit-scrollbar-track {
+.custom-scroll-y::-webkit-scrollbar-track {
   background: var(--milky-white);
   border-radius: 8px;
 }
 
-.custom-scroll::-webkit-scrollbar-thumb {
+.custom-scroll-y::-webkit-scrollbar-thumb {
   background: var(--new-green);
   border-radius: 8px;
 }
+
+.custom-scroll-x {
+  overflow-x: scroll;
+}
+
+.custom-scroll-x::-webkit-scrollbar {
+  height: 4px;
+}
+
+.custom-scroll-x::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 8px;
+}
+
+.custom-scroll-x::-webkit-scrollbar-thumb {
+  background: var(--new-green);
+  border-radius: 8px;
+}
+
 
 .bg-glass {
   /* From https://css.glass */
