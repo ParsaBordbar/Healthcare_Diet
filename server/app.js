@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 const cors = require('cors');
 const morgan = require("morgan");
-
+const helmet = require("helmet");
 const bmi = require('./routes/bmi');
 const mediterranean = require('./routes/mediterranean');
 const adminLogin = require('./routes/admin');
@@ -24,6 +24,7 @@ if(!fs.existsSync(uploadsDir)){
 
 app.use(cors());
 app.use(express.json());
+app.use(helmet());
 app.use(logger); 
 app.use('/api/bmi', bmi);
 app.use('/api/mediterranean', mediterranean);
