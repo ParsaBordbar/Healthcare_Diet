@@ -1,5 +1,6 @@
 "use client";
 import MediterraneanForm from "@/components/AdminComponents/MediterraneanForm";
+import { chunkingArray } from "@/hooks/chunkingArray";
 import useFetchOneMediterranean from "@/hooks/useFetchOneMediterranean";
 import { MediterraneanFormType } from "@/types";
 import { useCallback, useState } from "react";
@@ -11,41 +12,11 @@ const MediterraneanPatientPage = ({
 }) => {
   const medData = useFetchOneMediterranean(params.patientId).toReversed();
   const [arrayItemsMedi, setArrayItemsMedi] = useState<number>(0);
-  let sperateArray: MediterraneanFormType[] = [];
 
-  const chunkingArray = (
-    data: MediterraneanFormType[],
-    chunk: number,
-    functionFetch: any
-  ) => {
-    let array: MediterraneanFormType[][] = [];
-    console.log(
-      "this is the data.lnght / chunk",
-      Math.floor(data.length / chunk)
-    );
-    let count = 0;
-    if (functionFetch.toReversed().length % 2 == 0) {
-      count = functionFetch.toReversed().length / 2 + 1;
-    } else {
-      count = functionFetch.toReversed().length / 2 + 1;
-    }
-    console.log("this is count ", count);
-    for (let i = 0; i < count; i++) {
-      sperateArray = data.splice(0, chunk);
-      console.log("sperate array in for loop", sperateArray);
-      array.push(sperateArray);
-    }
-    return array;
-  };
-
-  const newArrayMedi = chunkingArray(
-    medData,
-    4,
-    useFetchOneMediterranean(params.patientId)
-  );
+  const newArrayMedi = chunkingArray(medData, 2);
 
   const paginationMedi = useCallback(() => {
-    return newArrayMedi.map((item, index) => {
+    return newArrayMedi.map((item: any, index: number) => {
       return (
         item.length > 0 &&
         newArrayMedi[1]?.length > 0 && (
@@ -56,7 +27,10 @@ const MediterraneanPatientPage = ({
               console.log(e.target);
               setArrayItemsMedi(index);
             }}
-            className="p-4 hover:underline focus:underline font-medium text-[var(--new-green)] bg-[var(--milky-white)] hover:bg-[var(--new-green)] border-none outline-none hover:text-[var(--milky-white)] focus:bg-[var(--new-green)] focus:text-[var(--milky-white)] "
+            className={`p-4 hover:underline bg-[var(--milky-white)] hover:bg-[var(--new-green)] border-none outline-none hover:text-[var(--milky-white)] ${
+              arrayItemsMedi + 1 == index + 1 &&
+              "bg-[var(--new-green)] text-[var(--milky-white)] underline"
+            } `}
           >
             {index + 1}
           </button>
@@ -69,7 +43,7 @@ const MediterraneanPatientPage = ({
     <div className="flex flex-col mb-6 gap-6">
       <h2 className="text-xl md:text-2xl lg:text-3xl">رژیم‌ها:</h2>
       {newArrayMedi[arrayItemsMedi]?.length > 0 ? (
-        newArrayMedi[arrayItemsMedi].map((form) => (
+        newArrayMedi[arrayItemsMedi].map((form: MediterraneanFormType) => (
           <MediterraneanForm
             key={`${params.patientId} ${form.createdAtJalali}`}
             phoneNumber={params.patientId}
