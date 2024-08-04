@@ -1,9 +1,10 @@
 import api from "@/apis";
 import { MediterraneanFormType } from "@/types";
 import { useState, useEffect } from "react";
+import { chunkingArray } from "../chunkingArray";
 
 const useFetchMediterranean = (url?: string) => {
-    const [mediterraneanForms, SetMediterraneanForms] = useState<MediterraneanFormType[]>([])
+    const [mediterraneanForms, SetMediterraneanForms] = useState<MediterraneanFormType[][]>([])
 
     useEffect(()=>{
         fetchMediterraneanForms()
@@ -13,11 +14,13 @@ const useFetchMediterranean = (url?: string) => {
         try{
             if(url){
                 const response = await api.get(`/mediterranean${url}`);
-                return SetMediterraneanForms(response.data);
+                const newChunckArray = chunkingArray(response.data , 2)
+                return SetMediterraneanForms(newChunckArray);
             }
             else{
                 const response = await api.get('/mediterranean');
-                return SetMediterraneanForms(response.data);
+                const newChunckArray = chunkingArray(response.data , 2)
+                return SetMediterraneanForms(newChunckArray);
             }
         }
         catch(err : any){
