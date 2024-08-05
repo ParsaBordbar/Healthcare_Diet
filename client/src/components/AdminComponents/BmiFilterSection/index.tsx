@@ -28,6 +28,7 @@ const BmiSection = () => {
     return filter.map((item: any, index: number) => {
       return (
         item.length > 0 &&
+        Array.isArray(filter[1]) &&
         filter[1]?.length > 0 && (
           <button
             type="button"
@@ -104,6 +105,7 @@ const BmiSection = () => {
       </div>
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-10">
         {filter.length > 0 &&
+          Array.isArray(filter[arrayItemsComment]) &&
           filter[arrayItemsComment].map((form: BmiType) => (
             <PatientBmiForm
               name={form.name}
