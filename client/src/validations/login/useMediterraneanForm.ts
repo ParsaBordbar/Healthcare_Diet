@@ -44,6 +44,10 @@ interface FormValues {
   thyroid?: string;
   cancer?: boolean;
   supplements: string;
+  appetite: string,
+  physicalActivityHours: string,
+  sport: string,
+  preferredDrink: string,
   Migraine?: boolean;
   otherSickness?: string;
   medicine?: string;
@@ -98,6 +102,10 @@ const mediterraneanSchema = yup.object().shape({
   weightBeforePregnancy: yup.string(),
   breastfeeding: yup.string(),
   phoneNumber: yup.string(),
+  appetite: yup.string(),
+  physicalActivityHours: yup.string(),
+  sport: yup.string(),
+  preferredDrink: yup.string(),
   age: yup.string().required("سن الزامی است"),
   height: yup.string().required("قد الزامی است"),
   weight: yup.string().required("وزن الزامی است"),
@@ -147,6 +155,10 @@ const useMediterraneanForm = () => {
       fastFoodWeekly: "",
       fermentationWeekly: "",
       physicalActivity: "",
+      appetite: "",
+      physicalActivityHours: "",
+      sport: "",
+      preferredDrink: "",
       diabetes: "ندارم",
       supplements: "",
       bloodPressure: "ندارم",
