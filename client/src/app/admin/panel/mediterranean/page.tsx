@@ -62,38 +62,38 @@ const MediterraneanFormsPage = () => {
                 modern
                 className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
                 value={"قدیمی ترین"}
-                // onClick={() => {
-                //   setArrayItemsComment(0);
-                //   oldestFilterHandler();
-                // }}
+                onClick={() => {
+                  setArrayItemsComment(0);
+                  oldestFilterHandler();
+                }}
               />
               <MainButton
                 modern
                 className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
                 value={"جدیدترین"}
-                // onClick={() => {
-                //   setArrayItemsComment(0);
-                //   newestFilterHandler();
-                // }}
+                onClick={() => {
+                  setArrayItemsComment(0);
+                  newestFilterHandler();
+                }}
               />
 
               <MainButton
                 modern
                 className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
                 value={"مرد"}
-                // onClick={() => {
-                //   setArrayItemsComment(0);
-                //   maleFilterHandler();
-                // }}
+                onClick={() => {
+                  setArrayItemsComment(0);
+                  maleFilterHandler();
+                }}
               />
               <MainButton
                 modern
                 className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
                 value={"زن"}
-                // onClick={() => {
-                //   setArrayItemsComment(0);
-                //   femaleFilterHandler();
-                // }}
+                onClick={() => {
+                  setArrayItemsComment(0);
+                  femaleFilterHandler();
+                }}
               />
               <Link
                 className="col-span-2"
@@ -109,10 +109,10 @@ const MediterraneanFormsPage = () => {
                 modern
                 className="rounded-lg font-extrabold col-span-2 py-3 !text-sm"
                 value={"افراد دارای بیماری‌های خاص"}
-                // onClick={() => {
-                //   setArrayItemsComment(0);
-                //   specialFilterHandler();
-                // }}
+                onClick={() => {
+                  setArrayItemsComment(0);
+                  specialFilterHandler();
+                }}
               />
             </section>
           </div>
