@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import useFetchBmi from "../useFetchBmi";
 import api from "@/apis";
 import { BmiType } from "@/types";
-import { chunkingArray } from "../chunkingArray";
 
 const useSearchBmi = (filterUrl: string) => {
   const bmi = useFetchBmi();
@@ -15,8 +14,7 @@ const useSearchBmi = (filterUrl: string) => {
       const data: BmiType[] = await fetchFilteredData(
         `${filterUrl}?sort=newest`
       );
-      const newArrayChunk = chunkingArray(data, 12);
-      setFilter(newArrayChunk);
+      setFilter(data);
     };
     fetchInitialData();
   }, []);
@@ -54,32 +52,27 @@ const useSearchBmi = (filterUrl: string) => {
       return;
     }
     const searchData = await fetchSearchData(trimmedSearchValue);
-    const newArrayChunk = chunkingArray(searchData, 12);
-    setFilter(newArrayChunk);
+    setFilter(searchData);
   };
 
   const newestFilterHandler = async () => {
     const data: BmiType[] = await fetchFilteredData(`${filterUrl}?sort=newest`);
-    const newArrayChunk = chunkingArray(data, 12);
-    setFilter(newArrayChunk);
+    setFilter(data);
   };
 
   const oldestFilterHandler = async () => {
     const data = await fetchFilteredData(`${filterUrl}?sort=oldest`);
-    const newArrayChunk = chunkingArray(data, 12);
-    setFilter(newArrayChunk);
+    setFilter(data);
   };
 
   const maleFilterHandler = async () => {
     const data = await fetchFilteredData(`${filterUrl}?sort=male`);
-    const newArrayChunk = chunkingArray(data, 12);
-    setFilter(newArrayChunk);
+    setFilter(data);
   };
 
   const femaleFilterHandler = async () => {
     const data = await fetchFilteredData(`${filterUrl}?sort=female`);
-    const newArrayChunk = chunkingArray(data, 12);
-    setFilter(newArrayChunk);
+    setFilter(data);
   };
 
   return {
