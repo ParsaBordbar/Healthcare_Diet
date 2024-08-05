@@ -2,10 +2,9 @@
 import { useEffect, useState } from "react";
 import api from "@/apis";
 import { MediterraneanFormType } from "@/types";
-import { chunkingArray } from "../chunkingArray";
 
 const useSearchMediterranean = (filterUrl: string) => {
-  const [filter, setFilter] = useState<MediterraneanFormType[]>([]);
+  const [filter, setFilter] = useState<MediterraneanFormType[][]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
   const [phoneNumbers, setPhoneNumbers] = useState<string[]>([]);
 
@@ -42,8 +41,7 @@ const useSearchMediterranean = (filterUrl: string) => {
       );
 
       const mergedData = allData.map((response) => response.data).flat();
-      const resultOfChunking = chunkingArray(mergedData, 2);
-      setFilter(resultOfChunking);
+      setFilter(mergedData);
     } catch (error) {
       console.error("Error fetching Mediterranean data:", error);
     }
@@ -51,11 +49,10 @@ const useSearchMediterranean = (filterUrl: string) => {
 
   useEffect(() => {
     const fetchInitialData = async () => {
-      const data: MediterraneanFormType[] = await fetchFilteredData(
+      const data = await fetchFilteredData(
         `${filterUrl}?sort=newest`
       );
-      const resultOfChunking = chunkingArray(data, 2);
-      setFilter(resultOfChunking);
+      setFilter(data);
     };
     fetchInitialData();
   }, []);
@@ -80,37 +77,32 @@ const useSearchMediterranean = (filterUrl: string) => {
   };
 
   const newestFilterHandler = async () => {
-    const data: MediterraneanFormType[] = await fetchFilteredData(
+    const data = await fetchFilteredData(
       `${filterUrl}?sort=newest`
     );
-    const resultOfChunking = chunkingArray(data, 2);
-    setFilter(resultOfChunking);
+    setFilter(data);
   };
 
   const oldestFilterHandler = async () => {
     const data = await fetchFilteredData(`${filterUrl}?sort=oldest`);
-    const resultOfChunking = chunkingArray(data, 2);
-    setFilter(resultOfChunking);
+    setFilter(data);
   };
 
   const specialFilterHandler = async () => {
     const data = await fetchFilteredData(`mediterranean/sort?sort=special`);
-    const resultOfChunking = chunkingArray(data, 2);
-    setFilter(resultOfChunking);
+    setFilter(data);
   };
 
   const maleFilterHandler = async () => {
     const data = await fetchFilteredData(`bmi/sort?sort=male`);
     fetchMediterraneanData(data.map((item: any) => item.phoneNumber));
-    const resultOfChunking = chunkingArray(data, 2);
-    setFilter(resultOfChunking);
+    setFilter(data);
   };
 
   const femaleFilterHandler = async () => {
     const data = await fetchFilteredData(`bmi/sort?sort=female`);
     fetchMediterraneanData(data.map((item: any) => item.phoneNumber));
-    const resultOfChunking = chunkingArray(data, 2);
-    setFilter(resultOfChunking);
+    setFilter(data);
   };
 
   return {
