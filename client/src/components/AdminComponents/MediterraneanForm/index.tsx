@@ -5,67 +5,70 @@ import Tick from "/public/svg/adminPanelSvgs/check_ring_round.svg";
 import Cross from "/public/svg/adminPanelSvgs/close_ring_fill.svg";
 import AttachmentIcon from "/public/svg/adminPanelSvgs/attachment-svgrepo-com.svg";
 import DateSvg from "/public/svg/adminPanelSvgs/calendar.svg";
-import PatientPageIcon from '/public/svg/User.svg'
+import PatientPageIcon from "/public/svg/User.svg";
 import Link from "next/link";
 import DietBmi from "../DietBmi";
 import useCheckedState from "@/hooks/useChecked/useChecked";
 
-
 const MediterraneanForm = ({
-    dailyFruit,
-    dailyVegetable,
-    Cereals,
-    dailyCereals,
-    potatoAndStarchWeekly,
-    oliveAndOliveOilDaily,
-    nutsDaily,
-    dairyDaily,
-    beans,
-    eggWeekly,
-    fishWeekly,
-    chickensWeekly,
-    redMeatWeekly,
-    sugarWeekly,
-    alcoholWeekly,
-    fermentationWeekly,
-    supplements,
-    physicalActivity,
-    diabetes,
-    anemia,
-    bloodPressure,
-    digestiveProblems,
-    selfSafety,
-    stroke,
-    fattyLiver,
-    kidneyProblems,
-    thyroid,
-    cancer,
-    Migraine,
-    otherSickness,
-    medicine,
-    foodAllergies,
-    pregnancyWeeks,
-    breastfeeding,
-    weightBeforePregnancy,
-    phoneNumber,
-    isChecked,
-    createdAtGregorian,
-    createdAtJalali,
-    files = [],
-    dietBmi,
-    payment,
-    _id,
-}: MediterraneanFormType)  => {
+  dailyFruit,
+  dailyVegetable,
+  Cereals,
+  dailyCereals,
+  potatoAndStarchWeekly,
+  oliveAndOliveOilDaily,
+  nutsDaily,
+  dairyDaily,
+  beans,
+  eggWeekly,
+  fishWeekly,
+  chickensWeekly,
+  redMeatWeekly,
+  sugarWeekly,
+  alcoholWeekly,
+  fermentationWeekly,
+  supplements,
+  physicalActivity,
+  diabetes,
+  anemia,
+  bloodPressure,
+  digestiveProblems,
+  selfSafety,
+  stroke,
+  fattyLiver,
+  kidneyProblems,
+  thyroid,
+  cancer,
+  Migraine,
+  otherSickness,
+  medicine,
+  foodAllergies,
+  pregnancyWeeks,
+  breastfeeding,
+  weightBeforePregnancy,
+  phoneNumber,
+  isChecked,
+  createdAtGregorian,
+  createdAtJalali,
+  files = [],
+  dietBmi,
+  payment,
+  _id,
+}: MediterraneanFormType) => {
   const data = useSpecificFetchBmi(phoneNumber);
   const { checked, toggleChecked } = useCheckedState(isChecked, _id);
-  
+  console.log("09359585255", supplements);
   return (
     <div className="flex flex-row mb-10 bg-[var(--milky-white)]  rounded-lg text-lg">
       <ul className="flex w-full flex-col">
         <div className="flex sm:flex-row flex-col items-start sm:items-center justify-between">
           <li className="text-4xl bg-[var(--new-green)] text-white w-fit pe-4 ps-2 rounded-e-full py-3 my-5 flex items-center justify-center gap-2">
-            <Link  href={`/admin/panel/patients/${phoneNumber}`}><PatientPageIcon width={32}/></Link>
-            <p className="md:text-2xl lg:text-3xl text-xl">{data?.name} {data?.lastName}</p>
+            <Link href={`/admin/panel/patients/${phoneNumber}`}>
+              <PatientPageIcon width={32} />
+            </Link>
+            <p className="md:text-2xl lg:text-3xl text-xl">
+              {data?.name} {data?.lastName}
+            </p>
           </li>
           <button
             onClick={toggleChecked}
@@ -85,12 +88,14 @@ const MediterraneanForm = ({
               </p>
             )}
           </button>
-          
         </div>
         <div className="text-2xl pr-4 sm:ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5 flex gap-2 items-center">
-          <DateSvg className="sm:flex [&>path]:stroke-white  hidden" width={24} />
+          <DateSvg
+            className="sm:flex [&>path]:stroke-white  hidden"
+            width={24}
+          />
           <p className="pt-1.5  text-base"> تاریخ ثبت فرم: {createdAtJalali}</p>
-          </div>
+        </div>
         <li className=" pr-4 sm:ps-12 pe-7 lg:text-2xl sm:text-xl text-base bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
           مواد غذایی مصرفی:
         </li>
@@ -118,7 +123,6 @@ const MediterraneanForm = ({
           <li
             className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row"
             gap-2
-
           >
             <p className="">سایر سبزیجات نشاسته ای در هفته:</p>
             <p className="text-[var(--black-blue)]">{potatoAndStarchWeekly}</p>
@@ -180,7 +184,18 @@ const MediterraneanForm = ({
 
           <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
             <p className=""> مکمل‌هایی که مصرف می‌کنند:</p>
-            <p className="text-[var(--black-blue)]">{supplements}</p>
+            <div className="flex flex-col gap-2">
+              {supplements.length > 0 && Array.isArray(supplements) ? (
+                supplements.map(
+                  (items) =>
+                    items != "" && (
+                      <p className="text-[var(--black-blue)]">{items}</p>
+                    )
+                )
+              ) : (
+                <p className="text-[var(--black-blue)]">هیچکدام</p>
+              )}
+            </div>
           </li>
 
           <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
@@ -195,129 +210,209 @@ const MediterraneanForm = ({
           </li>
           <ul className="grid grid-cols-4 mb-5 px-4 gap-2">
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-sm sm:text-base'> وضعیت دیابت: {diabetes}</p>
+              <p className="w-fit text-sm sm:text-base">
+                {" "}
+                وضعیت دیابت: {diabetes}
+              </p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-sm sm:text-base'>وضعیت فشارخون: {bloodPressure}</p>
+              <p className="w-fit text-sm sm:text-base">
+                وضعیت فشارخون: {bloodPressure}
+              </p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-sm sm:text-base'>وضعیت مشکلات گوارشی: {digestiveProblems}</p>
+              <p className="w-fit text-sm sm:text-base">
+                وضعیت مشکلات گوارشی: {digestiveProblems}
+              </p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-sm sm:text-base'>وضعیت خودایمنی: {selfSafety}</p>
+              <p className="w-fit text-sm sm:text-base">
+                وضعیت خودایمنی: {selfSafety}
+              </p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-sm sm:text-base'>وضعیت سکته: {stroke}</p>
+              <p className="w-fit text-sm sm:text-base">وضعیت سکته: {stroke}</p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-sm sm:text-base'>وضعیت چربی کبد: {fattyLiver}</p>
+              <p className="w-fit text-sm sm:text-base">
+                وضعیت چربی کبد: {fattyLiver}
+              </p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-sm sm:text-base'>وضعیت مشکلات کلیوی: {kidneyProblems}</p>
+              <p className="w-fit text-sm sm:text-base">
+                وضعیت مشکلات کلیوی: {kidneyProblems}
+              </p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className='w-fit text-sm sm:text-base'>وضعیت تیروئید: {thyroid}</p>
+              <p className="w-fit text-sm sm:text-base">
+                وضعیت تیروئید: {thyroid}
+              </p>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <div className='w-fit text-sm sm:text-base flex'>سرطان: {cancer?<p className="text-[var(--black-blue)]"> ندارد</p>: <p className="text-[var(--black-blue)]">دارد</p>}</div>
+              <div className="w-fit text-sm sm:text-base flex">
+                سرطان:{" "}
+                {cancer ? (
+                  <p className="text-[var(--black-blue)]"> ندارد</p>
+                ) : (
+                  <p className="text-[var(--black-blue)]">دارد</p>
+                )}
+              </div>
             </li>
             <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <div className='w-fit text-sm sm:text-base  flex'>میگرن: {Migraine?<p className="text-[var(--black-blue)]">ندارد</p>: <p className="text-[var(--black-blue)]">دارد</p>}</div>
+              <div className="w-fit text-sm sm:text-base  flex">
+                میگرن:{" "}
+                {Migraine ? (
+                  <p className="text-[var(--black-blue)]">ندارد</p>
+                ) : (
+                  <p className="text-[var(--black-blue)]">دارد</p>
+                )}
+              </div>
             </li>
 
             <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className=" w-fit text-sm sm:text-base"> سایر بیماری ها یا جراحی قبلی بیمار:</p>
-              <p className="text-[var(--black-blue)] w-fit text-sm sm:text-base"> {otherSickness}</p>
+              <p className=" w-fit text-sm sm:text-base">
+                {" "}
+                سایر بیماری ها یا جراحی قبلی بیمار:
+              </p>
+              <p className="text-[var(--black-blue)] w-fit text-sm sm:text-base">
+                {" "}
+                {otherSickness}
+              </p>
             </li>
             <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className=" w-fit text-sm sm:text-base">داروهای مصرفی بیمار :</p>
-              <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {medicine}</p>
+              <p className=" w-fit text-sm sm:text-base">
+                داروهای مصرفی بیمار :
+              </p>
+              <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit">
+                {" "}
+                {medicine}
+              </p>
             </li>
-            {
-              foodAllergies&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
+            {foodAllergies && (
+              <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
                 <p className=" w-fit text-sm sm:text-base">آلرژی‌های بیمار:</p>
-                <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {foodAllergies}</p>
+                <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit">
+                  {" "}
+                  {foodAllergies}
+                </p>
               </li>
-            }
+            )}
           </ul>
-          {
-            (pregnancyWeeks !== "0" && pregnancyWeeks !== null && pregnancyWeeks !== undefined) ||
-            (breastfeeding !== "0" && breastfeeding !== null && breastfeeding !== undefined) ||
-            (weightBeforePregnancy !== "0" && weightBeforePregnancy !== null && weightBeforePregnancy !== undefined) ? (
-              <h4 className="lg:text-2xl sm:text-xl text-base  pr-4 sm:ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
-                موارد مربوط به بارداری:
-              </h4>
-            ) : null
-            
-            }
+          {(pregnancyWeeks !== "0" &&
+            pregnancyWeeks !== null &&
+            pregnancyWeeks !== undefined) ||
+          (breastfeeding !== "0" &&
+            breastfeeding !== null &&
+            breastfeeding !== undefined) ||
+          (weightBeforePregnancy !== "0" &&
+            weightBeforePregnancy !== null &&
+            weightBeforePregnancy !== undefined) ? (
+            <h4 className="lg:text-2xl sm:text-xl text-base  pr-4 sm:ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
+              موارد مربوط به بارداری:
+            </h4>
+          ) : null}
           <ul className="grid grid-cols-4 mb-5 px-4 gap-2">
-           {
-              (pregnancyWeeks && pregnancyWeeks!=="0")&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                <p className=" w-fit text-sm sm:text-base">تعداد ماه‌های بارداری بیمار:</p>
-                <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {pregnancyWeeks}</p>
+            {pregnancyWeeks && pregnancyWeeks !== "0" && (
+              <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
+                <p className=" w-fit text-sm sm:text-base">
+                  تعداد ماه‌های بارداری بیمار:
+                </p>
+                <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit">
+                  {" "}
+                  {pregnancyWeeks}
+                </p>
               </li>
-            }
-            {
-              (breastfeeding && breastfeeding !=="0")&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className=" w-fit text-sm sm:text-base">تعداد ماه‌های شیردهی بیمار:</p>
-              <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {breastfeeding}</p>
+            )}
+            {breastfeeding && breastfeeding !== "0" && (
+              <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
+                <p className=" w-fit text-sm sm:text-base">
+                  تعداد ماه‌های شیردهی بیمار:
+                </p>
+                <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit">
+                  {" "}
+                  {breastfeeding}
+                </p>
               </li>
-            }
-            {
-              (weightBeforePregnancy && weightBeforePregnancy !=="0" )&&<li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className=" w-fit text-sm sm:text-base">وزن قبل از بارداری:</p>
-              <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit"> {weightBeforePregnancy}</p>
+            )}
+            {weightBeforePregnancy && weightBeforePregnancy !== "0" && (
+              <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
+                <p className=" w-fit text-sm sm:text-base">
+                  وزن قبل از بارداری:
+                </p>
+                <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit">
+                  {" "}
+                  {weightBeforePregnancy}
+                </p>
               </li>
-            }
-           
-           </ul>
+            )}
+          </ul>
         </li>
         <div className="pe-6 py-2 flex justify-start flex-col">
           <div className="flex flex-row">
-            <h4 className="lg:text-2xl sm:text-xl text-base ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4">فرم BMI:</h4>
+            <h4 className="lg:text-2xl sm:text-xl text-base ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4">
+              فرم BMI:
+            </h4>
           </div>
-          <DietBmi height={dietBmi?.height} weight={dietBmi?.weight} age={dietBmi?.age} abdominalCircumference={dietBmi?.abdominalCircumference} hipcircumference={dietBmi?.hipcircumference} bmi={dietBmi?.bmi} whr={dietBmi?.whr} linkTo={""} />
-          </div>
-            
-        {files.length > 0 && (
-        <div className="pe-8 py-2 flex justify-start flex-col">
-          <div className="flex flex-row">
-            <h4 className="lg:text-2xl sm:text-xl text-base ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">آزمایش‌ها:</h4>
-          </div>
-
-          <ul className="list-disc list-inside grid grid-cols-3 px-8">
-            {files?.map((file: FileType) => (
-              <li className="flex gap-2 lg:col-span-1 col-span-full md:col-span-2 items-center my-1 pb-6" key={file.filename}>
-                <AttachmentIcon />
-                {/* This should be The server host and port */}
-                <a
-                href={`${process.env.DOMAIN_FILES}/uploads/${file.filename}`}
-                download={file.originalName}
-                className="text-blue-400 hover:underline pt-2 text-sm col-span-1"
-              >
-                {file.originalName}
-              </a>
-              </li>
-            ))}
-          </ul>
+          <DietBmi
+            height={dietBmi?.height}
+            weight={dietBmi?.weight}
+            age={dietBmi?.age}
+            abdominalCircumference={dietBmi?.abdominalCircumference}
+            hipcircumference={dietBmi?.hipcircumference}
+            bmi={dietBmi?.bmi}
+            whr={dietBmi?.whr}
+            linkTo={""}
+          />
         </div>
-      )}
 
-        {payment?<div className="pe-8 py-2 flex justify-start">
-              <div className="flex gap-2 my-1 pb-6 flex-col">
-                <h4 className="lg:text-2xl text-xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4">رسید پرداخت:</h4>
-                <div className="flex gap-2 items-center px-10">
+        {files.length > 0 && (
+          <div className="pe-8 py-2 flex justify-start flex-col">
+            <div className="flex flex-row">
+              <h4 className="lg:text-2xl sm:text-xl text-base ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
+                آزمایش‌ها:
+              </h4>
+            </div>
+
+            <ul className="list-disc list-inside grid grid-cols-3 px-8">
+              {files?.map((file: FileType) => (
+                <li
+                  className="flex gap-2 lg:col-span-1 col-span-full md:col-span-2 items-center my-1 pb-6"
+                  key={file.filename}
+                >
                   <AttachmentIcon />
+                  {/* This should be The server host and port */}
                   <a
+                    href={`${process.env.DOMAIN_FILES}/uploads/${file.filename}`}
+                    download={file.originalName}
+                    className="text-blue-400 hover:underline pt-2 text-sm col-span-1"
+                  >
+                    {file.originalName}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {payment ? (
+          <div className="pe-8 py-2 flex justify-start">
+            <div className="flex gap-2 my-1 pb-6 flex-col">
+              <h4 className="lg:text-2xl text-xl ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 mb-4">
+                رسید پرداخت:
+              </h4>
+              <div className="flex gap-2 items-center px-10">
+                <AttachmentIcon />
+                <a
                   href={`${process.env.DOMAIN_FILES}uploads/${payment.filename}`}
                   download={payment.originalName}
                   className="text-blue-400 hover:underdivne pt-2 text-sm col-span-1"
                 >
                   {payment.originalName}
                 </a>
-                </div>
               </div>
-            </div>: null}
+            </div>
+          </div>
+        ) : null}
       </ul>
     </div>
   );
