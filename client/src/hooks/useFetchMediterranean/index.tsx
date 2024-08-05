@@ -14,13 +14,11 @@ const useFetchMediterranean = (url?: string) => {
         try{
             if(url){
                 const response = await api.get(`/mediterranean${url}`);
-                const newChunckArray = chunkingArray(response.data , 2)
-                return SetMediterraneanForms(newChunckArray);
+                return SetMediterraneanForms(response.data);
             }
             else{
                 const response = await api.get('/mediterranean');
-                const newChunckArray = chunkingArray(response.data , 2)
-                return SetMediterraneanForms(newChunckArray);
+                return SetMediterraneanForms(response.data);
             }
         }
         catch(err : any){
