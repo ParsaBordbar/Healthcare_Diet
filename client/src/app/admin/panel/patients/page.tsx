@@ -8,6 +8,8 @@ import useSearchBmi from "@/hooks/useSearchBmi/useSearchBmi";
 import MainButton from "@/components/MainButton";
 import { useState, useCallback } from "react";
 import { BmiType } from "@/types";
+import { chunkingArray } from "@/hooks/chunkingArray";
+import Pagination from "@/components/Pagination";
 
 const PatientsPage = () => {
   const {
@@ -20,33 +22,9 @@ const PatientsPage = () => {
     femaleFilterHandler,
     submitHandler,
   } = useSearchBmi("/bmi/sort");
-
+  const newArray = chunkingArray(filter, 12);
   const [arrayItemsComment, setArrayItemsComment] = useState<number>(0);
-
-  const paginationComment = useCallback(() => {
-    console.log("filter in pagination func", filter);
-    return filter.map((item: any, index: number) => {
-      return (
-        item.length > 0 &&
-        Array.isArray(filter[1]) &&
-        filter[1]?.length > 0 && (
-          <button
-            type="button"
-            autoFocus={index == 0 ? true : false}
-            onClick={(e) => {
-              setArrayItemsComment(index);
-            }}
-            className={`p-4 hover:underline bg-[var(--milky-white)] hover:bg-[var(--new-green)] border-none outline-none hover:text-[var(--milky-white)] ${
-              arrayItemsComment + 1 == index + 1 &&
-              "bg-[var(--new-green)] text-[var(--milky-white)] underline"
-            } `}
-          >
-            {index + 1}
-          </button>
-        )
-      );
-    });
-  }, [filter, arrayItemsComment]);
+  const [calcPlues, setCalcPlues] = useState<number>(0);
 
   return (
     <div className="flex flex-col justify-between h-[90vh] ">
@@ -103,30 +81,34 @@ const PatientsPage = () => {
             </section>
           </div>
         </div>
-        {filter.length > 0 && filter[arrayItemsComment].map((d:BmiType) => {
-          return (
-            <div
-              className="col-span-full md:col-span-3 xl:col-span-2"
-              key={d.phoneNumber}
-            >
-              <PatientCard
-                linkTo={`/admin/panel/patients/${d.phoneNumber}`}
-                name={d.name}
-                lastName={d.lastName}
-                city={d.city}
-                phoneNumber={d.phoneNumber}
-                gender={d.gender}
-              />
-            </div>
-          );
-        })}
+        {newArray.length > 0 &&
+          newArray[arrayItemsComment].map((d: BmiType) => {
+            return (
+              <div
+                className="col-span-full md:col-span-3 xl:col-span-2"
+                key={d.phoneNumber}
+              >
+                <PatientCard
+                  linkTo={`/admin/panel/patients/${d.phoneNumber}`}
+                  name={d.name}
+                  lastName={d.lastName}
+                  city={d.city}
+                  phoneNumber={d.phoneNumber}
+                  gender={d.gender}
+                />
+              </div>
+            );
+          })}
       </section>
-      <div
-        role="group"
-        className="flex items-center w-fit custom-scroll-x justify-center mx-auto overflow-hidden rounded-lg"
-      >
-        {paginationComment()}
-      </div>
+      <Pagination
+        arr={newArray}
+        itemNumber={arrayItemsComment}
+        setItemNumber={setArrayItemsComment}
+        setCalc={setCalcPlues}
+        calc={calcPlues}
+        limitNumber={20}
+        lastCalc={3}
+      />
     </div>
   );
 };
