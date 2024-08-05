@@ -9,6 +9,8 @@ import useSearchMediterranean from "@/hooks/useSearchMediterranean/useSearchMedi
 import Link from "next/link";
 import { useCallback, useState } from "react";
 import { MediterraneanFormType } from "@/types";
+import Pagination from "@/components/Pagination";
+import { chunkingArray } from "@/hooks/chunkingArray";
 
 const MediterraneanFormsPage = () => {
   const {
@@ -22,33 +24,9 @@ const MediterraneanFormsPage = () => {
     maleFilterHandler,
     femaleFilterHandler,
   } = useSearchMediterranean("/mediterranean/sort");
-
+  const newArray = chunkingArray(filter, 2);
   const [arrayItemsComment, setArrayItemsComment] = useState<number>(0);
-
-  const paginationComment = useCallback(() => {
-    console.log("filter in pagination func", filter);
-    return filter.map((item: any, index: number) => {
-      return (
-        item.length > 0 &&
-        Array.isArray(filter[1]) &&
-        filter[1]?.length > 0 && (
-          <button
-            type="button"
-            autoFocus={index == 0 ? true : false}
-            onClick={(e) => {
-              setArrayItemsComment(index);
-            }}
-            className={`p-4 hover:underline bg-[var(--milky-white)] hover:bg-[var(--new-green)] border-none outline-none hover:text-[var(--milky-white)] ${
-              arrayItemsComment + 1 == index + 1 &&
-              "bg-[var(--new-green)] text-[var(--milky-white)] underline"
-            } `}
-          >
-            {index + 1}
-          </button>
-        )
-      );
-    });
-  }, [filter, arrayItemsComment]);
+  const [calcPlues, setCalcPlues] = useState<number>(0);
 
   return (
     <>
@@ -84,38 +62,38 @@ const MediterraneanFormsPage = () => {
                 modern
                 className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
                 value={"قدیمی ترین"}
-                onClick={() => {
-                  setArrayItemsComment(0);
-                  oldestFilterHandler();
-                }}
+                // onClick={() => {
+                //   setArrayItemsComment(0);
+                //   oldestFilterHandler();
+                // }}
               />
               <MainButton
                 modern
                 className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
                 value={"جدیدترین"}
-                onClick={() => {
-                  setArrayItemsComment(0);
-                  newestFilterHandler();
-                }}
+                // onClick={() => {
+                //   setArrayItemsComment(0);
+                //   newestFilterHandler();
+                // }}
               />
 
               <MainButton
                 modern
                 className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
                 value={"مرد"}
-                onClick={() => {
-                  setArrayItemsComment(0);
-                  maleFilterHandler();
-                }}
+                // onClick={() => {
+                //   setArrayItemsComment(0);
+                //   maleFilterHandler();
+                // }}
               />
               <MainButton
                 modern
                 className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
                 value={"زن"}
-                onClick={() => {
-                  setArrayItemsComment(0);
-                  femaleFilterHandler();
-                }}
+                // onClick={() => {
+                //   setArrayItemsComment(0);
+                //   femaleFilterHandler();
+                // }}
               />
               <Link
                 className="col-span-2"
@@ -131,16 +109,16 @@ const MediterraneanFormsPage = () => {
                 modern
                 className="rounded-lg font-extrabold col-span-2 py-3 !text-sm"
                 value={"افراد دارای بیماری‌های خاص"}
-                onClick={() => {
-                  setArrayItemsComment(0);
-                  specialFilterHandler();
-                }}
+                // onClick={() => {
+                //   setArrayItemsComment(0);
+                //   specialFilterHandler();
+                // }}
               />
             </section>
           </div>
         </div>
-        {filter.length > 0 &&
-          filter[arrayItemsComment].map((form: MediterraneanFormType) => {
+        {newArray.length > 0 &&
+          newArray[arrayItemsComment].map((form: MediterraneanFormType) => {
             return (
               <MediterraneanForm
                 dailyFruit={form.dailyFruit}
@@ -158,7 +136,7 @@ const MediterraneanFormsPage = () => {
                 sugarWeekly={form.sugarWeekly}
                 alcoholWeekly={form.alcoholWeekly}
                 fermentationWeekly={form.fermentationWeekly}
-                supplements={form.sugarWeekly}
+                supplements={form.supplements}
                 physicalActivity={form.physicalActivity}
                 diabetes={form.diabetes}
                 anemia={form.anemia}
@@ -190,12 +168,15 @@ const MediterraneanFormsPage = () => {
             );
           })}
       </section>
-      <div
-        role="group"
-        className="flex items-center w-fit custom-scroll-x justify-center mx-auto overflow-hidden rounded-lg"
-      >
-        {paginationComment()}
-      </div>
+      <Pagination
+        arr={newArray}
+        itemNumber={arrayItemsComment}
+        setItemNumber={setArrayItemsComment}
+        setCalc={setCalcPlues}
+        calc={calcPlues}
+        limitNumber={20}
+        lastCalc={3}
+      />
     </>
   );
 };
