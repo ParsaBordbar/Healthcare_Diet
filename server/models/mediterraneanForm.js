@@ -222,10 +222,6 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
         type: String,
         required: true,
     },
-    supplements: {
-        type: String,
-        required: true,
-    },
     payment: fileSchema,
     files: [fileSchema],
     createdAtGregorian: {
@@ -261,7 +257,6 @@ const validateMediterranean = (mediterraneanForm) => {
         alcoholWeekly: Joi.string().required(),
         fastFoodWeekly: Joi.string(),
         fermentationWeekly: Joi.string().required(),
-        supplements: Joi.string().required(),
         physicalActivity: Joi.string().required(),
         diabetes: Joi.string().required(),
         // anemia: Joi.string().required(),
