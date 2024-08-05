@@ -178,23 +178,23 @@ const MediterraneanForm = ({
           </li>
 
           <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className="">میزان مصرف محصوالت تخمیری به صورت هفتگی:</p>
-            <p className="text-[var(--black-blue)]">{fermentationWeekly}</p>
-          </li>
-
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
             <p className=""> مکمل‌هایی که مصرف می‌کنند:</p>
             <div className="flex flex-col gap-2">
-              {supplements.length > 0 && Array.isArray(supplements) ? (
-                supplements.map(
-                  (items) =>
-                    items != "" && (
-                      <p className="text-[var(--black-blue)]">{items}</p>
+              {
+                Array.isArray(supplements) ? (
+                  supplements.length > 0 ? (
+                    supplements.map((item, index) =>
+                      item !== ""&& (
+                        <p key={index} className="text-[var(--black-blue)]">{item}</p>
+                      )
                     )
+                  ) : (
+                    <p className="text-[var(--black-blue)]">هیچکدام</p>
+                  )
+                ) : (
+                  <p className="text-[var(--black-blue)]">{supplements}</p>
                 )
-              ) : (
-                <p className="text-[var(--black-blue)]">هیچکدام</p>
-              )}
+              }
             </div>
           </li>
 
