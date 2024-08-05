@@ -206,6 +206,26 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
         required: true,
         maxlength: 11,
     },
+    appetite: {
+        type: String,
+        required: true,
+    },
+    physicalActivityHours: {
+        type: String,
+        required: true,
+    },
+    sport: {
+        type: String,
+        required: true,
+    },
+    preferredDrink: {
+        type: String,
+        required: true,
+    },
+    supplements: {
+        type: String,
+        required: true,
+    },
     payment: fileSchema,
     files: [fileSchema],
     createdAtGregorian: {
@@ -257,6 +277,11 @@ const validateMediterranean = (mediterraneanForm) => {
         otherSickness: Joi.string().required(),
         medicine: Joi.string().required(),
         phoneNumber: Joi.string().required(),
+        appetite: Joi.string().required(),
+        physicalActivityHours: Joi.string().required(),
+        sport: Joi.string().required(),
+        preferredDrink: Joi.string().required(),
+        supplements: Joi.string().required(),
         createdAtGregorian: Joi.string().isoDate().required(),
         createdAtJalali: Joi.string().required(),
         files: Joi.array().items(Joi.object({
