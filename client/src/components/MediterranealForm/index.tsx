@@ -3,7 +3,6 @@ import MainInput from "../MainInput";
 import GroupRadio from "../GroupRadio";
 import MainButton from "../MainButton";
 import useMediterraneanForm from "@/validations/login/useMediterraneanForm";
-import { useRef } from "react";
 import PriceCard from "../PriceCard";
 
 const MediterranealForm = () => {
@@ -734,102 +733,6 @@ const MediterranealForm = () => {
       </div>
 
       <div className="flex flex-col gap-4">
-        <h1>چه مکمل هایی مصرف می کنید؟ </h1>
-        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
-          <GroupRadio
-            checked={values.supplements.includes("ویتامین و مواد معدنی")}
-            name="selectedOptionSeventeenOne"
-            onChange={handleChange}
-            header={false}
-            onClick={() => {
-              const isalreadyIn = values.supplements.find(
-                (element) => element === "ویتامین و مواد معدنی"
-              );
-              if (!isalreadyIn) {
-                values.supplements.push("ویتامین و مواد معدنی");
-                values.supplements = values.supplements.filter(
-                  (e) => e !== "هیچکدام"
-                );
-                console.log(values.supplements);
-              }
-            }}
-            type="radio"
-            value={"ویتامین و مواد معدنی"}
-          />
-          <GroupRadio
-            name="selectedOptionSeventeenTwo"
-            checked={values.supplements.includes("مکمل پروتئینی")}
-            onChange={handleChange}
-            onClick={() => {
-              const isalreadyIn = values.supplements.find(
-                (element) => element === "مکمل پروتئینی"
-              );
-              if (!isalreadyIn) {
-                values.supplements.push("مکمل پروتئینی");
-                console.log(values.supplements);
-                values.supplements = values.supplements.filter(
-                  (e) => e !== "هیچکدام"
-                );
-                console.log(values.supplements);
-              }
-            }}
-            header={false}
-            type="radio"
-            value={"مکمل پروتئینی"}
-          />
-
-          <GroupRadio
-            name="selectedOptionSeventeenThree"
-            // checked={values.selectedOptionSeventeenThree === "مکمل الغری و چربی سوز"}
-            onChange={handleChange}
-            checked={values.supplements.includes("مکمل الغری و چربی سوز")}
-            onClick={() => {
-              const isalreadyIn = values.supplements.find(
-                (element) => element === "مکمل الغری و چربی سوز"
-              );
-              if (!isalreadyIn) {
-                values.supplements.push("مکمل الغری و چربی سوز");
-                console.log(values.supplements);
-                values.supplements = values.supplements.filter(
-                  (e) => e !== "هیچکدام"
-                );
-                console.log(values.supplements);
-              }
-            }}
-            header={false}
-            type="radio"
-            value={"مکمل الغری و چربی سوز"}
-          />
-          <GroupRadio
-            name="selectedOptionSeventeenFour"
-            checked={values.supplements.includes("هیچکدام")}
-            onChange={handleChange}
-            onClick={() => {
-              values.supplements.splice(0, values.supplements.length);
-              values.supplements.push("هیچکدام");
-
-              values.supplements = values.supplements.filter(
-                (e) => e !== "ویتامین و مواد معدنی"
-              );
-              values.supplements = values.supplements.filter(
-                (e) => e !== "مکمل الغری و چربی سوز"
-              );
-              values.supplements = values.supplements.filter(
-                (e) => e !== "مکمل پروتئینی"
-              );
-              console.log(values.supplements);
-            }}
-            value={"هیچکدام"}
-            type="radio"
-            header
-          />
-        </section>
-        {errors.supplements ? (
-          <p className="text-red-600">{errors.supplements}</p>
-        ) : null}
-      </div>
-
-      <div className="flex flex-col gap-4">
         <h1> میزان فعالیت بدنی در هفته ؟ </h1>
         <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
@@ -871,6 +774,15 @@ const MediterranealForm = () => {
         ) : null}
       </div>
 
+      <MainInput
+            name="supplements"
+            onChange={handleChange}
+            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+            label="چه مکمل‌هایی مصرف می‌کنید؟
+      (مکمل های غذایی: ویتامین D، امگا ،3 کلسیم و منیزیم، آهن و
+        ...مکمل های ورزشی: وی، بی سی دبل ای، کراتین، ال کارنتین و .)"
+            placeholder="مکمل‌های مصرفی"
+          />
       <div className="flex flex-col gap-4">
         <h1>کدام یک از مشکلات زیر را دارید یا قبلا داشتید؟</h1>
         <section className="grid grid-cols-4 gap-4 items-center">
