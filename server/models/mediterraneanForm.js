@@ -221,6 +221,7 @@ const MediterraneanForm = mongoose.model('mediterranean_form', mongoose.Schema({
     preferredDrink: {
         type: String,
         required: true,
+        enum: ['چای','قهوه', 'هیچکدام']
     },
     payment: fileSchema,
     files: [fileSchema],
