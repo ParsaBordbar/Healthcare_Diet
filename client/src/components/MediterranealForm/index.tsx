@@ -774,15 +774,47 @@ const MediterranealForm = () => {
         ) : null}
       </div>
 
-      <MainInput
-            name="supplements"
+      <div className="grid grid-cols-2 gap-4">
+      
+          <MainInput
+            name="appetite"
             onChange={handleChange}
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            label="چه مکمل‌هایی مصرف می‌کنید؟
-      (مکمل های غذایی: ویتامین D، امگا ،3 کلسیم و منیزیم، آهن و
-        ...مکمل های ورزشی: وی، بی سی دبل ای، کراتین، ال کارنتین و .)"
-            placeholder="مکمل‌های مصرفی"
+            label="اشتها شما در چه موقع از روز و به کدام وعده غذایی بیشتر است؟ "
+            placeholder="وعده مد نظر"
           />
+          <MainInput
+            name="physicalActivityHours"
+            onChange={handleChange}
+            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+            label="ساعت معمول وعده های غذایی شما(صبحانه، میان وعده، ناهار، عصرانه، شام)"
+            placeholder="ساعت معمول وعده ها"
+          />
+           <MainInput
+            name="sport"
+            onChange={handleChange}
+            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+            label="فعالیت بدنی شما چه نوع ورزشی، در چه ساعتی از روز و چند ساعت در روز می باشد؟ "
+            placeholder="نوع ورزش"
+          />
+          <MainInput
+            name="preferredDrink"
+            onChange={handleChange}
+            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+            label="فعالیت بدنی شما چه نوع ورزشی، در چه ساعتی از روز و چند ساعت در روز می باشد؟ "
+            placeholder="نوع ورزش"
+          />
+          <MainInput
+            name="supplements"
+            onChange={handleChange}
+            parentClassName="[&>label]:text-base lg:col-span-2 col-span-2"
+            label="چه مکمل‌هایی مصرف می‌کنید؟
+            (مکمل های غذایی: ویتامین D، امگا ،3 کلسیم و منیزیم، آهن و
+              ...مکمل های ورزشی: وی، بی سی دبل ای، کراتین، ال کارنتین و .)"
+                  placeholder="مکمل‌های مصرفی"
+                />
+
+      </div>
       <div className="flex flex-col gap-4">
         <h1>کدام یک از مشکلات زیر را دارید یا قبلا داشتید؟</h1>
         <section className="grid grid-cols-4 gap-4 items-center">
