@@ -775,7 +775,6 @@ const MediterranealForm = () => {
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-      
           <MainInput
             name="appetite"
             onChange={handleChange}
@@ -812,9 +811,9 @@ const MediterranealForm = () => {
             (مکمل های غذایی: ویتامین D، امگا ،3 کلسیم و منیزیم، آهن و
               ...مکمل های ورزشی: وی، بی سی دبل ای، کراتین، ال کارنتین و .)"
                   placeholder="مکمل‌های مصرفی"
-                />
-
+          />
       </div>
+
       <div className="flex flex-col gap-4">
         <h1>کدام یک از مشکلات زیر را دارید یا قبلا داشتید؟</h1>
         <section className="grid grid-cols-4 gap-4 items-center">
