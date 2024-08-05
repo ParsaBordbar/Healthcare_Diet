@@ -5,5 +5,4 @@ function BmiPage() {
     <BmiSection />
   )  
 }
-
 export default BmiPage
