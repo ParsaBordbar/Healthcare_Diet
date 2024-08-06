@@ -774,6 +774,40 @@ const MediterranealForm = () => {
         ) : null}
       </div>
 
+      <div className="flex flex-col gap-4">
+        <h1> میزان فعالیت بدنی در هفته ؟ </h1>
+        <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
+          <GroupRadio
+            name="preferredDrink"
+            checked={values.preferredDrink === "چای"}
+            onChange={handleChange}
+            header={false}
+            type="radio"
+            value={"چای"}
+          />
+          <GroupRadio
+            name="preferredDrink"
+            checked={values.preferredDrink === "قهوه"}
+            onChange={handleChange}
+            header={false}
+            type="radio"
+            value={"قهوه"}
+          />
+
+          <GroupRadio
+            name="preferredDrink"
+            checked={values.preferredDrink === "هیچکدام"}
+            onChange={handleChange}
+            value={"هیچکدام"}
+            type="radio"
+            header
+          />
+        </section>
+        {errors.preferredDrink ? (
+          <p className="text-red-600">جواب دادن به سوال بالا الزامی است</p>
+        ) : null}
+      </div>
+
       <div className="grid grid-cols-2 gap-4">
           <MainInput
             name="appetite"
