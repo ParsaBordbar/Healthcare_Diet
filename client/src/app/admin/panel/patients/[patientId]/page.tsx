@@ -89,7 +89,7 @@ function PatientId({ params }: { params: { patientId: string } }) {
                 sugarWeekly={form.sugarWeekly}
                 alcoholWeekly={form.alcoholWeekly}
                 fermentationWeekly={form.fermentationWeekly}
-                supplements={form.sugarWeekly}
+                supplements={form.supplements}
                 physicalActivity={form.physicalActivity}
                 diabetes={form.diabetes}
                 anemia={form.anemia}
