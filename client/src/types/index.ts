@@ -30,8 +30,8 @@ export type BmiDataType = BmiLandingDataType & {
   gender: string;
   abdominalCircumference: number;
   age: number;
-  autoIncrementId?: number,
-  hipcircumference: number,
+  autoIncrementId?: number;
+  hipcircumference: number;
 };
 
 export type SignUpDataType = {
@@ -68,15 +68,15 @@ export type MediterranealDataType = {
 };
 
 export interface BmiType {
-  className?:string
+  className?: string;
   height?: number;
   weight?: number;
   bmi?: number;
   linkTo: string;
   abdominalCircumference?: number;
   hipcircumference?: number;
-  whr?: number,
-  autoIncrementId?: number,
+  whr?: number;
+  autoIncrementId?: number;
   name?: string;
   lastName?: string;
   city?: string;
@@ -108,7 +108,7 @@ export interface MediterraneanFormType {
   sugarWeekly?: String;
   alcoholWeekly?: String;
   fermentationWeekly?: String;
-  supplements: [];
+  supplements: string | [];
   physicalActivity?: String;
   diabetes?: String;
   anemia?: String;
@@ -123,9 +123,9 @@ export interface MediterraneanFormType {
   Migraine?: boolean;
   otherSickness?: String;
   medicine?: String;
-  foodAllergies:String,
-  pregnancyWeeks:String,
-  breastfeeding:String,
+  foodAllergies: String;
+  pregnancyWeeks: String;
+  breastfeeding: String;
   weightBeforePregnancy: String;
   phoneNumber: string;
   isChecked: boolean;
@@ -136,11 +136,11 @@ export interface MediterraneanFormType {
     height?: number;
     weight?: number;
     bmi?: number;
-    age:number;
+    age: number;
     linkTo?: string;
     abdominalCircumference?: number;
-    whr: number,
-    hipcircumference: number,
+    whr: number;
+    hipcircumference: number;
   };
   payment?: FileType;
   _id: string;
@@ -165,7 +165,7 @@ export interface CommentType {
   _id: string;
 }
 
-export interface CommentTypeHook{
+export interface CommentTypeHook {
   sender: string;
   body: string;
   receiver: string;
@@ -178,16 +178,16 @@ export interface QuickLinkBoxType {
   counter: number;
 }
 
-export interface DietStatusType{
-  tick?:string
-  phoneNumber: string, 
-  direction : string
+export interface DietStatusType {
+  tick?: string;
+  phoneNumber: string;
+  direction: string;
 }
 
-export interface CustomCardType{ 
-  title: string
-  oldPrice: string, 
-  newPrice: string, 
-  imageUrl: string,
-  desc: string
+export interface CustomCardType {
+  title: string;
+  oldPrice: string;
+  newPrice: string;
+  imageUrl: string;
+  desc: string;
 }
