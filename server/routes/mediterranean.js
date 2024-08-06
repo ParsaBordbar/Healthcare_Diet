@@ -116,10 +116,10 @@ router.put('/edit/:id', uploader.fields([{ name: 'document', maxCount: 5 }, { na
 
 
 
-router.delete('/:phoneNumber', async (req, res) => {
-    const mediterraneanForm = await MediterraneanForm.findByIdAndDelete(req.params.phoneNumber);
+router.delete('/:id', async (req, res) => {
+    const mediterraneanForm = await MediterraneanForm.findByIdAndDelete(req.params.id);
     if (!mediterraneanForm) {
-        return res.status(404).send("Mediterranean form with this phoneNumber does not exist."); 
+        return res.status(404).send("Mediterranean form with this id does not exist."); 
     }
     return res.send(mediterraneanForm); 
 });
