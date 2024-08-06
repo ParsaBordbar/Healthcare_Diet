@@ -9,6 +9,7 @@ import PatientPageIcon from "/public/svg/User.svg";
 import Link from "next/link";
 import DietBmi from "../DietBmi";
 import useCheckedState from "@/hooks/useChecked/useChecked";
+import QuestionAndAnswerMediForm from "@/components/QAMediForm";
 
 const MediterraneanForm = ({
   dailyFruit,
@@ -57,7 +58,17 @@ const MediterraneanForm = ({
 }: MediterraneanFormType) => {
   const data = useSpecificFetchBmi(phoneNumber);
   const { checked, toggleChecked } = useCheckedState(isChecked, _id);
-  console.log("09359585255", supplements);
+  if (!!+pregnancyWeeks) {
+    console.log(pregnancyWeeks);
+  } else {
+    console.log(!!+pregnancyWeeks, "we don t have it");
+  }
+  console.log(
+    "in component",
+    pregnancyWeeks,
+    dietBmi?.age,
+    Number(pregnancyWeeks)
+  );
   return (
     <div className="flex flex-row mb-10 bg-[var(--milky-white)]  rounded-lg text-lg">
       <ul className="flex w-full flex-col">
@@ -100,108 +111,91 @@ const MediterraneanForm = ({
           مواد غذایی مصرفی:
         </li>
         <li className="grid min-[1410px]:grid-cols-3 grid-cols-4 gap-4 m-4">
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className="">میزان مصرف روزانه میوه :</p>
-            <p className="text-[var(--black-blue)]  ">{dailyFruit}</p>
-          </li>
-
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className=""> میزان مصرف روزانه سبزیجات:</p>
-            <p className="text-[var(--black-blue)]">{dailyVegetable}</p>
-          </li>
-
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className="">غلات سبوس ‌دار مصرف می‌کنند:</p>
-            <p className="text-[var(--black-blue)]">{Cereals}</p>
-          </li>
-
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className="">میزان مصرف روزانه غلات:</p>
-            <p className="text-[var(--black-blue)]">{dailyCereals}</p>
-          </li>
-
-          <li
-            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row"
-            gap-2
-          >
-            <p className="">سایر سبزیجات نشاسته ای در هفته:</p>
-            <p className="text-[var(--black-blue)]">{potatoAndStarchWeekly}</p>
-          </li>
-
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className="">میزان مصرف روزانه زیتون و روغن زیتون :</p>
-            <p className="text-[var(--black-blue)]">{oliveAndOliveOilDaily}</p>
-          </li>
-
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className="">میزان مصرف مغزها به صورت روزانه:</p>
-            <p className="text-[var(--black-blue)]">{nutsDaily}</p>
-          </li>
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className="">میزان مصرف روزانه محصولات لبنی :</p>
-            <p className="text-[var(--black-blue)]">{dairyDaily}</p>
-          </li>
-
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className="">میزان مصرف حبوبات :</p>
-            <p className="text-[var(--black-blue)]">{beans}</p>
-          </li>
-
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className="">میزان مصرف تخم مرغ به صورت هفتگی :</p>
-            <p className="text-[var(--black-blue)]">{eggWeekly}</p>
-          </li>
-
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className="">میزان مصرف ماهی به صورت هفتگی:</p>
-            <p className="text-[var(--black-blue)]">{fishWeekly}</p>
-          </li>
-
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className="">میزان مصرف ماکیان به صورت هفتگی :</p>
-            <p className="text-[var(--black-blue)]">{chickensWeekly}</p>
-          </li>
-
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className="">میزان مصرف گوشت قرمز به صورت هفتگی:</p>
-            <p className="text-[var(--black-blue)]">{redMeatWeekly}</p>
-          </li>
-
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className="">میزان مصرف شیرینی به صورت هفتگی:</p>
-            <p className="text-[var(--black-blue)]">{sugarWeekly}</p>
-          </li>
-
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className="">میزان مصرف نوشیدنی الکلی به صورت هفتگی:</p>
-            <p className="text-[var(--black-blue)]">{alcoholWeekly}</p>
-          </li>
-
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className=""> مکمل‌هایی که مصرف می‌کنند:</p>
-            <div className="flex flex-col gap-2">
-              {
-                Array.isArray(supplements) ? (
-                  supplements.length > 0 ? (
-                    supplements.map((item, index) =>
-                      item !== ""&& (
-                        <p key={index} className="text-[var(--black-blue)]">{item}</p>
-                      )
-                    )
-                  ) : (
-                    <p className="text-[var(--black-blue)]">هیچکدام</p>
-                  )
-                ) : (
-                  <p className="text-[var(--black-blue)]">{supplements}</p>
-                )
-              }
-            </div>
-          </li>
-
-          <li className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1 sm:text-base text-sm flex-row gap-2">
-            <p className="">میزان فعالیت بدنی در هفته :</p>
-            <p className="text-[var(--black-blue)]">{physicalActivity}</p>
-          </li>
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={dailyFruit}
+            question="میزان مصرف روزانه میوه :"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={dailyVegetable}
+            question="میزان مصرف روزانه سبزیجات:"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={Cereals}
+            question="غلات سبوس ‌دار مصرف می‌کنند:"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={dailyCereals}
+            question="میزان مصرف روزانه غلات:"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={potatoAndStarchWeekly}
+            question="سایر سبزیجات نشاسته ای در هفته:"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={oliveAndOliveOilDaily}
+            question="میزان مصرف روزانه زیتون و روغن زیتون :"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={nutsDaily}
+            question="میزان مصرف مغزها به صورت روزانه:"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={dairyDaily}
+            question="میزان مصرف روزانه محصولات لبنی :"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={beans}
+            question="میزان مصرف روزانه محصولات لبنی :"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={eggWeekly}
+            question="میزان مصرف تخم مرغ به صورت هفتگی :"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={fishWeekly}
+            question="میزان مصرف ماهی به صورت هفتگی:"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={chickensWeekly}
+            question="میزان مصرف ماکیان به صورت هفتگی :"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={redMeatWeekly}
+            question="میزان مصرف گوشت قرمز به صورت هفتگی:"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={sugarWeekly}
+            question="میزان مصرف شیرینی به صورت هفتگی:"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={alcoholWeekly}
+            question="میزان مصرف نوشیدنی الکلی به صورت هفتگی:"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={supplements}
+            question="مکمل‌هایی که مصرف می‌کنند:"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={physicalActivity}
+            question="میزان فعالیت بدنی در هفته :"
+          />
         </li>
 
         <li>
@@ -209,142 +203,95 @@ const MediterraneanForm = ({
             بیماری‌ها و وضعیت‌های خاص:
           </li>
           <ul className="grid grid-cols-4 mb-5 px-4 gap-2">
-            <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className="w-fit text-sm sm:text-base">
-                {" "}
-                وضعیت دیابت: {diabetes}
-              </p>
-            </li>
-            <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className="w-fit text-sm sm:text-base">
-                وضعیت فشارخون: {bloodPressure}
-              </p>
-            </li>
-            <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className="w-fit text-sm sm:text-base">
-                وضعیت مشکلات گوارشی: {digestiveProblems}
-              </p>
-            </li>
-            <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className="w-fit text-sm sm:text-base">
-                وضعیت خودایمنی: {selfSafety}
-              </p>
-            </li>
-            <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className="w-fit text-sm sm:text-base">وضعیت سکته: {stroke}</p>
-            </li>
-            <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className="w-fit text-sm sm:text-base">
-                وضعیت چربی کبد: {fattyLiver}
-              </p>
-            </li>
-            <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className="w-fit text-sm sm:text-base">
-                وضعیت مشکلات کلیوی: {kidneyProblems}
-              </p>
-            </li>
-            <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className="w-fit text-sm sm:text-base">
-                وضعیت تیروئید: {thyroid}
-              </p>
-            </li>
-            <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <div className="w-fit text-sm sm:text-base flex">
-                سرطان:{" "}
-                {cancer ? (
-                  <p className="text-[var(--black-blue)]"> ندارد</p>
-                ) : (
-                  <p className="text-[var(--black-blue)]">دارد</p>
-                )}
-              </div>
-            </li>
-            <li className="min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <div className="w-fit text-sm sm:text-base  flex">
-                میگرن:{" "}
-                {Migraine ? (
-                  <p className="text-[var(--black-blue)]">ندارد</p>
-                ) : (
-                  <p className="text-[var(--black-blue)]">دارد</p>
-                )}
-              </div>
-            </li>
-
-            <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className=" w-fit text-sm sm:text-base">
-                {" "}
-                سایر بیماری ها یا جراحی قبلی بیمار:
-              </p>
-              <p className="text-[var(--black-blue)] w-fit text-sm sm:text-base">
-                {" "}
-                {otherSickness}
-              </p>
-            </li>
-            <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-              <p className=" w-fit text-sm sm:text-base">
-                داروهای مصرفی بیمار :
-              </p>
-              <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit">
-                {" "}
-                {medicine}
-              </p>
-            </li>
-            {foodAllergies && (
-              <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                <p className=" w-fit text-sm sm:text-base">آلرژی‌های بیمار:</p>
-                <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit">
-                  {" "}
-                  {foodAllergies}
-                </p>
-              </li>
-            )}
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={diabetes}
+              question="وضعیت دیابت: "
+            />
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={bloodPressure}
+              question="وضعیت فشارخون: "
+            />
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={digestiveProblems}
+              question=" وضعیت مشکلات گوارشی: "
+            />
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={selfSafety}
+              question="وضعیت خودایمنی:"
+            />
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={stroke}
+              question="وضعیت سکته: "
+            />
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={fattyLiver}
+              question="وضعیت چربی کبد:"
+            />
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={kidneyProblems}
+              question="وضعیت مشکلات کلیوی: "
+            />
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={thyroid}
+              question="وضعیت تیروئید: "
+            />
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={cancer}
+              question="سرطان: "
+            />
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={Migraine}
+              question="میگرن: "
+            />
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={otherSickness}
+              question="سایر بیماری ها یا جراحی قبلی بیمار: "
+            />
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={medicine}
+              question="داروهای مصرفی بیمار : "
+            />
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={foodAllergies}
+              question="آلرژی‌های بیمار: "
+            />
           </ul>
-          {(pregnancyWeeks !== "0" &&
-            pregnancyWeeks !== null &&
-            pregnancyWeeks !== undefined) ||
-          (breastfeeding !== "0" &&
-            breastfeeding !== null &&
-            breastfeeding !== undefined) ||
-          (weightBeforePregnancy !== "0" &&
-            weightBeforePregnancy !== null &&
-            weightBeforePregnancy !== undefined) ? (
+          {(!!+pregnancyWeeks ||
+            !!+breastfeeding ||
+            !!+weightBeforePregnancy) && (
             <h4 className="lg:text-2xl sm:text-xl text-base  pr-4 sm:ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
               موارد مربوط به بارداری:
             </h4>
-          ) : null}
+          )}
           <ul className="grid grid-cols-4 mb-5 px-4 gap-2">
-            {pregnancyWeeks && pregnancyWeeks !== "0" && (
-              <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                <p className=" w-fit text-sm sm:text-base">
-                  تعداد ماه‌های بارداری بیمار:
-                </p>
-                <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit">
-                  {" "}
-                  {pregnancyWeeks}
-                </p>
-              </li>
-            )}
-            {breastfeeding && breastfeeding !== "0" && (
-              <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                <p className=" w-fit text-sm sm:text-base">
-                  تعداد ماه‌های شیردهی بیمار:
-                </p>
-                <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit">
-                  {" "}
-                  {breastfeeding}
-                </p>
-              </li>
-            )}
-            {weightBeforePregnancy && weightBeforePregnancy !== "0" && (
-              <li className="flex gap-1 min-[1420px]:col-span-1 lg:col-span-2 col-span-4">
-                <p className=" w-fit text-sm sm:text-base">
-                  وزن قبل از بارداری:
-                </p>
-                <p className="text-[var(--black-blue)] text-sm sm:text-base w-fit">
-                  {" "}
-                  {weightBeforePregnancy}
-                </p>
-              </li>
-            )}
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={+pregnancyWeeks}
+              question=" تعداد ماه‌های بارداری بیمار:"
+            />
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={+breastfeeding}
+              question=" تعداد ماه‌های شیردهی بیمار:"
+            />
+            <QuestionAndAnswerMediForm
+              className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+              answer={+weightBeforePregnancy}
+              question="وزن قبل از بارداری:"
+            />
           </ul>
         </li>
         <div className="pe-6 py-2 flex justify-start flex-col">
