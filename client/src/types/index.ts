@@ -109,6 +109,10 @@ export interface MediterraneanFormType {
   alcoholWeekly?: String;
   fermentationWeekly?: String;
   supplements: string | [];
+  appetite: string,
+  physicalActivityHours: string,
+  sport: string,
+  preferredDrink: string,
   physicalActivity?: String;
   diabetes?: String;
   anemia?: String;
