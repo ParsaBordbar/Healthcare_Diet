@@ -10,6 +10,8 @@ import Link from "next/link";
 import DietBmi from "../DietBmi";
 import useCheckedState from "@/hooks/useChecked/useChecked";
 import QuestionAndAnswerMediForm from "@/components/QAMediForm";
+import api from "@/apis";
+import { string } from "yup";
 
 const MediterraneanForm = ({
   dailyFruit,
@@ -69,6 +71,11 @@ const MediterraneanForm = ({
     dietBmi?.age,
     Number(pregnancyWeeks)
   );
+
+  const handelDelete = (id:string) => {
+    api.delete(`/mediterranean/${id}`)
+  }
+
   return (
     <div className="flex flex-row mb-10 bg-[var(--milky-white)]  rounded-lg text-lg">
       <ul className="flex w-full flex-col">
@@ -81,25 +88,34 @@ const MediterraneanForm = ({
               {data?.name} {data?.lastName}
             </p>
           </li>
-          <button
-            onClick={toggleChecked}
-            className="sm:rounded-full rounded-full rounded-r-none flex justify-center items-center  sm:px-10"
-          >
-            {checked ? (
-              <p className="text-white text-base md:text-xl bg-[var(--new-green)] sm:rounded-full rounded-full rounded-r-none py-2.5 my-2 sm:my-12 flex flex-row items-center justify-center gap-2 w-52">
-                {" "}
-                <Tick />
-                ویزیت شده
-              </p>
-            ) : (
-              <p className="text-white text-base md:text-xl bg-[var(--orange)] sm:rounded-full rounded-full rounded-r-none py-2.5 my-2 sm:my-12 flex flex-row items-center gap-2 justify-center w-52">
-                {" "}
-                <Cross />
-                ویزیت نشده{" "}
-              </p>
-            )}
-          </button>
+          <div className="flex justify-between items-center flex-row ">
+            <button  className="sm:rounded-full rounded-full rounded-r-none flex justify-center items-center  sm:px-10" onClick={() => handelDelete((_id))}>
+            <p className="text-white text-base md:text-xl bg-red-600 sm:rounded-full rounded-full rounded-r-none py-2.5 my-2 sm:my-12 flex flex-row items-center justify-center gap-2 hover:bg-red-800 w-40"> 
+              حذف رژیم
+            </p>
+            </button>
+
+            <button
+              onClick={toggleChecked}
+              className="sm:rounded-full rounded-full rounded-r-none flex justify-center items-center  sm:px-10"
+            >
+              {checked ? (
+                <p className="text-white text-base md:text-xl bg-[var(--new-green)] sm:rounded-full rounded-full rounded-r-none py-2.5 my-2 sm:my-12 flex flex-row items-center justify-center gap-2 w-52">
+                  {" "}
+                  <Tick />
+                  ویزیت شده
+                </p>
+              ) : (
+                <p className="text-white text-base md:text-xl bg-[var(--orange)] sm:rounded-full rounded-full rounded-r-none py-2.5 my-2 sm:my-12 flex flex-row items-center gap-2 justify-center w-52">
+                  {" "}
+                  <Cross />
+                  ویزیت نشده{" "}
+                </p>
+              )}
+            </button>
+          </div>
         </div>
+        
         <div className="text-2xl pr-4 sm:ps-12 pe-7 bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5 flex gap-2 items-center">
           <DateSvg
             className="sm:flex [&>path]:stroke-white  hidden"
