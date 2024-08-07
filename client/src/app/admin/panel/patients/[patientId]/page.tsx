@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import CommentBox from "@/components/AdminComponents/CommentBox";
 import PatientBmiFormLazy from "@/components/AdminComponents/lazyLoadingComponents/PatientBmiForm";
 import PatientCardLazy from "@/components/AdminComponents/lazyLoadingComponents/PatientCardLazy";
@@ -114,6 +114,10 @@ function PatientId({ params }: { params: { patientId: string } }) {
                 dietBmi={form.dietBmi}
                 payment={form.payment}
                 _id={form._id}
+                appetite={form.appetite}
+                physicalActivityHours={form.physicalActivityHours}
+                sport={form.sport}
+                preferredDrink={form.preferredDrink}
               />
             ))
         ) : (
