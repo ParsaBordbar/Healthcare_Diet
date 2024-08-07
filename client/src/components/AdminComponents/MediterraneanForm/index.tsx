@@ -64,11 +64,7 @@ const MediterraneanForm = ({
 }: MediterraneanFormType) => {
   const data = useSpecificFetchBmi(phoneNumber);
   const { checked, toggleChecked } = useCheckedState(isChecked, _id);
-  if (!!+pregnancyWeeks) {
-    console.log(pregnancyWeeks);
-  } else {
-    console.log(!!+pregnancyWeeks, "we don t have it");
-  }
+    console.log(supplements , Migraine);
   console.log(
     "in component",
     pregnancyWeeks,
@@ -215,6 +211,11 @@ const MediterraneanForm = ({
             className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
             answer={physicalActivity}
             question="میزان فعالیت بدنی در هفته :"
+          />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={preferredDrink}
+            question="تمایل نوشیدن :"
           />
           <QuestionAndAnswerMediForm
             className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
