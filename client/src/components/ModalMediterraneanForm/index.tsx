@@ -20,7 +20,7 @@ type ModalMediterraneanFormType = {
 const ModalMediterraneanForm = (params: ModalMediterraneanFormType) => {
   const mediterraneanForms = useFetchMediterranean();
   const data = useSpecificFetchBmi(params.userPhoneNumber);
-  const reverseArray = (input: MediterraneanFormType[]) => {
+  const reverseArray = (input: any[]) => {
     var ret = new Array();
     for (var i = input.length - 1; i >= 0; i--) {
       ret.push(input[i]);
