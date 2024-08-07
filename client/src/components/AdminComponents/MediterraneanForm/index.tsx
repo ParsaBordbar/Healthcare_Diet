@@ -219,8 +219,13 @@ const MediterraneanForm = ({
           <QuestionAndAnswerMediForm
             className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
             answer={appetite}
-            question="وضعیت دیابت: "
+            question="اشتهای بیمار: "
           />
+          {/* <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={}
+            question="اشتهای بیمار: "
+          /> */}
         </li>
 
         <li>

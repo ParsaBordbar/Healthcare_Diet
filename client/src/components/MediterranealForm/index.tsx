@@ -775,7 +775,7 @@ const MediterranealForm = () => {
       </div>
 
       <div className="flex flex-col gap-4">
-        <h1> میزان فعالیت بدنی در هفته ؟ </h1>
+        <h1>تمایل نوشیدن چای در شما بیشتر است یا قهوه؟</h1>
         <section className="grid md:grid-cols-4 gap-4 sm:gap-0 items-center grid-cols-1">
           <GroupRadio
             name="preferredDrink"
@@ -825,13 +825,6 @@ const MediterranealForm = () => {
           />
            <MainInput
             name="sport"
-            onChange={handleChange}
-            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            label="فعالیت بدنی شما چه نوع ورزشی، در چه ساعتی از روز و چند ساعت در روز می باشد؟ "
-            placeholder="نوع ورزش"
-          />
-          <MainInput
-            name="preferredDrink"
             onChange={handleChange}
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
             label="فعالیت بدنی شما چه نوع ورزشی، در چه ساعتی از روز و چند ساعت در روز می باشد؟ "
