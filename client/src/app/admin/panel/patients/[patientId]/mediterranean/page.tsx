@@ -66,8 +66,12 @@ const MediterraneanPatientPage = ({
               redMeatWeekly={form.redMeatWeekly}
               dietBmi={form.dietBmi}
               payment={form.payment}
-              _id={form._id}
-            />
+              _id={form._id} 
+              appetite={form.appetite}
+              physicalActivityHours={form.physicalActivityHours} 
+              sport={form.sport} 
+              preferredDrink={form.preferredDrink}
+              />
           );
         })
       ) : (

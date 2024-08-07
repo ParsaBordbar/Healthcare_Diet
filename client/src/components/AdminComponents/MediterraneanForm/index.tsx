@@ -56,6 +56,10 @@ const MediterraneanForm = ({
   files = [],
   dietBmi,
   payment,
+  appetite,
+  physicalActivityHours,
+  sport,
+  preferredDrink,
   _id,
 }: MediterraneanFormType) => {
   const data = useSpecificFetchBmi(phoneNumber);
@@ -212,6 +216,11 @@ const MediterraneanForm = ({
             answer={physicalActivity}
             question="میزان فعالیت بدنی در هفته :"
           />
+          <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={appetite}
+            question="وضعیت دیابت: "
+          />
         </li>
 
         <li>
@@ -308,6 +317,16 @@ const MediterraneanForm = ({
               answer={+weightBeforePregnancy}
               question="وزن قبل از بارداری:"
             />
+            {/* <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={appetite}
+            question="میزان مصرف روزانه میوه :"
+            />
+            <QuestionAndAnswerMediForm
+            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
+            answer={dailyFruit}
+            question="میزان مصرف روزانه میوه :"
+            /> */}
           </ul>
         </li>
         <div className="pe-6 py-2 flex justify-start flex-col">
