@@ -12,29 +12,39 @@ const QuestionAndAnswerMediForm = ({
   className,
 }: TQuestionAndAnswer) => {
   const renderTheAnswer = useMemo(() => {
+    if (typeof answer == "boolean") {
+      if (answer) {
+        return <p className="text-[var(--black-blue)]  ">دارد</p>;
+      } else if (!answer) {
+        return <p className="text-[var(--black-blue)]  ">ندارد</p>;
+      }
+    }
     console.log(parseInt(answer));
     if (Number.isInteger(answer)) {
       return <p className="text-[var(--black-blue)]  ">{answer}</p>;
     }
-
-    if (answer == true) {
-      return <p className="text-[var(--black-blue)]  ">دارد</p>;
-    } else if (answer == false) {
-      return <p className="text-[var(--black-blue)]  ">ندارد</p>;
-    }
-    if (Array.isArray(answer) && !Number.isInteger(answer)) {
-      answer.map((ans) => {
-        return <p className="text-[var(--black-blue)] ">{ans}</p>;
-      });
-    } else {
+    
+    if (typeof answer == "string") {
+      if (Number.isInteger(answer)) {
+        return <p className="text-[var(--black-blue)]  ">{answer}</p>;
+      }
       return <p className="text-[var(--black-blue)]  ">{answer}</p>;
     }
   }, []);
+  const renderArray = () => {
+    if (Array.isArray(answer)) {
+      const finalAnswer = answer.map((items: string) => {
+        return <p className="text-[var(--black-blue)]  ">{items}</p>;
+      });
+      return finalAnswer;
+    }
+  };
+
   return (
     !!answer && (
       <li className={className}>
         <span className="">{question}</span>
-        {renderTheAnswer}
+        {renderTheAnswer ?? renderArray()}
       </li>
     )
   );
