@@ -93,7 +93,7 @@ const mediterraneanSchema = yup.object().shape({
   kidneyProblems: yup.string().required("جواب به این سوال الزامی است"),
   thyroid: yup.string(),
   cancer: yup.boolean(),
-  supplements: yup.array().of(yup.string())
+  supplements: yup.string()
     .required("جواب به این سوال الزامی است"),
   Migraine: yup.boolean(),
   otherSickness: yup.string(),
