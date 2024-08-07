@@ -44,10 +44,10 @@ interface FormValues {
   thyroid?: string;
   cancer?: boolean;
   supplements: string[];
-  appetite: string,
-  physicalActivityHours: string,
-  sport: string,
-  preferredDrink: string,
+  appetite: string;
+  physicalActivityHours: string;
+  sport: string;
+  preferredDrink: string;
   Migraine?: boolean;
   otherSickness?: string;
   medicine?: string;
@@ -93,11 +93,9 @@ const mediterraneanSchema = yup.object().shape({
   kidneyProblems: yup.string().required("جواب به این سوال الزامی است"),
   thyroid: yup.string(),
   cancer: yup.boolean(),
-  supplements: yup
-    .array()
-    .of(yup.string())
-    .required("جواب به این سوال الزامی است")
-    .min(1, "لطفا به این سوال پاسخ دهید"),  Migraine: yup.boolean(),
+  supplements: yup.array().of(yup.string())
+    .required("جواب به این سوال الزامی است"),
+  Migraine: yup.boolean(),
   otherSickness: yup.string(),
   medicine: yup.string(),
   foodAllergies: yup.string(),
@@ -108,7 +106,7 @@ const mediterraneanSchema = yup.object().shape({
   appetite: yup.string(),
   physicalActivityHours: yup.string(),
   sport: yup.string(),
-  preferredDrink: yup.string(),
+  preferredDrink: yup.string().required("جواب به این سوال الزامی است"),
   age: yup.string().required("سن الزامی است"),
   height: yup.string().required("قد الزامی است"),
   weight: yup.string().required("وزن الزامی است"),
@@ -177,7 +175,7 @@ const useMediterraneanForm = () => {
       medicine: "",
       foodAllergies: "",
       pregnancyWeeks: "",
-      breastfeeding:"",
+      breastfeeding: "",
       weightBeforePregnancy: "",
       phoneNumber: phoneNumber || "",
       age: "",
@@ -201,10 +199,14 @@ const useMediterraneanForm = () => {
         age: +convertToEnglishNumbers(values.age),
         height: +convertToEnglishNumbers(values.height),
         weight: +convertToEnglishNumbers(values.weight),
-        abdominalCircumference: +convertToEnglishNumbers(values.abdominalCircumference),
+        abdominalCircumference: +convertToEnglishNumbers(
+          values.abdominalCircumference
+        ),
         hipcircumference: +convertToEnglishNumbers(values.hipcircumference),
         pregnancyWeeks: +convertToEnglishNumbers(values.pregnancyWeeks),
-        weightBeforePregnancy: +convertToEnglishNumbers(values.weightBeforePregnancy),
+        weightBeforePregnancy: +convertToEnglishNumbers(
+          values.weightBeforePregnancy
+        ),
         breastfeeding: +convertToEnglishNumbers(values.breastfeeding),
       };
       console.log(finalValues);
@@ -226,7 +228,7 @@ const useMediterraneanForm = () => {
       if (selectedPayment) {
         formData.append("payment", selectedPayment);
       }
-      
+
       try {
         const response = await api.post(
           "/uploader/upload/type?type=mediterranean",
