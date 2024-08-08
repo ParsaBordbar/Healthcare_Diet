@@ -205,12 +205,12 @@ const MediterraneanForm = ({
           <QuestionAndAnswerMediForm
             className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
             answer={supplements}
-            question="مکمل‌هایی که مصرف می‌کنند:"
+            question="مکمل‌هایی که مصرفی:"
           />
           <QuestionAndAnswerMediForm
             className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
-            answer={physicalActivity}
-            question="میزان فعالیت بدنی در هفته :"
+            answer={sport}
+            question=" فعالیت بدنی در هفته :"
           />
           <QuestionAndAnswerMediForm
             className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
@@ -222,11 +222,11 @@ const MediterraneanForm = ({
             answer={appetite}
             question="اشتهای بیمار: "
           />
-          {/* <QuestionAndAnswerMediForm
+          <QuestionAndAnswerMediForm
             className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
-            answer={}
-            question="اشتهای بیمار: "
-          /> */}
+            answer={physicalActivityHours}
+            question="ساعت معمول وعده‌های غذایی:"
+          />
         </li>
 
         <li>
