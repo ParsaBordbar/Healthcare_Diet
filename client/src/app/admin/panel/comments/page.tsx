@@ -9,7 +9,8 @@ import FilterIcon from "/public/svg/adminPanelSvgs/filter.svg";
 import DocumentIcon from "/public/svg/adminPanelSvgs/document.svg";
 import { CommentType } from "@/types";
 import useFetchComments from "@/hooks/useFetchComments/useFetchComments";
-
+import ResponsivePagination from "react-responsive-pagination";
+import "react-responsive-pagination/themes/classic.css";
 const CommentsPage = () => {
   const {
     filter,
@@ -21,31 +22,8 @@ const CommentsPage = () => {
   } = useSearchCommentsPage();
   const allComments = useFetchComments();
   const [arrayItemsComment, setArrayItemsComment] = useState<number>(0);
-
-  const paginationComment = useCallback(() => {
-    console.log("filter in pagination func", filter);
-    return filter.map((item: any, index: number) => {
-      return (
-        item.length > 0 &&
-        filter[1]?.length > 0 && (
-          <button
-            type="button"
-            autoFocus={index == 0 ? true : false}
-            onClick={(e) => {
-              console.log(e.target);
-              setArrayItemsComment(index);
-            }}
-            className={`p-4 hover:underline bg-[var(--milky-white)] hover:bg-[var(--new-green)] border-none outline-none hover:text-[var(--milky-white)] ${
-              arrayItemsComment + 1 == index + 1 &&
-              "bg-[var(--new-green)] text-[var(--milky-white)] underline"
-            } `}
-          >
-            {index + 1}
-          </button>
-        )
-      );
-    });
-  }, [filter, arrayItemsComment]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = allComments.length;
 
   return (
     <section className="flex gap-3 flex-col">
@@ -101,7 +79,7 @@ const CommentsPage = () => {
       </header>
       <main className="grid grid-cols-2 gap-8">
         {filter
-          ? filter[arrayItemsComment]?.map(
+          ? filter[currentPage - 1]?.map(
               (data: CommentType): React.ReactNode => {
                 return (
                   <CommentBox
@@ -120,12 +98,12 @@ const CommentsPage = () => {
             )
           : null}
       </main>
-      <div
-        role="group"
-        className="flex items-center w-fit custom-scroll-x justify-center mx-auto overflow-hidden rounded-lg"
-      >
-        {paginationComment()}
-      </div>
+      <ResponsivePagination
+        linkHref="omit"
+        current={currentPage}
+        total={totalPages}
+        onPageChange={setCurrentPage}
+      />
     </section>
   );
 };
