@@ -43,7 +43,7 @@ interface FormValues {
   kidneyProblems: string;
   thyroid?: string;
   cancer?: boolean;
-  supplements: string[];
+  supplements: string;
   appetite: string;
   physicalActivityHours: string;
   sport: string;
@@ -93,9 +93,7 @@ const mediterraneanSchema = yup.object().shape({
   kidneyProblems: yup.string().required("جواب به این سوال الزامی است"),
   thyroid: yup.string(),
   cancer: yup.boolean(),
-  supplements: yup.string()
-    .required("جواب به این سوال الزامی است"),
-  Migraine: yup.boolean(),
+  supplements: yup.string().required("جواب دادن به سوال مکمل‌های مصرفی اجباری است"),
   otherSickness: yup.string(),
   medicine: yup.string(),
   foodAllergies: yup.string(),
@@ -103,9 +101,9 @@ const mediterraneanSchema = yup.object().shape({
   weightBeforePregnancy: yup.string(),
   breastfeeding: yup.string(),
   phoneNumber: yup.string(),
-  appetite: yup.string(),
-  physicalActivityHours: yup.string(),
-  sport: yup.string(),
+  appetite: yup.string().required("جواب دادن به وعده اشتها آور الزامی است "),
+  physicalActivityHours: yup.string().required("جواب دادن به معمول وعده های غذایی الزامی است"),
+  sport: yup.string().required("فعالیت بدنی الزامی است"),
   preferredDrink: yup.string().required("جواب به این سوال الزامی است"),
   age: yup.string().required("سن الزامی است"),
   height: yup.string().required("قد الزامی است"),
@@ -161,7 +159,7 @@ const useMediterraneanForm = () => {
       sport: "",
       preferredDrink: "",
       diabetes: "ندارم",
-      supplements: [],
+      supplements: "",
       bloodPressure: "ندارم",
       digestiveProblems: "ندارم",
       selfSafety: "ندارم",
