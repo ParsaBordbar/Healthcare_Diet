@@ -7,18 +7,20 @@ import useFetchOneMediterranean from "@/hooks/useFetchOneMediterranean";
 import useFetchPatientComments from "@/hooks/useFetchPatientComments/useFetchPatientComments";
 import { CommentType } from "@/types";
 import { useCallback, useEffect, useState } from "react";
+import ResponsivePagination from "react-responsive-pagination";
+import "react-responsive-pagination/themes/classic.css";
 
 const CommentsPatientPage = ({ params }: { params: { patientId: string } }) => {
   const commentData = useFetchPatientComments(params.patientId).toReversed();
-  const [arrayItemsComment, setArrayItemsComment] = useState<number>(0);
-  const [calcPlues, setCalcPlues] = useState<number>(0);
   const newArrayComment = chunkingArray(commentData, 6);
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = newArrayComment.length;
+  
   return (
     <div className="flex flex-col mb-6 gap-6">
       <h2 className="text-xl md:text-2xl lg:text-3xl">پیام ها:</h2>
       {newArrayComment?.length > 0 ? (
-        newArrayComment[arrayItemsComment].map((comment: CommentType) => (
+        newArrayComment[currentPage - 1].map((comment: CommentType) => (
           <CommentBox
             key={comment._id}
             sender={comment.sender}
@@ -33,14 +35,11 @@ const CommentsPatientPage = ({ params }: { params: { patientId: string } }) => {
       ) : (
         <p className="text-xl text-center">پیام ندارد</p>
       )}
-      <Pagination
-        arr={newArrayComment}
-        itemNumber={arrayItemsComment}
-        setCalc={setCalcPlues}
-        calc={calcPlues}
-        lastCalc={4}
-        setItemNumber={setArrayItemsComment}
-        limitNumber={30}
+      <ResponsivePagination
+        linkHref="omit"
+        current={currentPage}
+        total={totalPages}
+        onPageChange={setCurrentPage}
       />
     </div>
   );
