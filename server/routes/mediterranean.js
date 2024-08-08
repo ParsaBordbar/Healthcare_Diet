@@ -24,6 +24,16 @@ router.get('/certain/:phoneNumber', async (req, res) => {
 });
 
 
+router.get('/id/:id', async (req, res) => {
+    const { id } = req.params;
+    const mediterraneanForm = await MediterraneanForm.findById(id);
+    if (!mediterraneanForm) {
+        return res.status(404).send("Mediterranean with this ID was not found."); 
+    }
+    return res.send(mediterraneanForm); 
+});
+
+
 router.get('/sort', async(req, res)=>{
     if(req.query.sort == 'special'){
         const response = await MediterraneanForm.find({
