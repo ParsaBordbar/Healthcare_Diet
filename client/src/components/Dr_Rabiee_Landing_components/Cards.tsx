@@ -1,5 +1,6 @@
 import React from "react";
 import CustomCard from "./CustomCard";
+import DoctorsCardDetails from "../DrCardDetails";
 
 const cardsData = [
   {
