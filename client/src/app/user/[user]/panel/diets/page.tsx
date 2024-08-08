@@ -37,7 +37,9 @@ const DietsUserPanel = () => {
       <div className="lg:inline-block hidden">
         <CardsSection />
       </div>
-      <DoctorsCardDetails />
+      <div className="lg:mx-40 flex justify-center items-center">
+        <DoctorsCardDetails />
+      </div>
       <section className="flex sm:flex-row flex-col items-center gap-2">
         <h1 className="">
           قبل از پر کردن رژیم مورد نظر حتما این فایل را دانلود و مطالعه کنید
