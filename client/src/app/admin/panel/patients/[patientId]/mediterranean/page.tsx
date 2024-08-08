@@ -5,6 +5,8 @@ import { chunkingArray } from "@/hooks/chunkingArray";
 import useFetchOneMediterranean from "@/hooks/useFetchOneMediterranean";
 import { MediterraneanFormType } from "@/types";
 import { useCallback, useState } from "react";
+import ResponsivePagination from "react-responsive-pagination";
+import "react-responsive-pagination/themes/classic.css";
 
 const MediterraneanPatientPage = ({
   params,
@@ -12,16 +14,16 @@ const MediterraneanPatientPage = ({
   params: { patientId: string };
 }) => {
   const medData = useFetchOneMediterranean(params.patientId).toReversed();
-  const [arrayItemsMedi, setArrayItemsMedi] = useState<number>(0);
-  const [calcPlues, setCalcPlues] = useState<number>(0);
   const newArrayMedi = chunkingArray(medData, 2);
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = newArrayMedi.length;
 
   return (
     <div className="flex flex-col mb-6 gap-6">
       <h2 className="text-xl md:text-2xl lg:text-3xl">رژیم‌ها:</h2>
-      {newArrayMedi[arrayItemsMedi]?.length > 0 ? (
-        newArrayMedi[arrayItemsMedi].map((form: MediterraneanFormType) => {
-          console.log(form)
+      {newArrayMedi[currentPage - 1]?.length > 0 ? (
+        newArrayMedi[currentPage - 1].map((form: MediterraneanFormType) => {
+          console.log(form);
           return (
             <MediterraneanForm
               key={`${params.patientId} ${form.createdAtJalali}`}
@@ -66,25 +68,22 @@ const MediterraneanPatientPage = ({
               redMeatWeekly={form.redMeatWeekly}
               dietBmi={form.dietBmi}
               payment={form.payment}
-              _id={form._id} 
+              _id={form._id}
               appetite={form.appetite}
-              physicalActivityHours={form.physicalActivityHours} 
-              sport={form.sport} 
+              physicalActivityHours={form.physicalActivityHours}
+              sport={form.sport}
               preferredDrink={form.preferredDrink}
-              />
+            />
           );
         })
       ) : (
         <p className="text-xl text-center">رژیم ندارد</p>
       )}
-      <Pagination
-        arr={newArrayMedi}
-        itemNumber={arrayItemsMedi}
-        setItemNumber={setArrayItemsMedi}
-        setCalc={setCalcPlues}
-        calc={calcPlues}
-        limitNumber={20}
-        lastCalc={3}
+      <ResponsivePagination
+        linkHref="omit"
+        current={currentPage}
+        total={totalPages}
+        onPageChange={setCurrentPage}
       />
     </div>
   );
