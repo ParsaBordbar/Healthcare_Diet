@@ -14,27 +14,27 @@ const QuestionAndAnswerMediForm = ({
   const renderTheAnswer = useMemo(() => {
     if (typeof answer == "boolean") {
       if (answer) {
-        return <p className="text-[var(--black-blue)]  ">دارد</p>;
+        return <p className="text-[var(--black-blue)]">دارد</p>;
       } else if (!answer) {
-        return <p className="text-[var(--black-blue)]  ">ندارد</p>;
+        return <p className="text-[var(--black-blue)]">ندارد</p>;
       }
     }
     console.log(parseInt(answer));
     if (Number.isInteger(answer)) {
-      return <p className="text-[var(--black-blue)]  ">{answer}</p>;
+      return <p className="text-[var(--black-blue)]">{answer}</p>;
     }
     
     if (typeof answer == "string") {
       if (Number.isInteger(answer)) {
-        return <p className="text-[var(--black-blue)]  ">{answer}</p>;
+        return <p className="text-[var(--black-blue)]">{answer}</p>;
       }
-      return <p className="text-[var(--black-blue)]  ">{answer}</p>;
+      return <p className="text-[var(--black-blue)]">{answer}</p>;
     }
   }, []);
   const renderArray = () => {
     if (Array.isArray(answer)) {
       const finalAnswer = answer.map((items: string) => {
-        return <p className="text-[var(--black-blue)]  ">{items}</p>;
+        return <p className="text-[var(--black-blue)]">{items}</p>;
       });
       return finalAnswer;
     }
