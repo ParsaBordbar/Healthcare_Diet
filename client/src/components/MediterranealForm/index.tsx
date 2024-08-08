@@ -838,6 +838,19 @@ const MediterranealForm = () => {
               ...مکمل های ورزشی: وی، بی سی دبل ای، کراتین، ال کارنتین و .)"
                   placeholder="مکمل‌های مصرفی"
           />
+      {
+      errors.appetite ||
+      errors.physicalActivityHours ||
+      errors.sport ||
+      errors.supplements ? (
+        <p className="text-red-600">
+          {errors?.appetite ||
+            errors.physicalActivityHours ||
+            errors.sport ||
+            errors.supplements
+            }
+        </p>
+      ) : null}
       </div>
 
       <div className="flex flex-col gap-4">
