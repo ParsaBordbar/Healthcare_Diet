@@ -10,6 +10,8 @@ import { useState, useCallback } from "react";
 import { BmiType } from "@/types";
 import Pagination from "@/components/Pagination";
 import { chunkingArray } from "@/hooks/chunkingArray";
+import ResponsivePagination from "react-responsive-pagination";
+import "react-responsive-pagination/themes/classic.css";
 
 const BmiSection = () => {
   const {
@@ -23,8 +25,8 @@ const BmiSection = () => {
     submitHandler,
   } = useSearchBmi("/bmi/sort");
   const newArray = chunkingArray(filter, 12);
-  const [arrayItemsComment, setArrayItemsComment] = useState<number>(0);
-  const [calcPlues, setCalcPlues] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = newArray.length;
 
   return (
     <section className="grid lg:grid-cols-1 grid-cols-1 gap-10">
@@ -82,8 +84,8 @@ const BmiSection = () => {
       </div>
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-10">
         {newArray.length > 0 &&
-          Array.isArray(newArray[arrayItemsComment]) &&
-          newArray[arrayItemsComment].map((form: BmiType) => (
+          Array.isArray(newArray[currentPage - 1]) &&
+          newArray[currentPage - 1].map((form: BmiType) => (
             <PatientBmiForm
               name={form.name}
               lastName={form.lastName}
@@ -104,14 +106,11 @@ const BmiSection = () => {
             />
           ))}
       </div>
-      <Pagination
-        arr={newArray}
-        itemNumber={arrayItemsComment}
-        setItemNumber={setArrayItemsComment}
-        setCalc={setCalcPlues}
-        calc={calcPlues}
-        limitNumber={20}
-        lastCalc={3}
+      <ResponsivePagination
+        linkHref="omit"
+        current={currentPage}
+        total={totalPages}
+        onPageChange={setCurrentPage}
       />
     </section>
   );
