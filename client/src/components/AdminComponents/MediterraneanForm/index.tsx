@@ -12,6 +12,9 @@ import useCheckedState from "@/hooks/useChecked/useChecked";
 import QuestionAndAnswerMediForm from "@/components/QAMediForm";
 import api from "@/apis";
 import { string } from "yup";
+import EditMediModal from "@/components/EditMediModal";
+import { useState } from "react";
+import useEditMediterranean from "../../../hooks/useEditMediterranean/useEditMediterranean"
 
 const MediterraneanForm = ({
   dailyFruit,
@@ -72,6 +75,12 @@ const MediterraneanForm = ({
     Number(pregnancyWeeks)
   );
 
+  const [show, isShow] = useState<boolean>(false);
+
+  const toggleEditButton = () => {
+      isShow((preShow) => !preShow);
+  }
+
   const handelDelete = (id:string) => {
     api.delete(`/mediterranean/${id}`)
   }
@@ -88,13 +97,17 @@ const MediterraneanForm = ({
               {data?.name} {data?.lastName}
             </p>
           </li>
+          <EditMediModal className={""} isShow={isShow} show={show} supplements={""} appetite={""} physicalActivityHours={""} sport={""} preferredDrink={""} foodAllergies={"undefined"} pregnancyWeeks={"undefined"} breastfeeding={"undefined"} weightBeforePregnancy={"undefined"} phoneNumber={""} isChecked={false} _id={""} />
+          
           <div className="flex justify-between items-center flex-row ">
             <button  className="sm:rounded-full rounded-full rounded-r-none flex justify-center items-center  sm:px-10" onClick={() => handelDelete((_id))}>
             <p className="text-white text-base md:text-xl bg-red-600 sm:rounded-full rounded-full rounded-r-none py-2.5 my-2 sm:my-12 flex flex-row items-center justify-center gap-2 hover:bg-red-800 w-40"> 
               حذف رژیم
             </p>
             </button>
-
+            <button onClick={toggleEditButton}>
+              edit 
+            </button>
             <button
               onClick={toggleChecked}
               className="sm:rounded-full rounded-full rounded-r-none flex justify-center items-center  sm:px-10"
@@ -323,16 +336,6 @@ const MediterraneanForm = ({
               answer={+weightBeforePregnancy}
               question="وزن قبل از بارداری:"
             />
-            {/* <QuestionAndAnswerMediForm
-            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
-            answer={appetite}
-            question="میزان مصرف روزانه میوه :"
-            />
-            <QuestionAndAnswerMediForm
-            className="flex col-span-4 lg:col-span-2 min-[1410px]:col-span-1  flex-row gap-2 sm:text-base text-sm"
-            answer={dailyFruit}
-            question="میزان مصرف روزانه میوه :"
-            /> */}
           </ul>
         </li>
         <div className="pe-6 py-2 flex justify-start flex-col">
