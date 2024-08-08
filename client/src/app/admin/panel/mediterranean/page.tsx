@@ -11,6 +11,8 @@ import { useCallback, useState } from "react";
 import { MediterraneanFormType } from "@/types";
 import Pagination from "@/components/Pagination";
 import { chunkingArray } from "@/hooks/chunkingArray";
+import ResponsivePagination from "react-responsive-pagination";
+import "react-responsive-pagination/themes/classic.css";
 
 const MediterraneanFormsPage = () => {
   const {
@@ -25,8 +27,8 @@ const MediterraneanFormsPage = () => {
     femaleFilterHandler,
   } = useSearchMediterranean("/mediterranean/sort");
   const newArray = chunkingArray(filter, 2);
-  const [arrayItemsComment, setArrayItemsComment] = useState<number>(0);
-  const [calcPlues, setCalcPlues] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = newArray.length;
 
   return (
     <>
@@ -63,7 +65,7 @@ const MediterraneanFormsPage = () => {
                 className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
                 value={"قدیمی ترین"}
                 onClick={() => {
-                  setArrayItemsComment(0);
+                  setCurrentPage(1);
                   oldestFilterHandler();
                 }}
               />
@@ -72,7 +74,7 @@ const MediterraneanFormsPage = () => {
                 className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
                 value={"جدیدترین"}
                 onClick={() => {
-                  setArrayItemsComment(0);
+                  setCurrentPage(1);
                   newestFilterHandler();
                 }}
               />
@@ -82,7 +84,7 @@ const MediterraneanFormsPage = () => {
                 className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
                 value={"مرد"}
                 onClick={() => {
-                  setArrayItemsComment(0);
+                  setCurrentPage(1);
                   maleFilterHandler();
                 }}
               />
@@ -91,7 +93,7 @@ const MediterraneanFormsPage = () => {
                 className="rounded-lg font-extrabold col-span-2 lg:col-span-1 py-3 px-4 !text-sm"
                 value={"زن"}
                 onClick={() => {
-                  setArrayItemsComment(0);
+                  setCurrentPage(1);
                   femaleFilterHandler();
                 }}
               />
@@ -110,7 +112,7 @@ const MediterraneanFormsPage = () => {
                 className="rounded-lg font-extrabold col-span-2 py-3 !text-sm"
                 value={"افراد دارای بیماری‌های خاص"}
                 onClick={() => {
-                  setArrayItemsComment(0);
+                  setCurrentPage(1);
                   specialFilterHandler();
                 }}
               />
@@ -118,7 +120,7 @@ const MediterraneanFormsPage = () => {
           </div>
         </div>
         {newArray.length > 0 &&
-          newArray[arrayItemsComment].map((form: MediterraneanFormType) => {
+          newArray[currentPage - 1].map((form: MediterraneanFormType) => {
             return (
               <MediterraneanForm
                 dailyFruit={form.dailyFruit}
@@ -172,14 +174,11 @@ const MediterraneanFormsPage = () => {
             );
           })}
       </section>
-      <Pagination
-        arr={newArray}
-        itemNumber={arrayItemsComment}
-        setItemNumber={setArrayItemsComment}
-        setCalc={setCalcPlues}
-        calc={calcPlues}
-        limitNumber={20}
-        lastCalc={3}
+      <ResponsivePagination
+        linkHref="omit"
+        current={currentPage}
+        total={totalPages}
+        onPageChange={setCurrentPage}
       />
     </>
   );
