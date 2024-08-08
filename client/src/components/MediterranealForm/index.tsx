@@ -15,7 +15,6 @@ const MediterranealForm = () => {
     paymentError,
     ...formik
   } = useMediterraneanForm();
-
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-10">
       <div className="flex flex-col gap-4">

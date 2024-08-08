@@ -98,12 +98,14 @@ const CommentsPage = () => {
             )
           : null}
       </main>
-      <ResponsivePagination
-        linkHref="omit"
-        current={currentPage}
-        total={totalPages}
-        onPageChange={setCurrentPage}
-      />
+      <div className="mb-6">
+        <ResponsivePagination
+          linkHref="omit"
+          current={currentPage}
+          total={totalPages}
+          onPageChange={setCurrentPage}
+        />
+      </div>
     </section>
   );
 };

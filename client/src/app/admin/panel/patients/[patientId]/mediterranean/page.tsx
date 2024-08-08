@@ -79,12 +79,14 @@ const MediterraneanPatientPage = ({
       ) : (
         <p className="text-xl text-center">رژیم ندارد</p>
       )}
-      <ResponsivePagination
-        linkHref="omit"
-        current={currentPage}
-        total={totalPages}
-        onPageChange={setCurrentPage}
-      />
+      <div className="mb-6">
+        <ResponsivePagination
+          linkHref="omit"
+          current={currentPage}
+          total={totalPages}
+          onPageChange={setCurrentPage}
+        />
+      </div>
     </div>
   );
 };

@@ -15,9 +15,9 @@ const CommentsPatientPage = ({ params }: { params: { patientId: string } }) => {
   const newArrayComment = chunkingArray(commentData, 6);
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = newArrayComment.length;
-  
+
   return (
-    <div className="flex flex-col mb-6 gap-6">
+    <div className="flex flex-col my-6 gap-6">
       <h2 className="text-xl md:text-2xl lg:text-3xl">پیام ها:</h2>
       {newArrayComment?.length > 0 ? (
         newArrayComment[currentPage - 1].map((comment: CommentType) => (
@@ -35,12 +35,14 @@ const CommentsPatientPage = ({ params }: { params: { patientId: string } }) => {
       ) : (
         <p className="text-xl text-center">پیام ندارد</p>
       )}
-      <ResponsivePagination
-        linkHref="omit"
-        current={currentPage}
-        total={totalPages}
-        onPageChange={setCurrentPage}
-      />
+      <div className="mb-6">
+        <ResponsivePagination
+          linkHref="omit"
+          current={currentPage}
+          total={totalPages}
+          onPageChange={setCurrentPage}
+        />
+      </div>
     </div>
   );
 };
