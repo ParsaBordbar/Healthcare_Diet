@@ -1,50 +1,55 @@
+'use client'
 import React, { useEffect } from 'react';
 import Close from "/public/svg/close.svg";
 import MainInput from '../MainInput';
+import useEditMediterranean from '@/hooks/useEditMediterranean/useEditMediterranean';
+import { string } from 'yup';
+import { MediterraneanFormType } from '@/types';
+import { stringify } from 'postcss';
 
 type ModalMediterraneanFormType = {
     className: string;
     isShow: Function;
     show: boolean;
-  dailyFruit?: String;
-  dailyVegetable?: String;
-  Cereals?: String;
-  dailyCereals?: String;
-  potatoAndStarchWeekly?: String;
-  oliveAndOliveOilDaily?: String;
-  nutsDaily?: String;
-  dairyDaily?: String;
-  beans?: String;
-  eggWeekly?: String;
-  fishWeekly?: String;
-  chickensWeekly?: String;
-  redMeatWeekly?: String;
-  sugarWeekly?: String;
-  alcoholWeekly?: String;
-  fermentationWeekly?: String;
+  dailyFruit?: string;
+  dailyVegetable?: string;
+  Cereals?: string;
+  dailyCereals?: string;
+  potatoAndStarchWeekly?: string;
+  oliveAndOliveOilDaily?: string;
+  nutsDaily?: string;
+  dairyDaily?: string;
+  beans?: string;
+  eggWeekly?: string;
+  fishWeekly?: string;
+  chickensWeekly?: string;
+  redMeatWeekly?: string;
+  sugarWeekly?: string;
+  alcoholWeekly?: string;
+  fermentationWeekly?: string;
   supplements: string | [];
   appetite: string,
   physicalActivityHours: string,
   sport: string,
   preferredDrink: string,
-  physicalActivity?: String;
-  diabetes?: String;
-  anemia?: String;
-  bloodPressure?: String;
-  digestiveProblems?: String;
-  selfSafety?: String;
-  stroke?: String;
-  fattyLiver?: String;
-  kidneyProblems?: String;
-  thyroid?: String;
+  physicalActivity?: string;
+  diabetes?: string;
+  anemia?: string;
+  bloodPressure?: string;
+  digestiveProblems?: string;
+  selfSafety?: string;
+  stroke?: string;
+  fattyLiver?: string;
+  kidneyProblems?: string;
+  thyroid?: string;
   cancer?: boolean;
   Migraine?: boolean;
-  otherSickness?: String;
-  medicine?: String;
-  foodAllergies: String;
-  pregnancyWeeks: String;
-  breastfeeding: String;
-  weightBeforePregnancy: String;
+  otherSickness?: string;
+  medicine?: string;
+  foodAllergies: string;
+  pregnancyWeeks: string;
+  breastfeeding: string;
+  weightBeforePregnancy: string;
   phoneNumber: string;
   isChecked: boolean;
   createdAtGregorian?: string;
@@ -64,57 +69,20 @@ type ModalMediterraneanFormType = {
   _id: string;
 };
 
+
 function EditMediModal({   
-    dailyFruit,
-    dailyVegetable,
-    Cereals,
-    dailyCereals,
-    potatoAndStarchWeekly,
-    oliveAndOliveOilDaily,
-    nutsDaily,
-    dairyDaily,
-    beans,
-    eggWeekly,
-    fishWeekly,
-    chickensWeekly,
-    redMeatWeekly,
-    sugarWeekly,
-    alcoholWeekly,
-    fermentationWeekly,
-    supplements,
-    physicalActivity,
-    diabetes,
-    anemia,
-    bloodPressure,
-    digestiveProblems,
-    selfSafety,
-    stroke,
-    fattyLiver,
-    kidneyProblems,
-    thyroid,
-    cancer,
-    Migraine,
-    otherSickness,
-    medicine,
-    foodAllergies,
-    pregnancyWeeks,
-    breastfeeding,
-    weightBeforePregnancy,
-    phoneNumber,
-    isChecked,
-    createdAtGregorian,
-    createdAtJalali,
-    dietBmi,
-    appetite,
-    physicalActivityHours,
-    sport,
-    preferredDrink,
     isShow,
     className,
     show,
     _id,}: ModalMediterraneanFormType) {
+    const { data, error, handleChange } = useEditMediterranean(_id);
+
+    const handleInputChange = (field: keyof MediterraneanFormType) => (event: React.ChangeEvent<HTMLInputElement>) => {
+        handleChange(field, event.target.value);
+    };
   
   useEffect(() => {
+    console.log(_id);
   }, [show]);
 
   return (
@@ -139,194 +107,252 @@ function EditMediModal({
         </p>
         <div className=' grid grid-cols-5 gap-3'>
             <MainInput
-            name="hipcircumference"
-            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
-            label="میزان مصرف روزانه میوه "
+              name="dailyFruit"
+              parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+              onChange={handleInputChange('dailyFruit')}
+              value={data?.dailyFruit}
+              placeholder={data?.dailyFruit}
+              label="میزان مصرف روزانه میوه "
             />
             <MainInput
-            name="hipcircumference"
+            name="dailyVegetable"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('dailyFruit')}
+            value={data?.dailyVegetable}
+            placeholder={data?.dailyFruit}
             label="میزان مصرف روزانه سبزیجات:"
-
             />
             <MainInput
-            name="hipcircumference"
+            name="Cereals"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="غلات سبوس ‌دار مصرف می‌کنند"
+            onChange={handleInputChange('Cereals')}
+            value={data?.Cereals}
+            placeholder={data?.Cereals}            
             label="غلات سبوس ‌دار مصرف می‌کنند"
             />
             <MainInput
-            name="hipcircumference"
+            name="dailyCereals"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="میزان مصرف روزانه غلات"
+            onChange={handleInputChange('dailyCereals')}
+            value={data?.dailyCereals}
+            placeholder={data?.dailyCereals}              
             label="میزان مصرف روزانه غلات"
             />
             <MainInput
-            name="hipcircumference"
+            name="potatoAndStarchWeekly"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('potatoAndStarchWeekly')}
+            value={data?.potatoAndStarchWeekly}
+            placeholder={data?.potatoAndStarchWeekly}  
             label="سایر سبزیجات نشاسته ای در هفته
             "/>
 
-<MainInput
-            name="hipcircumference"
+            <MainInput
+            name="oliveAndOliveOilDaily"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('oliveAndOliveOilDaily')}
+            value={data?.oliveAndOliveOilDaily}
+            placeholder={data?.oliveAndOliveOilDaily}        
             label="میزان مصرف روزانه زیتون و روغن زیتون"
             />
             <MainInput
             name="hipcircumference"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('nutsDaily')}
+            value={data?.nutsDaily}
+            placeholder={data?.nutsDaily}   
             label="میزان مصرف مغزها به صورت روزانه"
-
             />
             <MainInput
             name="hipcircumference"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="غلات سبوس ‌دار مصرف می‌کنند"
             label="میزان مصرف روزانه محصولات لبنی :"
+            onChange={handleInputChange('dairyDaily')}
+            value={data?.dairyDaily}
+            placeholder={data?.dairyDaily}   
             />
             <MainInput
-            name="hipcircumference"
-            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="میزان مصرف روزانه غلات"
             label="میزان مصرف روزانه محصولات لبنی :"
+            name="beans"
+            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+            onChange={handleInputChange('beans')}
+            value={data?.beans}
+            placeholder={data?.beans} 
             />
             <MainInput
-            name="hipcircumference"
+            name="eggWeekly"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('eggWeekly')}
+            value={data?.eggWeekly}
+            placeholder={data?.eggWeekly} 
             label="میزان مصرف تخم مرغ به صورت هفتگی 
             "/>
 
-<MainInput
-            name="hipcircumference"
+            <MainInput
+            name="fishWeekly"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('fishWeekly')}
+            value={data?.fishWeekly}
+            placeholder={data?.fishWeekly} 
             label="میزان مصرف ماهی به صورت هفتگی"
             />
             <MainInput
-            name="hipcircumference"
+            name="chickensWeekly"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('chickensWeekly')}
+            value={data?.chickensWeekly}
+            placeholder={data?.chickensWeekly} 
             label="میزان مصرف ماکیان به صورت هفتگی :"
 
             />
             <MainInput
-            name="hipcircumference"
+            name="redMeatWeekly"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="غلات سبوس ‌دار مصرف می‌کنند"
+            onChange={handleInputChange('redMeatWeekly')}
+            value={data?.redMeatWeekly}
+            placeholder={data?.redMeatWeekly} 
             label="میزان مصرف گوشت قرمز به صورت هفتگی:"
             />
             <MainInput
-            name="hipcircumference"
+            name="sugarWeekly"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="میزان مصرف روزانه غلات"
+            onChange={handleInputChange('sugarWeekly')}
+            value={data?.sugarWeekly}
+            placeholder={data?.sugarWeekly} 
             label="میزان مصرف شیرینی به صورت هفتگی:"
             />
             <MainInput
-            name="hipcircumference"
+            name="alcoholWeekly"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('alcoholWeekly')}
+            value={data?.alcoholWeekly}
+            placeholder={data?.alcoholWeekly} 
             label="
             میزان مصرف نوشیدنی الکلی به صورت هفتگی:"/>
 
-<MainInput
-            name="hipcircumference"
+            <MainInput
+            name="supplements"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('supplements')}
+            value={data?.supplements}
+            placeholder={"handle later"} 
             label="مکمل‌های که مصرفی"
             />
             <MainInput
-            name="hipcircumference"
+            name="physicalActivity"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('physicalActivity')}
+            value={data?.physicalActivity}
+            placeholder={data?.physicalActivity} 
             label="فعالیت بدنی در هفته :"
 
             />
             <MainInput
-            name="hipcircumference"
+            name="preferredDrink"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="غلات سبوس ‌دار مصرف می‌کنند"
+            onChange={handleInputChange('preferredDrink')}
+            value={data?.preferredDrink}
+            placeholder={data?.preferredDrink} 
             label="تمایل نوشیدن :"
             />
             <MainInput
-            name="hipcircumference"
+            name="appetite"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="میزان مصرف روزانه غلات"
+            onChange={handleInputChange('appetite')}
+            value={data?.appetite}
+            placeholder={data?.appetite} 
             label="اشتهای بیمار:"
             />
             <MainInput
-            name="hipcircumference"
+            name="physicalActivityHours"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('physicalActivityHours')}
+            value={data?.physicalActivityHours}
+            placeholder={data?.physicalActivityHours} 
             label="ساعت معمول وعده‌های غذایی:"/>
         </div>
         <p className="mt-10 pr-4 sm:ps-12 pe-7 lg:text-2xl sm:text-xl text-base bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
         بیماری‌ها و وضعیت‌های خاص:        
         </p>
         <div className=' grid grid-cols-5 gap-3'>
-        <MainInput
-            name="hipcircumference"
+            <MainInput
+            name="diabetes"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('diabetes')}
+            value={data?.diabetes}
+            placeholder={data?.diabetes} 
             label="وضعیت دیابت:"
             />
             <MainInput
-            name="hipcircumference"
+            name="bloodPressure"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('bloodPressure')}
+            value={data?.bloodPressure}
+            placeholder={data?.bloodPressure} 
             label="وضعیت فشارخون:"
             />
             <MainInput
-            name="hipcircumference"
+            name="digestiveProblems"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="غلات سبوس ‌دار مصرف می‌کنند"
+            onChange={handleInputChange('digestiveProblems')}
+            value={data?.digestiveProblems}
+            placeholder={data?.digestiveProblems} 
             label="
             وضعیت مشکلات گوارشی:"
             />
             <MainInput
-            name="hipcircumference"
+            name="selfSafety"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="میزان مصرف روزانه غلات"
+            onChange={handleInputChange('selfSafety')}
+            value={data?.selfSafety}
+            placeholder={data?.selfSafety} 
             label="وضعیت خودایمنی:"
             />
             <MainInput
-            name="hipcircumference"
+            name="stroke"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('stroke')}
+            value={data?.stroke}
+            placeholder={data?.stroke} 
             label="وضعیت سکته:"/>
 
-        <MainInput
-            name="hipcircumference"
+            <MainInput
+            name="fattyLiver"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('fattyLiver')}
+            value={data?.fattyLiver}
+            placeholder={data?.fattyLiver} 
             label="وضعیت چربی کبد:"/>
 
             <MainInput
-            name="hipcircumference"
+            name="kidneyProblems"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="غلات سبوس ‌دار مصرف می‌کنند"
+            onChange={handleInputChange('kidneyProblems')}
+            value={data?.kidneyProblems}
+            placeholder={data?.kidneyProblems} 
             label="وضعیت مشکلات کلیوی:"
             />
             <MainInput
-            name="hipcircumference"
+            name="thyroid"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="میزان مصرف روزانه غلات"
+            onChange={handleInputChange('thyroid')}
+            value={data?.thyroid}
+            placeholder={data?.thyroid} 
             label="وضعیت تیروئید"
             />
             <MainInput
-            name="hipcircumference"
+            name="cancer"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('cancer')}
+            value={`${data?.cancer}`}
+            placeholder={`${data?.cancer}`} 
             label="سرطان"/>
             <MainInput
-            name="hipcircumference"
+            name="Migraine"
             parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
-            placeholder="دور باسن خود را اینجا وارد کنید"
+            onChange={handleInputChange('Migraine')}
+            value={`${data?.Migraine}`}
+            placeholder={`${data?.Migraine}`} 
             label="میگرن"
             />
         </div>
