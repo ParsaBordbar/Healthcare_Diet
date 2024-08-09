@@ -92,45 +92,45 @@ export type WelcomeBoxType = {
 };
 
 export interface MediterraneanFormType {
-  dailyFruit?: String;
-  dailyVegetable?: String;
-  Cereals?: String;
-  dailyCereals?: String;
-  potatoAndStarchWeekly?: String;
-  oliveAndOliveOilDaily?: String;
-  nutsDaily?: String;
-  dairyDaily?: String;
-  beans?: String;
-  eggWeekly?: String;
-  fishWeekly?: String;
-  chickensWeekly?: String;
-  redMeatWeekly?: String;
-  sugarWeekly?: String;
-  alcoholWeekly?: String;
-  fermentationWeekly?: String;
+  dailyFruit?: string;
+  dailyVegetable?: string;
+  Cereals?: string;
+  dailyCereals?: string;
+  potatoAndStarchWeekly?: string;
+  oliveAndOliveOilDaily?: string;
+  nutsDaily?: string;
+  dairyDaily?: string;
+  beans?: string;
+  eggWeekly?: string;
+  fishWeekly?: string;
+  chickensWeekly?: string;
+  redMeatWeekly?: string;
+  sugarWeekly?: string;
+  alcoholWeekly?: string;
+  fermentationWeekly?: string;
   supplements: string | [];
   appetite: string,
   physicalActivityHours: string,
   sport: string,
   preferredDrink: string,
-  physicalActivity?: String;
-  diabetes?: String;
-  anemia?: String;
-  bloodPressure?: String;
-  digestiveProblems?: String;
-  selfSafety?: String;
-  stroke?: String;
-  fattyLiver?: String;
-  kidneyProblems?: String;
-  thyroid?: String;
+  physicalActivity?: string;
+  diabetes?: string;
+  anemia?: string;
+  bloodPressure?: string;
+  digestiveProblems?: string;
+  selfSafety?: string;
+  stroke?: string;
+  fattyLiver?: string;
+  kidneyProblems?: string;
+  thyroid?: string;
   cancer?: boolean;
   Migraine?: boolean;
-  otherSickness?: String;
-  medicine?: String;
-  foodAllergies: String;
-  pregnancyWeeks: String;
-  breastfeeding: String;
-  weightBeforePregnancy: String;
+  otherSickness?: string;
+  medicine?: string;
+  foodAllergies: string;
+  pregnancyWeeks: string;
+  breastfeeding: string;
+  weightBeforePregnancy: string;
   phoneNumber: string;
   isChecked: boolean;
   createdAtGregorian?: string;
