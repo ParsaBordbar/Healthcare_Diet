@@ -3,9 +3,7 @@ import React, { useEffect } from 'react';
 import Close from "/public/svg/close.svg";
 import MainInput from '../MainInput';
 import useEditMediterranean from '@/hooks/useEditMediterranean/useEditMediterranean';
-import { string } from 'yup';
 import { MediterraneanFormType } from '@/types';
-import { stringify } from 'postcss';
 
 type ModalMediterraneanFormType = {
     className: string;
@@ -54,7 +52,6 @@ type ModalMediterraneanFormType = {
   isChecked: boolean;
   createdAtGregorian?: string;
   createdAtJalali?: string;
-//   files?: FileType[];
   dietBmi?: {
     height?: number;
     weight?: number;
@@ -65,7 +62,6 @@ type ModalMediterraneanFormType = {
     whr: number;
     hipcircumference: number;
   };
-//   payment?: FileType;
   _id: string;
 };
 
@@ -89,13 +85,13 @@ function EditMediModal({
     <div className='flex justify-center items-center'>
         <section
       className={`
-        fixed top-0 right-8 w-full h-screen transition-opacity duration-500 ease-in-out gap-2
+        fixed top-0  w-full h-screen transition-opacity duration-500 ease-in-out gap-2 shadow-lg
         ${show ? 'opacity-100 z-50' : 'opacity-0 -z-50'} 
         ${className}
       `}
     >
-      <div className="relative w-full h-full flex items-center justify-center">
-        <div className="bg-white p-8 rounded shadow-lg flex gap-4 flex-col">
+      <div className="relative w-full h-full flex items-center justify-center overflow-y-scroll custom-scroll-y">
+        <div className="md:w-11/12 w-full mx-auto overflow-y-scroll custom-scroll-y shadow-lg bg-white flex flex-col gap-10 rounded-xl p-10 h-5/6">
         <Close
         className="cursor-pointer bg-[var(--milky-white)] fixed w-8 h-8 p-1 transition-all ease-in-out duration-200 hover:!stroke-white hover:bg-red-600 rounded-full"
         onClick={() => {
@@ -356,6 +352,79 @@ function EditMediModal({
             label="میگرن"
             />
         </div>
+          <p className="mt-10 pr-4 sm:ps-12 pe-7 lg:text-2xl sm:text-xl text-base bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
+          در صورت بارداری به سوالات زیر پاسخ دهید</p>
+          <div className=' grid grid-cols-3 gap-3'>
+          <MainInput
+            name="pregnancyWeeks"
+            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+            onChange={handleInputChange('pregnancyWeeks')}
+            value={`${data?.pregnancyWeeks}`}
+            placeholder={`${data?.pregnancyWeeks}`} 
+            label="در صورت بارداری، چندمین ماه بارداری را می گذرانید؟"
+          />
+
+          <MainInput
+           name="weightBeforePregnancy"
+           parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+           onChange={handleInputChange('weightBeforePregnancy')}
+           value={`${data?.weightBeforePregnancy}`}
+           placeholder={`${data?.weightBeforePregnancy}`} 
+            label=" وزن قبل از بارداری را لطفا وارد کنید:"
+          />
+          <MainInput
+            name="breastfeeding"
+            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+            onChange={handleInputChange('breastfeeding')}
+            value={`${data?.breastfeeding}`}
+            placeholder={`${data?.breastfeeding}`} 
+            label="در صورت شیردهی، چندمین ماه شیردهی را می گذرانید؟"
+          />
+          </div>
+          
+        {/* <p className="mt-10 pr-4 sm:ps-12 pe-7 lg:text-2xl sm:text-xl text-base bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
+        فرم BMI:</p>
+        <div className="grid grid-cols-5 gap-4">
+          <MainInput
+           name="age"
+           parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+           onChange={handleInputChange('age')}
+           value={`${data?.dietBmi?.age}`}
+           placeholder={`${data?.dietBmi?.age}`} 
+            label="سن"
+          />
+          <MainInput
+            name="height"
+            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+            onChange={handleInputChange('dietBmi.height')}
+            value={`${data?.dietBmi?.height}`}
+            placeholder={`${data?.dietBmi?.height}`} 
+            label="قد"
+          />
+          <MainInput
+            name="weight"
+            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+            onChange={handleInputChange('weight')}
+            value={`${data?.dietBmi?.weight}`}
+            placeholder={`${data?.dietBmi?.weight}`} 
+            label="وزن"
+          />
+          <MainInput
+            name="abdominalCircumference"
+            parentClassName="[&>label]:text-base lg:col-span-1 col-span-2"
+            onChange={handleInputChange('abdominalCircumference')}
+            value={`${data?.dietBmi?.abdominalCircumference}`}
+            placeholder={`${data?.dietBmi?.abdominalCircumference}`} 
+            label="دور شکم"
+          />
+          <MainInput
+            name="hipcircumference"
+            onChange={handleInputChange('hipcircumference')}
+            value={`${data?.dietBmi?.hipcircumference}`}
+            placeholder={`${data?.dietBmi?.hipcircumference}`} 
+            label="دور باسن"
+          />
+        </div> */}
         </div>
       </div>
     </section>
