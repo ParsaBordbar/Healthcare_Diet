@@ -101,12 +101,12 @@ const MediterraneanForm = ({
           
           <div className="flex justify-between items-center flex-row ">
             <button  className="sm:rounded-full rounded-full rounded-r-none flex justify-center items-center  sm:px-10" onClick={() => handelDelete((_id))}>
-            <p className="text-white text-base md:text-xl bg-red-600 sm:rounded-full rounded-full rounded-r-none py-2.5 my-2 sm:my-12 flex flex-row items-center justify-center gap-2 hover:bg-red-800 w-40"> 
+            <p className="text-white text-base md:text-xl bg-red-600 sm:rounded-full rounded-full rounded-r-none py-2.5 my-2 sm:my-12 flex flex-row items-center justify-center gap-2 hover:bg-red-800 w-40 "> 
               حذف رژیم
             </p>
             </button>
-            <button onClick={toggleEditButton}>
-              edit 
+            <button onClick={toggleEditButton} className="text-white text-base md:text-xl bg-[var(--secondary-blue)] sm:rounded-full rounded-full rounded-r-none py-2.5 my-2 sm:my-12 flex flex-row items-center justify-center gap-2 hover:bg-[var(--secondary-blue)] w-40 ">
+              ویرایش رژیم 
             </button>
             <button
               onClick={toggleChecked}

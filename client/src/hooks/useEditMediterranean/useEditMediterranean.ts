@@ -103,7 +103,7 @@ const useEditMediterranean = (id: string) => {
           console.log('Update successful:', response.data);
         }
       } catch (error) {
-        setError("Failed to update Mediterranean form data.");
+        setError("لطفا مورد ادیت شده را مجددا برسی کنید");
       }
     };
     if (id && data) {
@@ -120,6 +120,8 @@ const useEditMediterranean = (id: string) => {
       return prevData;
     });
   };
+
+  
   return { data, error, handleChange };
 };
 

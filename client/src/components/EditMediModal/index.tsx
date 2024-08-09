@@ -85,7 +85,7 @@ function EditMediModal({
     <div className='flex justify-center items-center'>
         <section
       className={`
-        fixed top-0  w-full h-screen transition-opacity duration-500 ease-in-out gap-2 shadow-lg
+        fixed top-0 right-8 w-full h-screen transition-opacity duration-500 ease-in-out gap-2 shadow-lg
         ${show ? 'opacity-100 z-50' : 'opacity-0 -z-50'} 
         ${className}
       `}
@@ -98,9 +98,15 @@ function EditMediModal({
         isShow(false);
         }}
         />
-        <p className="mt-10 pr-4 sm:ps-12 pe-7 lg:text-2xl sm:text-xl text-base bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
-          مواد غذایی مصرفی:
-        </p>
+        <div className='flex justify-between items-center'>
+          <p className="mt-10 pr-4 sm:ps-12 pe-7 lg:text-2xl sm:text-xl text-base bg-[var(--new-green)] text-white w-fit rounded-e-lg py-2 my-5">
+            مواد غذایی مصرفی:
+          </p>
+          {
+          error?<p className='text-red-600'>{error}</p>:null
+          }
+        </div>
+       
         <div className=' grid grid-cols-5 gap-3'>
             <MainInput
               name="dailyFruit"
