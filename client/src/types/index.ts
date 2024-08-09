@@ -150,6 +150,67 @@ export interface MediterraneanFormType {
   _id: string;
 }
 
+
+export type ModalMediterraneanFormType = {
+  className: string;
+  isShow: Function;
+  show: boolean;
+  dailyFruit?: string;
+  dailyVegetable?: string;
+  Cereals?: string;
+  dailyCereals?: string;
+  potatoAndStarchWeekly?: string;
+  oliveAndOliveOilDaily?: string;
+  nutsDaily?: string;
+  dairyDaily?: string;
+  beans?: string;
+  eggWeekly?: string;
+  fishWeekly?: string;
+  chickensWeekly?: string;
+  redMeatWeekly?: string;
+  sugarWeekly?: string;
+  alcoholWeekly?: string;
+  fermentationWeekly?: string;
+  supplements: string | [];
+  appetite: string,
+  physicalActivityHours: string,
+  sport: string,
+  preferredDrink: string,
+  physicalActivity?: string;
+  diabetes?: string;
+  anemia?: string;
+  bloodPressure?: string;
+  digestiveProblems?: string;
+  selfSafety?: string;
+  stroke?: string;
+  fattyLiver?: string;
+  kidneyProblems?: string;
+  thyroid?: string;
+  cancer?: boolean;
+  Migraine?: boolean;
+  otherSickness?: string;
+  medicine?: string;
+  foodAllergies: string;
+  pregnancyWeeks: string;
+  breastfeeding: string;
+  weightBeforePregnancy: string;
+  phoneNumber: string;
+  isChecked: boolean;
+  createdAtGregorian?: string;
+  createdAtJalali?: string;
+  dietBmi?: {
+    height?: number;
+    weight?: number;
+    bmi?: number;
+    age: number;
+    linkTo?: string;
+    abdominalCircumference?: number;
+    whr: number;
+    hipcircumference: number;
+  };
+  _id: string;
+};
+
 export interface FileType {
   originalName: string;
   filename: string;
