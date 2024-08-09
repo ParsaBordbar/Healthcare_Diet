@@ -5,7 +5,6 @@ import Close from "/public/svg/close.svg";
 import DocumentIcon from "/public/svg/adminPanelSvgs/document.svg";
 import DateSvg from "/public/svg/adminPanelSvgs/calendar.svg";
 import { useEffect } from "react";
-import Link from "next/link";
 import { MediterraneanFormType } from "@/types";
 import { toast } from "react-toastify";
 
