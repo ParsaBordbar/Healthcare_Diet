@@ -97,7 +97,7 @@ const MediterraneanForm = ({
               {data?.name} {data?.lastName}
             </p>
           </li>
-          <EditMediModal className={""} isShow={isShow} show={show} supplements={supplements} appetite={appetite} physicalActivityHours={physicalActivityHours} sport={sport} preferredDrink={preferredDrink} foodAllergies={foodAllergies} pregnancyWeeks={preferredDrink} breastfeeding={breastfeeding} weightBeforePregnancy={weightBeforePregnancy} phoneNumber={phoneNumber} isChecked={isChecked} _id={_id} />
+          <EditMediModal className={""} isShow={isShow} show={show} supplements={supplements} appetite={appetite} physicalActivityHours={physicalActivityHours} sport={sport} preferredDrink={preferredDrink} foodAllergies={foodAllergies} pregnancyWeeks={preferredDrink} breastfeeding={breastfeeding} weightBeforePregnancy={weightBeforePregnancy} phoneNumber={phoneNumber} isChecked={isChecked} _id={_id}  dietBmi={dietBmi} />
           
           <div className="flex justify-between items-center flex-row ">
             <button  className="sm:rounded-full rounded-full rounded-r-none flex justify-center items-center  sm:px-10" onClick={() => handelDelete((_id))}>
