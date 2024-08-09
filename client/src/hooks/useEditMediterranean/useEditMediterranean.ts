@@ -9,7 +9,8 @@ const useEditMediterranean = (id: string) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await api.get<MediterraneanFormType>(`/mediterranean/id/${id}`);
+        const response = await api.get(`/mediterranean/id/${id}`);
+        console.log(response);
         setData(response.data);
       } catch (error) {
         setError("Failed to fetch Mediterranean form data.");
